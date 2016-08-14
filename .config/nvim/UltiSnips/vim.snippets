@@ -1,0 +1,12 @@
+global !p
+
+def right(length, fill, s):
+  count = length - len(s) - 20
+  if count < 0: count = 0
+  return fill * count
+endglobal
+
+snippet header " " b
+" =============== $1 `!p snip.rv = right(80, '=', t[1])`
+$0
+endsnippet

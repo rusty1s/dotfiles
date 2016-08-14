@@ -1,37 +1,69 @@
 snippet const
-const ${1:name} = ${2:value};
-$0
+const ${1:name} = ${2:value};$0
 endsnippet
 
 snippet let
-let ${1:name} = ${2:value};
-$0
+let ${1:name} = ${2:value};$0
 endsnippet
 
 snippet import
-import ${1:name} from '${2:path}';
-$0
+import ${1:name} from '${2:path}';$0
 endsnippet
 
 snippet export "default"
-export default ${1:name};
-$0
+export default ${1:name};$0
 endsnippet
 
 snippet class
 class ${1:name} {
-	$0
+	${VISUAL}$0
 }
 endsnippet
 
-snippet class-extends
+snippet "class extends"
 class ${1:name} extends ${2:extension} {
-	$0
+	${VISUAL}$0
 }
+endsnippet
+
+snippet "if without braces"
+if (${1:condition}) ${VISUAL}$0
 endsnippet
 
 snippet if
 if (${1:condition}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet function
+function ${1:name}(${2}) {
+	${VISUAL:}$0
+}
+endsnippet
+
+snippet arrow " " w
+${1:params} => ${VISUAL}$0
+endsnippet
+
+snippet try
+try {
+	${VISUAL}$1
+} catch (e) {
 	$0
+}
+endsnippet
+
+snippet ternary " " w
+${1:condition} ? ${2:then} : ${3:else}
+endsnippet
+
+snippet toArray
+Array.from(${VISUAL}$1)$0
+endsnippet
+
+snippet constructor
+constructor($1options={}) {
+	${VISUAL}$0
 }
 endsnippet

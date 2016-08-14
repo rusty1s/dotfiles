@@ -1,0 +1,21 @@
+snippet "html template"
+<!DOCTYPE html>
+<html lang="$1">
+<head>
+	<meta charset="utf-8" />
+
+	<title>$2</title>
+</head>
+<body>
+	${VISUAL}$0
+</body>
+</html>
+endsnippet
+
+snippet style
+<link rel="stylesheet" href="${1:source}" />
+endsnippet
+
+snippet script
+<script type="text/javascript" src="${1:source}"></script>$0
+endsnippet
