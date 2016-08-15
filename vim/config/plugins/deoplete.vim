@@ -1,5 +1,5 @@
 " add deoplete to runtimepath, so we can call its functions
-set runtimepath+=~/.config/nvim/bundle/deoplete.nvim/
+set runtimepath+=~/dotfiles/vim/bundle/deoplete.nvim/
 
 " start deoplete
 call deoplete#enable()

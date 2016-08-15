@@ -64,7 +64,7 @@ imap <S-Tab> <C-R>=SmartShiftTab()<CR>
 imap <CR> <C-R>=SmartEnter()<CR>
 
 " add ultisnips to runtimepath, so we can call its functions
-set runtimepath+=~/.config/nvim/bundle/ultisnips/
+set runtimepath+=~/dotfiles/vim/bundle/ultisnips/
 
 function! SmartTab()
   if pumvisible()

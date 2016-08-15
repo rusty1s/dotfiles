@@ -1,4 +1,4 @@
 " snippets folder
-let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips'
+let g:UltiSnipsSnippetsDir='~/dotfiles/vim/UltiSnips'
 " :UltiSnipsEdit should show up as vertical
 let g:UltiSnipsEditSplit='vertical'
