@@ -19,7 +19,7 @@ source ~/dotfiles/vim/config/linting.vim
 
 " =============== Plugin Configuration ========================================
 
-" source ~/dotfiles/vim/config/plugins/airline.vim
+source ~/dotfiles/vim/config/plugins/airline.vim
 source ~/dotfiles/vim/config/plugins/nerdtree.vim
 source ~/dotfiles/vim/config/plugins/ctrlp.vim
 source ~/dotfiles/vim/config/plugins/deoplete.vim
