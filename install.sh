@@ -17,7 +17,6 @@ ln -sf ~/dotfiles/.tern-project ~/.tern-project
 
 # install or update vim plugins
 vim +PlugUpdate +PlugClean! +qall!
-if type nvim; then nvim +UpdateRemotePlugins +qall!; fi
 
 # install npm packages
 if !(type trash); then npm install -g trash-cli; fi

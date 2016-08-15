@@ -24,7 +24,12 @@ Plug 'ntpeters/vim-better-whitespace'   " strip trailing whitespaces
 " =============== Autocompletion ==============================================
 
 " autocompletion engine
-Plug 'Shougo/deoplete.nvim'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
 " javascript editing support
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 " snippets solution
