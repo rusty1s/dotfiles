@@ -1,3 +1,12 @@
+if has ('autocmd')
+
+  " lint whenever entering or saving a buffer
+  autocmd! BufWritePost,BufEnter * Neomake
+  " lint-as-you-type (lagging side effects)
+  autocmd InsertChange,TextChanged * update | Neomake
+
+endif
+
 " =============== Makers ======================================================
 
 " use stylelint for scss (prefer local version)

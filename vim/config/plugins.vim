@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/cache')
+call plug#begin('~/dotfiles/vim/bundle')
 
 " =============== General =====================================================
 
@@ -47,8 +47,11 @@ Plug 'benjie/neomake-local-eslint.vim', { 'for': 'javascript' }
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'alvan/vim-closetag'
 
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+
+" Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }

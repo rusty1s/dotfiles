@@ -1,3 +1,5 @@
+" =============== Leader ======================================================
+
 let mapleader="\<Space>"
 
 " =============== Hard Mode ===================================================
@@ -50,7 +52,7 @@ nmap <Leader>p :lprev<CR>
 
 " =============== Autocompletion ==============================================
 
-" use <C-q> to expand a snippet if no completion menu is present (e.g. visual
+" use <C-q> to expand a snippet if no completion menu is present (e.g.  visual
 " mode)
 let g:UltiSnipsExpandTrigger='<C-q>'
 let g:UltiSnipsJumpForwardTrigger='<NOP>'
@@ -62,7 +64,7 @@ imap <S-Tab> <C-R>=SmartShiftTab()<CR>
 imap <CR> <C-R>=SmartEnter()<CR>
 
 " add ultisnips to runtimepath, so we can call its functions
-set runtimepath+=~/.config/nvim/cache/ultisnips/
+set runtimepath+=~/.config/nvim/bundle/ultisnips/
 
 function! SmartTab()
   if pumvisible()

@@ -1,9 +1,10 @@
 " =============== General Configuration  ======================================
 
 lan en_US           " set the language to american english
+
 set number          " show line numbers
 set laststatus=2    " always show status bar
-set history=1000    " store lots of :cmdline history
+set history=1000    " store a lot of :commandline history
 set autoread        " reload files changed outside vim
 set noshowmode      " dont show the current mode in the lower right corner
 set wildmode=full   " zsh like tab completion
@@ -20,7 +21,7 @@ set hidden
 syntax on
 
 " try to detect file types, load plugins for them and enable language-dependent
-" indenting
+" indentation
 filetype plugin indent on
 
 " make `/`-styles searches case-sensitive only if there is a capital letter in
@@ -36,14 +37,11 @@ set noswapfile
 " =============== Encoding ====================================================
 
 set fileformat=unix     " unix file format
-set encoding=utf-8      " the encoding displayed
+" set encoding=utf-8      " the encoding displayed
 set fileencoding=utf-8  " the encoding written to file
 
 " =============== Typing ======================================================
 
 set backspace=indent,eol,start  " allow backspaces in insert mode
 set cursorline                  " mark the current line
-set wrap                        " enable line wrapping
-set showbreak=…                 " mark a wrapped line via …
-set linebreak                   " wrap lines at convenient points
 set scrolloff=5                 " scroll if we're five lines away from margins
