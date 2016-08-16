@@ -52,19 +52,23 @@ nmap <Leader>p :lprev<CR>
 
 " =============== Autocompletion ==============================================
 
-" use <C-q> to expand a snippet if no completion menu is present (e.g.  visual
+" use <C-q> to expand a snippet if no completion menu is present (e.g. visual
 " mode)
 let g:UltiSnipsExpandTrigger='<C-q>'
 let g:UltiSnipsJumpForwardTrigger='<NOP>'
 let g:UltiSnipsJumpBackwardTrigger='<NOP>'
 
-" use enter, tab and shift-tab smartly for deoplete and ultisnips
+" use enter, tab and shift-tab smartly for deoplete/neocomplete and ultisnips
 imap <Tab> <C-R>=SmartTab()<CR>
 imap <S-Tab> <C-R>=SmartShiftTab()<CR>
 imap <CR> <C-R>=SmartEnter()<CR>
 
 " add ultisnips to runtimepath, so we can call its functions
-set runtimepath+=~/dotfiles/vim/bundle/ultisnips/
+if has('nvim')
+  set runtimepath+=~/.config/nvim/bundle/ultisnips/
+else
+  set runtimepath+=/.vim/bundle/ultisnips/
+endif
 
 function! SmartTab()
   if pumvisible()

@@ -1,25 +1,47 @@
-" add deoplete to runtimepath, so we can call its functions
-set runtimepath+=~/dotfiles/vim/bundle/deoplete.nvim/
+if has('nvim') && has('python3')
 
-" start deoplete
-call deoplete#enable()
+  " add deoplete to runtimepath, so we can call its functions
+  set runtimepath+=~/dotfiles/vim/bundle/deoplete.nvim/
 
-" pop the completion menu while typing (at least one character)
-let g:deoplete#disable_auto_complete=0
-call deoplete#custom#set('_', 'min_pattern_length', 0)
+  " start deoplete
+  call deoplete#enable()
 
-" sources
-let g:deoplete#sources={}
-let g:deoplete#sources._=['buffer', 'file', 'ultisnips', 'omni']
+  " pop the completion menu while typing (at least one character)
+  let g:deoplete#disable_auto_complete=0
+  call deoplete#custom#set('_', 'min_pattern_length', 1)
 
-" ultisnips should always show up at the top
-call deoplete#custom#set('ultisnips', 'rank', 9999)
+  " sources
+  let g:deoplete#sources={}
+  let g:deoplete#sources._=['buffer', 'file', 'ultisnips', 'omni']
 
-" define better marks for the different sources
-call deoplete#custom#set('buffer', 'mark', '[buffer]')
-call deoplete#custom#set('file', 'mark', '[file]')
-call deoplete#custom#set('ultisnips', 'mark', '[snippet]')
-call deoplete#custom#set('omni', 'mark', '')
+  " ultisnips should always show up at the top
+  call deoplete#custom#set('ultisnips', 'rank', 9999)
 
-" the input pattern for javascript to trigger omnicompletion
-let g:deoplete#omni#input_patterns.javascript='[^. \t]\w*'
+  " define better marks for the different sources
+  call deoplete#custom#set('buffer', 'mark', '[buffer]')
+  call deoplete#custom#set('file', 'mark', '[file]')
+  call deoplete#custom#set('ultisnips', 'mark', '[snippet]')
+  call deoplete#custom#set('omni', 'mark', '')
+
+  " the input pattern for javascript to trigger omnicompletion
+  let g:deoplete#omni#input_patterns.javascript='[^. \t]\w*'
+
+elseif has('lua')
+
+  let g:neocomplete#enable_at_startup=1
+
+  let g:neocomplete#disable_auto_complete=0
+  let g:neocomplete#auto_completion_start_length=1
+
+  let g:neocomplete#sources={}
+  let g:neocomplete#sources._=['buffer', 'file', 'ultisnips', 'omni']
+
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns={}
+  endif
+
+  let g:neocomplete#sources#omni#input_patterns.javascript='[^. \t]\w*'
+
+else
+  echo 'autocompletion disabled'
+endif

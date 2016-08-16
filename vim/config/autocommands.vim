@@ -5,7 +5,6 @@ if has ('autocmd')
 
   " TODO strip trailing newlines at eof on save
 
-
   " mark specific config files as json
   autocmd BufNewFile,BufRead
         \ .babelrc,

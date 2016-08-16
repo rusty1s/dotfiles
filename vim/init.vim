@@ -5,7 +5,7 @@ source ~/dotfiles/vim/config/plugins.vim
 
 " =============== General =====================================================
 
-" runtime /config/gui.vim
+source ~/dotfiles/vim/config/gui.vim
 source ~/dotfiles/vim/config/general.vim
 source ~/dotfiles/vim/config/autocommands.vim
 source ~/dotfiles/vim/config/wrapping.vim

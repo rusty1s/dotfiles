@@ -1,10 +1,20 @@
-call plug#begin('~/dotfiles/vim/bundle')
+if has('nvim')
+  call plug#begin('~/.config/nvim/bundle')
+else
+  call plug#begin('~/.vim/bundle')
+endif
 
 " =============== General =====================================================
+
+" set options to neovim's default values when using vim
+if !has('nvim')
+  Plug 'noahfrederick/vim-neovim-defaults'
+endif
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
+Plug 'sjl/gundo.vim'
 
 " =============== GUI =========================================================
 
@@ -24,17 +34,20 @@ Plug 'ntpeters/vim-better-whitespace'   " strip trailing whitespaces
 " =============== Autocompletion ==============================================
 
 " autocompletion engine
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
+if has('nvim')
+  function! DoRemote(arg)
+    UpdateRemotePlugins
+  endfunction
 
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+else
+  Plug 'Shougo/neocomplete.vim'
+endif
 
 " javascript editing support
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' }
 " snippets solution
 Plug 'SirVer/ultisnips'
-" TODO: emmit vim
 
 " =============== Linting =====================================================
 
