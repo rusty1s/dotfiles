@@ -11,7 +11,8 @@ if !has('nvim')
   Plug 'noahfrederick/vim-neovim-defaults'
 endif
 
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'sjl/gundo.vim'

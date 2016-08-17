@@ -23,14 +23,8 @@ ln -sf ~/dotfiles/vim/UltiSnips ~/.config/nvim/UltiSnips
 rm -rf ~/.config/colorschemes
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/colorschemes/base16-shell
 
-# install fzf
-rm -rf ~/.fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
-# install or update vim plugins
-# vim +PlugInstall +qall!
-# nvim +PlugInstall +qall!
+# install or update vim plugins vim +PlugInstall +qall!  nvim +PlugInstall
+# +qall!
 
 # install npm packages
 # if !(type trash); then npm install -g trash-cli; fi
