@@ -7,4 +7,5 @@ set shiftwidth=2   " controls how many columns text is indented with << and >>
 set smartindent    " smarter indent for C-like languages
 
 " show invisible tab and trailing whitespace characters
-set list listchars=tab:▸\ ,trail:•
+set list
+set listchars=tab:▸\ ,trail:•

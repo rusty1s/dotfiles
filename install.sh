@@ -16,6 +16,8 @@ curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubuserc
 # create vim symlinks (override if necassary)
 ln -sf ~/dotfiles/vim/init.vim ~/.vimrc
 ln -sf ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
+ln -sf ~/dotfiles/vim/UltiSnips ~/.vim/UltiSnips
+ln -sf ~/dotfiles/vim/UltiSnips ~/.config/nvim/UltiSnips
 
 # install colorscheme
 rm -rf ~/.config/colorschemes

@@ -1,8 +1,5 @@
 if has('nvim') && has('python3')
 
-  " add deoplete to runtimepath, so we can call its functions
-  set runtimepath+=~/dotfiles/vim/bundle/deoplete.nvim/
-
   " start deoplete
   call deoplete#enable()
 

@@ -5,7 +5,7 @@ else
 endif
 
 " =============== General =====================================================
-
+"
 " set options to neovim's default values when using vim
 if !has('nvim')
   Plug 'noahfrederick/vim-neovim-defaults'

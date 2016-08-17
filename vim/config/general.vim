@@ -1,9 +1,12 @@
 " =============== General Configuration  ======================================
 
+if !has('vim')
+  runtime! plugin/neovim_defaults.vim
+endif
+
 lan en_US           " set the language to american english
 
 set number          " show line numbers
-set history=10000   " store a lot of :commandline history
 set noshowmode      " dont show the current mode in the lower right corner
 set wildmode=full   " zsh like tab completion
 
