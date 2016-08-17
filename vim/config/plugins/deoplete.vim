@@ -33,6 +33,13 @@ elseif has('lua')
   let g:neocomplete#sources={}
   let g:neocomplete#sources._=['buffer', 'file', 'ultisnips', 'omni']
 
+  call neocomplete#custom#source('ultisnips', 'rank', 9999)
+
+  call neocomplete#custom#source('buffer', 'mark', '[buffer]')
+  call neocomplete#custom#source('file', 'mark', '[file]')
+  call neocomplete#custom#source('ultisnips', 'mark', '[snippet]')
+  call neocomplete#custom#source('omni', 'mark', '')
+
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns={}
   endif
