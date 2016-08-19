@@ -19,11 +19,11 @@ Plug 'sjl/gundo.vim'
 
 " =============== GUI =========================================================
 
-" Plug 'chriskempson/base16-vim'          " base16 colorscheme
+Plug 'junegunn/vim-emoji'
 Plug 'morhetz/gruvbox'
-
-Plug 'vim-airline/vim-airline'          " pretty statusline
-" Plug 'vim-airline/vim-airline-themes'   " adjust colorscheme for statusline
+Plug 'vim-airline/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+Plug 'Yggdroot/indentLine'
 
 " =============== Typing ======================================================
 
@@ -31,7 +31,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
-Plug 'ntpeters/vim-better-whitespace'   " strip trailing whitespaces
+Plug 'ntpeters/vim-better-whitespace'
 
 " =============== Autocompletion ==============================================
 

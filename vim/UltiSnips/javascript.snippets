@@ -36,6 +36,18 @@ if (${1:condition}) {
 }
 endsnippet
 
+snippet elseif
+else if (${1:condition}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet else
+else {
+	${VISUAL}$0
+}
+endsnippet
+
 snippet function
 function ${1:name}(${2}) {
 	${VISUAL:}$0
@@ -63,7 +75,7 @@ Array.from(${VISUAL}$1)$0
 endsnippet
 
 snippet constructor
-constructor($1options={}) {
+constructor($1options = {}) {
 	${VISUAL}$0
 }
 endsnippet

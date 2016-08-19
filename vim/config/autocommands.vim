@@ -1,7 +1,7 @@
 if has ('autocmd')
 
   " strip trailing whitespaces on save
-  " autocmd BufWritePre * StripWhitespace
+  autocmd BufWritePre * StripWhitespace
 
   " TODO strip trailing newlines at eof on save
 

@@ -9,6 +9,8 @@ lan en_US           " set the language to american english
 set number          " show line numbers
 set noshowmode      " dont show the current mode in the lower right corner
 set wildmode=full   " zsh like tab completion
+set ttimeoutlen=100
+set clipboard=unnamed
 
 " just show the file name in the title
 set title
