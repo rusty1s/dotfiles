@@ -8,8 +8,10 @@ function _prepend_path() {
 
 _prepend_path "$(brew --prefix coreutils)/libexec/gnubin"
 
-BASE16_SHELL=$HOME/.config/colorschemes/base16-shell
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+source $HOME/.config/nvim/bundle/gruvbox/gruvbox_256palette_osx.sh
+
+# BASE16_SHELL=$HOME/.config/colorschemes/base16-shell
+# [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/

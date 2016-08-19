@@ -19,10 +19,11 @@ Plug 'sjl/gundo.vim'
 
 " =============== GUI =========================================================
 
-Plug 'chriskempson/base16-vim'          " base16 colorscheme
+" Plug 'chriskempson/base16-vim'          " base16 colorscheme
+Plug 'morhetz/gruvbox'
 
 Plug 'vim-airline/vim-airline'          " pretty statusline
-Plug 'vim-airline/vim-airline-themes'   " adjust colorscheme for statusline
+" Plug 'vim-airline/vim-airline-themes'   " adjust colorscheme for statusline
 
 " =============== Typing ======================================================
 

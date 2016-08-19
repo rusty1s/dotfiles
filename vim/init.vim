@@ -23,6 +23,5 @@ source ~/dotfiles/vim/config/linting.vim
 
 source ~/dotfiles/vim/config/plugins/airline.vim
 source ~/dotfiles/vim/config/plugins/nerdtree.vim
-source ~/dotfiles/vim/config/plugins/ctrlp.vim
 source ~/dotfiles/vim/config/plugins/tern.vim
 source ~/dotfiles/vim/config/plugins/ultisnips.vim

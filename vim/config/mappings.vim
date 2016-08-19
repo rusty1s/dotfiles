@@ -19,6 +19,10 @@ imap <Left> <NOP>
 " insert a new line after the current line via enter
 nmap <CR> o<Esc>
 
+" =============== FZF =========================================================
+
+nmap <Leader><Leader> :FZF<CR>
+
 " =============== Airline =====================================================
 
 nmap <Leader>1 <Plug>AirlineSelectTab1
