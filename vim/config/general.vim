@@ -4,7 +4,7 @@ if !has('vim')
   runtime! plugin/neovim_defaults.vim
 endif
 
-lan en_US           " set the language to american english
+" lan en_US           " set the language to american english
 
 set number
 set noshowmode      " dont show the current mode in the lower right corner

@@ -23,21 +23,30 @@ if has('nvim') && has('python3')
   call deoplete#custom#set('ultisnips', 'mark', '[snippet]')
   call deoplete#custom#set('omni', 'mark', '')
 
+  if !exists('g:deoplete#omni#input_patterns')
+    let g:deoplete#omni#input_patterns = {}
+  endif
+
   " the input pattern for javascript to trigger omnicompletion
   let g:deoplete#omni#input_patterns.javascript='[^. \t]\w*'
 
 elseif has('lua')
 
+  " start neocomplete
   let g:neocomplete#enable_at_startup=1
 
+  " pop the completion menu while typing (at least one character)
   let g:neocomplete#disable_auto_complete=0
   let g:neocomplete#auto_completion_start_length=1
 
+  " sources
   let g:neocomplete#sources={}
   let g:neocomplete#sources._=['buffer', 'file', 'ultisnips', 'omni']
 
+  " ultisnips should always show up at the top
   call neocomplete#custom#source('ultisnips', 'rank', 9999)
 
+  " define better marks for the different sources
   call neocomplete#custom#source('buffer', 'mark', '[buffer]')
   call neocomplete#custom#source('file', 'mark', '[file]')
   call neocomplete#custom#source('ultisnips', 'mark', '[snippet]')
@@ -47,8 +56,10 @@ elseif has('lua')
     let g:neocomplete#sources#omni#input_patterns={}
   endif
 
+  " the input pattern for javascript to trigger omnicompletion
   let g:neocomplete#sources#omni#input_patterns.javascript='[^. \t]\w*'
 
 else
-  echo 'autocompletion disabled'
+  echo 'WARNING: Autocompletion disabled'
+  echo 'Neovim with Python3 support or Vim with LUA support missing'
 endif

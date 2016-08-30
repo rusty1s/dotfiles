@@ -1,7 +1,7 @@
-if has('nvim')
-  " point nvim to the python3 interpreter installed by homebrew
-  let g:python3_host_prog='/usr/local/bin/python3'
-endif
+" if has('nvim')
+"   " point nvim to the python3 interpreter installed by homebrew
+"   " let g:python3_host_prog='/usr/bin/python3'
+" endif
 
 source ~/dotfiles/vim/config/plugins.vim
 
