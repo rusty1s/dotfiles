@@ -1,0 +1,14 @@
+API_VERSION = "2"
+
+Vagrant.configure(API_VERSION) do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  config.vm.synced_folder "~/dotfiles", "/home/vagrant/dotfiles"
+
+  # change shell to use zsh
+  config.vm.provision :shell, inline: "apt-get -y install zsh"
+  config.vm.provision :shell, inline: "chsh -s /bin/zsh vagrant"
+
+  # setup vagrant
+  config.vm.provision :shell, :path => "~/dotfiles/vagrant/setup.sh"
+end

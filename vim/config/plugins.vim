@@ -15,15 +15,20 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " =============== GUI =========================================================
 
 Plug 'junegunn/vim-emoji'
-Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'Yggdroot/indentLine'
+
+Plug 'morhetz/gruvbox'
+Plug 'junegunn/seoul256.vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'rakr/vim-two-firewatch'
 
 " =============== Typing ======================================================
 

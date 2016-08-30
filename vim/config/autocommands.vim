@@ -4,6 +4,7 @@ if has ('autocmd')
   autocmd BufWritePre * StripWhitespace
 
   " TODO strip trailing newlines at eof on save
+  "
 
   " mark specific config files as json
   autocmd BufNewFile,BufRead
@@ -12,5 +13,9 @@ if has ('autocmd')
         \ .stylelintrc,
         \ .tern-project
         \ setlocal filetype=json
+
+  autocmd BufNewFile,BufRead
+        \ Vagrantfile
+        \ setlocal filetype=ruby
 
 endif

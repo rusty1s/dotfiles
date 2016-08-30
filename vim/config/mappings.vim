@@ -105,3 +105,31 @@ function! SmartEnter()
 
   return "\<CR>"
 endfunction
+
+" =============== Window Management ===========================================
+
+function! WinMove(key)
+  let t:curwin = winnr()
+  exec 'wincmd ' . a:key
+  if (t:curwin == winnr())  " we haven't moved
+    if (match(a:key, '[jk]'))
+      wincmd v
+    else
+      wincmd s
+    endif
+    exec 'wincmd ' . a:key
+  endif
+endfunction
+
+" use Leader + hjkl to move around windows
+" if we don't move, we create a new window
+map <Leader>h :call WinMove('h')<CR>
+map <Leader>j :call WinMove('j')<CR>
+map <Leader>k :call WinMove('k')<CR>
+map <Leader>l :call WinMove('l')<CR>
+
+" use Leader + HJKL to swap windows
+map <Leader>H :wincmd H<CR>
+map <Leader>J :wincmd J<CR>
+map <Leader>K :wincmd K<CR>
+map <Leader>L :wincmd L<CR>
