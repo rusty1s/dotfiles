@@ -25,9 +25,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'edkolev/tmuxline.vim'
 Plug 'Yggdroot/indentLine'
 
-Plug 'morhetz/gruvbox'
-Plug 'junegunn/seoul256.vim'
-Plug 'NLKNguyen/papercolor-theme'
+" =============== Themes ======================================================
+"
 Plug 'rakr/vim-two-firewatch'
 
 " =============== Typing ======================================================

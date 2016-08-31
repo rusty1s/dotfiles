@@ -22,8 +22,13 @@ sudo apt-get install -y neovim
 
 sudo pip3 install neovim
 
-#enable clipboard support
+# enable clipboard support
 sudo apt-get install -y xsel
+
+
+# z is the new j, yo
+
+# fzf
 
 # install prezto
 # echo "--------------"

@@ -4,7 +4,8 @@
 # fi
 
 # source fzf
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export TERM=linux
 # export DEFAULT_USER="rusty1s"
 export DOTFILES=$HOME/dotfiles
@@ -14,6 +15,7 @@ export PATH=$DOTFILES/bin:$PATH
 
 alias zshrc="vim ~/.zshrc"
 alias reload="source ~/.zshrc"
+alias vim="nvim" # todo check if nvim exists
 # alias prezto="vim ~/.zpreztorc"
 
 # alias vssh="cd $HOME/vagrant && vagrant ssh"
