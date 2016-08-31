@@ -6,25 +6,24 @@ echo "--------------"
 # do-release-upgrade
 
 # install git
-sudo apt-get install -y git
+apt-get install -y git
 
 # install npm
-sudo apt-get install -y nodejs
-sudo apt-get install -y npm
+apt-get install -y nodejs
+apt-get install -y npm
 
 # install neovim
-sudo apt-get install -y software-properties-common
-sudo apt-get install -y python-dev python-pip python3-dev python3-pip
+apt-get install -y software-properties-common
+apt-get install -y python-dev python-pip python3-dev python3-pip
 
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt-get update
-sudo apt-get install -y neovim
+add-apt-repository ppa:neovim-ppa/unstable
+apt-get update
+apt-get install -y neovim
 
-sudo pip3 install neovim
+pip3 install neovim
 
 # enable clipboard support
-sudo apt-get install -y xsel
-
+apt-get install -y xsel
 
 # z is the new j, yo
 
@@ -36,5 +35,5 @@ sudo apt-get install -y xsel
 # echo "--------------"
 # git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-# symlinks
+# create symlinks
 ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc

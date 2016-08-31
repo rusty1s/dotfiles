@@ -35,6 +35,7 @@ brew cask install dropbox
 brew cask install whatsapp
 
 brew cask install skype
+brew cask install league-of-legends
 
 echo "Installing homebrew cask fonts"
 
