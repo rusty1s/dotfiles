@@ -3,8 +3,7 @@
 #   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 # fi
 
-# source fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 export TERM=linux
 # export DEFAULT_USER="rusty1s"
@@ -15,11 +14,15 @@ export PATH=$DOTFILES/bin:$PATH
 
 alias zshrc="vim ~/.zshrc"
 alias reload="source ~/.zshrc"
-alias vim="nvim" # todo check if nvim exists
+# alias vim="nvim" # todo check if nvim exists
 # alias prezto="vim ~/.zpreztorc"
-
-# alias vssh="cd $HOME/vagrant && vagrant ssh"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+export Z_DIR="$HOME/.config/z"
+[ -s "$Z_DIR/z.sh" ] && . "$Z_DIR/z.sh"

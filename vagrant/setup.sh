@@ -1,45 +1,52 @@
-echo "Updating..."
 
-apt-get update
+#echo "Installing zsh..."
 
-echo "Installing git..."
+# sudo apt-get install -y zsh
+# chsh -s /bin/zsh vagrant
 
-apt-get install -y git
+# ln -sf /home/vagrant/dotfiles/zsh/zshrc /home/vagrant/.zshrc
 
-echo "Installing node.js..."
+# # todo: install plugin manager
 
-apt-get install -y nodejs
-apt-get install -y npm
+# mkdir -p /home/vagrant/.config/z
+# # curl -fLo /home/vagrant/.config/z/z.sh https://raw.githubusercontent.com/z/master/z.sh
 
-echo "Installing neovim..."
 
-# utilities
-apt-get install -y software-properties-common
-apt-get install -y python-dev python-pip python3-dev python3-pip
-apt-get install -y xsel
 
-add-apt-repository ppa:neovim-ppa/unstable
-apt-get update
-apt-get install -y neovim
-pip3 install neovim
 
-# z is the new j, yo
 
-# fzf
+# echo "Installing node.js..."
 
-# install prezto
-# echo "--------------"
-# echo "Install Prezto"
-# echo "--------------"
-# git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+# # curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+# # apt-get install -y nodejs
+# # apt-get install -y npm
 
-echo "Creating zsh configuration..."
+# # sudo npm install -g trash-cli
 
-ln -sf /home/vagrant/dotfiles/zsh/.zshrc /home/vagrant/.zshrc
+# echo "Installing fzf..."
 
-echo "Creating neovim configuration..."
 
+
+echo "------"
+echo "neovim"
+echo "------"
+
+echo "install utilities..."
+# # apt-get install -y software-properties-common
+# # apt-get install -y python-dev python-pip python3-dev python3-pip
+# # apt-get install -y xsel
+
+echo "install neovim..."
+# # add-apt-repository ppa:neovim-ppa/unstable
+# # apt-get update
+# # apt-get install -y neovim
+# # pip3 install neovim
+
+echo "load vim-plug from github..."
 mkdir -p /home/vagrant/.config/nvim/autoload
-curl -fLo home/vagrant/.config/nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -Lso /home/vagrant/.config/nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "create symlinks..."
 ln -sf /home/vagrant/dotfiles/vim/init.vim /home/vagrant/.config/nvim/init.vim
-# sudo su -vagrant -c 'vim +PlugInstall +qall'
+ln -sf /home/vagrant/dotfiles/vim/tern-project /home/vagrant/.tern-project
+ln -sf /home/vagrant/dotfiles/vim/UltiSnips home/vagrant/.config/nvim/UltiSnips

@@ -1,14 +1,27 @@
 API_VERSION = "2"
+HOSTNAME = "dev"
+SCRIPTS = "~/dotfiles/vagrant/scripts"
 
 Vagrant.configure(API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
+  # synced folders
   config.vm.synced_folder "~/dotfiles", "/home/vagrant/dotfiles"
+  config.vm.synced_folder "github",     "/home/vagrant/github", create: true
+  config.vm.synced_folder "svn",        "/home/vagrant/svn",    create: true
+  config.vm.synced_folder "shared",     "/home/vagrant/shared", create: true
 
-  # change shell to use zsh
-  config.vm.provision :shell, inline: "apt-get -y install zsh"
-  config.vm.provision :shell, inline: "chsh -s /bin/zsh vagrant"
+  # remove annoying "stdin is not a tty" error
+  config.vm.provision "fix-no-tty", type: "shell" do |s|
+    s.privileged = false
+    s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
+  end
 
-  # setup vagrant
-  config.vm.provision :shell, :path => "~/dotfiles/vagrant/setup.sh"
+  # provision scripts
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/base.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/git.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/zsh.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/node.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/tmux.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/neovim.sh"
 end

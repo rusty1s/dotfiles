@@ -1,15 +1,13 @@
 #!/bin/sh
 
-vagrant box update
+[ "$VAGRANT" == "" ] && echo "Please set VAGRANT environment variable and restart!" && exit 0
 
-if [ -d "$HOME/vagrant" ]; then
-  cd $HOME/vagrant
-  vagrant destroy -f
-  rm -rf $HOME/vagrant
+if [ -d "$VAGRANT" ]; then
+  cd $VAGRANT && vagrant box update
+  cd $VAGRANT && vagrant destroy -f
+  rm -rf $VAGRANT
 fi
 
-mkdir $HOME/vagrant && cd $HOME/vagrant
-ln -sf $HOME/dotfiles/vagrant/Vagrantfile $HOME/vagrant/Vagrantfile
-vagrant up
-
-cd $HOME
+mkdir $VAGRANT
+ln -sf $HOME/dotfiles/vagrant/Vagrantfile $VAGRANT/Vagrantfile
+cd $VAGRANT && vagrant up
