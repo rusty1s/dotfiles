@@ -4,7 +4,7 @@ echo "---"
 echo "--- Installing node.js"
 echo "---"
 
-NVM_DIR="$HOME/.config/nvm"
+NVM_DIR="$HOME/.apps/nvm"
 git clone https://github.com/creationix/nvm.git $NVM_DIR
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 

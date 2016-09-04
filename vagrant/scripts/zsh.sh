@@ -24,4 +24,4 @@ echo "--- Installing fzf"
 echo "---"
 
 git clone https://github.com/junegunn/fzf.git $DIR/fzf
-$HOME/.config/fzf/install
+$DIR/fzf/install

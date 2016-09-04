@@ -21,7 +21,7 @@ Vagrant.configure(API_VERSION) do |config|
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/base.sh"
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/git.sh"
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/zsh.sh"
-  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/node.sh"
-  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/tmux.sh"
-  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/neovim.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/node.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/tmux.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/neovim.sh"
 end
