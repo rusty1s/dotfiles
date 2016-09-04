@@ -14,15 +14,17 @@ export PATH=$DOTFILES/bin:$PATH
 
 alias zshrc="vim ~/.zshrc"
 alias reload="source ~/.zshrc"
-# alias vim="nvim" # todo check if nvim exists
+alias vim="nvim" # todo check if nvim exists
 # alias prezto="vim ~/.zpreztorc"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 
-export NVM_DIR="$HOME/.config/nvm"
+export NVM_DIR="$HOME/.apps/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-export Z_DIR="$HOME/.config/z"
+export Z_DIR="$HOME/.apps/z"
 [ -s "$Z_DIR/z.sh" ] && . "$Z_DIR/z.sh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

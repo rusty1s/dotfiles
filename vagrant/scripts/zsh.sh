@@ -1,5 +1,7 @@
 #!/bin/sh
 
+DIR=$HOME/.apps
+
 echo "---"
 echo "--- Installing zsh"
 echo "---"
@@ -15,10 +17,11 @@ echo "---"
 echo "--- Installing z"
 echo "---"
 
-git clone https://github.com/rupa/z.git $HOME/.config/z
+git clone https://github.com/rupa/z.git $DIR/z
 
 echo "---"
 echo "--- Installing fzf"
 echo "---"
 
-git clone https://github.com/junegunn/fzf.git $HOME/.config/fzf
+git clone https://github.com/junegunn/fzf.git $DIR/fzf
+$HOME/.config/fzf/install
