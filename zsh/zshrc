@@ -1,30 +1,24 @@
-# source prezto
-# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-# fi
-
-
-
 export TERM=linux
-# export DEFAULT_USER="rusty1s"
-export DOTFILES=$HOME/dotfiles
 
 # adding path directory for custom scripts
-export PATH=$DOTFILES/bin:$PATH
+export PATH=$HOME/dotfiles/bin:$PATH
 
-alias zshrc="vim ~/.zshrc"
-alias reload="source ~/.zshrc"
-alias vim="nvim" # todo check if nvim exists
-# alias prezto="vim ~/.zpreztorc"
+alias zshrc="vim $HOME/.zshrc"
+alias prezto="vim $HOME/.zpreztorc"
+alias reload="source $HOME/.zshrc"
+# alias vim="nvim"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 
 export NVM_DIR="$HOME/.apps/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -f "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-export Z_DIR="$HOME/.apps/z"
-[ -s "$Z_DIR/z.sh" ] && . "$Z_DIR/z.sh"
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+prompt agnoster
+prompt_context() {}
+

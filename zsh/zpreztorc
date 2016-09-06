@@ -1,0 +1,26 @@
+zstyle 'prezto:*:*' color 'yes'
+
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'tmux' \
+  'completion' \
+  'homebrew' \
+  'osx' \
+  'git' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt'
+
+zstyle ':prezto:module:editor' key-bindings 'vi'
+# zstyle ':prezto:module:prompt' theme 'agnoster'
+# tmux
+
+# zstyle ':prezto:module:tmux:auto-start' local 'yes'
+
+zstyle ':prezto:module:syntax-highlighting' color 'yes'

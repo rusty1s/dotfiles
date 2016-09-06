@@ -1,8 +1,10 @@
 #!/bin/sh
 
-echo "---"
-echo "--- Installing git"
-echo "---"
+echo " "
+echo "#######"
+echo "# GIT #"
+echo "#######"
+echo " "
 
 sudo apt-get install -y git
 
