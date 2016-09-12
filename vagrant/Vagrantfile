@@ -5,23 +5,19 @@ SCRIPTS = "~/dotfiles/vagrant/scripts"
 Vagrant.configure(API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
+  config.ssh.insert_key = false
+
   # synced folders
   config.vm.synced_folder "~/dotfiles", "/home/vagrant/dotfiles"
   # config.vm.synced_folder "github",     "/home/vagrant/github", create: true
   # config.vm.synced_folder "svn",        "/home/vagrant/svn",    create: true
   # config.vm.synced_folder "shared",     "/home/vagrant/shared", create: true
 
-  # remove annoying "stdin is not a tty" error
-  # config.vm.provision "fix-no-tty", type: "shell" do |s|
-  #   s.privileged = false
-  #   s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
-  # end
-
   # provision scripts
-  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/base.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/base.sh"
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/git.sh"
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/shell.sh"
-  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/node.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/node.sh"
   # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/tmux.sh"
-  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/neovim.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/neovim.sh"
 end

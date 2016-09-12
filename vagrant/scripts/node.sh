@@ -1,22 +1,22 @@
 #!/bin/sh
 
-echo "---"
-echo "--- Installing node.js"
-echo "---"
+echo " "
+echo "########"
+echo "# NODE #"
+echo "########"
+echo " "
 
-NVM_DIR="$HOME/.apps/nvm"
-git clone https://github.com/creationix/nvm.git $NVM_DIR
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
-nvm install node
+echo " "
+echo "#######################"
+echo "# GLOABL NPM PACKAGES #"
+echo "#######################"
+echo " "
 
-echo "---"
-echo "--- Install global npm packages"
-echo "---"
+sudo npm install -g npm
 
-# make sure npm is up to date
-npm install -g npm
-
-npm install trash-cli -g
-npm install eslint -g
-npm install stylelint -g
+sudo npm install trash-cli -g
+sudo npm install eslint -g
+sudo npm install stylelint -g

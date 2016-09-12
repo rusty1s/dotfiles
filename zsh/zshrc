@@ -12,12 +12,9 @@ ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 
-export NVM_DIR="$HOME/.apps/nvm"
-[ -f "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
-
+[ -f $HOME/.nvm/nvm.sh ] && source $HOME/.nvm/nvm.sh
 
 prompt agnoster
 prompt_context() {}

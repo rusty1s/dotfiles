@@ -22,5 +22,3 @@ mkdir -p /$HOME/.config/nvim/autoload
 curl -Lso /$HOME/.config/nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 nvim +PlugInstall +qall
-
-cd $HOME/.config/nvim/bundle/tern_for_vim && npm install
