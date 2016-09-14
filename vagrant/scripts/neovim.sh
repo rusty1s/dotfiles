@@ -1,8 +1,10 @@
 #!/bin/sh
 
-echo "---"
-echo "--- Installing neovim"
-echo "---"
+echo " "
+echo "##########"
+echo "# NEOVIM #"
+echo "##########"
+echo " "
 
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update

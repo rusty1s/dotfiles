@@ -19,11 +19,27 @@ Vagrant.configure(API_VERSION) do |config|
     end
   end
 
+  # give vm 1/4 system memory
+  config.vm.provider "virtualbox" do |v|
+    host = RbConfig::CONFIG['host_os']
+
+    if host =~ /darwin/
+      mem = `sysctl -n hw.memsize`.to_i / 1024
+    elsif host =~ /linux/
+      mem = `grep 'MemTotal' /proc/meminfo | sed -e 's/MemTotal://' -e 's/ kb//'`.to_i
+    elsif host =~ /mswin|mingw|cygwin/
+      mem = `wmic computersystem Get TotalPhysicalMemory`.split[1].to_i / 1024
+    end
+
+    mem = mem / 1024 / 4
+    v.customize ["modifyvm", :id, "--memory", mem]
+  end
+
   # synced folders
-  config.vm.synced_folder "~/dotfiles", "/home/vagrant/dotfiles"
-  config.vm.synced_folder "github",     "/home/vagrant/github", create: true
-  config.vm.synced_folder "svn",        "/home/vagrant/svn",    create: true
-  config.vm.synced_folder "shared",     "/home/vagrant/shared", create: true
+  config.vm.synced_folder "~/dotfiles", "/home/vagrant/dotfiles", nfs: true
+  config.vm.synced_folder "github",     "/home/vagrant/github",   nfs: true, create: true
+  config.vm.synced_folder "svn",        "/home/vagrant/svn",      nfs: true, create: true
+  config.vm.synced_folder "shared",     "/home/vagrant/shared",   nfs: true, create: true
 
   # provision scripts
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/base.sh"
@@ -32,4 +48,5 @@ Vagrant.configure(API_VERSION) do |config|
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/node.sh"
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/tmux.sh"
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/neovim.sh"
+  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/latex.sh"
 end
