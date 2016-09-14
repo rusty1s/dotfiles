@@ -15,8 +15,8 @@ echo "# GLOABL NPM PACKAGES #"
 echo "#######################"
 echo " "
 
-sudo npm install -g npm
+# sudo npm install -g npm
 
-sudo npm install trash-cli -g
-sudo npm install eslint -g
-sudo npm install stylelint -g
+# sudo npm install trash-cli -g
+# sudo npm install eslint -g
+# sudo npm install stylelint -g

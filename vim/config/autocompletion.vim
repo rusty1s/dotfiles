@@ -1,7 +1,7 @@
 " let deoplete and ultisnips work nicely together
 set completeopt=menu
 
-if has('nvim') && has('python3')
+if has('nvim') && has('python3') && isdirectory(g:plugs['deoplete.nvim'].dir)
 
   " start deoplete
   call deoplete#enable()
@@ -30,7 +30,7 @@ if has('nvim') && has('python3')
   " the input pattern for javascript to trigger omnicompletion
   let g:deoplete#omni#input_patterns.javascript='[^. \t]\w*'
 
-elseif has('lua')
+elseif has('lua') && isdirectory(g:plugs['neocomplete.vim'].dir)
 
   " start neocomplete
   let g:neocomplete#enable_at_startup=1
@@ -58,8 +58,4 @@ elseif has('lua')
 
   " the input pattern for javascript to trigger omnicompletion
   let g:neocomplete#sources#omni#input_patterns.javascript='[^. \t]\w*'
-
-else
-  echo 'WARNING: Autocompletion disabled'
-  echo 'Neovim with Python3 support or Vim with LUA support missing'
 endif
