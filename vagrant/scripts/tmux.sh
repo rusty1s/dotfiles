@@ -7,7 +7,7 @@ echo "---"
 VERSION=2.2
 NAME=tmux-$VERSION
 TAR=$NAME.tar.gz
-DIR=$HOME/.apps
+DIR=$HOME/.tmux
 
 sudo apt-get install -y libevent-dev libncurses-dev make
 

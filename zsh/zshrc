@@ -6,7 +6,8 @@ export PATH=$HOME/dotfiles/bin:$PATH
 alias zshrc="vim $HOME/.zshrc"
 alias prezto="vim $HOME/.zpreztorc"
 alias reload="source $HOME/.zshrc"
-# alias vim="nvim"
+alias vim="nvim"
+alias tmux="tmux -2"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"

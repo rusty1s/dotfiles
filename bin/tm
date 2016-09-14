@@ -1,9 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-# abort if we're already inside a tmux session
-[ "$TMUX" == "" ] || exit 0
+if [ "$TMUX" != "" ] ; then
+  echo "Abort: Already in a tmux session."
+  exit 0
+fi
 
-# present menu for user to choose which workspace to open
 PS3="Please choose your session: "
 options=($(tmux list-sessions -F "#S" 2>/dev/null) "New session")
 

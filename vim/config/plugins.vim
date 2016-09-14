@@ -22,7 +22,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plug 'junegunn/vim-emoji'
 Plug 'vim-airline/vim-airline'
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'Yggdroot/indentLine'
 
 " =============== Themes ======================================================
