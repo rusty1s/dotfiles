@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd "$VAGRANT_DIR"
+vagrant ssh

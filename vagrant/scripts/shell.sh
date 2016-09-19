@@ -17,7 +17,12 @@ echo "# FZF #"
 echo "#######"
 echo " "
 
-git clone https://github.com/junegunn/fzf.git $HOME/.fzf
+if [ ! -d "$HOME/.fzf" ]; then
+  git clone https://github.com/junegunn/fzf.git "$HOME/.fzf"
+else
+  cd "$HOME/.fzf"
+  git pull
+fi
 
 # install, but don't update shell configuration files
 $HOME/.fzf/install --no-update-rc
@@ -28,6 +33,12 @@ echo "# ZPREZTO #"
 echo "###########"
 echo " "
 
-git clone --recursive https://github.com/sorin-ionescu/prezto.git $HOME/.zprezto
+if [ ! -d "$HOME/.fzf" ]; then
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
+else
+  cd "$HOME/.zprezto"
+  git pull
+  git submodule update --recursive
+fi
 
 ln -sf $HOME/dotfiles/zsh/zpreztorc $HOME/.zpreztorc

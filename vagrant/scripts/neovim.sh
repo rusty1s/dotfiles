@@ -6,7 +6,7 @@ echo "# NEOVIM #"
 echo "##########"
 echo " "
 
-sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo add-apt-repository ppa:neovim-ppa/unstable 2>&1 /dev/null
 sudo apt-get update
 sudo apt-get install -y neovim
 
@@ -23,4 +23,4 @@ ln -sf /$HOME/dotfiles/vim/UltiSnips $HOME/.config/nvim/UltiSnips
 mkdir -p /$HOME/.config/nvim/autoload
 curl -Lso /$HOME/.config/nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-nvim +PlugInstall +qall
+nvim +PlugInstall! +qall

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo " "
 echo "#######"
@@ -16,4 +16,17 @@ echo "# DOWNLOAD GITHUB REPOSITORIES #"
 echo "################################"
 echo " "
 
-git clone https://github.com/rusty1s/texture-synthesis.git $HOME/github/texture-synthesis
+repos=(\
+  texture-synthesis\
+  react-colorpicker\
+)
+
+for repo in "${repos[@]}"
+do
+  if [ ! -d "$HOME/github/$repo" ]; then
+    git clone "https://github.com/rusty1s/$repo.git" "$HOME/github/$repo"
+  else
+    cd "$HOME/github/$repo"
+    git pull
+  fi
+done

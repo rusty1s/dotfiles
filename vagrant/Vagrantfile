@@ -36,17 +36,18 @@ Vagrant.configure(API_VERSION) do |config|
   end
 
   # synced folders
-  config.vm.synced_folder "~/dotfiles", "/home/vagrant/dotfiles", nfs: true
-  config.vm.synced_folder "github",     "/home/vagrant/github",   nfs: true, create: true
-  config.vm.synced_folder "svn",        "/home/vagrant/svn",      nfs: true, create: true
-  config.vm.synced_folder "shared",     "/home/vagrant/shared",   nfs: true, create: true
+  config.vm.synced_folder "~/dotfiles", "/home/vagrant/dotfiles"
+  config.vm.synced_folder "github",     "/home/vagrant/github",   create: true
+  config.vm.synced_folder "svn",        "/home/vagrant/svn",      create: true
+  config.vm.synced_folder "shared",     "/home/vagrant/shared",   create: true
 
   # provision scripts
-  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/base.sh"
-  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/git.sh"
-  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/shell.sh"
-  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/node.sh"
+  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/base.sh"
+  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/git.sh"
+  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/shell.sh"
+  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/vim.sh"
+  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/node.sh"
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/tmux.sh"
-  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/neovim.sh"
+  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/neovim.sh"
   # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/latex.sh"
 end

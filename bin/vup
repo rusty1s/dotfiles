@@ -1,18 +1,38 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ "$VAGRANT" == "" ]; then
-  echo "Please set VAGRANT environment variable and restart!"
+if [ "$VAGRANT_DIR" == "" ]; then
+  echo "Please set VAGRANT_DIR environment variable and run again."
   exit 0
 fi
 
-if [ -d "$VAGRANT" ]; then
-  cd $VAGRANT
-  vagrant box update
-  vagrant destroy -f
-  rm -rf *
-  rm -rf .*
+mkdir -p "$VAGRANT_DIR"
+cd "$VAGRANT_DIR"
+
+[ -f "Vagrantfile" ]
+EXISTS=$?
+
+if [ "$EXISTS" == 0 ]; then
+  echo "It seems that a Vagrantfile already exists in this directory."
+  read -p "Do you want a fresh install? [Y/n] " -r
+
+  if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+    EXISTS=1
+    echo "Install fresh environment..."
+
+    vagrant destroy -f
+    rm -rf *
+    rm -rf .*
+
+    ln -sf "$HOME/dotfiles/vagrant/Vagrantfile" "$VAGRANT/Vagrantfile"
+  fi
 fi
 
-cd $VAGRANT
-ln -sf $HOME/dotfiles/vagrant/Vagrantfile $VAGRANT/Vagrantfile
-vagrant up
+if [ "$EXISTS" == 0 ]; then
+  echo "Start provision Vagrantfile..."
+  vagrant provision
+else
+  echo "Install fresh varant environment..."
+  vagrant box update
+  vagrant plugin install vagrant-proxyconf
+  vagrant up
+fi

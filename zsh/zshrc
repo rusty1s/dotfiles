@@ -1,4 +1,6 @@
-export TERM=linux
+export TERM=xterm
+export EDITOR=vim
+export VISUAL=vim
 
 # adding path directory for custom scripts
 export PATH=$HOME/dotfiles/bin:$PATH
@@ -6,7 +8,6 @@ export PATH=$HOME/dotfiles/bin:$PATH
 alias zshrc="vim $HOME/.zshrc"
 alias prezto="vim $HOME/.zpreztorc"
 alias reload="source $HOME/.zshrc"
-alias vim="nvim"
 alias tmux="tmux -2"
 
 ENABLE_CORRECTION="true"
@@ -16,6 +17,8 @@ HIST_STAMPS="dd.mm.yyyy"
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 [ -f $HOME/.nvm/nvm.sh ] && source $HOME/.nvm/nvm.sh
+
+export CDPATH=:$HOME/dotfiles:$HOME/github:$HOME/svn:$HOME/shared
 
 prompt agnoster
 prompt_context() {}
