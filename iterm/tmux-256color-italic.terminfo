@@ -1,3 +1,0 @@
-tmux|tmux with italic,
-  sitm=\E[3m, ritm=\E[23m,
-  use=xterm-256color, use=screen-256color,

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -d "$2" ]; then
+  cd "$2" && git pull
+else
+  git clone "https://github.com/$1.git" "$2"
+fi

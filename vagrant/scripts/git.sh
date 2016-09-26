@@ -17,7 +17,6 @@ echo "################################"
 echo " "
 
 repos=(\
-  texture-synthesis\
   react-colorpicker\
 )
 

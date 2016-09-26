@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo " "
 echo "########"
@@ -6,27 +6,20 @@ echo "# NODE #"
 echo "########"
 echo " "
 
-# curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+nvm_path="$HOME/.nvm"
+
+git-get creationix/nvm "$nvm_path"
+source "$nvm_path/nvm.sh"
+
+nvm install node
+
+# VERSION=5
+
+# mkdir "$HOME/.npm-packages"
+# ln -sf "$HOME/dotfiles/node/npmrc" "$HOME/.npmrc"
+
+# curl -sL "https://deb.nodesource.com/setup_${VERSION}.x" | sudo -E bash -
 # sudo apt-get install -y nodejs
-
-if [ ! -d "$HOME/.nvm" ]; then
-  git clone https://github.com/creationix/nvm.git "$HOME/.nvm"
-else
-  cd "$HOME/.nvm"
-  git pull
-fi
-# cd $HOME/.nvm
-# . $HOME/.nvm/nvm.sh
-
-# nvm install node
-
-# wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh
-. $HOME/.nvm/nvm.sh
-
-# nvm install 0.10
-
-# chown -R vagrant:vagrant $HOME/.nvm
-# export HOME=/home/root
 
 echo " "
 echo "################"
@@ -34,8 +27,6 @@ echo "# NPM PACKAGES #"
 echo "################"
 echo " "
 
-# sudo npm install -g npm
-
-# sudo npm install trash-cli -g
-# sudo npm install eslint -g
-# sudo npm install stylelint -g
+sudo npm install -g trash-cli
+sudo npm install -g eslint
+sudo npm install -g stylelint

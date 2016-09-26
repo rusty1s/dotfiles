@@ -9,4 +9,5 @@ echo " "
 sudo apt-get update
 
 sudo apt-get install -y software-properties-common
-sudo apt-get install -y tar tar-doc
+
+tic "$HOME/dotfiles/shell/xterm-256color-italic.terminfo"

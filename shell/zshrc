@@ -1,14 +1,15 @@
-export TERM=xterm
+export TERM=xterm-256color-italic
+
 export EDITOR=vim
 export VISUAL=vim
 
 # adding path directory for custom scripts
 export PATH=$HOME/dotfiles/bin:$PATH
+export PATH=$HOME/.npm-packages/bin:$PATH
 
 alias zshrc="vim $HOME/.zshrc"
 alias prezto="vim $HOME/.zpreztorc"
 alias reload="source $HOME/.zshrc"
-alias tmux="tmux -2"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
@@ -17,9 +18,12 @@ HIST_STAMPS="dd.mm.yyyy"
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.zprezto/init.zsh ] && source $HOME/.zprezto/init.zsh
 [ -f $HOME/.nvm/nvm.sh ] && source $HOME/.nvm/nvm.sh
+[ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 
-export CDPATH=:$HOME/dotfiles:$HOME/github:$HOME/svn:$HOME/shared
+export CDPATH=.:$HOME:$HOME/dotfiles:$HOME/github:$HOME/svn:$HOME/dropbox
 
 prompt agnoster
 prompt_context() {}
 
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

@@ -9,7 +9,7 @@ echo " "
 sudo apt-get install -y zsh/trusty-backports
 sudo chsh -s $(which zsh) $(whoami)
 
-ln -sf $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
+ln -sf "$HOME/dotfiles/shell/zshrc" "$HOME/.zshrc"
 
 echo " "
 echo "#######"
@@ -33,7 +33,7 @@ echo "# ZPREZTO #"
 echo "###########"
 echo " "
 
-if [ ! -d "$HOME/.fzf" ]; then
+if [ ! -d "$HOME/.zprezto" ]; then
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 else
   cd "$HOME/.zprezto"
@@ -41,4 +41,4 @@ else
   git submodule update --recursive
 fi
 
-ln -sf $HOME/dotfiles/zsh/zpreztorc $HOME/.zpreztorc
+ln -sf "$HOME/dotfiles/shell/zpreztorc" "$HOME/.zpreztorc"

@@ -7,13 +7,12 @@ set wrap
 " set formatoptions=crovanlj
 
 " wrap lines at convenient points and mark them via …
-set linebreak
-set nolist
+" set linebreak
 set showbreak=…
 
 if has ('autocmd')
 
-  " don't wrap lines for specific file types, but show an colorcolumn
-  autocmd FileType vim,javascript setlocal nowrap colorcolumn=80
+  " show an colorcolumn for specific file types
+  " autocmd FileType vim,javascript setlocal colorcolumn=80
 
 endif

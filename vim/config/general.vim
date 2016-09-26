@@ -1,14 +1,10 @@
 " =============== General Configuration  ======================================
 
-if !has('vim')
-  runtime! plugin/neovim_defaults.vim
-endif
-
-" lan en_US           " set the language to american english
-
 set number
+set cursorline
+set backspace=indent,eol,start
+
 set noshowmode      " dont show the current mode in the lower right corner
-set wildmode=full   " zsh like tab completion
 set ttimeoutlen=0
 set clipboard=unnamed
 
@@ -30,12 +26,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" =============== Encoding ====================================================
-
-set fileformat=unix     " unix file format
-set fileencoding=utf-8  " the encoding written to file
-
 " =============== Typing ======================================================
 
-set cursorline                  " mark the current line
 set scrolloff=5                 " scroll if we're five lines away from margins
+set encoding=utf-8
+set ttyfast
+set nofoldenable

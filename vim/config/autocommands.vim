@@ -1,10 +1,16 @@
-if has ('autocmd')
+if has('autocmd')
 
   " strip trailing whitespaces on save
   autocmd BufWritePre * StripWhitespace
 
-  " TODO strip trailing newlines at eof on save
-  "
+  " trim blank lines at end of file on save
+  function! TrimEndLines()
+    let save_cursor = getpos('.')
+    :silent! %s#\($\n\s*\)\+\%$##
+    call setpos('.', save_cursor)
+  endfunction
+
+  autocmd BufWritePre * call TrimEndLines()
 
   " mark specific config files as json
   autocmd BufNewFile,BufRead
