@@ -8,10 +8,10 @@ echo " "
 
 nvm_path="$HOME/.nvm"
 
-git-get creationix/nvm "$nvm_path"
-source "$nvm_path/nvm.sh"
+# git-get creationix/nvm "$nvm_path"
+# source "$nvm_path/nvm.sh"
 
-nvm install node
+# nvm install node
 
 # VERSION=5
 
@@ -27,6 +27,6 @@ echo "# NPM PACKAGES #"
 echo "################"
 echo " "
 
-sudo npm install -g trash-cli
-sudo npm install -g eslint
-sudo npm install -g stylelint
+# sudo npm install -g trash-cli
+# sudo npm install -g eslint
+# sudo npm install -g stylelint

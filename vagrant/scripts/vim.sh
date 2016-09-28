@@ -7,7 +7,7 @@ echo "#######"
 echo " "
 
 # remove preinstalled vim
-sudo apt-get remove vim vim-runtime vim-tiny vim-common
+sudo apt-get remove -y vim vim-runtime vim-tiny vim-common
 
 # install dependencies
 sudo apt-get install -y python3-dev lua5.1 lua5.1-dev
