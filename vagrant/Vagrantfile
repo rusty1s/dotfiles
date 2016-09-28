@@ -1,6 +1,6 @@
 HOST           = RbConfig::CONFIG["host_os"]
-HOME           = ENV["home"]
-VAGRANT_CONFIG = ENV["vagrant_config"]
+HOME           = ENV["HOME"]
+VAGRANT_CONFIG = ENV["VAGRANT_CONFIG"]
 API_VERSION    = "2"
 
 Vagrant.configure(API_VERSION) do |config|

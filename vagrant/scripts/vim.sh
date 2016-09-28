@@ -39,3 +39,6 @@ ln -sf "$HOME/dotfiles/vim/UltiSnips" "$HOME/.vim/UltiSnips"
 # plugin manager
 mkdir -p "$HOME/.vim/autoload"
 curl -Lso "$HOME/.vim/autoload/plug.vim" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# install plugins
+vim +PlugInstall! +qall!
