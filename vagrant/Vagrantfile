@@ -50,7 +50,6 @@ Vagrant.configure(API_VERSION) do |config|
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/node.sh"
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/vim.sh"
   config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/tmux.sh"
-  config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/tensorflow.sh"
-  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/neovim.sh"
+  # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/tensorflow.sh"
   # config.vm.provision :shell, privileged: false, :path => "#{SCRIPTS}/latex.sh"
 end

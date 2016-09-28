@@ -6,6 +6,6 @@ let g:solarized_term_italics=1
 set termguicolors
 set background=dark
 
-if isdirectory(g:plugs['vim-wwdc16-theme'].dir)
-  colorscheme wwdc16
+if isdirectory(g:plugs['gruvbox'].dir)
+  colorscheme gruvbox
 endif

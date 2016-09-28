@@ -20,6 +20,9 @@ set hidden
 " the search expression
 set ignorecase
 set smartcase
+set hlsearch
+set incsearch
+set magic
 
 " turn backups off since most stuff is in git anyway
 set nobackup
@@ -32,3 +35,7 @@ set scrolloff=5                 " scroll if we're five lines away from margins
 set encoding=utf-8
 set ttyfast
 set nofoldenable
+
+if has('mouse')
+  set mouse=a
+endif

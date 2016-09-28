@@ -1,18 +1,13 @@
 {
+  "plugins": {
+    "es_modules": {},
+    "node": {}
+  },
   "libs": [
     "ecma5",
     "ecma6",
     "browser",
     "jquery"
   ],
-  "async": true,
-  "plugins": {
-    "node": {},
-    "modules": {},
-    "es_modules": true,
-    "requirejs": {
-      "baseURL": "./",
-      "paths": {}
-    }
-  }
+  "ecmaVersion": 6
 }

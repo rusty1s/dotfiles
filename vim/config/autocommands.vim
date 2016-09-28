@@ -24,4 +24,6 @@ if has('autocmd')
         \ Vagrantfile
         \ setlocal filetype=ruby
 
+  autocmd BufReadPre *.jsx let b:javascript_lib_use_react=1
+
 endif

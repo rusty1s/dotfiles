@@ -18,6 +18,11 @@ Plug 'alvan/vim-closetag'
 Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
 
+
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript.jsx' }
+
 call plug#end()
 
 let g:closetag_filenames = "*.html,*.xml"

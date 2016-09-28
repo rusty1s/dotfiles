@@ -90,9 +90,9 @@ let g:UltiSnipsJumpForwardTrigger='<NOP>'
 let g:UltiSnipsJumpBackwardTrigger='<NOP>'
 
 " use enter, tab and shift-tab smartly for neocomplete and ultisnips
-imap <Tab> <C-R>=SmartTab()<CR>
-imap <S-Tab> <C-R>=SmartShiftTab()<CR>
-imap <CR> <C-R>=SmartEnter()<CR>
+imap <silent> <Tab> <C-R>=SmartTab()<CR>
+imap <silent> <S-Tab> <C-R>=SmartShiftTab()<CR>
+imap <silent> <CR> <C-R>=SmartEnter()<CR>
 
 function! SmartTab()
   if pumvisible()

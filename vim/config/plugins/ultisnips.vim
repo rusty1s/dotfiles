@@ -7,3 +7,5 @@ endif
 
 " :UltiSnipsEdit should show up as vertical
 let g:UltiSnipsEditSplit='vertical'
+
+autocmd *.jsx setlocal UltiSnipsAddFileTypes jsx.javascript
