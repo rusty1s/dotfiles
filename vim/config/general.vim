@@ -39,3 +39,6 @@ set nofoldenable
 if has('mouse')
   set mouse=a
 endif
+
+set wildmenu
+set wildmode=longest:full,full
