@@ -1,14 +1,12 @@
-HOST = RbConfig::CONFIG['host_os']
-API_VERSION = "2"
-
-USERNAME= "Fey"
-MAC_SCRIPTS = "~/dotfiles/vagrant/scripts"
-WIN_SCRIPTS = "C:\\Users\\#{USERNAME}\\dotfiles\\vagrant\\scripts"
+HOST           = RbConfig::CONFIG["host_os"]
+HOME           = ENV["home"]
+VAGRANT_CONFIG = ENV["vagrant_config"]
+API_VERSION    = "2"
 
 Vagrant.configure(API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.network :forwarded_port, guest: 8080, host: 30000
   config.ssh.insert_key = false
 
   # configure proxy if necassary
@@ -40,32 +38,33 @@ Vagrant.configure(API_VERSION) do |config|
 
   if HOST =~ /mswin|mingw|cygwin/
     # synced folders
-    config.vm.synced_folder "C:\\Users\\Fey\\dotfiles",     "/home/vagrant/dotfiles"
-    config.vm.synced_folder "C:\\Users\\Fey\\home\\svn",    "/home/vagrant/svn"
-    config.vm.synced_folder "C:\\Users\\Fey\\home\\github", "/home/vagrant/github"
+    config.vm.synced_folder "#{HOME}\\dotfiles", "/home/vagrant/dotfiles"
+    config.vm.synced_folder "#{HOME}\\svn",      "/home/vagrant/svn"
+    config.vm.synced_folder "#{HOME}\\github",   "/home/vagrant/github"
+    config.vm.synced_folder "#{HOME}\\tomcat",   "/home/vagrant/tomcat"
 
     # provision scripts
-    config.vm.provision :shell, privileged: false, :path => "#{WIN_SCRIPTS}\\base.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{WIN_SCRIPTS}\\git.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{WIN_SCRIPTS}\\shell.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{WIN_SCRIPTS}\\node.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{WIN_SCRIPTS}\\vim.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{WIN_SCRIPTS}\\tmux.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}\\scripts\\base.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}\\scripts\\git.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}\\scripts\\shell.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}\\scripts\\node.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}\\scripts\\vim.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}\\scripts\\tmux.sh"
   else
     # synced folders
-    config.vm.synced_folder "~/dotfiles", "/home/vagrant/dotfiles"
-    config.vm.synced_folder "~/Dropbox",  "/home/vagrant/dropbox"
-    config.vm.synced_folder "github",     "/home/vagrant/github",   create: true
+    config.vm.synced_folder "#{HOME}/dotfiles", "/home/vagrant/dotfiles"
+    config.vm.synced_folder "#{HOME}/dropbox",  "/home/vagrant/dropbox"
+    config.vm.synced_folder "github",           "/home/vagrant/github",  create: true
 
     # provision scripts
-    config.vm.provision :shell, privileged: false, :path => "#{MAC_SCRIPTS}/base.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{MAC_SCRIPTS}/git.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{MAC_SCRIPTS}/shell.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{MAC_SCRIPTS}/node.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{MAC_SCRIPTS}/vim.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{MAC_SCRIPTS}/tmux.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{MAC_SCRIPTS}/tensorflow.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{MAC_SCRIPTS}/latex.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/base.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/git.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/shell.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/node.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/vim.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/tmux.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/tensorflow.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/latex.sh"
   end
 
 end
