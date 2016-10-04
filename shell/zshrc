@@ -20,7 +20,7 @@ HIST_STAMPS="dd.mm.yyyy"
 [ -f $HOME/.nvm/nvm.sh ] && source $HOME/.nvm/nvm.sh
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 
-export CDPATH=.:$HOME:$HOME/dotfiles:$HOME/github:$HOME/svn:$HOME/dropbox
+export CDPATH=".:$HOME:$HOME/dotfiles:$HOME/github:$HOME/svn:$HOME/dropbox"
 
 prompt agnoster
 prompt_context() {}

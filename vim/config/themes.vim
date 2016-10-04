@@ -4,7 +4,11 @@ let g:gruvbox_italic=1
 let g:solarized_term_italics=1
 
 let g:gruvbox_contrast_dark='soft'
-let g:gruvbox_italicize_strings=1
+
+" disable Background Color Erase (BCE) so that color schemes
+" render properly when inside 256-color tmux and GNU screen.
+" see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+set t_ut=
 
 set termguicolors
 set background=dark

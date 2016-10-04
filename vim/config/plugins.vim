@@ -7,25 +7,31 @@ Plug 'lifepillar/vim-solarized8'
 
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
+" Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'alvan/vim-closetag'
 Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
 
-
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript.jsx' }
+" Plug 'othree/html5.vim', { 'for': 'html' }
+" Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
+" Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 
 call plug#end()
 
-let g:closetag_filenames = "*.html,*.xml"
+let g:closetag_filenames='*.html,*.xml,*.jsx'
+if has('autocmd')
+  autocmd BufReadPre *.jsx let b:javascript_lib_use_react=1
+endif
 
 " if has('nvim')
 "   call plug#begin('~/.config/nvim/bundle')

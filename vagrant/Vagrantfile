@@ -6,7 +6,7 @@ API_VERSION    = "2"
 Vagrant.configure(API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.network :forwarded_port, guest: 8080, host: 30000
+  config.vm.network :forwarded_port, guest: 8080, host: 8080
   config.ssh.insert_key = false
 
   # configure proxy if necassary

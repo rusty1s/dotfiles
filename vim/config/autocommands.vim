@@ -12,18 +12,8 @@ if has('autocmd')
 
   autocmd BufWritePre * call TrimEndLines()
 
-  " mark specific config files as json
-  autocmd BufNewFile,BufRead
-        \ .babelrc,
-        \ .eslintrc,
-        \ .stylelintrc,
-        \ .tern-project
-        \ setlocal filetype=json
-
-  autocmd BufNewFile,BufRead
-        \ Vagrantfile
-        \ setlocal filetype=ruby
-
-  autocmd BufReadPre *.jsx let b:javascript_lib_use_react=1
+  " file types
+  autocmd BufNewFile,BufRead .{babelrc,eslintrc,stylelintrc,,tern-project} setf json
+  autocmd BufNewFile,BufRead Vagrantfile setf ruby
 
 endif

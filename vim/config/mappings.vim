@@ -2,18 +2,6 @@
 
 let mapleader="\<Space>"
 
-" =============== Hard Mode ===================================================
-
-" disable the arrow keys
-map <Up> <NOP>
-map <Right> <NOP>
-map <Down> <NOP>
-map <Left> <NOP>
-imap <Up> <NOP>
-imap <Right> <NOP>
-imap <Down> <NOP>
-imap <Left> <NOP>
-
 " =============== Normal Mode =================================================
 
 " insert a new line after the current line via enter
@@ -22,7 +10,7 @@ nmap <CR> o<Esc>
 " =============== Window Management ===========================================
 
 function! WinMove(key)
-  let t:curwin = winnr()
+ @C let t:curwin = winnr()
   exec 'wincmd ' . a:key
   if (t:curwin == winnr())  " we haven't moved
     if (match(a:key, '[jk]'))
