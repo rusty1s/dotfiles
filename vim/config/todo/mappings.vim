@@ -35,7 +35,7 @@ map <silent> <Leader>J :wincmd J<CR>
 map <silent> <Leader>K :wincmd K<CR>
 map <silent> <Leader>L :wincmd L<CR>
 
-" =============== Airline =====================================================
+" =============== Statusbar ===================================================
 
 nmap <Leader>1 <Plug>AirlineSelectTab1
 nmap <Leader>2 <Plug>AirlineSelectTab2
@@ -56,7 +56,7 @@ nmap <silent> <NUL> :NERDTreeToggle<CR>
 
 " =============== FZF =========================================================
 
-" nmap <Leader><Leader> :FZF<CR>
+nmap <Leader><Leader> :FZF<CR>
 
 " =============== UltiSnips ===================================================
 
