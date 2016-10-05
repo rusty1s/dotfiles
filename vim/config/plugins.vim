@@ -5,7 +5,6 @@ call plug#begin('~/.vim/bundle')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
-Plug 'ntpeters/vim-better-whitespace'
 
 " =============== Themes ======================================================
 
@@ -29,6 +28,10 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_idx_mode=1
 let g:airline_powerline_fonts=1
 let g:airline_skip_empty_sections=1
+let g:airline#extensions#whitespace#checks=[
+      \ 'indent',
+      \ 'mixed-indent-file'
+      \]
 
 " =============== Finder ======================================================
 
@@ -36,8 +39,24 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let g:NERDTreeShowHidden=1
 let g:NERDTreeIgnore=['DS_Store', 'git', 'idea']
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" define :Find command that will lists files that contain the searched string
+" see also http://goo.gl/yvCS3y
+let s:rg='rg ' .
+      \ '--column ' .
+      \ '--line-number ' .
+      \ '--no-heading ' .
+      \ '--fixed-strings ' .
+      \ '--ignore-case ' .
+      \ '--hidden ' .
+      \ '--follow ' .
+      \ '--glob "!.git/*" ' .
+      \ '--color "always" '
+
+command! -bang -nargs=* Find call
+      \ fzf#vim#grep(s:rg.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 
 " =============== Git =========================================================
 
@@ -49,8 +68,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript.jsx' }
-let g:used_javascript_libs=''
-autocmd BufReadPre *.jsx let g:used_javascript_libs='react'
+let g:used_javascript_libs='react'
 
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss'] }
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
@@ -63,7 +81,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 
 " =============== Autocompletion ==============================================
 
-Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neocomplete.vim'
 
 Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'

@@ -56,7 +56,9 @@ nmap <silent> <NUL> :NERDTreeToggle<CR>
 
 " =============== FZF =========================================================
 
-nmap <Leader><Leader> :FZF<CR>
+nmap <Leader><Leader> :Files<CR>
+nmap <Leader>f :Find<CR>
+nmap <Leader>m :History<CR>
 
 " =============== UltiSnips ===================================================
 
