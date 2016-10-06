@@ -5,39 +5,5 @@ if [ "$VAGRANT_DIR" == "" ]; then
   exit 0
 fi
 
-if [ "$VAGRANT_CONFIG" == "" ]; then
-  echo "Please set VAGRANT_CONFIG environment variable and run again."
-  exit 0
-fi
-
-mkdir -p "$VAGRANT_DIR"
 cd "$VAGRANT_DIR"
-
-[ -f "Vagrantfile" ]
-EXISTS=$?
-
-if [ "$EXISTS" == 0 ]; then
-  echo "It seems that a Vagrantfile already exists in this directory."
-  read -p "Do you want a fresh install? [y/N] " -n 1 -r
-  echo
-
-  if [[ "$REPLY" =~ ^[Yy]$ ]]; then
-    vagrant destroy -f
-    rm -rf *
-    rm -rf .*
-  fi
-fi
-
-if [ "$EXISTS" == 0 ]; then
-  echo "Start provision Vagrantfile..."
-
-  vagrant provision
-else
-  echo "Install fresh varant environment..."
-
-  ln -sf "$VAGRANT_CONFIG/Vagrantfile" "$VAGRANT_DIR/Vagrantfile"
-
-  vagrant box update
-  vagrant plugin install vagrant-proxyconf
-  vagrant up
-fi
+vagrant up
