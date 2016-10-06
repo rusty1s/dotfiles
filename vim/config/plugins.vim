@@ -9,17 +9,15 @@ Plug 'jiangmiao/auto-pairs'
 " =============== Themes ======================================================
 
 Plug 'morhetz/gruvbox'
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark='soft'
-
 Plug 'lifepillar/vim-wwdc16-theme'
-let g:wwdc16_term_italics=1
-
 Plug 'rakr/vim-two-firewatch'
-let g:two_firewatch_italics=1
-
 Plug 'lifepillar/vim-solarized8'
-let g:solarized_term_italics=1
+
+let g:gruvbox_contrast_dark='soft'
+" let g:gruvbox_italic=1
+" let g:wwdc16_term_italics=1
+" let g:two_firewatch_italics=1
+" let g:solarized_term_italics=1
 
 " =============== Statusbar ===================================================
 
