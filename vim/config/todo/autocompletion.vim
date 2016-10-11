@@ -59,3 +59,50 @@ if has('lua') && isdirectory(g:plugs['neocomplete.vim'].dir)
   " the input pattern for javascript to trigger omnicompletion
   " let g:neocomplete#sources#omni#input_patterns.javascript='[^. \t]\w*'
 endif
+" =============== Autocompletion ==============================================
+
+" use <C-q> to expand a snippet if no completion menu is present (e.g. visual mode)
+
+" use enter, tab and shift-tab smartly for neocomplete and ultisnips
+" imap <silent> <Tab> <C-R>=SmartTab()<CR>
+" imap <silent> <S-Tab> <C-R>=SmartShiftTab()<CR>
+" imap <silent> <CR> <C-R>=SmartEnter()<CR>
+
+" function! SmartTab()
+"   if pumvisible()
+"     return "\<C-n>"
+"   endif
+
+"   call UltiSnips#JumpForwards()
+"   if g:ulti_jump_forwards_res
+"     return ''
+"   endif
+
+"   return "\<Tab>"
+" endfunction
+
+" function! SmartShiftTab()
+"   if pumvisible()
+"     return "\<C-p>"
+"   endif
+
+"   call UltiSnips#JumpBackwards()
+"   if g:ulti_jump_backwards_res
+"     return ''
+"   endif
+
+"   return "\<C-d>"
+" endfunction
+
+" function! SmartEnter()
+"   call UltiSnips#ExpandSnippet()
+"   if g:ulti_expand_res
+"     return ''
+"   endif
+
+"   if pumvisible()
+"     return "\<C-y>"
+"   endif
+
+"   return "\<CR>"
+" endfunction

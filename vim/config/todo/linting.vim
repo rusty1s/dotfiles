@@ -1,8 +1,11 @@
-" let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let s:eslint_path = system('PATH=$(npm bin) && which eslint')
 " echo s:eslint_path
-" autocmd Filetype javascript setlocal makeprg=s:eslint_path\ %
-
-
+" spaces needs to be escaped
+" autocmd Filetype javascript setlocal makeprg=system('PATH=$(npm bin) && which eslint')\ %
+" set makeprg=/home/vagrant/github/helic-resources/node_modules/.bin/eslint\ -f\ compact
+" set errorformat=%E%f:\ line\ %l\\,\ col\ %c\\,\ Error\ -\ %m,%W%f:\ line\ %l\\,\ col\ %c\\,\ Warning\ -\ %m
+" command! -buffer Make silent make % | silent redraw! | silent wincmd p | cwindow 5
+" autocmd! BufWritePost <buffer> Make
 
 " if isdirectory(g:plugs['neomake'].dir)
 
@@ -30,16 +33,16 @@
 
 "   let g:neomake_scss_stylelint_maker = g:neomake_css_stylelint_maker
 
-"   " github.com/neomake/neomake/issues/534
-"   let g:neomake_html_html5check_maker = {
-"         \ 'exe': 'curl',
-"         \ 'args': ['-s',
-"         \ '-H', '"Content-Type: text/html; charset=utf-8"',
-"         \ '--data-binary', '@' . expand('%:p'),
-"         \ 'https://validator.w3.org/nu/?out=gnu&level=error',
-"         \ ],
-"         \ 'errorformat': '%m',
-"         \ }
+  " github.com/neomake/neomake/issues/534
+  let g:neomake_html_html5check_maker = {
+        \ 'exe': 'curl',
+        \ 'args': ['-s',
+        \ '-H', '"Content-Type: text/html; charset=utf-8"',
+        \ '--data-binary', '@' . expand('%:p'),
+        \ 'https://validator.w3.org/nu/?out=gnu&level=error',
+        \ ],
+        \ 'errorformat': '%m',
+        \ }
 
 "   " =============== Languages ===================================================
 

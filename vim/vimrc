@@ -1,0 +1,361 @@
+" Plugin Manager Start {{{
+
+call plug#begin('~/.vim/bundle')
+
+" }}}
+" Themes {{{
+
+Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-wwdc16-theme'
+Plug 'rakr/vim-two-firewatch'
+Plug 'lifepillar/vim-solarized8'
+
+let g:gruvbox_contrast_dark='soft'
+
+" let g:gruvbox_italic=1
+" let g:wwdc16_term_italics=1
+" let g:two_firewatch_italics=1
+" let g:solarized_term_italics=1
+
+" }}}
+" Basic settings {{{
+
+set nocompatible
+
+set lazyredraw
+set ttyfast
+set updatetime=250
+set ttimeoutlen=0
+
+set clipboard^=unnamedplus,unnamed
+
+filetype indent on
+syntax enable
+
+set backspace=indent,eol,start
+set hidden
+set encoding=utf-8
+set mouse=a
+
+" plugins
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'jiangmiao/auto-pairs'
+
+" }}}
+" Basic mappings {{{
+
+" set leader prefix to <Space>
+let mapleader="\<Space>"
+
+" leaving insert mode via jk, disable <Esc> for training muscle memory
+inoremap jk <Esc>
+inoremap <Esc> <NOP>
+
+" insert a new line after the current line via <CR>
+nnoremap <CR> o<Esc>
+
+" mapping <CR> in normal mode will interfere with selection of history items in 
+" the command-line window and with jumping to error under cursor in 
+" quickfix/location list windows
+" see also http://goo.gl/CYEfWa
+augroup fix_cr_mapping
+  autocmd!
+  autocmd CmdwinEnter * nnoremap <CR> <CR>
+  autocmd BufReadPost quickfix nnoremap <CR> <CR>
+augroup END
+
+" edit and source vimrc
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
+
+" we need to remove some mappings so we can use <Leader>h without delay
+autocmd VimEnter * :unmap <Leader>hp
+autocmd VimEnter * :unmap <Leader>hr
+autocmd VimEnter * :unmap <Leader>hu
+autocmd VimEnter * :unmap <Leader>hs
+
+function! WinMove(key)
+  let t:curwin = winnr()
+  exec 'wincmd ' . a:key
+  if (t:curwin == winnr())  " we haven't moved
+    if (match(a:key, '[jk]'))
+      wincmd v
+    else
+      wincmd s
+    endif
+    exec 'wincmd ' . a:key
+  endif
+endfunction
+
+" use <Leader>h,j,k,l to move around windows
+" if we don't move, we create a new window
+map <silent> <Leader>h :call WinMove('h')<CR>
+map <silent> <Leader>j :call WinMove('j')<CR>
+map <silent> <Leader>k :call WinMove('k')<CR>
+map <silent> <Leader>l :call WinMove('l')<CR>
+
+" use <Leader>H,J,K,L to swap windows
+map <silent> <Leader>H :wincmd H<CR>
+map <silent> <Leader>J :wincmd J<CR>
+map <silent> <Leader>K :wincmd K<CR>
+map <silent> <Leader>L :wincmd L<CR>
+
+" }}}
+" Navigating {{{
+
+set scrolloff=5
+set cursorline
+
+set number
+set relativenumber
+
+" remap j/k to gj/gk only without a count
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+" }}}
+" Backups {{{
+
+" no backups since the most stuff is in git anyway
+set nobackup
+set nowritebackup
+set noswapfile
+
+" }}}
+" Statusbar {{{
+
+set laststatus=2
+set noshowmode
+
+" Airline plugin
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#buffer_idx_mode=1
+let g:airline_powerline_fonts=1
+let g:airline_skip_empty_sections=1
+let g:airline#extensions#whitespace#checks=[
+      \ 'indent',
+      \ 'mixed-indent-file'
+      \]
+
+" we can't use nnoremap here (don't know why)
+nmap <Leader>1 <Plug>AirlineSelectTab1
+nmap <Leader>2 <Plug>AirlineSelectTab2
+nmap <Leader>3 <Plug>AirlineSelectTab3
+nmap <Leader>4 <Plug>AirlineSelectTab4
+nmap <Leader>5 <Plug>AirlineSelectTab5
+nmap <Leader>6 <Plug>AirlineSelectTab6
+nmap <Leader>7 <Plug>AirlineSelectTab7
+nmap <Leader>8 <Plug>AirlineSelectTab8
+nmap <Leader>9 <Plug>AirlineSelectTab9
+
+" }}}
+" Vimscript file settings {{{
+
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType vim setlocal colorcolumn=80
+augroup END
+
+" }}}
+" Javascript file settings {{{
+
+augroup filetype_javascript
+  autocmd!
+  autocmd FileType javascript setlocal colorcolumn=80
+augroup END
+
+Plug 'othree/yajs.vim'
+Plug 'mxw/vim-jsx'
+
+" }}}
+" CSS file settings {{{
+
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+
+" }}}
+" JSON file settings {{{
+
+augroup filetype_json
+  autocmd!
+  autocmd BufNewFile,BufRead
+        \ .babelrc,
+        \ .eslintrc,
+        \ .stylelintrc,
+        \ .tern-project
+        \ setfiletype json
+augroup END
+
+Plug 'elzr/vim-json'
+
+" }}}
+" Ruby file settings {{{
+
+augroup filetype_ruby
+  autocmd!
+  autocmd BufNewFile,BufRead Vagrantfile setfiletype ruby
+augroup END
+
+" }}}
+" Latex file settings {{{
+
+let g:tex_flavor="latex"
+
+" }}}
+" Tags {{{
+
+Plug 'alvan/vim-closetag'
+let g:closetag_filenames='*.html,*.xml,*.jsx'
+
+" }}}
+" Indentation {{{
+
+set expandtab      " causes spaces to be used in place of tab characters
+
+set tabstop=2      " specifies the width of a tab character
+set softtabstop=2  " fine tune the amount of whitespace to be inserted
+set shiftwidth=2   " controls how many columns text is indented with << and >>
+
+set autoindent     " copy indent from current line when starting a new line
+set smartindent    " smarter indent for C-like languages
+
+set list           " show invisible tab and trailing whitespace characters
+set listchars=tab:▸\ ,trail:•
+
+" }}}
+" Wrapping {{{
+
+set wrap
+set showbreak=…
+set linebreak
+set wrapmargin=2
+
+" autowrap comments at the 79th column mark
+set textwidth=79
+
+" setting formatoptions shouldn't be overriden by a filetype plugin
+autocmd FileType * setlocal formatoptions=roqwacnj
+
+" }}}
+" Searching {{{
+
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set magic
+
+" <C-l> should only clear all search results
+nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
+
+set grepprg=rg\ --vimgrep
+
+" }}}
+" Completion {{{
+
+set wildmenu
+set wildmode=longest:full,full
+
+" UltiSnips plugin
+Plug 'SirVer/ultisnips'
+let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+let g:UltiSnipsEditSplit='vertical'
+
+let g:UltiSnipsExpandTrigger='<Tab>'
+let g:UltiSnipsJumpForwardTrigger='<Tab>'
+let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
+
+nnoremap <Leader>u :UltiSnipsEdit<CR>
+
+" }}}
+" Trim {{{
+
+function! TrimEndLines()
+  let save_cursor = getpos('.')
+  :silent! %s#\($\n\s*\)\+\%$##
+  call setpos('.', save_cursor)
+endfunction
+
+augroup trim
+  autocmd!
+  autocmd BufWritePre * call TrimEndLines()
+augroup END
+
+" }}}
+" Git {{{
+
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" }}}
+" Finder {{{
+
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+let g:NERDTreeShowHidden=1
+let g:NERDTreeIgnore=['DS_Store', 'git', 'idea']
+
+nmap <silent> <NUL> :NERDTreeToggle<CR>
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" define :Find command that will lists files that contain the searched string
+" see also http://goo.gl/yvCS3y
+let s:rg='rg ' .
+      \ '--column ' .
+      \ '--line-number ' .
+      \ '--no-heading ' .
+      \ '--fixed-strings ' .
+      \ '--ignore-case ' .
+      \ '--hidden ' .
+      \ '--follow ' .
+      \ '--glob "!.git/*" ' .
+      \ '--color "always" '
+
+command! -bang -nargs=* Find call
+      \ fzf#vim#grep(s:rg.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+nnoremap <Leader><Leader> :Files<CR>
+nnoremap <Leader>f :Find<CR>
+nnoremap <Leader>m :History<CR>
+
+" }}}
+" Linting {{{
+
+Plug 'neomake/neomake'
+Plug 'benjie/neomake-local-eslint.vim'
+
+autocmd BufWritePost,BufEnter * Neomake
+
+let g:neomake_javascript_enabled_makers=['eslint']
+let g:neomake_scss_enabled_makers=['stylelint']
+let g:neomake_css_enabled_makers=['stylelint']
+
+" }}}
+" Plugin Manager End {{{
+
+call plug#end()
+
+" }}}
+" Colors {{{
+
+" true color with italic font support
+set term=xterm-256color-italic
+set termguicolors
+
+" disable Background Color Erase (BCE) so that color schemes render properly 
+" when inside 256-color tmux and GNU screen.
+" see also http://snk.tuxfamily.org/log/vim-256color-bce
+set t_ut=
+
+set background=dark
+
+if isdirectory(g:plugs['gruvbox'].dir)
+  colorscheme gruvbox
+  let g:airline_theme='gruvbox'
+endif
+
+" }}}
