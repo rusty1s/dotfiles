@@ -177,16 +177,22 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'cakebaker/scss-syntax.vim'
 
 " }}}
+" HTML file settings {{{
+
+augroup filetype_html
+  autocmd!
+  autocmd BufNewFile,BufRead *.ftl setfiletype html
+augroup END
+
+" }}}
 " JSON file settings {{{
 
 augroup filetype_json
   autocmd!
-  autocmd BufNewFile,BufRead
-        \ .babelrc,
-        \ .eslintrc,
-        \ .stylelintrc,
-        \ .tern-project
-        \ setfiletype json
+  autocmd BufNewFile,BufRead .babelrc setfiletype json
+  autocmd BufNewFile,BufRead .eslintrc setfiletype json
+  autocmd BufNewFile,BufRead .stylelintrc setfiletype json
+  autocmd BufNewFile,BufRead .tern-project setfiletype json
 augroup END
 
 Plug 'elzr/vim-json'
