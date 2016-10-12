@@ -102,9 +102,6 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # add a context menu item for showing the web inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
-# disable auto-correct
-defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false
-
 # copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in mail
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
@@ -117,3 +114,7 @@ defaults write com.apple.TextEdit RichText -int 0
 # open and save files as utf-8 in TextEdit
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+# todo: remap ctrl to caps
+# todo: remap private mode to ctrl+e in safari
+# todo: set computer name
