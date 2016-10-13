@@ -36,13 +36,10 @@ Vagrant.configure(API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--memory", mem]
   end
 
-  if HOST =~ /mswin|mingw|cygwin/
-    # synced folders
-    config.vm.synced_folder "#{HOME}/dotfiles", "/home/vagrant/dotfiles"
-    config.vm.synced_folder "#{HOME}/svn",      "/home/vagrant/svn"
-    config.vm.synced_folder "#{HOME}/tomcat",   "/home/vagrant/tomcat"
-	config.vm.synced_folder "github",           "/home/vagrant/github",   create: true
+  # synced folders
+  config.vm.synced_folder "#{HOME}/dotfiles", "/home/vagrant/dotfiles"
 
+  if HOST =~ /mswin|mingw|cygwin/
     # provision scripts
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/base.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/git.sh"
@@ -52,10 +49,8 @@ Vagrant.configure(API_VERSION) do |config|
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/vim.sh"
 	
   else
-    # synced folders
-    config.vm.synced_folder "#{HOME}/dotfiles", "/home/vagrant/dotfiles"
+    # system specific synced folders
     config.vm.synced_folder "#{HOME}/dropbox",  "/home/vagrant/dropbox"
-    config.vm.synced_folder "github",           "/home/vagrant/github",   create: true
 
     # provision scripts
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/base.sh"
