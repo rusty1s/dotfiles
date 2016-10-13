@@ -7,3 +7,5 @@ echo "#######"
 echo " "
 
 sudo apt-get install -y subversion
+
+mkdir -p "$HOME/svn"
