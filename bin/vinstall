@@ -30,6 +30,9 @@ if [ "$EXISTS" == 0 ]; then
     vagrant destroy -f
     rm -rf *
     rm -rf .*
+
+    # doesn't exist anymore
+    EXISTS=1
   fi
 fi
 

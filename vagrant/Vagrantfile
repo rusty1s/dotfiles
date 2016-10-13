@@ -43,11 +43,12 @@ Vagrant.configure(API_VERSION) do |config|
     # provision scripts
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/base.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/git.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/svn.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/shell.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/node.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/tmux.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/vim.sh"
-	
+
   else
     # system specific synced folders
     config.vm.synced_folder "#{HOME}/dropbox",  "/home/vagrant/dropbox"
@@ -57,7 +58,7 @@ Vagrant.configure(API_VERSION) do |config|
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/git.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/shell.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/node.sh"
-	config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/tmux.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/tmux.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/vim.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/tensorflow.sh"
     config.vm.provision :shell, privileged: false, :path => "#{VAGRANT_CONFIG}/scripts/latex.sh"
