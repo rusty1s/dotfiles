@@ -33,6 +33,3 @@ brew cask install chrome-devtools
 brew cask install spotify
 brew cask install dropbox
 brew cask install whatsapp
-
-brew cask install skype
-brew cask install league-of-legends
