@@ -36,7 +36,3 @@ brew cask install whatsapp
 
 brew cask install skype
 brew cask install league-of-legends
-
-echo "Installing homebrew cask fonts"
-
-brew cask install font-dejavu-sans-mono-for-powerline
