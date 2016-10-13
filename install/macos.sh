@@ -118,3 +118,6 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 # todo: remap ctrl to caps
 # todo: remap private mode to ctrl+e in safari
 # todo: set computer name
+# set iterm.sh font
+# set iterm colorscheme
+# set profile picture
