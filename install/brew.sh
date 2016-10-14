@@ -6,7 +6,6 @@ if test ! $(which brew); then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   brew tap caskroom/cask
-  brew tap caskroom/fonts
 else
   echo "Updating homebrew..."
 
