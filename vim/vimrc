@@ -35,7 +35,7 @@ syntax enable
 set backspace=indent,eol,start
 set hidden
 set encoding=utf-8
-set mouse=a
+" set mouse=a
 
 " plugins
 Plug 'tpope/vim-surround'
@@ -127,6 +127,7 @@ set noswapfile
 
 set laststatus=2
 set noshowmode
+set showcmd
 
 " Airline plugin
 Plug 'vim-airline/vim-airline'
@@ -262,6 +263,7 @@ set grepprg=rg\ --vimgrep
 " }}}
 " Completion {{{
 
+set path+=**
 set wildmenu
 set wildmode=longest:full,full
 
