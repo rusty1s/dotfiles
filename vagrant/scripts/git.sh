@@ -8,7 +8,7 @@ echo " "
 
 sudo apt-get install -y git
 
-ln -sf $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
+ln -sf "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
 
 mkdir -p "$HOME/github"
 

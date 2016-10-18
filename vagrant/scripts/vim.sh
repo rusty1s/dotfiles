@@ -32,9 +32,9 @@ sudo make install
 
 # symlinks
 mkdir -p "$HOME/.vim"
-ln -sf "$HOME/dotfiles/vim/vimrc" "$HOME/.vim/vimrc"
-ln -sf "$HOME/dotfiles/vim/tern-project" "$HOME/.tern-project"
-ln -sf "$HOME/dotfiles/vim/UltiSnips" "$HOME/.vim/UltiSnips"
+ln -sf "$DOTFILES/vim/vimrc" "$HOME/.vim/vimrc"
+ln -sf "$DOTFILES/vim/tern-project" "$HOME/.tern-project"
+ln -sf "$DOTFILES/vim/UltiSnips" "$HOME/.vim/UltiSnips"
 
 # plugin manager
 mkdir -p "$HOME/.vim/autoload"

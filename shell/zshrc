@@ -5,6 +5,7 @@ export EDITOR=vim
 export VISUAL=vim
 
 export DOTFILES="$HOME/dotfiles"
+export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
 
 # adding path directory for custom scripts
 export PATH="$PATH:$DOTFILES/bin"
@@ -14,6 +15,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 alias zshrc="vim $HOME/.zshrc"
 alias prezto="vim $HOME/.zpreztorc"
 alias reload="source $HOME/.zshrc"
+alias mvni="mvn clean install -DskipTests"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
@@ -29,5 +31,3 @@ export CDPATH=".:$HOME:$DOTFILES:$HOME/github:$HOME/svn:$HOME/dropbox"
 
 prompt agnoster
 prompt_context() {}
-
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

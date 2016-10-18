@@ -39,27 +39,23 @@ Vagrant.configure(API_VERSION) do |config|
   # synced folders
   config.vm.synced_folder "#{DOTFILES}", "/home/vagrant/dotfiles"
 
-  if HOST =~ /mswin|mingw|cygwin/
-    # provision scripts
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/base.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/git.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/svn.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/shell.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/node.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/tmux.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/vim.sh"
+  # provision scripts
+  config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/base.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/git.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/shell.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/node.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/tmux.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/vim.sh"
 
+  if HOST =~ /mswin|mingw|cygwin/
+    # system specific provision scripts
+    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/svn.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/java.sh"
   else
     # system specific synced folders
     config.vm.synced_folder "#{HOME}/Dropbox",  "/home/vagrant/dropbox"
 
-    # provision scripts
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/base.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/git.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/shell.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/node.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/tmux.sh"
-    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/vim.sh"
+    # system specific provision scripts
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/tensorflow.sh"
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/latex.sh"
   end
