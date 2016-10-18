@@ -18,6 +18,7 @@ echo " "
 
 repos=(\
   react-colorpicker\
+  helic-resources\
 )
 
 for repo in "${repos[@]}"

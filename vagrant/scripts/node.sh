@@ -18,13 +18,3 @@ fi
 source "$nvm_path/nvm.sh"
 
 nvm install node
-
-echo " "
-echo "################"
-echo "# NPM PACKAGES #"
-echo "################"
-echo " "
-
-# sudo npm install -g trash-cli
-# sudo npm install -g eslint
-# sudo npm install -g stylelint

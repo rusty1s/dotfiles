@@ -1,0 +1,3 @@
+#!/bin/bash
+
+defaults read com.googlecode.iterm2

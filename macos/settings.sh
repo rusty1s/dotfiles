@@ -115,6 +115,84 @@ defaults write com.apple.TextEdit RichText -int 0
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
+echo ""
+echo "Would you like to set your computer name (as done via System Preferences >> Sharing)?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+echo "What would you like it to be?"
+read COMPUTER_NAME
+sudo scutil --set ComputerName $COMPUTER_NAME
+sudo scutil --set HostName $COMPUTER_NAME
+sudo scutil --set LocalHostName $COMPUTER_NAME
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
+fi
+
+echo ""
+echo "Hide the Time Machine, Volume, User, and Bluetooth icons?  (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+# Get the system Hardware UUID and use it for the next menubar stuff
+for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+defaults write "${domain}" dontAutoLoad -array \
+"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+"/System/Library/CoreServices/Menu Extras/Volume.menu" \
+"/System/Library/CoreServices/Menu Extras/User.menu"
+done
+
+defaults write com.apple.systemuiserver menuExtras -array \
+"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+"/System/Library/CoreServices/Menu Extras/Battery.menu" \
+"/System/Library/CoreServices/Menu Extras/Clock.menu"
+fi
+
+echo ""
+echo "Hide the Spotlight icon? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+fi
+
+echo ""
+echo "Check for software updates daily, not just once per week"
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+echo ""
+echo "Disable smart quotes and smart dashes? (y/n)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+fi
+
+echo ""
+echo "Disable Photos.app from starting everytime a device is plugged in"
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+echo "Wipe all (default) app icons from the Dock? (y/n)"
+echo "(This is only really useful when setting up a new Mac, or if you don't use the Dock to launch apps.)"
+read -r response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+defaults write com.apple.dock persistent-apps -array
+fi
+
+echo ""
+echo "Setting the icon size of Dock items to 36 pixels for optimal size/screen-realestate"
+defaults write com.apple.dock tilesize -int 36
+
+echo ""
+echo "Making Safari's search banners default to Contains instead of Starts With"
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
+
+# remove the auto-hide dock delay
+defaults write com.apple.Dock autohide-delay -float 0 && killall Dock
+
+# force all mail messages to display as plain text
+defaults write com.apple.mail PreferPlainText -bool true
+
 # todo: remap ctrl to caps
 # todo: remap private mode to ctrl+e in safari
 # todo: set computer name
+# set iterm.sh font
+# set iterm colorscheme
+# set profile picture

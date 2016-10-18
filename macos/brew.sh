@@ -6,7 +6,6 @@ if test ! $(which brew); then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   brew tap caskroom/cask
-  brew tap caskroom/fonts
 else
   echo "Updating homebrew..."
 
@@ -33,10 +32,3 @@ brew cask install chrome-devtools
 brew cask install spotify
 brew cask install dropbox
 brew cask install whatsapp
-
-brew cask install skype
-brew cask install league-of-legends
-
-echo "Installing homebrew cask fonts"
-
-brew cask install font-dejavu-sans-mono-for-powerline
