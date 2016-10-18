@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ ! -d "$HOME/svn" ]; then
+  echo "Abort: No svn repository found in $HOME/svn."
+  exit 0
+fi
+
+cd "$HOME/svn"
+mkdir -p "$HOME/svn/ftls"
+
+find "$HOME/svn" -path "*/ftl-admin/*/*.ftl"
