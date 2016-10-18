@@ -6,11 +6,14 @@ export VISUAL=vim
 
 export DOTFILES="$HOME/dotfiles"
 export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+export CATALINA_HOME="$HOME/tomcat"
 
 # adding path directory for custom scripts
 export PATH="$PATH:$DOTFILES/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$JAVA_HOME/bin"
+export PATH="$PATH:$CATALINA_HOME/bin"
 
 alias zshrc="vim $HOME/.zshrc"
 alias prezto="vim $HOME/.zpreztorc"
