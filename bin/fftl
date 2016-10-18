@@ -5,8 +5,8 @@ if [ ! -d "$HOME/svn" ]; then
   exit 0
 fi
 
-mkdir -p "$HOME/svn/ftls"
+mkdir -p "$HOME/svn/ftl-symlinks"
 
 for file in $(find "$HOME/svn" -path "*/ftl-admin/*.ftl"); do
-  ln -sf "$file" "$HOME/svn/ftls/$(basename $file)"
+  ln -sf "$file" "$HOME/svn/ftl-symlinks/$(basename $file)"
 done

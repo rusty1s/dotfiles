@@ -10,6 +10,8 @@ sudo apt-get install -y git
 
 ln -sf $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
 
+mkdir -p "$HOME/github"
+
 echo " "
 echo "################################"
 echo "# DOWNLOAD GITHUB REPOSITORIES #"
