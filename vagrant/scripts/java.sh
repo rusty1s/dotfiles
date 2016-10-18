@@ -19,4 +19,4 @@ echo " "
 sudo apt-get install -y maven
 
 mkdir -p "$HOME/.m2"
-ln -sf "$DOTFILES/maven/settings.xml" "$HOME/.m2/settings.xml"
+ln -sf "$DOTFILES/comline/m2-settings.xml" "$HOME/.m2/settings.xml"
