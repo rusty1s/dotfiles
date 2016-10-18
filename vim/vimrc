@@ -18,6 +18,12 @@ let g:gruvbox_contrast_dark='soft'
 " let g:solarized_term_italics=1
 
 " }}}
+" Git {{{
+
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" }}}
 " Basic settings {{{
 
 set nocompatible
@@ -69,11 +75,17 @@ augroup END
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
-" we need to remove some mappings so we can use <Leader>h without delay
-autocmd VimEnter * :unmap <Leader>hp
-autocmd VimEnter * :unmap <Leader>hr
-autocmd VimEnter * :unmap <Leader>hu
-autocmd VimEnter * :unmap <Leader>hs
+" we need to remove some mappings from fugitive so we can use <Leader>h 
+" without delay
+if isdirectory(g:plugs['vim-fugitive'].dir)
+  augroup remove_fugitive_h_mappings
+    autocmd!
+    autocmd VimEnter * :unmap <Leader>hp
+    autocmd VimEnter * :unmap <Leader>hr
+    autocmd VimEnter * :unmap <Leader>hu
+    autocmd VimEnter * :unmap <Leader>hs
+  augroup END
+endif
 
 function! WinMove(key)
   let t:curwin = winnr()
@@ -293,12 +305,6 @@ augroup trim
 augroup END
 
 " }}}
-" Git {{{
-
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" }}}
 " Finder {{{
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -336,7 +342,12 @@ nnoremap <Leader>m :History<CR>
 Plug 'neomake/neomake'
 Plug 'benjie/neomake-local-eslint.vim'
 
-autocmd BufWritePost,BufEnter * Neomake
+if isdirectory(g:plugs['neomake'].dir)
+  augroup linting
+    autocmd!
+    autocmd BufWritePost,BufEnter * Neomake
+  augroup END
+endif
 
 let g:neomake_javascript_enabled_makers=['eslint']
 let g:neomake_scss_enabled_makers=['stylelint']
