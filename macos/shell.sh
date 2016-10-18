@@ -2,13 +2,15 @@
 
 cd "$HOME"
 
-if [ ! -d "$HOME/dotfiles/.git" ]; then
-  rm -rf "$HOME/dotfiles"
-  git clone https://github.com/rusty1s/dotfiles "$HOME/dotfiles"
+if [ ! -d "$DOTFILES/.git" ]; then
+  rm -rf "$DOTFILES"
+  git clone https://github.com/rusty1s/dotfiles "$DOTFILES"
 else
-  cd "$HOME/dotfiles"
+  cd "$DOTFILES"
   git pull
 fi
 
-ln -sf "$HOME/dotfiles/shell/bash_profile" "$HOME/.bash_profile"
+ln -sf "$DOTFILES/shell/bash_profile" "$HOME/.bash_profile"
 source "$HOME/.bash_profile"
+
+ln -sf "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
