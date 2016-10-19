@@ -1,0 +1,6 @@
+tmux|tmux with italics,
+  ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@,
+  use=xterm+tmux, use=screen,
+
+tmux-256color|tmux with 256 colors and italics,
+  use=xterm-256color, use=tmux,

@@ -575,11 +575,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>1410 769 620 392 0 0 3440 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>291 766 796 473 0 0 3440 1417 </string>
+	<string>291 780 937 512 0 0 3440 1417 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>332 833 592 584 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1689 130 1270 1287 0 0 3440 1417 </string>
+	<string>1317 340 1010 1077 0 0 3440 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>536 4 1010 1077 0 0 3440 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_D7CA71B2-C051-4779-A9E5-1AEE843B84AD</key>
@@ -1371,7 +1371,7 @@
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1472649088</real>
+	<real>1476894720</real>
 	<key>UseBorder</key>
 	<false/>
 	<key>WordCharacters</key>
