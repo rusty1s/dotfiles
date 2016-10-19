@@ -8,12 +8,14 @@ call plug#begin('~/.vim/bundle')
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-wwdc16-theme'
 Plug 'rakr/vim-two-firewatch'
+Plug 'lifepillar/vim-solarized8'
 
 let g:gruvbox_contrast_dark='soft'
 
 let g:gruvbox_italic=1
 let g:wwdc16_term_italics=1
 let g:two_firewatch_italics=1
+let g:solarized_term_italics=1
 
 " }}}
 " Git {{{
@@ -360,7 +362,6 @@ call plug#end()
 " Colors {{{
 
 " true color with italic font support
-set term=xterm-256color-italic
 set termguicolors
 
 " disable Background Color Erase (BCE) so that color schemes render properly 
@@ -368,11 +369,11 @@ set termguicolors
 " see also http://snk.tuxfamily.org/log/vim-256color-bce
 set t_ut=
 
-set background=dark
+set background=light
 
-if isdirectory(g:plugs['gruvbox'].dir)
-  colorscheme gruvbox
-  let g:airline_theme='gruvbox'
+if isdirectory(g:plugs['vim-solarized8'].dir)
+  colorscheme solarized8_light
+  let g:airline_theme='twofirewatch'
 endif
 
 " }}}
