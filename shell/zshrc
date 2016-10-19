@@ -19,6 +19,8 @@ alias zshrc="vim $HOME/.zshrc"
 alias prezto="vim $HOME/.zpreztorc"
 alias reload="source $HOME/.zshrc"
 alias mvni="mvn clean install -DskipTests"
+alias tstart="$CATALINA_HOME/bin/startup.sh"
+alias tstop="$CATALINA_HOME/bin/shutdown.sh"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
