@@ -116,7 +116,7 @@ map <silent> <Leader>L :wincmd L<CR>
 " }}}
 " Navigating {{{
 
-set scrolloff=5
+set scrolloff=10
 set cursorline
 
 set number
