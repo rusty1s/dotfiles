@@ -12,9 +12,12 @@ curl -sSL https://get.rvm.io | bash -s stable --ruby
 source "$HOME/.rvm/scripts/rvm"
 
 echo " "
-echo "########"
-echo "# GEMS #"
-echo "########"
+echo "##############"
+echo "# TMUXINATOR #"
+echo "##############"
 echo " "
 
-gem install tmuxinator
+sudo gem install tmuxinator
+
+mkdir -p "$HOME/.tmuxinator"
+ln -sf "$DOTFILES/tmux/tmuxinator/dotfiles.yml" "$HOME/.tmuxinator/dotfiles.yml"
