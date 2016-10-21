@@ -23,12 +23,13 @@ brew cask install iterm2
 brew cask install virtualbox
 brew cask install vagrant
 
-brew cask install texpad
+# brew cask install texpad
 brew cask install tower
 
 brew cask install google-chrome
 brew cask install chrome-devtools
 
+brew cask install 1password
 brew cask install spotify
 brew cask install dropbox
 brew cask install whatsapp
