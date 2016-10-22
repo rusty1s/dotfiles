@@ -39,7 +39,7 @@ syntax enable
 set backspace=indent,eol,start
 set hidden
 set encoding=utf-8
-" set mouse=a
+set mouse=n
 
 " plugins
 Plug 'tpope/vim-surround'
