@@ -367,11 +367,11 @@ set termguicolors
 " see also http://snk.tuxfamily.org/log/vim-256color-bce
 set t_ut=
 
-set background=light
+set background=dark
 
 if isdirectory(g:plugs['vim-solarized8'].dir)
-  colorscheme solarized8_light
-  let g:airline_theme='twofirewatch'
+  colorscheme gruvbox
+  let g:airline_theme='gruvbox'
 endif
 
 " }}}
