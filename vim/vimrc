@@ -15,6 +15,10 @@ let g:wwdc16_term_italics=1
 let g:two_firewatch_italics=1
 let g:solarized_term_italics=1
 
+Plug 'Yggdroot/indentLine'
+" show cursorline above indent lines
+let g:indentLine_concealcursor=''
+
 " }}}
 " Git {{{
 
