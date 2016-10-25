@@ -277,7 +277,9 @@ set grepprg=rg\ --vimgrep
 " }}}
 " Completion {{{
 
+" recursively find files when typing :edit
 set path+=**
+
 set wildmenu
 set wildmode=longest:full,full
 
@@ -286,13 +288,19 @@ Plug 'SirVer/ultisnips'
 let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit='vertical'
 
-let g:UltiSnipsExpandTrigger='<c-d>'
+let g:UltiSnipsExpandTrigger='<Tab>'
 let g:UltiSnipsJumpForwardTrigger='<Tab>'
 let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
 
 nnoremap <Leader>u :UltiSnipsEdit<CR>
 
-Plug 'lifepillar/vim-mucomplete'
+function! UltiSnipsComplete(findstart, base)
+  echom UltiSnips#ListSnippets()
+endfunction
+
+" Plug 'lifepillar/vim-mucomplete'
+set completeopt=menu,menuone,preview,noinsert,noselect
+" set omnifunc=UltiSnipsComplete
 
 " }}}
 " Trim {{{
