@@ -58,7 +58,6 @@ let mapleader="\<Space>"
 
 " leaving insert mode via jk, disable <Esc> for training muscle memory
 inoremap jk <Esc>
-inoremap <Esc> <NOP>
 
 " insert a new line after the current line via <CR>
 nnoremap <CR> o<Esc>

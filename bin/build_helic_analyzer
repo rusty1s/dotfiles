@@ -1,0 +1,23 @@
+#!/bin/bash
+
+path="$HOME/svn/helic-analyzer"
+test_path="$path/tests/ha-test-integration"
+
+read -p "Do you want to rebuild helic analyzer? [y/N] " -n 1 -r
+echo
+
+if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+  echo "Updating and building project"
+  cd "$path"
+  svn update
+
+  # don't compile and run tests
+  mvn -Dmaven.test.skip=true clean install
+fi
+
+cd "$test_path"
+mvn clean install -DskipTests
+
+echo "Starting tomcat"
+cd "$test_path"
+mvn test -Dtest=FitNesseWikiSingleMandantFileDBStart
