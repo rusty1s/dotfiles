@@ -21,6 +21,7 @@ echo " "
 repos=(\
   react-colorpicker\
   helic-resources\
+  table2excel\
 )
 
 for repo in "${repos[@]}"

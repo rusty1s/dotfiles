@@ -21,3 +21,4 @@ cd "$HOME/svn"
 svn checkout https://subversion01/svn/fs_helic_base/helic-admin/trunk helic-admin
 svn checkout https://subversion01/svn/fs_helic_rc/helicrc/trunk helicrc
 svn checkout https://subversion01/svn/fs_helic_rc/solutions/trunk/postbank helicrc-solutions
+svn checkout https://subversion01/svn/fs_helicbilanz/trunk/ helic-analyzer

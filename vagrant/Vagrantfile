@@ -6,8 +6,8 @@ API_VERSION = "2"
 Vagrant.configure(API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.network :forwarded_port, guest: 8080, host: 8080
-  config.vm.network :forwarded_port, guest: 40000, host: 40000
+  config.vm.network :forwarded_port, guest: 8080, host: 8081
+  config.vm.network :forwarded_port, guest: 40000, host: 8082
   config.ssh.insert_key = false
 
   # configure proxy if necassary
@@ -49,6 +49,9 @@ Vagrant.configure(API_VERSION) do |config|
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/vim.sh"
 
   if HOST =~ /mswin|mingw|cygwin/
+    # system specific synced folders
+    config.vm.synced_folder "#{HOME}/svn",  "/home/vagrant/hostsvn"
+  
     # system specific provision scripts
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/svn.sh"
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/java.sh"
