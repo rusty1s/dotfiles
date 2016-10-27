@@ -49,9 +49,6 @@ Vagrant.configure(API_VERSION) do |config|
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/vim.sh"
 
   if HOST =~ /mswin|mingw|cygwin/
-    # system specific synced folders
-    config.vm.synced_folder "#{HOME}/svn",  "/home/vagrant/hostsvn"
-  
     # system specific provision scripts
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/svn.sh"
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/java.sh"
