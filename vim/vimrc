@@ -165,6 +165,21 @@ nmap <Leader>8 <Plug>AirlineSelectTab8
 nmap <Leader>9 <Plug>AirlineSelectTab9
 
 " }}}
+" Indentation {{{
+
+set expandtab      " causes spaces to be used in place of tab characters
+
+set tabstop=2      " specifies the width of a tab character
+set softtabstop=2  " fine tune the amount of whitespace to be inserted
+set shiftwidth=2   " controls how many columns text is indented with << and >>
+
+set autoindent     " copy indent from current line when starting a new line
+set smartindent    " smarter indent for C-like languages
+
+set list           " show invisible tab and trailing whitespace characters
+set listchars=tab:▸\ ,trail:•
+
+" }}}
 " Vimscript file settings {{{
 
 augroup filetype_vim
@@ -225,25 +240,23 @@ augroup END
 let g:tex_flavor="latex"
 
 " }}}
+" Python file settings {{{
+
+Plug 'vim-scripts/indentpython.vim'
+
+" augroup filetype_python
+"   autocmd!
+"   autocmd FileType python setlocal ts=4 sw=4
+"         " \ setlocal tabstop=4
+"         " \ setlocal softtabstop=4
+"         " \ setlocal shiftwidth=4
+" augroup END
+
+" }}}
 " Tags {{{
 
 Plug 'alvan/vim-closetag'
 let g:closetag_filenames='*.html,*.xml,*.jsx'
-
-" }}}
-" Indentation {{{
-
-set expandtab      " causes spaces to be used in place of tab characters
-
-set tabstop=2      " specifies the width of a tab character
-set softtabstop=2  " fine tune the amount of whitespace to be inserted
-set shiftwidth=2   " controls how many columns text is indented with << and >>
-
-set autoindent     " copy indent from current line when starting a new line
-set smartindent    " smarter indent for C-like languages
-
-set list           " show invisible tab and trailing whitespace characters
-set listchars=tab:▸\ ,trail:•
 
 " }}}
 " Wrapping {{{

@@ -17,6 +17,7 @@ export PATH="$PATH:$CATALINA_HOME/bin"
 
 alias zshrc="vim $HOME/.zshrc"
 alias prezto="vim $HOME/.zpreztorc"
+alias vimrc="vim $HOME/.vim/vimrc"
 alias reload="source $HOME/.zshrc"
 alias mvni="mvn clean install -DskipTests"
 alias tstart="$CATALINA_HOME/bin/startup.sh"
