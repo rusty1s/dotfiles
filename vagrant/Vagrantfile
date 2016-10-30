@@ -8,6 +8,8 @@ Vagrant.configure(API_VERSION) do |config|
 
   config.vm.network :forwarded_port, guest: 8080, host: 8081
   config.vm.network :forwarded_port, guest: 40000, host: 8082
+  config.vm.network :forwarded_port, guest: 6006, host: 6006
+
   config.ssh.insert_key = false
 
   # configure proxy if necassary
@@ -39,6 +41,7 @@ Vagrant.configure(API_VERSION) do |config|
 
   # synced folders
   config.vm.synced_folder "#{DOTFILES}", "/home/vagrant/dotfiles"
+  config.vm.synced_folder "shared/",     "/home/vagrant/shared",   create: true
 
   # provision scripts
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/base.sh"
