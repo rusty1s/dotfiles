@@ -238,6 +238,7 @@ augroup END
 " Latex file settings {{{
 
 let g:tex_flavor="latex"
+set conceallevel=0
 
 " }}}
 " Python file settings {{{
