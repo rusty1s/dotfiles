@@ -22,6 +22,7 @@ repos=(\
   react-colorpicker\
   helic-resources\
   table2excel\
+  deep-learning\
 )
 
 for repo in "${repos[@]}"
