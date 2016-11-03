@@ -1,0 +1,12 @@
+#!/bin/bash
+
+path="$HOME/svn/helic-admin"
+
+echo "Updating and building project"
+cd "$path"
+svn update
+mvn clean install -DskipTests
+
+echo "Starting tomcat"
+cd "$path/helic-admin-test-integration"
+mvn clean install -Dtest=FitNesseWikiStart

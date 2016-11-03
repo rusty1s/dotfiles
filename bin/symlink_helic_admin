@@ -1,8 +1,8 @@
 #!/bin/bash
 
-path="$HOME/svn/helic-analyzer"
-test_path="$path/tests/ha-test-integration"
-tomcat_path="$test_path/target/tomcat/webapps/helicAnalyzer/META-INF"
+path="$HOME/svn/helic-admin"
+test_path="$path/helic-admin-test-integration"
+tomcat_path="$test_path/target/tomcat/webapps/helicSolutionBase/META-INF"
 resource_path="$HOME/svn/helic-admin/helic-admin/src/main/resources/META-INF/web/dist"
 
 echo "Updating ftl symlinks"
