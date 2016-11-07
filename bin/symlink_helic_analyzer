@@ -3,11 +3,12 @@
 path="$HOME/svn/helic-analyzer"
 test_path="$path/tests/ha-test-integration"
 tomcat_path="$test_path/target/tomcat/webapps/helicAnalyzer/META-INF"
-resource_path="$HOME/svn/helic-admin/helic-admin/src/main/resources/META-INF/web/dist"
+resource_path="$HOME/svn/helic-admin/helic-admin/src/main/resources/META-INF/resources/dist"
 
 echo "Updating ftl symlinks"
 fftl
 
 echo "Symlink pages and resources"
 ln -sf "$HOME/svn/ftl-symlinks" "$tomcat_path/ftl-admin"
-ln -sf "$resource_path" "$tomcat_path/resources"
+rm -rf "$tomcat_path/dist"
+cp -r "$resource_path" "$tomcat_path/dist"

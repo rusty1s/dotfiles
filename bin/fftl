@@ -5,8 +5,18 @@ if [ ! -d "$HOME/svn" ]; then
   exit 0
 fi
 
+rm -rf "$HOME/svn/ftl-symlinks"
 mkdir -p "$HOME/svn/ftl-symlinks"
 
-for file in $(find "$HOME/svn" -path "*/ftl-admin/*.ftl"); do
-  ln -sf "$file" "$HOME/svn/ftl-symlinks/$(basename $file)"
+for dir in $(find "$HOME/svn" -path "*/ftl-admin"); do
+  for file in $(find "$dir" -path "*.ftl"); do
+    subdir=$(echo $(dirname $file) | sed 's/.*\(ftl-admin\)/\1/g' | cut -d'/' -f2-)
+
+    if [ "$subdir" != "ftl-admin" ]; then
+      mkdir -p "$HOME/svn/ftl-symlinks/$subdir"
+      ln -sf "$file" "$HOME/svn/ftl-symlinks/$subdir/$(basename $file)"
+    else
+      ln -sf "$file" "$HOME/svn/ftl-symlinks/$(basename $file)"
+    fi
+  done
 done
