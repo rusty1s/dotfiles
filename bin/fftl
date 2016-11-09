@@ -8,10 +8,14 @@ fi
 rm -rf "$HOME/svn/ftl-symlinks"
 mkdir -p "$HOME/svn/ftl-symlinks"
 
+# iterate over all ftl-admin directories
 for dir in $(find "$HOME/svn" -path "*/ftl-admin"); do
+  # iterate over all *.ftls in ftl-admin recursivly
   for file in $(find "$dir" -path "*.ftl"); do
+    # find the subdirs after ftl-admin
     subdir=$(echo $(dirname $file) | sed 's/.*\(ftl-admin\)/\1/g' | cut -d'/' -f2-)
 
+    # symlink to the right folders
     if [ "$subdir" != "ftl-admin" ]; then
       mkdir -p "$HOME/svn/ftl-symlinks/$subdir"
       ln -sf "$file" "$HOME/svn/ftl-symlinks/$subdir/$(basename $file)"
