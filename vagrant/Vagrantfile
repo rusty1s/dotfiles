@@ -48,6 +48,7 @@ Vagrant.configure(API_VERSION) do |config|
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/base.sh"
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/git.sh"
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/shell.sh"
+  config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/python.sh"
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/node.sh"
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/tmux.sh"
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/vim.sh"
@@ -62,6 +63,7 @@ Vagrant.configure(API_VERSION) do |config|
 
     # system specific provision scripts
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/tensorflow.sh"
+    config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/nauty.sh"
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/latex.sh"
   end
 
