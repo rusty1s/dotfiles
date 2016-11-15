@@ -10,5 +10,6 @@ fftl
 
 echo "Symlink pages and resources"
 ln -sf "$HOME/svn/ftl-symlinks" "$tomcat_path/ftl-admin"
-rm -rf "$tomcat_path/dist"
-cp -r "$resource_path" "$tomcat_path/dist"
+rm -rf "$tomcat_path/resources"
+mkdir -p "$tomcat_path/resources"
+cp -r "$resource_path" "$tomcat_path/resources/dist"
