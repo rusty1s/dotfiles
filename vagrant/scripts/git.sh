@@ -19,10 +19,10 @@ echo "################################"
 echo " "
 
 repos=(\
-  react-colorpicker\
   helic-resources\
   table2excel\
   deep-learning\
+  graph-based-image-classification\
 )
 
 for repo in "${repos[@]}"
