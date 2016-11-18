@@ -45,7 +45,6 @@ set hidden
 set encoding=utf-8
 set mouse=n
 
-" plugins
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
@@ -218,10 +217,12 @@ augroup END
 
 augroup filetype_json
   autocmd!
-  autocmd BufNewFile,BufRead .babelrc setfiletype json
-  autocmd BufNewFile,BufRead .eslintrc setfiletype json
-  autocmd BufNewFile,BufRead .stylelintrc setfiletype json
-  autocmd BufNewFile,BufRead .tern-project setfiletype json
+  autocmd BufNewFile,BufRead
+        \ .babelrc,
+        \ .eslintrc,
+        \ .stylelintrc,
+        \ .tern-project
+        \ setfiletype json
 augroup END
 
 Plug 'elzr/vim-json'
@@ -242,15 +243,10 @@ let g:tex_flavor="latex"
 " }}}
 " Python file settings {{{
 
-Plug 'vim-scripts/indentpython.vim'
-
-" augroup filetype_python
-"   autocmd!
-"   autocmd FileType python setlocal ts=4 sw=4
-"         " \ setlocal tabstop=4
-"         " \ setlocal softtabstop=4
-"         " \ setlocal shiftwidth=4
-" augroup END
+augroup filetype_python
+  autocmd!
+  autocmd FileType python setlocal colorcolumn=80
+augroup END
 
 " }}}
 " Tags {{{
@@ -270,7 +266,8 @@ set wrapmargin=2
 set textwidth=79
 
 " setting formatoptions shouldn't be overriden by a filetype plugin
-autocmd FileType * setlocal formatoptions=roqwacnj
+" http://stackoverflow.com/questions/6076592/vim-set-formatoptions-being-lost
+autocmd BufNewFile,BufWinEnter * setlocal formatoptions=roqwacnj
 
 " }}}
 " Searching {{{
