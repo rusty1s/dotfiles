@@ -12,6 +12,7 @@ export CATALINA_HOME="$HOME/tomcat"
 export PATH="$PATH:$DOTFILES/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.miniconda/bin"
 export PATH="$PATH:$JAVA_HOME/bin"
 export PATH="$PATH:$CATALINA_HOME/bin"
 
