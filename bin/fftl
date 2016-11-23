@@ -5,8 +5,21 @@ if [ ! -d "$HOME/svn" ]; then
   exit 0
 fi
 
-rm -rf "$HOME/svn/ftl-symlinks"
 mkdir -p "$HOME/svn/ftl-symlinks"
+
+while [[ $# -gt 0 ]]; do
+  key="$1"
+
+  case $key in
+    -c|--clear)
+      rm -rf "$HOME/svn/ftl-symlinks/*"
+      ;;
+    *)
+      ;;
+  esac
+
+  shift
+done
 
 # iterate over all ftl-admin directories
 for dir in $(find "$HOME/svn" -path "*/ftl-admin"); do

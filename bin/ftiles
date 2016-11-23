@@ -5,8 +5,21 @@ if [ ! -d "$HOME/svn" ]; then
   exit 0
 fi
 
-rm -rf "$HOME/svn/tiles-symlinks"
 mkdir -p "$HOME/svn/tiles-symlinks"
+
+while [[ $# -gt 0 ]]; do
+  key="$1"
+
+  case $key in
+    -c|--clear)
+      rm -rf "$HOME/svn/tiles-symlinks/*"
+      ;;
+    *)
+      ;;
+  esac
+
+  shift
+done
 
 for file in $(find "$HOME/svn" -path "*/META-INF/conf/*-tiles.xml"); do
   ln -sf "$file" "$HOME/svn/tiles-symlinks/$(basename $file)"
