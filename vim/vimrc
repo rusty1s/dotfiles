@@ -108,10 +108,10 @@ map <silent> <Leader>k :call WinMove('k')<CR>
 map <silent> <Leader>l :call WinMove('l')<CR>
 
 " use <Leader>H,J,K,L to swap windows
-map <silent> <Leader>H :wincmd H<CR>
-map <silent> <Leader>J :wincmd J<CR>
-map <silent> <Leader>K :wincmd K<CR>
-map <silent> <Leader>L :wincmd L<CR>
+map <silent> <Leader>H :vertical :resize +5<CR>
+map <silent> <Leader>J :resize -5<CR>
+map <silent> <Leader>K :resize +5<CR>
+map <silent> <Leader>L :vertical :resize -5<CR>
 
 " }}}
 " Navigating {{{
