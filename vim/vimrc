@@ -194,10 +194,7 @@ set breakindent
 
 " autowrap comments at the 79th column mark
 set textwidth=79
-
-" setting formatoptions shouldn't be overriden by a filetype plugin
-" http://stackoverflow.com/questions/6076592/vim-set-formatoptions-being-lost
-autocmd BufNewFile,BufRead,BufWinEnter * setlocal formatoptions=rqwacnj
+set formatoptions=rqwacnj
 
 " }}}
 " Searching {{{
@@ -370,15 +367,6 @@ let g:tex_flavor="latex"
 augroup filetype_python
   autocmd!
   autocmd FileType python setlocal colorcolumn=80
-augroup END
-
-" }}}
-" Markdown file settings {{{
-
-augroup filetype_markdown
-  autocmd!
-  autocmd BufNewFile,BufRead,BufWinEnter *.md setlocal formatoptions=
-  autocmd FileType markdown setlocal nowrap
 augroup END
 
 " }}}

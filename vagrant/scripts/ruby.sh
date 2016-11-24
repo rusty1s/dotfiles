@@ -21,3 +21,11 @@ sudo gem install tmuxinator
 
 mkdir -p "$HOME/.tmuxinator"
 ln -sf "$DOTFILES/tmux/tmuxinator/dotfiles.yml" "$HOME/.tmuxinator/dotfiles.yml"
+
+echo " "
+echo "########"
+echo "# GEMS #"
+echo "########"
+echo " "
+
+sudo gem install mdl
