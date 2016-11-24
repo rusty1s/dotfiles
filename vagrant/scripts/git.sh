@@ -20,6 +20,7 @@ echo " "
 
 repos=(\
   helic-resources\
+  helic-react-config \
   table2excel\
   deep-learning\
   graph-based-image-classification\

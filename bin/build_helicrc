@@ -8,15 +8,6 @@ cd "$path"
 svn update
 mvn clean install -DskipTests
 
-if [ -d "$CATALINA_HOME/webapps/$name" ]; then
-  echo "Deleting old tomcat project dir"
-  sudo rm -rf "$CATALINA_HOME/webapps/$name"
-fi
-
-if [ -f "$CATALINA_HOME/webapps/$name.war" ]; then
-  echo "Deleting old tomcat project war file"
-  sudo rm "$CATALINA_HOME/webapps/$name.war"
-fi
-
-echo "Copying new project to tomcat webapps"
-sudo cp "$path/solutions/helicrc-solution-test/target/$name.war" "$CATALINA_HOME/webapps"
+echo "Starting tomcat"
+cd "$path/tests/helicrc-test-integration"
+mvn clean install -Dtest=FitNesseWikiStart
