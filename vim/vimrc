@@ -108,10 +108,10 @@ map <silent> <Leader>k :call WinMove('k')<CR>
 map <silent> <Leader>l :call WinMove('l')<CR>
 
 " use <Leader>H,J,K,L to swap windows
-map <silent> <Leader>H :wincmd H<CR>
-map <silent> <Leader>J :wincmd J<CR>
-map <silent> <Leader>K :wincmd K<CR>
-map <silent> <Leader>L :wincmd L<CR>
+map <silent> <Leader>H :vertical :resize +5<CR>
+map <silent> <Leader>J :resize -5<CR>
+map <silent> <Leader>K :resize +5<CR>
+map <silent> <Leader>L :vertical :resize -5<CR>
 
 " }}}
 " Navigating {{{
@@ -179,76 +179,6 @@ set list           " show invisible tab and trailing whitespace characters
 set listchars=tab:▸\ ,trail:•
 
 " }}}
-" Vimscript file settings {{{
-
-augroup filetype_vim
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
-  autocmd FileType vim setlocal colorcolumn=80
-augroup END
-
-" }}}
-" Javascript file settings {{{
-
-augroup filetype_javascript
-  autocmd!
-  autocmd FileType javascript setlocal colorcolumn=80
-augroup END
-
-Plug 'othree/yajs.vim'
-Plug 'mxw/vim-jsx'
-
-" }}}
-" CSS file settings {{{
-
-Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim'
-
-" }}}
-" HTML file settings {{{
-
-augroup filetype_html
-  autocmd!
-  autocmd BufNewFile,BufRead *.ftl setfiletype html
-augroup END
-
-" }}}
-" JSON file settings {{{
-
-augroup filetype_json
-  autocmd!
-  autocmd BufNewFile,BufRead
-        \ .babelrc,
-        \ .eslintrc,
-        \ .stylelintrc,
-        \ .tern-project
-        \ setfiletype json
-augroup END
-
-Plug 'elzr/vim-json'
-
-" }}}
-" Ruby file settings {{{
-
-augroup filetype_ruby
-  autocmd!
-  autocmd BufNewFile,BufRead Vagrantfile setfiletype ruby
-augroup END
-
-" }}}
-" Latex file settings {{{
-
-let g:tex_flavor="latex"
-
-" }}}
-" Python file settings {{{
-
-augroup filetype_python
-  autocmd!
-  autocmd FileType python setlocal colorcolumn=80
-augroup END
-
-" }}}
 " Tags {{{
 
 Plug 'alvan/vim-closetag'
@@ -260,14 +190,14 @@ let g:closetag_filenames='*.html,*.xml,*.jsx'
 set wrap
 set showbreak=…
 set linebreak
-set wrapmargin=2
+set breakindent
 
 " autowrap comments at the 79th column mark
 set textwidth=79
 
 " setting formatoptions shouldn't be overriden by a filetype plugin
 " http://stackoverflow.com/questions/6076592/vim-set-formatoptions-being-lost
-autocmd BufNewFile,BufWinEnter * setlocal formatoptions=roqwacnj
+autocmd BufNewFile,BufRead,BufWinEnter * setlocal formatoptions=rqwacnj
 
 " }}}
 " Searching {{{
@@ -373,6 +303,83 @@ endif
 let g:neomake_javascript_enabled_makers=['eslint']
 let g:neomake_scss_enabled_makers=['stylelint']
 let g:neomake_css_enabled_makers=['stylelint']
+
+" }}}
+" Vimscript file settings {{{
+
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+  autocmd FileType vim setlocal colorcolumn=80
+augroup END
+
+" }}}
+" Javascript file settings {{{
+
+augroup filetype_javascript
+  autocmd!
+  autocmd FileType javascript setlocal colorcolumn=80
+augroup END
+
+Plug 'othree/yajs.vim'
+Plug 'mxw/vim-jsx'
+
+" }}}
+" CSS file settings {{{
+
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
+
+" }}}
+" HTML file settings {{{
+
+augroup filetype_html
+  autocmd!
+  autocmd BufNewFile,BufRead *.ftl setfiletype html
+augroup END
+
+" }}}
+" JSON file settings {{{
+
+augroup filetype_json
+  autocmd!
+  autocmd BufRead .babelrc setfiletype json
+  autocmd BufRead .eslintrc setfiletype json
+  autocmd BufRead .stylelintrc setfiletype json
+  autocmd BufRead .tern-project setfiletype json
+augroup END
+
+Plug 'elzr/vim-json'
+
+" }}}
+" Ruby file settings {{{
+
+augroup filetype_ruby
+  autocmd!
+  autocmd BufNewFile,BufRead Vagrantfile setfiletype ruby
+augroup END
+
+" }}}
+" Latex file settings {{{
+
+let g:tex_flavor="latex"
+
+" }}}
+" Python file settings {{{
+
+augroup filetype_python
+  autocmd!
+  autocmd FileType python setlocal colorcolumn=80
+augroup END
+
+" }}}
+" Markdown file settings {{{
+
+augroup filetype_markdown
+  autocmd!
+  autocmd BufNewFile,BufRead,BufWinEnter *.md setlocal formatoptions=
+  autocmd FileType markdown setlocal nowrap
+augroup END
 
 " }}}
 " Plugin Manager End {{{
