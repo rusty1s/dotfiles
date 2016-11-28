@@ -12,7 +12,7 @@ select opt in "${options[@]}"
 do
   case $opt in
     "New session")
-      read -p "Enter new session name: " SESSION_NAME
+      read -p "Enter new session name: " SESSION_NAME -r
       tmux new -s "$SESSION_NAME"
       break;;
     *)
