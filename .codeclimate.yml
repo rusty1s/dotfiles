@@ -1,0 +1,34 @@
+engines:
+  vint:
+    enabled: true
+  shellcheck:
+    enabled: true
+  reek:
+    enabled: true
+  markdownlint:
+    enabled: true
+  rubocop:
+    enabled: true
+  radon:
+    enabled: true
+  pep8:
+    enabled: true
+  fixme:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        ruby:
+        python:
+ratings:
+  paths:
+    - "vim/vimrc"
+    - "vagrant/Vagrantfile"
+    - "**.sh"
+    - "**.vim"
+    - "**.md"
+    - "**.rb"
+    - "**.py"
+    - "bin/**"
+    - "shell/**"
