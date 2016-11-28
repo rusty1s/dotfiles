@@ -16,16 +16,16 @@ sudo apt-get install -y python3-dev lua5.1 lua5.1-dev
 if [ ! -d "$HOME/.sources/vim" ]; then
   git clone https://github.com/vim/vim.git "$HOME/.sources/vim"
 else
-  cd "$HOME/.sources/vim"
+  cd "$HOME/.sources/vim" || exit
   git pull
 fi
 
-cd "$HOME/.sources/vim"
+cd "$HOME/.sources/vim" || exit
 ./configure \
   --with-features=huge \
   --enable-multibyte \
   --enable-python3interp \
-  --with-python-config-dir=$(shell python3-config --configdir) \
+  --with-python-config-dir="$(shell python3-config --configdir)" \
   --enable-luainterp \
 
 sudo make install

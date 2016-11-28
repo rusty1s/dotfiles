@@ -31,7 +31,7 @@ do
   if [ ! -d "$HOME/github/$repo" ]; then
     git clone "git@github.com:rusty1s/$repo.git" "$HOME/github/$repo"
   else
-    cd "$HOME/github/$repo"
+    cd "$HOME/github/$repo" || exit
     git pull
   fi
 done
