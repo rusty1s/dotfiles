@@ -370,6 +370,17 @@ augroup filetype_python
 augroup END
 
 " }}}
+" Markdown file settings {{{
+
+augroup filetype_markdown
+  autocmd!
+  autocmd FileType markdown setlocal colorcolumn=80
+augroup END
+
+Plug 'dhruvasagar/vim-table-mode'
+let g:table_mode_corner="|"
+
+" }}}
 " Plugin Manager End {{{
 
 call plug#end()
