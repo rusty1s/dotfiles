@@ -1,0 +1,11 @@
+#!/bin/bash
+
+read -p "Enter your email address: " -r
+echo $REPLY
+
+ssh-keygen -t rsa -b 4096 -C "$REPLY"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+cp "$HOME/.ssh/id_rsa.pub" "$HOME/shared/id_rsa.pub"
+
+echo "Add your new SSH key to your GitHub account (Settings > SSH and GPG keys)"
