@@ -21,6 +21,6 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-for file in $(find "$HOME/svn" -path "*/META-INF/conf/*-tiles.xml"); do
+find "$HOME/svn" -path "*/META-INF/conf/*-tiles.xml" | while read file; do
   ln -sf "$file" "$HOME/svn/tiles-symlinks/$(basename "$file")"
 done
