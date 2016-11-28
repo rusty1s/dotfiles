@@ -1,3 +1,5 @@
 [user]
   name = "rusty1s"
   email = matthias.fey@tu-dortmund.de
+[push]
+  default = simple
