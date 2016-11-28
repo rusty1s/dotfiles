@@ -1,6 +1,8 @@
-# Default Keybindings
+# Vim
 
-## Default Keybidnings in Normal mode
+## Default Keybindings
+
+### Default Keybidnings in Normal mode
 
 * `i`: Enters insert mode.
 * `h`, `j`, `k`, `l`: Moves the cursor left, down, up, right.
@@ -12,15 +14,15 @@
 * `F` `character`: Like `f`, but searches backwards.
 * `%`: Jumps between the nearest (), [] or {} characters on the line.
 
-## Default Keybindings Insert mode
+### Default Keybindings Insert mode
 
 * `Esc`: Leaves insert mode.
 
-# Custom Keybindings
+## Custom Keybindings
 
 `Space` is configured as the vim Leader command.
 
-## Custom Keybindings in Normal mode
+### Custom Keybindings in Normal mode
 
 * `Leader` `u`: Opens UltiSnips editing file.
 * `Enter`: Insers a new line after the current line.
@@ -31,7 +33,7 @@
 * `Leader` `+`, `-`: Iterates forwards/backwards through the buffer list.
 * `Ctrl`+`Space`: Toggles NERDTree.
 
-## Custom Keybindings in Insert mode
+### Custom Keybindings in Insert mode
 
 * `Ctrl`+`q`: Expands UltiSnips snippet if no completion menu is provided.
 * `Tab`, `Shift`+`Tab`: Iterates forwards/backwards through the completion
