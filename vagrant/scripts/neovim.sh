@@ -16,7 +16,7 @@ else
   git pull
 fi
 
-cd "$HOME/.sources/neovim"
+cd "$HOME/.sources/neovim" || exit
 make cmake
 cmake
 sudo make install

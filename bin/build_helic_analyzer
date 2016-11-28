@@ -8,16 +8,16 @@ echo
 
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
   echo "Updating and building project"
-  cd "$path"
+  cd "$path" || exit
   svn update
 
   # don't compile and run tests
   mvn -Dmaven.test.skip=true clean install
 fi
 
-cd "$test_path"
+cd "$test_path" || exit
 mvn clean install -DskipTests
 
 echo "Starting tomcat"
-cd "$test_path"
+cd "$test_path" || exit
 mvn test -Dtest=FitNesseWikiSingleMandantFileDBStart

@@ -31,7 +31,7 @@ tomcat_dir="apache-tomcat-9.0.0.M11"
 
 sudo apt-get install -y tar
 
-cd "$HOME"
+cd "$HOME" || exit
 wget "http://www.us.apache.org/dist/tomcat/tomcat-9/v9.0.0.M11/bin/$tomcat_dir.tar.gz"
 tar xzf "$tomcat_dir.tar.gz"
 rm "$tomcat_dir.tar.gz"

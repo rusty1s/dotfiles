@@ -4,7 +4,7 @@ path="$HOME/svn/helicrc-solutions/helicrc-solution-proceed"
 name="helicrc_proceed"
 
 echo "Updating and building project"
-cd "$path"
+cd "$path" || exit
 svn update
 mvn clean install -DskipTests
 

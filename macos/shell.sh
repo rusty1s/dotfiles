@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-cd "$HOME"
+cd "$HOME" || exit
 
 if [ ! -d "$DOTFILES/.git" ]; then
   rm -rf "$DOTFILES"
