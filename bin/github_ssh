@@ -1,7 +1,6 @@
 #!/bin/bash
 
 read -p "Enter your email address: " -r
-echo $REPLY
 
 ssh-keygen -t rsa -b 4096 -C "$REPLY"
 eval "$(ssh-agent -s)"
