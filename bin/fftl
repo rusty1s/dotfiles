@@ -22,9 +22,9 @@ while [[ $# -gt 0 ]]; do
 done
 
 # iterate over all ftl-admin directories
-find "$HOME/svn" -path "*/ftl-admin" | while read dir; do
+find "$HOME/svn" -path "*/ftl-admin" | while read -r dir; do
   # iterate over all *.ftls in ftl-admin recursivly
-  find "$dir" -path "*.ftl" | while read file; do
+  find "$dir" -path "*.ftl" | while read -r file; do
     # delete everything before the first folder or file after ftl-admin
     subdir=$(dirname $(sed 's/.*\/ftl-admin\///g' <<< "$file"))
 
