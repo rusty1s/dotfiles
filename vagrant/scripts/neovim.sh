@@ -23,12 +23,10 @@ sudo make install
 
 # symlinks
 mkdir -p "$HOME/.config/nvim"
-ln -sf "$HOME/dotfiles/vim/init.vim" "$HOME/.config/nvim/init.vim"
+ln -sf "$HOME/dotfiles/vim/vimrc" "$HOME/.config/nvim/init.vim"
 ln -sf "$HOME/dotfiles/vim/tern-project" "$HOME/.tern-project"
 ln -sf "$HOME/dotfiles/vim/UltiSnips" "$HOME/.config/nvim/UltiSnips"
 
 # plugin manager
 mkdir -p "$HOME/.config/nvim/autoload"
 curl -Lso "$HOME/.config/nvim/autoload/plug.vim" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-nvim +PlugInstall! +qall

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo " "
 echo "########"
@@ -10,7 +10,7 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 # shellcheck source=/dev/null
-. "$HOME/.rvm/scripts/rvm"
+source "$HOME/.rvm/scripts/rvm"
 
 echo " "
 echo "##############"
@@ -21,7 +21,7 @@ echo " "
 sudo gem install tmuxinator
 
 mkdir -p "$HOME/.tmuxinator"
-ln -sf "$DOTFILES/tmux/tmuxinator/dotfiles.yml" "$HOME/.tmuxinator/dotfiles.yml"
+ln -sf "$HOME/dotfiles/tmux/tmuxinator/dotfiles.yml" "$HOME/.tmuxinator/dotfiles.yml"
 
 echo " "
 echo "########"

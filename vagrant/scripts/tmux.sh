@@ -27,4 +27,4 @@ sudo make
 sudo cp tmux /usr/local/bin/tmux
 
 # symlinks
-ln -sf "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.tmux.conf"

@@ -9,7 +9,9 @@ echo " "
 sudo apt-get install -y zsh/trusty-backports
 sudo chsh -s "$(which zsh)" "$(whoami)"
 
-ln -sf "$DOTFILES/shell/zshrc" "$HOME/.zshrc"
+rm -rf "$HOME/.bashrc"
+rm -rf "$HOME/.bash_logout"
+ln -sf "$HOME/dotfiles/shell/zshrc" "$HOME/.zshrc"
 
 echo " "
 echo "###########"
@@ -25,7 +27,7 @@ else
   git submodule update --recursive
 fi
 
-ln -sf "$DOTFILES/shell/zpreztorc" "$HOME/.zpreztorc"
+ln -sf "$HOME/dotfiles/shell/zpreztorc" "$HOME/.zpreztorc"
 
 echo " "
 echo "###########"

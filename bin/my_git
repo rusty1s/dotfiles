@@ -1,0 +1,21 @@
+#!/bin/bash
+
+mkdir -p "$HOME/github"
+
+repos=(\
+  helic-resources\
+  helic-react-config \
+  table2excel\
+  deep-learning\
+  graph-based-image-classification\
+)
+
+for repo in "${repos[@]}"
+do
+  if [ ! -d "$HOME/github/$repo" ]; then
+    git clone "git@github.com:rusty1s/$repo.git" "$HOME/github/$repo"
+  else
+    cd "$HOME/github/$repo" || exit
+    git pull
+  fi
+done

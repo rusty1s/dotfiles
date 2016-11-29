@@ -59,7 +59,7 @@ Vagrant.configure(API_VERSION) do |config|
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/java.sh"
   else
     # system specific synced folders
-    config.vm.synced_folder "#{HOME}/Dropbox",  "/home/vagrant/dropbox"
+    config.vm.synced_folder "#{HOME}/Dropbox", "/home/vagrant/dropbox"
 
     # system specific provision scripts
     config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/tensorflow.sh"
