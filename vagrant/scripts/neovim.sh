@@ -12,11 +12,11 @@ sudo apt-get install -y python-dev python-pip python3-dev python3-pip
 if [ ! -d "$HOME/.sources/neovim" ]; then
   git clone https://github.com/neovim/neovim.git "$HOME/.sources/neovim"
 else
-  cd "$HOME/.sources/neovim"
+  cd "$HOME/.sources/neovim" || exit
   git pull
 fi
 
-cd "$HOME/.sources/neovim"
+cd "$HOME/.sources/neovim" || exit
 make cmake
 cmake
 sudo make install

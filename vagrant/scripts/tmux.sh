@@ -15,11 +15,11 @@ sudo apt-get install -y libevent-dev libncurses-dev build-essential
 if [ ! -d "$HOME/.sources/tmux" ]; then
   git clone https://github.com/tmux/tmux.git "$HOME/.sources/tmux"
 else
-  cd "$HOME/.sources/tmux"
+  cd "$HOME/.sources/tmux" || exit
   git pull
 fi
 
-cd "$HOME/.sources/tmux"
+cd "$HOME/.sources/tmux" || exit
 sudo sh autogen.sh
 sudo ./configure
 sudo make

@@ -29,9 +29,9 @@ repos=(\
 for repo in "${repos[@]}"
 do
   if [ ! -d "$HOME/github/$repo" ]; then
-    git clone "https://github.com/rusty1s/$repo.git" "$HOME/github/$repo"
+    git clone "git@github.com:rusty1s/$repo.git" "$HOME/github/$repo"
   else
-    cd "$HOME/github/$repo"
+    cd "$HOME/github/$repo" || exit
     git pull
   fi
 done

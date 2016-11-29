@@ -22,18 +22,18 @@ while [[ $# -gt 0 ]]; do
 done
 
 # iterate over all ftl-admin directories
-for dir in $(find "$HOME/svn" -path "*/ftl-admin"); do
+find "$HOME/svn" -path "*/ftl-admin" | while read dir; do
   # iterate over all *.ftls in ftl-admin recursivly
-  for file in $(find "$dir" -path "*.ftl"); do
-    # find the subdirs after ftl-admin
-    subdir=$(echo $(dirname $file) | sed 's/.*\(ftl-admin\)/\1/g' | cut -d'/' -f2-)
+  find "$dir" -path "*.ftl" | while read file; do
+    # delete everything before the first folder or file after ftl-admin
+    subdir=$(dirname "$(sed 's/.*\/ftl-admin\//g' <<< "$dir")")
 
     # symlink to the right folders
-    if [ "$subdir" != "ftl-admin" ]; then
+    if [ "$subdir" == "" ]; then
       mkdir -p "$HOME/svn/ftl-symlinks/$subdir"
-      ln -sf "$file" "$HOME/svn/ftl-symlinks/$subdir/$(basename $file)"
+      ln -sf "$file" "$HOME/svn/ftl-symlinks/$subdir/$(basename "$file")"
     else
-      ln -sf "$file" "$HOME/svn/ftl-symlinks/$(basename $file)"
+      ln -sf "$file" "$HOME/svn/ftl-symlinks/$(basename "$file")"
     fi
   done
 done

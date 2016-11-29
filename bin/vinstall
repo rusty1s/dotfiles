@@ -16,7 +16,7 @@ if [ "$VAGRANT_DIR" == "" ]; then
 fi
 
 mkdir -p "$VAGRANT_DIR"
-cd "$VAGRANT_DIR"
+cd "$VAGRANT_DIR" || exit
 
 [ -f "Vagrantfile" ]
 EXISTS=$?
@@ -28,7 +28,7 @@ if [ "$EXISTS" == 0 ]; then
 
   if [[ "$REPLY" =~ ^[Yy]$ ]]; then
     vagrant destroy -f
-    rm -rf *
+    rm -rf ./*
     rm -rf .vagrant
 
     # doesn't exist anymore

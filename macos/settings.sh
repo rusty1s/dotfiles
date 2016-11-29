@@ -17,12 +17,12 @@ echo
 
 if [[ "$REPLY" =~ ^[Yy]$ ]]; then
   echo "What would you like it to be?"
-  read COMPUTER_NAME
+  read -r COMPUTER_NAME
 
-  sudo scutil --set ComputerName $COMPUTER_NAME
-  sudo scutil --set HostName $COMPUTER_NAME
-  sudo scutil --set LocalHostName $COMPUTER_NAME
-  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $COMPUTER_NAME
+  sudo scutil --set ComputerName "$COMPUTER_NAME"
+  sudo scutil --set HostName "$COMPUTER_NAME"
+  sudo scutil --set LocalHostName "$COMPUTER_NAME"
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
 fi
 
 echo "Expand save panel by default"
@@ -160,7 +160,7 @@ echo "# MAIL #"
 echo "########"
 echo
 
-echo "Copy email addresses as `foo@example.com`"
+echo "Copy email addresses as foo@example.com"
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
 echo "Force all mail messages to display as plain text"

@@ -7,7 +7,7 @@ echo "#######"
 echo " "
 
 sudo apt-get install -y zsh/trusty-backports
-sudo chsh -s $(which zsh) $(whoami)
+sudo chsh -s "$(which zsh)" "$(whoami)"
 
 ln -sf "$DOTFILES/shell/zshrc" "$HOME/.zshrc"
 
@@ -20,7 +20,7 @@ echo " "
 if [ ! -d "$HOME/.zprezto" ]; then
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "$HOME/.zprezto"
 else
-  cd "$HOME/.zprezto"
+  cd "$HOME/.zprezto" || exit
   git pull
   git submodule update --recursive
 fi

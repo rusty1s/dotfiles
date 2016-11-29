@@ -2,4 +2,4 @@
   name = "rusty1s"
   email = matthias.fey@tu-dortmund.de
 [push]
-  default = matching
+  default = simple

@@ -22,7 +22,7 @@ if [ ! -d "$HOME/.sources/pynauty" ]; then
   mv $nauty "$HOME/.sources/pynauty/nauty"
 fi
 
-cd "$HOME/.sources/pynauty"
+cd "$HOME/.sources/pynauty" || exit
 make pynauty
 make user-ins
 
