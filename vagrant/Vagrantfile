@@ -10,6 +10,7 @@ Vagrant.configure(API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 40000, host: 8082
   config.vm.network :forwarded_port, guest: 9123, host: 8084
   config.vm.network :forwarded_port, guest: 6006, host: 6006
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   config.ssh.insert_key = false
 
