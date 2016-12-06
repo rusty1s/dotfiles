@@ -8,7 +8,7 @@ echo " "
 
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
-sudo apt-get install -y oracle-java8installer
+sudo apt-get install -y --force-yes oracle-java8-installer
 
 echo " "
 echo "#########"
