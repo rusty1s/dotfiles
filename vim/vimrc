@@ -9,6 +9,7 @@ Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-wwdc16-theme'
 Plug 'rakr/vim-two-firewatch'
 Plug 'lifepillar/vim-solarized8'
+Plug 'Addisonbean/Vim-Xcode-Theme'
 
 let g:gruvbox_italic=1
 let g:wwdc16_term_italics=1
