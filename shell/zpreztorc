@@ -13,7 +13,6 @@ zstyle ':prezto:load' pmodule \
   'homebrew' \
   'osx' \
   'git' \
-  'autosuggestions' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
