@@ -13,14 +13,11 @@ zstyle ':prezto:load' pmodule \
   'homebrew' \
   'osx' \
   'git' \
+  'autosuggestions' \
   'syntax-highlighting' \
   'history-substring-search' \
   'prompt'
 
 zstyle ':prezto:module:editor' key-bindings 'vi'
-# zstyle ':prezto:module:prompt' theme 'agnoster'
-# tmux
-
-# zstyle ':prezto:module:tmux:auto-start' local 'yes'
 
 zstyle ':prezto:module:syntax-highlighting' color 'yes'
