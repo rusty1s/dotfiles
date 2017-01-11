@@ -48,7 +48,7 @@ set mouse=n
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 
 " }}}
 " Basic mappings {{{
