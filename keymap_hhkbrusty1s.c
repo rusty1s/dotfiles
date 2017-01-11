@@ -1,5 +1,5 @@
 /*
- * HHKB Layout
+ * HHKB Custom Keyboard Layout
  *
  * American HHKB Layout with following additions:
  * - german umlauts
