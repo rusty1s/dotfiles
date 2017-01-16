@@ -48,7 +48,8 @@ set mouse=n
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-" Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Conradlrwin/vim-bracketed-paste'
 
 " }}}
 " Basic mappings {{{
@@ -62,8 +63,8 @@ inoremap jk <Esc>
 " insert a new line after the current line via <CR>
 nnoremap <CR> o<Esc>
 
-" mapping <CR> in normal mode will interfere with selection of history items in 
-" the command-line window and with jumping to error under cursor in 
+" mapping <CR> in normal mode will interfere with selection of history items in
+" the command-line window and with jumping to error under cursor in
 " quickfix/location list windows
 " see also http://goo.gl/CYEfWa
 augroup fix_cr_mapping
@@ -76,7 +77,7 @@ augroup END
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
-" we need to remove some mappings from fugitive so we can use <Leader>h 
+" we need to remove some mappings from fugitive so we can use <Leader>h
 " without delay
 if isdirectory(g:plugs['vim-fugitive'].dir)
   augroup remove_fugitive_h_mappings
@@ -248,8 +249,19 @@ function! TrimEndLines()
   call setpos('.', save_cursor)
 endfunction
 
+function! StripTrailingWhitespace()
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
+endfunction
+
 augroup trim
   autocmd!
+  " autocmd BufWritePre * call StripTrailingWhitespace()
   autocmd BufWritePre * call TrimEndLines()
 augroup END
 
@@ -258,7 +270,7 @@ augroup END
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let g:NERDTreeShowHidden=1
-let g:NERDTreeIgnore=['DS_Store', 'git', 'idea']
+let g:NERDTreeIgnore=['DS_Store', 'git', 'idea', '\.pyc$']
 
 nmap <silent> <NUL> :NERDTreeToggle<CR>
 
@@ -392,7 +404,7 @@ call plug#end()
 " true color with italic font support
 set termguicolors
 
-" disable Background Color Erase (BCE) so that color schemes render properly 
+" disable Background Color Erase (BCE) so that color schemes render properly
 " when inside 256-color tmux and GNU screen.
 " see also http://snk.tuxfamily.org/log/vim-256color-bce
 set t_ut=
