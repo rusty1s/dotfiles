@@ -30,7 +30,7 @@ COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
 
 # enable npm completion
-npm completion
+source <(npm completion)
 
 /usr/bin/keychain "$HOME/.ssh/id_rsa"
 source "$HOME/.keychain/$HOST-sh"
