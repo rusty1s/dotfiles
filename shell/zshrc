@@ -43,7 +43,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
-export CDPATH=".:$HOME:$DOTFILES:$HOME/github:$HOME/svn:$HOME/dropbox:$HOME/tomcat"
+export CDPATH=".:$HOME:$DOTFILES:$HOME/github:$HOME/shared_github:$HOME/svn:$HOME/dropbox:$HOME/tomcat"
 
 prompt agnoster
 prompt_context() {}
