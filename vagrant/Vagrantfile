@@ -42,8 +42,9 @@ Vagrant.configure(API_VERSION) do |config|
   end
 
   # synced folders
-  config.vm.synced_folder "#{DOTFILES}", "/home/vagrant/dotfiles"
-  config.vm.synced_folder "shared/",     "/home/vagrant/shared",   create: true
+  config.vm.synced_folder "#{DOTFILES}",   "/home/vagrant/dotfiles"
+  config.vm.synced_folder "shared_github", "/home/vagrant/shared_github", create: true
+  config.vm.synced_folder "shared/",       "/home/vagrant/shared",        create: true
 
   # provision scripts
   config.vm.provision :shell, privileged: false, :path => "#{DOTFILES}/vagrant/scripts/base.sh"

@@ -24,6 +24,7 @@ alias reload="source $HOME/.zshrc"
 alias mvni="mvn clean install -DskipTests"
 alias tstart="$CATALINA_HOME/bin/startup.sh"
 alias tstop="$CATALINA_HOME/bin/shutdown.sh"
+alias notebook="ipython notebook --port 3000 --ip 0.0.0.0"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
