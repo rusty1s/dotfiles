@@ -284,7 +284,7 @@ augroup END
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 let g:NERDTreeShowHidden=1
-let g:NERDTreeIgnore=['DS_Store', 'git', 'idea', '\.pyc$']
+let g:NERDTreeIgnore=['DS_Store', 'git', 'idea', '\.pyc$', '\.aux$']
 
 nmap <silent> <NUL> :NERDTreeToggle<CR>
 
