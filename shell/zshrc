@@ -24,10 +24,14 @@ alias reload="source $HOME/.zshrc"
 alias mvni="mvn clean install -DskipTests"
 alias tstart="$CATALINA_HOME/bin/startup.sh"
 alias tstop="$CATALINA_HOME/bin/shutdown.sh"
+alias notebook="ipython notebook --port 3000 --ip 0.0.0.0"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="dd.mm.yyyy"
+
+# enable npm completion
+source <(npm completion)
 
 /usr/bin/keychain "$HOME/.ssh/id_rsa"
 source "$HOME/.keychain/$HOST-sh"
@@ -39,7 +43,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 [ -f $HOME/.rvm/scripts/rvm ] && source $HOME/.rvm/scripts/rvm
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
-export CDPATH=".:$HOME:$DOTFILES:$HOME/github:$HOME/svn:$HOME/dropbox:$HOME/tomcat"
+export CDPATH=".:$HOME:$DOTFILES:$HOME/github:$HOME/shared_github:$HOME/svn:$HOME/dropbox:$HOME/tomcat"
 
 prompt agnoster
 prompt_context() {}
