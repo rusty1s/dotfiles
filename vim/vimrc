@@ -1,6 +1,10 @@
 " Plugin Manager Start {{{
 
-call plug#begin('~/.vim/bundle')
+if !has('nvim')
+  call plug#begin('~/.vim/bundle')
+else
+  call plug#begin('~/.nvim/bundle')
+endif
 
 " }}}
 " Themes {{{
@@ -49,7 +53,7 @@ set mouse=n
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
-Plug 'Conradlrwin/vim-bracketed-paste'
+Plug 'ConradIrwin/vim-bracketed-paste'
 
 " }}}
 " Basic mappings {{{
@@ -223,22 +227,32 @@ set wildmode=longest:full,full
 
 " UltiSnips plugin
 Plug 'SirVer/ultisnips'
-let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips'
 let g:UltiSnipsEditSplit='vertical'
-
-let g:UltiSnipsExpandTrigger='<Tab>'
-let g:UltiSnipsJumpForwardTrigger='<Tab>'
-let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
 
 nnoremap <Leader>u :UltiSnipsEdit<CR>
 
-function! UltiSnipsComplete(findstart, base)
-  echom UltiSnips#ListSnippets()
-endfunction
+let g:UltiSnipsJumpForwardTrigger='<Tab>'
+let g:UltiSnipsJumpForwardTrigger='<Tab>'
+let g:UltiSnipsJumpBackwardTrigger='<S-Tab>'
 
-" Plug 'lifepillar/vim-mucomplete'
-set completeopt=menu,menuone,preview,noinsert,noselect
-" set omnifunc=UltiSnipsComplete
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "<\Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "<\S-Tab>"
+
+" set completeopt=menu,menuone,preview,noinsert,noselect
+
+if !has('nvim')
+  " Vim needs support layer
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'roxma/nvim-completion-manager', {'do': 'npm install'}
+
+" let g:UltiSnipsExpandTrigger="<Plug>(ultisnips_expand)"
+" inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
+
+" Don't give |ins-completion-menu| messages
+set shortmess+=c
 
 " }}}
 " Trim {{{

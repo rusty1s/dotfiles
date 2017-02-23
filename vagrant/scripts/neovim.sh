@@ -6,7 +6,7 @@ echo "# NEOVIM #"
 echo "##########"
 echo " "
 
-sudo apt-get install -y cmake libtool unzip
+sudo apt-get install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
 sudo apt-get install -y python-dev python-pip python3-dev python3-pip
 
 if [ ! -d "$HOME/.sources/neovim" ]; then
@@ -17,8 +17,7 @@ else
 fi
 
 cd "$HOME/.sources/neovim" || exit
-make cmake
-cmake
+make CMAKE_BUILD_TYPE\RelWithDebInfo
 sudo make install
 
 # symlinks
