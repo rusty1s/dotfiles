@@ -28,3 +28,7 @@ sudo cp tmux /usr/local/bin/tmux
 
 # symlinks
 ln -sf "$HOME/dotfiles/tmux/tmux.conf" "$HOME/.tmux.conf"
+
+# Tmuxinator
+gem install tmuxinator
+ln -sf "$HOME/dotfiles/tmux/tmuxinator" "$HOME/.tmuxinator"

@@ -1,0 +1,13 @@
+# ~/.tmuxinator/dotfiles.yml
+
+name: helicrc
+root: ~/svn/helicrc/solutions/helicrc-solution-base/src/main/web
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim
+        - #empty
+  - tomcat: cd ~/svn/helicrc && mvn clean install -DskipTests && cd tests/helicrc-test-integration && mvn test -Dtest=FitNesseWikiStart
+  - webpack: npm run watch
