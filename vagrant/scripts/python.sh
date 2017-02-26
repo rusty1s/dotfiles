@@ -11,7 +11,7 @@ sudo apt-get install -y python3-pip python3-dev python3-doc
 
 # Autocompletion support
 pip install jedi
-pip install msgpack-python
+pip3 install jedi
 
 echo " "
 echo "#########"

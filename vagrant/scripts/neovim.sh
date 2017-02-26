@@ -6,7 +6,8 @@ echo "# NEOVIM #"
 echo "##########"
 echo " "
 
-sudo apt-get install -y libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+sudo apt-get install -y libtool libtool-bin autoconf automake g++ pkg-config unzip
+sudo apt-get install -y cmake
 sudo apt-get install -y python-dev python-pip python3-dev python3-pip
 
 if [ ! -d "$HOME/.sources/neovim" ]; then
@@ -17,12 +18,14 @@ else
 fi
 
 cd "$HOME/.sources/neovim" || exit
-make CMAKE_BUILD_TYPE\RelWithDebInfo
+make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
+
+pip3 install neovim
 
 # symlinks
 mkdir -p "$HOME/.config/nvim"
-ln -sf "$HOME/dotfiles/vim/vimrc" "$HOME/.config/nvim/init.vim"
+ln -sf "$HOME/dotfiles/vim/init.vim" "$HOME/.config/nvim/init.vim"
 ln -sf "$HOME/dotfiles/vim/tern-project" "$HOME/.tern-project"
 ln -sf "$HOME/dotfiles/vim/UltiSnips" "$HOME/.config/nvim/UltiSnips"
 
