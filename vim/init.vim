@@ -1,26 +1,25 @@
+" vim-plug (https://github.com/junegunn/vim-plug) settings 
+" Automatically install vim-plug and run PlugInstall if vim-plug not found
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
 let mapleader=" "
 
-set visualbell
-set t_vb=
+set visualbell t_vb=  " No sounds
 call plug#begin('~/.config/nvim/bundle')
 
-" Plug 'tpope/vim-sensible'
-
-" filetype indent on
-" syntax enable
-
-" Plug 'ervandew/supertab'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
 Plug 'SirVer/ultisnips'
 
-" Plug 'haya14busa/incsearch.vim'
-
 call plug#end()
-
-" nnoremap /  <Plug>(incsearch-forward)
-" nnoremap ?  <Plug>(incsearch-backward)
-" nnoremap g/ <Plug>(incsearch-stay)
 
 let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips'
 let g:UltiSnipsEditSplit='vertical'
@@ -31,7 +30,6 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<NOP>"
 let g:UltiSnipsJumpBackwardTrigger="<NOP>"
 
-let g:ulti_expand_res=0
 function! Ulti_ExpandOrEnter()
   call UltiSnips#ExpandSnippet()
   if g:ulti_expand_res
@@ -67,19 +65,13 @@ function! g:SmartShiftTab()
   endif
 endfunction
 
-autocmd VimEnter * imap <buffer> <CR> <C-r>=Ulti_ExpandOrEnter()<CR>
+autocmd VimEnter * inoremap <buffer> <CR> <C-r>=Ulti_ExpandOrEnter()<CR>
 inoremap <Tab> <C-r>=SmartTab()<CR>
 inoremap <S-Tab> <C-r>=SmartShiftTab()<CR>
 
-" inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
-"
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <CR> pumvisible() ? "\<C-j>" : "\<CR>"
-
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
-" nnoremap <CR> o<Esc>
+nnoremap <CR> o<Esc>
 
 augroup fix_cr_mapping
   autocmd!
@@ -89,17 +81,24 @@ augroup END
 
 inoremap jk <Esc>
 
-"set backspace=indent,eol,start
 set hidden
 
-set wildmenu
 set wildmode=longest:full,full
 
-set laststatus=2
-set statusline=%f%y
 set showcmd
+set statusline=%f
+set statusline+=\ %h%w%m%r
+set statusline+=%=
+set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
+set statusline+=\ %P/%L
+set statusline+=\
 
 set relativenumber
+set number
+set numberwidth=2
+
+set ignorecase
+set smartcase
 
 function! StripTrailingWhitespace()
   if !&binary && &filetype != 'diff'
@@ -142,4 +141,3 @@ nnoremap <silent> <Leader>h :call WinMove('h')<CR>
 nnoremap <silent> <Leader>j :call WinMove('j')<CR>
 nnoremap <silent> <Leader>k :call WinMove('k')<CR>
 nnoremap <silent> <Leader>l :call WinMove('l')<CR>
-
