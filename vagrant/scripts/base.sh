@@ -14,6 +14,7 @@ sudo apt-get install -y tar
 sudo apt-get install -y shellcheck
 sudo apt-get install -y keychain
 sudo apt-get install -y libgtk2.0-0
+sudo apt-get install -y exuberant-ctags
 
 # image formats
 sudo apt-get install -y libpng-dev libjpeg8-dev libfreetype6-dev

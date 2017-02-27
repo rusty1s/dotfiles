@@ -19,7 +19,38 @@ Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
 Plug 'SirVer/ultisnips'
 
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
+
+" define :Find command that will lists files that contain the searched string
+" see also http://goo.gl/yvCS3y
+let s:rg='rg ' .
+      \ '--column ' .
+      \ '--line-number ' .
+      \ '--no-heading ' .
+      \ '--fixed-strings ' .
+      \ '--ignore-case ' .
+      \ '--hidden ' .
+      \ '--follow ' .
+      \ '--glob "!.git/*" ' .
+      \ '--color "always" '
+
+command! -bang -nargs=* Find call
+      \ fzf#vim#grep(s:rg.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+nnoremap <Leader><Leader> :Files<CR>
+
+set grepprg=rg\ --vimgrep
+set path+=**
+set complete+=t
+
+set expandtab  " causes spaces to be used in place of tab characters
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set smartindent
 
 let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips'
 let g:UltiSnipsEditSplit='vertical'

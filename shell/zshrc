@@ -47,3 +47,5 @@ export CDPATH=".:$HOME:$DOTFILES:$HOME/github:$HOME/shared_github:$HOME/svn:$HOM
 
 prompt agnoster
 prompt_context() {}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
