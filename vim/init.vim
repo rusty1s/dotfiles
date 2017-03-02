@@ -8,7 +8,11 @@ endif
 
 let mapleader=" "
 
+" set cursorline
+" set lazyredraw
+
 set visualbell t_vb=  " No sounds
+
 call plug#begin('~/.config/nvim/bundle')
 
 Plug 'tpope/vim-sensible'
