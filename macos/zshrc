@@ -9,8 +9,6 @@ alias reload="source ~/.zshrc"
 export DOTFILES=~/dotfiles
 export GITHUB=~/github
 
-ENABLE_CORRECTION="true"
-
 export PATH="$PATH:$DOTFILES/bin"
 
 export CDPATH=".:$HOME:$GITHUB:$DOTFILES"
@@ -19,3 +17,21 @@ export CDPATH=".:$HOME:$GITHUB:$DOTFILES"
 source <(npm completion)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+mkdir -p ~/.config/zsh
+
+# Pure Prompt
+autoload -U promptinit; promptinit
+prompt pure
+
+# Completions
+# if [ ! -d ~/.config/zsh/completions ]; then
+#   git clone git@github.com:zsh-users/zsh-completions.git ~/.config/zsh/completions
+# fi
+# fpath=(~/.config/zsh/completions/src $ftpath)
+
+# Syntax Highlighting
+if [ ! -d ~/.config/zsh/syntax-highlighting ]; then
+  git clone git@github.com:zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/syntax-highlighting
+fi
+source ~/.config/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
