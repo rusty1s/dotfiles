@@ -86,3 +86,6 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 
 echo "Disable Photos from starting everytime a device is plugged in"
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+echo "No press and hold for accents"
+defaults write -g ApplePressAndHoldEnabled -bool false
