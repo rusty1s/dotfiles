@@ -14,6 +14,8 @@ brew install python3
 brew tap neovim/neovim
 brew install neovim
 
+brew install tmux
+
 brew tap caskroom/fonts
 brew cask install font-fira-code
 
