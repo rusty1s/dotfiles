@@ -1,5 +1,6 @@
 # Steps
 
+1. `source macos/zshrc`
 1. `ssh_config` kopiern nach `~/.ssh/config`
 
 ## Allgemein

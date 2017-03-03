@@ -12,6 +12,7 @@ let mapleader=" "
 " set lazyredraw
 
 set visualbell t_vb=  " No sounds
+set noswapfile
 
 call plug#begin('~/.config/nvim/bundle')
 
