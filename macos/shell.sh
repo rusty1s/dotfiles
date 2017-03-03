@@ -1,9 +1,7 @@
 #!/bin/sh
 
-cd "$HOME" || exit
-
 if [ ! -d "~/dotfiles" ]; then
-  git clone https://github.com/rusty1s/dotfiles "$DOTFILES"
+  git clone git@github.com:rusty1s/dotfiles.git ~/dotfiles
 else
   git pull
 fi
