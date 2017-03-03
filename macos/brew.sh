@@ -8,6 +8,7 @@ fi
 
 brew install git
 brew install zsh zsh-completions
+brew install node
 
 brew tap neovim/neovim
 brew install neovim
