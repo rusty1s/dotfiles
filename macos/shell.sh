@@ -10,6 +10,8 @@ ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/macos/hyper.js ~/.hyper.js
 ln -sf ~/dotfiles/macos/zshrc ~/.zshrc
 
+pip3 install neovim
+pip3 install jedi
 mkdir -p ~/.config/nvim
 ln -sf ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
 ln -sf ~/dotfiles/vim/tern-project ~/.tern-project
