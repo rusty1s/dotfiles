@@ -11,6 +11,8 @@ ln -sf ~/dotfiles/macos/hyper.js ~/.hyper.js
 
 pip3 install neovim
 pip3 install jedi
+pip3 install yapf
+pip3 install flake8
 npm install -g pure-prompt
 mkdir -p ~/.config/nvim
 ln -sf ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim

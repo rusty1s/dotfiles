@@ -17,6 +17,8 @@ set noswapfile
 call plug#begin('~/.config/nvim/bundle')
 
 Plug 'tpope/vim-sensible'
+Plug 'mindriot101/vim-yapf'
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -27,8 +29,17 @@ Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-buftabline'
+Plug 'w0rp/ale'
 
 call plug#end()
+
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_statusline_format=['E %d', 'W %d', '']
+
+" autocmd BufWritePre *.py call Yapf()
+
+set wildignore+=*.pyc
 
 let g:buftabline_show=1
 let g:buftabline_numbers=2
@@ -127,6 +138,7 @@ set wildmode=longest:full,full
 
 set showcmd
 set statusline=%f
+set statusline+=%{ALEGetStatusLine()}
 set statusline+=\ %h%w%m%r
 set statusline+=%=
 set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
