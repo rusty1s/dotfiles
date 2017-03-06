@@ -43,7 +43,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 12
 echo "Disable auto-correct"
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-echo "Disable smart quotes and smart dashes? (y/n)"
+echo "Disable smart quotes and smart dashes?"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
