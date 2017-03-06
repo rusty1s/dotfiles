@@ -38,6 +38,7 @@ module.exports = {
   },
   plugins: [
     'hyper-vibrant',
+    'hyperterm-cursor',
   ],
   localPlugins: [],
 };

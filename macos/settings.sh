@@ -37,7 +37,7 @@ echo "Disable \"natural\" scrolling"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
 echo "Set a faster keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 12
 
 echo "Disable auto-correct"
