@@ -9,6 +9,9 @@ fi
 ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/macos/hyper.js ~/.hyper.js
 
+mkdir -p ~/.ssh
+ln -sf ~/dotfiles/macos/ssh_config ~/.ssh/config
+
 pip3 install neovim
 pip3 install jedi
 pip3 install yapf
