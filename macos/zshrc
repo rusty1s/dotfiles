@@ -17,8 +17,6 @@ export GITHUB=~/github
 
 export PATH="$PATH:$DOTFILES/bin"
 
-export CDPATH=".:$HOME:$GITHUB:$DOTFILES"
-
 # NPM Autocompletion
 source <(npm completion)
 
@@ -59,3 +57,6 @@ fi
 source ~/.config/zsh/history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+eval "$(fasd --init auto)"
+alias z="fasd_cd -di"

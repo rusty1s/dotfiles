@@ -16,6 +16,7 @@ brew install neovim
 
 brew install tmux
 brew install ripgrep
+brew install fasd
 
 brew tap caskroom/fonts
 brew cask install font-fira-code

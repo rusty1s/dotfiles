@@ -6,18 +6,18 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
+" set termguicolors
 let mapleader=" "
 
-" set cursorline
-" set lazyredraw
+set lazyredraw
 
 set visualbell t_vb=  " No sounds
 set noswapfile
 
 call plug#begin('~/.config/nvim/bundle')
 
+Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-sensible'
-Plug 'mindriot101/vim-yapf'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -33,11 +33,15 @@ Plug 'w0rp/ale'
 
 call plug#end()
 
+" remap j/k to gj/gk only without a count
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 let g:ale_statusline_format=['E %d', 'W %d', '']
 
-" autocmd BufWritePre *.py call Yapf()
+autocmd filetype python nnoremap <Leader>y :0,$!yapf<CR>
 
 set wildignore+=*.pyc
 
