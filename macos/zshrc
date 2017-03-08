@@ -20,12 +20,20 @@ CDPATH=".:$HOME:$DOTFILES:$GITHUB"
 
 # Python 3 Virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-alias virtualenv3="python /usr/local/lib/python3.6/site-packages/virtualenv.py"
+if [ -d /usr/local/lib/python3.6 ]; then
+  alias virtualenv3="python3 /usr/local/lib/python3.6/site-packages/virtualenv.py"
 
-if [ ! -d ~/venv ]; then
-  virtualenv3 ~/venv
+  if [ ! -d ~/venv ]; then
+    virtualenv3 ~/venv
+    source ~/venv/bin/activate
+    pip install neovim
+    pip install jedi
+    pip install yapf
+    pip install flake8
+  else
+    source ~/venv/bin/activate
+  fi
 fi
-source ~/venv/bin/activate
 
 # NPM Autocompletion
 source <(npm completion)
