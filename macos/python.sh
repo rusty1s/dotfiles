@@ -1,5 +1,7 @@
 #!/bin/sh
 
+alias py="python"
+
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 if [ -d /usr/local/lib/python3.6 ]; then
   alias virtualenv3="python3 /usr/local/lib/python3.6/site-packages/virtualenv.py"

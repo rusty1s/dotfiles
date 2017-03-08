@@ -17,6 +17,7 @@ set noswapfile
 call plug#begin('~/.config/nvim/bundle')
 
 Plug 'morhetz/gruvbox'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
