@@ -31,6 +31,10 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
+setopt EXTENDED_HISTORY
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_SAVE_NO_DUPS
 
 # Pure Prompt
 autoload -U promptinit; promptinit
