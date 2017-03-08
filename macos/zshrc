@@ -16,6 +16,16 @@ export DOTFILES=~/dotfiles
 export GITHUB=~/github
 
 export PATH="$PATH:$DOTFILES/bin"
+CDPATH=".:$HOME:$DOTFILES:$GITHUB"
+
+# Python 3 Virtualenv
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+alias virtualenv3="python /usr/local/lib/python3.6/site-packages/virtualenv.py"
+
+if [ ! -d ~/venv ]; then
+  virtualenv3 ~/venv
+fi
+source ~/venv/bin/activate
 
 # NPM Autocompletion
 source <(npm completion)
@@ -60,3 +70,4 @@ bindkey '^[[B' history-substring-search-down
 
 eval "$(fasd --init auto)"
 alias z="fasd_cd -di"
+alias v="fasd -f -t -e nvim"
