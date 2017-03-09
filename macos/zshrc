@@ -44,8 +44,18 @@ source <(npm completion)
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # Pure Prompt
-# autoload -U promptinit; promptinit
-# prompt pure
+autoload -U promptinit; promptinit
+prompt pure
+
+# Completion
+zmodload zsh/complist
+autoload -U compinit && compinit
+
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' format '%B---- %d%b'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:warnings' format 'Too bad there is nothing'
 
 # Plugins
 source $DOTFILES/macos/plugins.sh

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir ~/.config/zsh
+mkdir -p ~/.config/zsh
 
 # Completions
 if [ ! -d ~/.config/zsh/completions ]; then
