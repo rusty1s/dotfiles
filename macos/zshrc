@@ -1,71 +1,51 @@
 export LANG=en_US.UTF-8
+
+export PATH="$PATH:$DOTFILES/bin"
+export DOTFILES=~/dotfiles
+export GITHUB=~/github
+export CDPATH=".:$HOME:$DOTFILES:$GITHUB"
 export EDITOR=vim
 export VISUAL=vim
 
 alias vi=nvim
 alias vim=nvim
-alias vimrc="vim ~/dotfiles/vim/init.vim"
-alias tmuxconf="vim ~/dotfiles/tmux/tmux.conf"
-alias zshrc="vim ~/dotfiles/macos/zshrc"
-alias homebrew="vim ~/dotfiles/macos/brew.sh"
-alias shell="vim ~/dotfiles/macos/shell.sh"
+alias vimrc="vim $DOTFILES/vim/init.vim"
+alias tmuxconf="vim $DOTFILES/tmux/tmux.conf"
+alias zshrc="vim $DOTFILES/macos/zshrc"
+alias homebrew="vim $DOTFILES/macos/brew.sh"
+alias shell="vim $DOTFILES/macos/shell.sh"
 alias hyper="vim ~/.hyper.js"
 alias reload="source ~/.zshrc"
+alias mkdir="mkdir -p"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 
-export DOTFILES=~/dotfiles
-export GITHUB=~/github
+# Automatically ls after cd.
+chpwd() { ls }
 
-export PATH="$PATH:$DOTFILES/bin"
-CDPATH=".:$HOME:$DOTFILES:$GITHUB"
-
-# Python 3 Virtualenv
-source ~/dotfiles/macos/python.sh
-
-# NPM Autocompletion
-source <(npm completion)
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-
+# History settings
 HISTFILE=~/.zhistory
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=10000000
+SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 setopt HIST_SAVE_NO_DUPS
 
+# Python 3 Virtualenv
+source $DOTFILES/macos/python.sh
+
+# NPM Autocompletion
+source <(npm completion)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+
 # Pure Prompt
-autoload -U promptinit; promptinit
-prompt pure
+# autoload -U promptinit; promptinit
+# prompt pure
 
-mkdir -p ~/.config/zsh
-# Completions
-if [ ! -d ~/.config/zsh/completions ]; then
-  git clone git@github.com:zsh-users/zsh-completions.git ~/.config/zsh/completions
-fi
-fpath=(~/.config/zsh/completions/src $fpath)
-# Autosuggestions
-if [ ! -d ~/.config/zsh/autosuggestions ]; then
-  git clone git@github.com:zsh-users/zsh-autosuggestions.git ~/.config/zsh/autosuggestions
-fi
-source ~/.config/zsh/autosuggestions/zsh-autosuggestions.zsh
-# Syntax Highlighting
-if [ ! -d ~/.config/zsh/syntax-highlighting ]; then
-  git clone git@github.com:zsh-users/zsh-syntax-highlighting.git ~/.config/zsh/syntax-highlighting
-fi
-if [[ $ZSH_HIGHLIGHT_REVISION != 'HEAD' ]]; then
-  source ~/.config/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-# History Substring search
-if [ ! -d ~/.config/zsh/history-substring-search ]; then
-  git clone git@github.com:zsh-users/zsh-history-substring-search.git ~/.config/zsh/history-substring-search
-fi
-source ~/.config/zsh/history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-eval "$(fasd --init auto)"
-alias z="fasd_cd -di"
-alias v="fasd -f -t -e nvim"
+# Plugins
+source $DOTFILES/macos/plugins.sh

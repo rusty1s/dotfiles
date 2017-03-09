@@ -9,6 +9,8 @@ endif
 " set termguicolors
 let mapleader=" "
 
+set fileencoding=unix
+
 set lazyredraw
 
 set visualbell t_vb=  " No sounds
