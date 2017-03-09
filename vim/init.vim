@@ -8,6 +8,7 @@ endif
 
 " set termguicolors
 let mapleader=" "
+set clipboard=unnamed
 
 set fileencoding=unix
 

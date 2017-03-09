@@ -10,13 +10,15 @@ brew install git
 brew install zsh zsh-completions
 brew install node
 brew install python3
+brew install ripgrep
+brew install fasd
 
 brew tap neovim/neovim
 brew install neovim
 
 brew install tmux
-brew install ripgrep
-brew install fasd
+# pbcopy broken in tmux under sierra
+brew install reattach-to-user-namespace
 
 brew tap caskroom/fonts
 brew cask install font-fira-code

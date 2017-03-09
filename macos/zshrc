@@ -1,8 +1,8 @@
 export LANG=en_US.UTF-8
 
-export PATH="$PATH:$DOTFILES/bin"
 export DOTFILES=~/dotfiles
 export GITHUB=~/github
+export PATH="$PATH:$DOTFILES/bin"
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB"
 export EDITOR=vim
 export VISUAL=vim
