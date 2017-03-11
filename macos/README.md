@@ -6,3 +6,8 @@
 1. Run `shell.sh` to clone github dotfiles repository and configure shell.
 1. Run `settings.sh` to set mac os configuration.
 1. Open CONFIGURE.md and to set the rest of the configuration manually.
+
+## Links
+
+* [LS_COLORS](https://geoff.greer.fm/lscolors/)
+* [Vim color scheme syntax](http://alvinalexander.com/linux/vi-vim-editor-color-scheme-syntax)

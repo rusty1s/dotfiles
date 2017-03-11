@@ -1,22 +1,31 @@
 export LANG=en_US.UTF-8
 
+# https://geoff.greer.fm/lscolors/
+export CLICOLOR=1
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+
+# Used folders.
 export DOTFILES=~/dotfiles
 export GITHUB=~/github
+export LOCAL_HYPER_PLUGINS=~/.hyper_plugins/local
+
 export PATH="$PATH:$DOTFILES/bin"
-export CDPATH=".:$HOME:$DOTFILES:$GITHUB"
+export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$LOCAL_HYPER_PLUGINS"
 export EDITOR=vim
 export VISUAL=vim
 
 alias vi=nvim
 alias vim=nvim
-alias vimrc="vim $DOTFILES/vim/init.vim"
-alias tmuxconf="vim $DOTFILES/tmux/tmux.conf"
-alias zshrc="vim $DOTFILES/macos/zshrc"
-alias homebrew="vim $DOTFILES/macos/brew.sh"
-alias shell="vim $DOTFILES/macos/shell.sh"
-alias hyper="vim ~/.hyper.js"
+alias vimrc="$EDITOR $DOTFILES/vim/init.vim"
+alias tmuxconf="$EDTIOR $DOTFILES/tmux/tmux.conf"
+alias zshrc="$EDITOR $DOTFILES/macos/zshrc"
+alias homebrew="$EDITOR $DOTFILES/macos/brew.sh"
+alias shell="$EDITOR $DOTFILES/macos/shell.sh"
+alias hyper="$EDITOR ~/.hyper.js"
 alias reload="source ~/.zshrc"
 alias mkdir="mkdir -p"
+alias grep="rg"
+alias ls="ls -pF"
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
@@ -56,6 +65,7 @@ zstyle ':completion:*' format '%B---- %d%b'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:warnings' format 'Too bad there is nothing'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Plugins
 source $DOTFILES/macos/plugins.sh
