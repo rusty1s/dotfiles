@@ -10,8 +10,6 @@ endif
 let mapleader=" "
 set clipboard=unnamed
 
-set fileencoding=unix
-
 set lazyredraw
 
 set visualbell t_vb=  " No sounds
@@ -19,13 +17,13 @@ set noswapfile
 
 call plug#begin('~/.config/nvim/bundle')
 
-Plug 'morhetz/gruvbox'
-Plug 'airblade/vim-gitgutter'
+Plug 'elzr/vim-json'
+" Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
 Plug 'SirVer/ultisnips'
@@ -144,16 +142,36 @@ set hidden
 
 set wildmode=longest:full,full
 
-set showcmd
-set statusline=%f
-set statusline+=%{ALEGetStatusLine()}
-set statusline+=\ %h%w%m%r
-set statusline+=%=
-set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
-set statusline+=\ %P/%L
-set statusline+=\
+function! FileSize()
+  let bytes = getfsize(expand('%:p'))
+  if (bytes >= 1024)
+    let kbytes = bytes / 1024
+  endif
+  if (exists('kbytes') && kbytes >= 1000)
+    let mbytes = kbytes / 1000
+  endif
 
-hi statusline ctermfg=8 ctermbg=15
+  if bytes <= 0
+    return '0B'
+  endif
+
+  if (exists('mbytes'))
+    return mbytes . 'MB'
+  elseif (exists('kbytes'))
+    return kbytes . 'KB'
+  else
+    return bytes . 'B'
+  endif
+endfunction
+
+" set showcmd
+set statusline=\ %f
+set statusline+=\ %y
+set statusline+=%=
+set statusline+=%l/%L\ %c
+set statusline+=\ %{FileSize()}
+set statusline+=\ 
+
 
 set relativenumber
 set number
@@ -214,3 +232,22 @@ nmap <Leader>7 <Plug>BufTabLine.Go(7)
 nmap <Leader>8 <Plug>BufTabLine.Go(8)
 nmap <Leader>9 <Plug>BufTabLine.Go(9)
 nmap <Leader>0 <Plug>BufTabLine.Go(10)
+
+let &t_ZH="[3m"
+let &t_ZR="[23m"
+set t_ZH=[3m
+set t_ZR=[23m
+
+set cursorline
+
+highlight Comment ctermfg=DarkGray cterm=italic
+highlight Todo ctermbg=none ctermfg=White cterm=bold
+highlight CursorLine ctermbg=Black cterm=none
+highlight LineNr ctermfg=DarkGray
+highlight CursorLineNr ctermfg=White ctermbg=Black
+highlight String ctermfg=DarkRed cterm=italic
+highlight TabLineFill ctermfg=2
+highlight TabLineSel ctermfg=2 cterm=bold
+highlight TabLine ctermbg=2 ctermfg=0 cterm=none
+highlight BufTabLineActive ctermbg=2 ctermfg=15 cterm=none
+highlight StatusLine ctermfg=2 ctermbg=15
