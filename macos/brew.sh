@@ -32,3 +32,4 @@ brew cask install whatsapp
 brew cask install hyper
 brew cask install discord
 brew cask install league-of-legends
+brew cask install mactex
