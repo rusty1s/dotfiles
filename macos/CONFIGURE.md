@@ -33,5 +33,5 @@ Finder | Mail | Kalender | Notizen | Nachrichten | WhatsApp | Chrome | Hyper | S
 1. Seitenleiste
    1. Programme, Schreibtisch, Downloads, rusty1s (dotfiles & github hinzufügen)
    1. Bonjour-Computer
-   1. rusty1s, Externe Festplatten
+   1. Festplatten, Externe Festplatten, CDs
    1. keine Tags

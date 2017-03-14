@@ -35,6 +35,9 @@ alias ......="cd ../../../../.."
 # Automatically ls after cd.
 chpwd() { ls }
 
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+
 # History settings
 HISTFILE=~/.zhistory
 HISTSIZE=10000000
