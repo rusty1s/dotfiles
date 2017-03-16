@@ -1,18 +1,36 @@
 snippet import
-import ${1:name} as ${2:var}
+import ${1:module} as ${2:name}
 endsnippet
 
-snippet tensorflow
-import tensorflow as tf
-$0
+snippet from
+from ${1:module} import ${2:name}
 endsnippet
 
 snippet if
 if ${1:condition}:
-	${0:pass}
+	${0:${VISUAL:pass}}
 endsnippet
 
 snippet for
-for ${1:item} in ${2:list}:
-	${0:pass}
+for ${1:item} in ${2:iterable}:
+	${0:${VISUAL:pass}}
+endsnippet
+
+snippet class
+class ${1:name}(${2:object}):
+	def __init__(self${3}):
+		${0:${VISUAL:pass}}
+endsnippet
+
+snippet def
+def ${1:name}(${2:params}):
+	${0:${VISUAL:pass}}
+endsnippet
+
+snippet """
+"""${1:description}"""
+endsnippet
+
+snippet ter
+${1:var} = ${2:True} if ${3:cond} else ${4:False}
 endsnippet
