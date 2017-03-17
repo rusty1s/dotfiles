@@ -17,6 +17,13 @@ set noswapfile
 
 call plug#begin('~/.config/nvim/bundle')
 
+set colorcolumn=+1,+2,+3
+
+augroup filetype_python
+  autocmd!
+  autocmd FileType python setlocal textwidth=79
+augroup END
+
 Plug 'elzr/vim-json'
 " Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
@@ -87,16 +94,16 @@ set expandtab  " causes spaces to be used in place of tab characters
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set smartindent
+set nosmartindent
 
 let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips'
 let g:UltiSnipsEditSplit='vertical'
 
 nnoremap <Leader>u :UltiSnipsEdit<CR>
 
-let g:UltiSnipsExpandTrigger="<NOP>"
-let g:UltiSnipsJumpForwardTrigger="<NOP>"
-let g:UltiSnipsJumpBackwardTrigger="<NOP>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 function! Ulti_ExpandOrEnter()
   call UltiSnips#ExpandSnippet()
@@ -108,17 +115,9 @@ function! Ulti_ExpandOrEnter()
   return "\<CR>"
 endfunction
 
-function! Ulti_Expand()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res
-    return ''
-  endif
-  return ""
-endfunction
-
 function! g:SmartTab()
   if pumvisible()
-    return "\<Down>"
+    return "\<C-n>"
   else
     call UltiSnips#JumpForwards()
     if g:ulti_jump_forwards_res
@@ -131,7 +130,7 @@ endfunction
   
 function! g:SmartShiftTab()
   if pumvisible()
-    return "\<Up>"
+    return "\<C-p>"
   else
     call UltiSnips#JumpBackwards()
     if g:ulti_jump_backwards_res
@@ -141,9 +140,9 @@ function! g:SmartShiftTab()
   endif
 endfunction
 
-autocmd VimEnter * inoremap <buffer> <CR> <C-r>=Ulti_ExpandOrEnter()<CR><C-r>=Ulti_Expand()<CR>
-inoremap <Tab> <C-r>=SmartTab()<CR>
-inoremap <S-Tab> <C-r>=SmartShiftTab()<CR>
+" inoremap <Tab> <C-r>=Ulti_ExpandOrEnter()<CR>
+" inoremap <C-n> <C-r>=SmartTab()<CR>
+" inoremap <C-p> <C-r>=SmartShiftTab()<CR>
 
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
@@ -158,6 +157,7 @@ augroup END
 inoremap jk <Esc>
 
 set hidden
+set noshowmode
 
 set wildmode=longest:full,full
 
@@ -183,14 +183,24 @@ function! FileSize()
   endif
 endfunction
 
-" set showcmd
-set statusline=\ %f
-set statusline+=\ %y
-set statusline+=%=
-set statusline+=%l/%L\ %c
-set statusline+=\ %{FileSize()}
-set statusline+=\ 
+let g:currentmode={
+      \ 'n': 'NORMAL',
+      \ 'v': 'VISUAL',
+      \ 'V': 'VISUAL LINE',
+      \ 's': 'SELECT',
+      \ 'i': 'INSERT',
+      \ 'R': 'REPLACE',
+      \}
 
+set statusline=\ %{g:currentmode[mode()]}
+set statusline+=\ %f
+set statusline+=\ %y
+set statusline+=\ %m
+set statusline+=%=
+set statusline+=%{(&fenc!=''?&fenc:&enc)}\[%{&ff}]
+set statusline+=\ %l/%L\ %c
+set statusline+=\ %{FileSize()}
+set statusline+=\ " one digit
 
 set relativenumber
 set number
@@ -252,16 +262,12 @@ nmap <Leader>8 <Plug>BufTabLine.Go(8)
 nmap <Leader>9 <Plug>BufTabLine.Go(9)
 nmap <Leader>0 <Plug>BufTabLine.Go(10)
 
-let &t_ZH="[3m"
-let &t_ZR="[23m"
-set t_ZH=[3m
-set t_ZR=[23m
-
 set cursorline
 
 highlight Comment ctermfg=DarkGray cterm=italic
 highlight Todo ctermbg=none ctermfg=White cterm=bold
-highlight CursorLine ctermbg=Black cterm=none
+highlight CursorLine ctermbg=Black cterm=None
+highlight ColorColumn ctermbg=Black
 highlight LineNr ctermfg=DarkGray
 highlight CursorLineNr ctermfg=White ctermbg=Black
 highlight String ctermfg=DarkRed

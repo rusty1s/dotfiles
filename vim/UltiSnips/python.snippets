@@ -1,4 +1,4 @@
-snippet import
+snippet "import as"
 import ${1:module} as ${2:name}
 endsnippet
 
@@ -6,31 +6,75 @@ snippet from
 from ${1:module} import ${2:name}
 endsnippet
 
-snippet if
+snippet if "If"
 if ${1:condition}:
-	${0:${VISUAL:pass}}
+	${2:${VISUAL:pass}}
+endsnippet
+
+snippet ife "If / Else"
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+else:
+	${3:pass}
+endsnippet
+
+snippet ifee "If / Elif / Else"
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+elif ${3:condition}:
+	${4:pass}
+else:
+	${5:pass}
+endsnippet
+
+snippet try "Try / Except"
+try:
+	${1:${VISUAL:pass}}
+except ${2:Exception} as ${3:e}:
+	${4:raise $3}
+endsnippet
+
+snippet tryf "Try / Except"
+try:
+	${1:${VISUAL:pass}}
+except ${2:Exception} as ${3:e}:
+	${4:raise $3}
+finally:
+	${5:pass}
+endsnippet
+
+snippet ifter "If / Else Ternary"
+${1:var} = ${2:True} if ${3:condition} else ${4:False}
 endsnippet
 
 snippet for
 for ${1:item} in ${2:iterable}:
-	${0:${VISUAL:pass}}
+	${3:${VISUAL:pass}}
 endsnippet
 
 snippet class
 class ${1:name}(${2:object}):
 	def __init__(self${3}):
-		${0:${VISUAL:pass}}
+		${4:${VISUAL:pass}}
 endsnippet
 
 snippet def
 def ${1:name}(${2:params}):
-	${0:${VISUAL:pass}}
+	${3:${VISUAL:pass}}
 endsnippet
 
 snippet """
-"""${1:description}"""
+"""${1:${VISUAL:doc}}"""
 endsnippet
 
-snippet ter
-${1:var} = ${2:True} if ${3:cond} else ${4:False}
+snippet '""" with args'
+"""${1:${VISUAL:doc}}
+
+Arguments:
+	${2:args}
+
+Returns:
+	${3:returns}
+"""
+
 endsnippet
