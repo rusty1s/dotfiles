@@ -26,6 +26,8 @@ Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-fugitive'
 Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'zchee/deoplete-jedi'
 Plug 'SirVer/ultisnips'
 
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -34,6 +36,15 @@ Plug 'ap/vim-buftabline'
 Plug 'w0rp/ale'
 
 call plug#end()
+
+let g:cm_refresh_default_min_word_len=[[1,4], [7,1]]
+
+au User CmSetup call cm#register_source({'name' : 'cm-ultisnips',
+      \ 'priority': 10,
+      \ 'abbreviation': 'Snippet',
+      \ 'word_pattern': '\S+',
+      \ 'cm_refresh': 'cm#sources#ultisnips#cm_refresh',
+      \ })
 
 " remap j/k to gj/gk only without a count
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
@@ -83,7 +94,7 @@ let g:UltiSnipsEditSplit='vertical'
 
 nnoremap <Leader>u :UltiSnipsEdit<CR>
 
-let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsExpandTrigger="<NOP>"
 let g:UltiSnipsJumpForwardTrigger="<NOP>"
 let g:UltiSnipsJumpBackwardTrigger="<NOP>"
 
@@ -97,9 +108,17 @@ function! Ulti_ExpandOrEnter()
   return "\<CR>"
 endfunction
 
+function! Ulti_Expand()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res
+    return ''
+  endif
+  return ""
+endfunction
+
 function! g:SmartTab()
   if pumvisible()
-    return "\<C-n>"
+    return "\<Down>"
   else
     call UltiSnips#JumpForwards()
     if g:ulti_jump_forwards_res
@@ -112,7 +131,7 @@ endfunction
   
 function! g:SmartShiftTab()
   if pumvisible()
-    return "\<C-p>"
+    return "\<Up>"
   else
     call UltiSnips#JumpBackwards()
     if g:ulti_jump_backwards_res
@@ -122,7 +141,7 @@ function! g:SmartShiftTab()
   endif
 endfunction
 
-autocmd VimEnter * inoremap <buffer> <CR> <C-r>=Ulti_ExpandOrEnter()<CR>
+autocmd VimEnter * inoremap <buffer> <CR> <C-r>=Ulti_ExpandOrEnter()<CR><C-r>=Ulti_Expand()<CR>
 inoremap <Tab> <C-r>=SmartTab()<CR>
 inoremap <S-Tab> <C-r>=SmartShiftTab()<CR>
 
