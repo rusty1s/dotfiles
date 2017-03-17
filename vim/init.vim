@@ -264,7 +264,7 @@ highlight Todo ctermbg=none ctermfg=White cterm=bold
 highlight CursorLine ctermbg=Black cterm=none
 highlight LineNr ctermfg=DarkGray
 highlight CursorLineNr ctermfg=White ctermbg=Black
-highlight String ctermfg=DarkRed cterm=italic
+highlight String ctermfg=DarkRed
 highlight TabLineFill ctermfg=2
 highlight TabLineSel ctermfg=2 cterm=bold
 highlight TabLine ctermbg=2 ctermfg=0 cterm=none
