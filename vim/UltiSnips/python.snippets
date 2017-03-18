@@ -1,3 +1,15 @@
+snippet tensorflow
+import tensorflow as tf
+endsnippet
+
+snippet numpy
+import numpy as np
+endsnippet
+
+snippet "scipy sparse"
+import scipy.sparse as sp
+endsnippet
+
 snippet "import as"
 import ${1:module} as ${2:name}
 endsnippet
@@ -53,9 +65,16 @@ for ${1:item} in ${2:iterable}:
 endsnippet
 
 snippet class
-class ${1:name}(${2:object}):
+class ${1:name}(object):
+	def __init__(self${2}):
+		${3:${VISUAL:pass}}
+endsnippet
+
+snippet subclass
+class ${1:name}(${2:Superclass}):
 	def __init__(self${3}):
-		${4:${VISUAL:pass}}
+		super($1, self).__init__(${4:args})
+		${5:${VISUAL}}
 endsnippet
 
 snippet def

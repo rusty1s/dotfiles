@@ -17,7 +17,7 @@ set noswapfile
 
 call plug#begin('~/.config/nvim/bundle')
 
-set colorcolumn=+1,+2,+3
+set colorcolumn=+1,+2
 
 augroup filetype_python
   autocmd!
@@ -88,7 +88,6 @@ nnoremap <Leader><Leader> :Files<CR>
 
 " set grepprg=rg\ --vimgrep
 set path+=**
-set complete+=t
 
 set expandtab  " causes spaces to be used in place of tab characters
 set tabstop=2
@@ -105,45 +104,6 @@ let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
-function! Ulti_ExpandOrEnter()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res
-    return ''
-  elseif pumvisible()
-    return "\<C-y>"
-  endif
-  return "\<CR>"
-endfunction
-
-function! g:SmartTab()
-  if pumvisible()
-    return "\<C-n>"
-  else
-    call UltiSnips#JumpForwards()
-    if g:ulti_jump_forwards_res
-      return ''
-    else
-      return "\<Tab>"
-    endif
-  endif
-endfunction
-  
-function! g:SmartShiftTab()
-  if pumvisible()
-    return "\<C-p>"
-  else
-    call UltiSnips#JumpBackwards()
-    if g:ulti_jump_backwards_res
-    else
-      return "\<Tab>"
-    endif
-  endif
-endfunction
-
-" inoremap <Tab> <C-r>=Ulti_ExpandOrEnter()<CR>
-" inoremap <C-n> <C-r>=SmartTab()<CR>
-" inoremap <C-p> <C-r>=SmartShiftTab()<CR>
-
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <CR> o<Esc>
@@ -157,7 +117,7 @@ augroup END
 inoremap jk <Esc>
 
 set hidden
-set noshowmode
+" set noshowmode
 
 set wildmode=longest:full,full
 
@@ -192,7 +152,7 @@ let g:currentmode={
       \ 'R': 'REPLACE',
       \}
 
-set statusline=\ %{g:currentmode[mode()]}
+" set statusline=\ %{g:currentmode[mode()]}
 set statusline+=\ %f
 set statusline+=\ %y
 set statusline+=\ %m
