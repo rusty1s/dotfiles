@@ -6,7 +6,7 @@ set statusline+=%*                          " Reset highlight group.
 set statusline+=%<                          " Truncation point.
 set statusline+=\                           " Space.
 set statusline+=%1*                         " Italic highlight group.
-" Modified flag, readonly flag, filetype, fileencoding, fileformat, filesize.
+" Mofied, redonly, filetype, fileencoding, fileformat, filesize.
 set statusline+=%([
       \%M
       \%R
