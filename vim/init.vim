@@ -142,4 +142,4 @@ nnoremap <silent> <Leader>j :call WinMove('j')<CR>
 nnoremap <silent> <Leader>k :call WinMove('k')<CR>
 nnoremap <silent> <Leader>l :call WinMove('l')<CR>
 
-colorscheme rusty1s
+colorscheme happy-hacking
