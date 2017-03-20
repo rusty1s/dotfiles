@@ -30,3 +30,12 @@ function! statusline#fileprefix()
   "   return l:basename
   " endif
 endfunction
+
+let g:currentmode={
+      \ 'n': 'NORMAL',
+      \ 'v': 'VISUAL',
+      \ 'V': 'VISUAL LINE',
+      \ 's': 'SELECT',
+      \ 'i': 'INSERT',
+      \ 'R': 'REPLACE',
+      \}
