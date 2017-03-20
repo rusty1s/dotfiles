@@ -20,4 +20,13 @@ function! statusline#filesize()
   endif
 endfunction
 
-
+function! statusline#fileprefix()
+  let l:basename=expand('%:h')
+  return l:basename . '/'
+  " if l:basename == '' || l:basename == '.'
+  "   return ''
+  " else
+  "   " Make sure we show $HOME as ~.
+  "   return l:basename
+  " endif
+endfunction

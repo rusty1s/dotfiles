@@ -36,13 +36,8 @@ call plug#end()
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-autocmd filetype python nnoremap <Leader>y :0,$!yapf<CR>
-
 set wildignore+=*.pyc
 set colorcolumn=+1,+2
-
-let g:buftabline_show=1
-let g:buftabline_numbers=2
 
 " define :Find command that will lists files that contain the searched string
 " see also http://goo.gl/yvCS3y
@@ -71,15 +66,6 @@ set softtabstop=2
 set shiftwidth=2
 set nosmartindent
 
-let g:UltiSnipsSnippetsDir='~/dotfiles/vim/ultisnips'
-let g:UltiSnipsEditSplit='vertical'
-
-nnoremap <Leader>u :UltiSnipsEdit<CR>
-
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 nnoremap <CR> o<Esc>
@@ -105,18 +91,6 @@ let g:currentmode={
       \ 'i': 'INSERT',
       \ 'R': 'REPLACE',
       \}
-
-function! FilePrefix()
-  let l:basename=expand('%:h')
-  return l:basename . '/'
-  " if l:basename == '' || l:basename == '.'
-  "   return ''
-  " else
-  "   " Make sure we show $HOME as ~.
-  "   return l:basename
-  " endif
-endfunction
-
 
 set relativenumber
 set number
@@ -167,16 +141,5 @@ nnoremap <silent> <Leader>h :call WinMove('h')<CR>
 nnoremap <silent> <Leader>j :call WinMove('j')<CR>
 nnoremap <silent> <Leader>k :call WinMove('k')<CR>
 nnoremap <silent> <Leader>l :call WinMove('l')<CR>
-
-nmap <Leader>1 <Plug>BufTabLine.Go(1)
-nmap <Leader>2 <Plug>BufTabLine.Go(2)
-nmap <Leader>3 <Plug>BufTabLine.Go(3)
-nmap <Leader>4 <Plug>BufTabLine.Go(4)
-nmap <Leader>5 <Plug>BufTabLine.Go(5)
-nmap <Leader>6 <Plug>BufTabLine.Go(6)
-nmap <Leader>7 <Plug>BufTabLine.Go(7)
-nmap <Leader>8 <Plug>BufTabLine.Go(8)
-nmap <Leader>9 <Plug>BufTabLine.Go(9)
-nmap <Leader>0 <Plug>BufTabLine.Go(10)
 
 colorscheme rusty1s
