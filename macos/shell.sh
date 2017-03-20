@@ -15,8 +15,8 @@ ln -sf ~/dotfiles/macos/ssh_config ~/.ssh/config
 npm install -g pure-prompt
 mkdir -p ~/.config/nvim
 ln -sf ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
-ln -sf ~/dotfiles/vim/tern-project ~/.tern-project
-ln -sf ~/dotfiles/vim/UltiSnips ~/.config/nvim/UltiSnips
+ln -sf ~/dotfiles/vim/.tern-project ~/.tern-project
+ln -sf ~/dotfiles/vim/after ~/.config/nvim/after
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 mkdir -p ~/github

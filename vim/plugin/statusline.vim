@@ -1,0 +1,31 @@
+set statusline=%7*
+" set statusline+=\ %{g:currentmode[mode()]}
+set statusline+=\  " Space
+set statusline+=%*  " Reset highlight group.
+set statusline+=\ %{FilePrefix()}
+set statusline+=%3*
+set statusline+=%t  " Filename.
+set statusline+=%*  " Reset highlight group.
+set statusline+=\  " Space
+set statusline+=%1*
+set statusline+=%y
+set statusline+=%*  " Reset highlight group.
+set statusline+=\ %m
+set statusline+=%=  " Split point for left and right groups.
+set statusline+=%{(&fenc!=''?&fenc:&enc)}\[%{&ff}]
+set statusline+=\  " Space
+set statusline+=\ %{statusline#filesize()}
+set statusline+=\  " Space
+set statusline+=%7*
+set statusline+=\  " Space
+" set statusline+=ℓ    " (Literal, \u2113 "SCRIPT SMALL L").
+" set statusline+=\  " Space
+set statusline+=%l/%L
+" set statusline+=\  " Space
+" set statusline+=𝚌    " (Literal, \u1d68c "MATHEMATICAL MONOSPACE SMALL C").
+set statusline+=\  " Space
+set statusline+=%c  " current virtual column number.
+set statusline+=\  " Space
+set statusline+=%p  " Percentage through buffer.
+set statusline+=%%  " Literal %.
+set statusline+=\  " Space

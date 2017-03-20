@@ -9,21 +9,13 @@ endif
 " set termguicolors
 let mapleader=" "
 set clipboard=unnamed
-
 set lazyredraw
-
 set visualbell t_vb=  " No sounds
 set noswapfile
 
+" Add all plugins and my configuration to the runtimepath.
+let &runtimepath.=",~/dotfiles/vim"
 call plug#begin('~/.config/nvim/bundle')
-
-set colorcolumn=+1,+2
-
-augroup filetype_python
-  autocmd!
-  autocmd FileType python setlocal textwidth=79
-augroup END
-
 Plug 'elzr/vim-json'
 " Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
@@ -33,37 +25,21 @@ Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-fugitive'
 Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-tern', {'do': 'npm install'}
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'zchee/deoplete-jedi'
 Plug 'SirVer/ultisnips'
-
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-buftabline'
 Plug 'w0rp/ale'
-
 call plug#end()
-
-let g:cm_refresh_default_min_word_len=[[1,4], [7,1]]
-
-au User CmSetup call cm#register_source({'name' : 'cm-ultisnips',
-      \ 'priority': 10,
-      \ 'abbreviation': 'Snippet',
-      \ 'word_pattern': '\S+',
-      \ 'cm_refresh': 'cm#sources#ultisnips#cm_refresh',
-      \ })
 
 " remap j/k to gj/gk only without a count
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:ale_statusline_format=['E %d', 'W %d', '']
-
 autocmd filetype python nnoremap <Leader>y :0,$!yapf<CR>
 
 set wildignore+=*.pyc
+set colorcolumn=+1,+2
 
 let g:buftabline_show=1
 let g:buftabline_numbers=2
@@ -95,7 +71,7 @@ set softtabstop=2
 set shiftwidth=2
 set nosmartindent
 
-let g:UltiSnipsSnippetsDir='~/.config/nvim/UltiSnips'
+let g:UltiSnipsSnippetsDir='~/dotfiles/vim/UltiSnips'
 let g:UltiSnipsEditSplit='vertical'
 
 nnoremap <Leader>u :UltiSnipsEdit<CR>
@@ -121,28 +97,6 @@ set hidden
 
 set wildmode=longest:full,full
 
-function! FileSize()
-  let bytes = getfsize(expand('%:p'))
-  if (bytes >= 1024)
-    let kbytes = bytes / 1024
-  endif
-  if (exists('kbytes') && kbytes >= 1000)
-    let mbytes = kbytes / 1000
-  endif
-
-  if bytes <= 0
-    return '0B'
-  endif
-
-  if (exists('mbytes'))
-    return mbytes . 'MB'
-  elseif (exists('kbytes'))
-    return kbytes . 'KB'
-  else
-    return bytes . 'B'
-  endif
-endfunction
-
 let g:currentmode={
       \ 'n': 'NORMAL',
       \ 'v': 'VISUAL',
@@ -152,19 +106,22 @@ let g:currentmode={
       \ 'R': 'REPLACE',
       \}
 
-" set statusline=\ %{g:currentmode[mode()]}
-set statusline+=\ %f
-set statusline+=\ %y
-set statusline+=\ %m
-set statusline+=%=
-set statusline+=%{(&fenc!=''?&fenc:&enc)}\[%{&ff}]
-set statusline+=\ %l/%L\ %c
-set statusline+=\ %{FileSize()}
-set statusline+=\ " one digit
+function! FilePrefix()
+  let l:basename=expand('%:h')
+  return l:basename . '/'
+  " if l:basename == '' || l:basename == '.'
+  "   return ''
+  " else
+  "   " Make sure we show $HOME as ~.
+  "   return l:basename
+  " endif
+endfunction
+
 
 set relativenumber
 set number
 set numberwidth=2
+set cursorline
 
 set ignorecase
 set smartcase
@@ -222,17 +179,4 @@ nmap <Leader>8 <Plug>BufTabLine.Go(8)
 nmap <Leader>9 <Plug>BufTabLine.Go(9)
 nmap <Leader>0 <Plug>BufTabLine.Go(10)
 
-set cursorline
-
-highlight Comment ctermfg=DarkGray cterm=italic
-highlight Todo ctermbg=none ctermfg=White cterm=bold
-highlight CursorLine ctermbg=Black cterm=None
-highlight ColorColumn ctermbg=Black
-highlight LineNr ctermfg=DarkGray
-highlight CursorLineNr ctermfg=White ctermbg=Black
-highlight String ctermfg=DarkRed
-highlight TabLineFill ctermfg=2
-highlight TabLineSel ctermfg=2 cterm=bold
-highlight TabLine ctermbg=2 ctermfg=0 cterm=none
-highlight BufTabLineActive ctermbg=2 ctermfg=15 cterm=none
-highlight StatusLine ctermfg=2 ctermbg=15
+colorscheme rusty1s

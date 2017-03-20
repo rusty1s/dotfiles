@@ -97,3 +97,12 @@ Returns:
 """
 
 endsnippet
+
+snippet unittest
+from unittest import TestCase
+
+
+class ${1:Name}Test(TestCase):
+	def test_${2:method}(self):
+		${3:pass}
+endsnippet
