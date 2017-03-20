@@ -3,23 +3,21 @@ set statusline+=%{statusline#fileprefix()}  " Relative path to directory.
 set statusline+=%3*                         " Bold highlight group.
 set statusline+=%t                          " Filename.
 set statusline+=%*                          " Reset highlight group.
+set statusline+=%<                          " Truncation point.
 set statusline+=\                           " Space.
 set statusline+=%1*                         " Italic highlight group.
-" Modified Flag, Readonly Flag, Filetype, Fileencoding, Fileformat.
+" Modified flag, readonly flag, filetype, fileencoding, fileformat, filesize.
 set statusline+=%([%M%R
       \%{statusline#filetype()}
       \%{statusline#fileencoding()}
-      \%{statusline#fileformat()}]%)
+      \%{statusline#fileformat()}
+      \%{statusline#filesize()}]%)
 set statusline+=%*                          " Reset highlight group.
 set statusline+=\                           " Space.
 
 " Split point for left and right groups.
 set statusline+=%=
 
-set statusline+=%{(&fenc!=''?&fenc:&enc)}\[%{&ff}]
-set statusline+=\  " Space
-set statusline+=\ %{statusline#filesize()}
-set statusline+=\  " Space
 set statusline+=%7*
 set statusline+=\  " Space
 " set statusline+=ℓ    " (Literal, \u2113 "SCRIPT SMALL L").
