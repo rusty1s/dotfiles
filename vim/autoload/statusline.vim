@@ -54,6 +54,18 @@ function! statusline#filesize()
   endif
 endfunction
 
+function! statusline#readonly()
+  if &readonly || !&modifiable
+    return ' '
+  else
+    return ''
+  endif
+endfunction
+
+function! statusline#mode()
+  return ''
+endfunction
+
 let g:currentmode={
       \ 'n': 'NORMAL',
       \ 'v': 'VISUAL',

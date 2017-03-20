@@ -9,14 +9,13 @@ set statusline+=%1*                         " Italic highlight group.
 " Mofied, redonly, filetype, fileencoding, fileformat, filesize.
 set statusline+=%([
       \%M
-      \%R
       \%{statusline#filetype()}
       \%{statusline#fileencoding()}
       \%{statusline#fileformat()}
       \%{statusline#filesize()}
       \]%)
 set statusline+=%*                          " Reset highlight group.
-set statusline+=\                           " Space.
+set statusline+=%{statusline#readonly()}
 
 " Split point for left and right groups.
 set statusline+=%=
