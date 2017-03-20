@@ -1,17 +1,21 @@
-set statusline=%7*
-" set statusline+=\ %{g:currentmode[mode()]}
-set statusline+=\  " Space
-set statusline+=%*  " Reset highlight group.
-set statusline+=\ %{statusline#fileprefix()}
-set statusline+=%3*
-set statusline+=%t  " Filename.
-set statusline+=%*  " Reset highlight group.
-set statusline+=\  " Space
-set statusline+=%1*
-set statusline+=%y
-set statusline+=%*  " Reset highlight group.
-set statusline+=\ %m
-set statusline+=%=  " Split point for left and right groups.
+set statusline=\                            " Space.
+set statusline+=%{statusline#fileprefix()}  " Relative path to directory.
+set statusline+=%3*                         " Bold highlight group.
+set statusline+=%t                          " Filename.
+set statusline+=%*                          " Reset highlight group.
+set statusline+=\                           " Space.
+set statusline+=%1*                         " Italic highlight group.
+" Modified Flag, Readonly Flag, Filetype, Fileencoding, Fileformat.
+set statusline+=%([%M%R
+      \%{statusline#filetype()}
+      \%{statusline#fileencoding()}
+      \%{statusline#fileformat()}]%)
+set statusline+=%*                          " Reset highlight group.
+set statusline+=\                           " Space.
+
+" Split point for left and right groups.
+set statusline+=%=
+
 set statusline+=%{(&fenc!=''?&fenc:&enc)}\[%{&ff}]
 set statusline+=\  " Space
 set statusline+=\ %{statusline#filesize()}
