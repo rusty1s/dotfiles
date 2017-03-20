@@ -71,7 +71,7 @@ set softtabstop=2
 set shiftwidth=2
 set nosmartindent
 
-let g:UltiSnipsSnippetsDir='~/dotfiles/vim/UltiSnips'
+let g:UltiSnipsSnippetsDir='~/dotfiles/vim/ultisnips'
 let g:UltiSnipsEditSplit='vertical'
 
 nnoremap <Leader>u :UltiSnipsEdit<CR>
