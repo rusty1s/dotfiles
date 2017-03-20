@@ -6,12 +6,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
-" set termguicolors
 let mapleader=" "
-set clipboard=unnamed
-set lazyredraw
-set visualbell t_vb=  " No sounds
-set noswapfile
 
 " Add all plugins and my configuration to the runtimepath.
 let &runtimepath.=",~/dotfiles/vim"
@@ -36,9 +31,6 @@ call plug#end()
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-set wildignore+=*.pyc
-set colorcolumn=+1,+2
-
 " define :Find command that will lists files that contain the searched string
 " see also http://goo.gl/yvCS3y
 " let s:rg='rg ' .
@@ -58,13 +50,27 @@ set colorcolumn=+1,+2
 nnoremap <Leader><Leader> :Files<CR>
 
 " set grepprg=rg\ --vimgrep
+set clipboard=unnamed
+set lazyredraw
+set visualbell t_vb=  " No sounds
+set noswapfile
+set wildignore+=*.pyc
+set colorcolumn=+1,+2
 set path+=**
-
 set expandtab  " causes spaces to be used in place of tab characters
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set nosmartindent
+set hidden
+" set noshowmode
+set wildmode=longest:full,full
+set relativenumber
+set number
+set numberwidth=2
+set cursorline
+set ignorecase
+set smartcase
 
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
@@ -78,11 +84,6 @@ augroup END
 
 inoremap jk <Esc>
 
-set hidden
-" set noshowmode
-
-set wildmode=longest:full,full
-
 let g:currentmode={
       \ 'n': 'NORMAL',
       \ 'v': 'VISUAL',
@@ -92,13 +93,6 @@ let g:currentmode={
       \ 'R': 'REPLACE',
       \}
 
-set relativenumber
-set number
-set numberwidth=2
-set cursorline
-
-set ignorecase
-set smartcase
 
 function! StripTrailingWhitespace()
   if !&binary && &filetype != 'diff'
@@ -142,4 +136,4 @@ nnoremap <silent> <Leader>j :call WinMove('j')<CR>
 nnoremap <silent> <Leader>k :call WinMove('k')<CR>
 nnoremap <silent> <Leader>l :call WinMove('l')<CR>
 
-colorscheme happy-hacking
+colorscheme happyhacking
