@@ -27,29 +27,6 @@ Plug 'ap/vim-buftabline'
 Plug 'w0rp/ale'
 call plug#end()
 
-" remap j/k to gj/gk only without a count
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-
-" define :Find command that will lists files that contain the searched string
-" see also http://goo.gl/yvCS3y
-" let s:rg='rg ' .
-"       \ '--column ' .
-"       \ '--line-number ' .
-"       \ '--no-heading ' .
-"       \ '--fixed-strings ' .
-"       \ '--ignore-case ' .
-"       \ '--hidden ' .
-"       \ '--follow ' .
-"       \ '--glob "!(.git/*|*.pyc)" ' .
-"       \ '--color "always" '
-
-" command! -bang -nargs=* Find call
-"       \ fzf#vim#grep(s:rg.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-
-nnoremap <Leader><Leader> :Files<CR>
-
-" set grepprg=rg\ --vimgrep
 set clipboard=unnamed
 set lazyredraw
 set visualbell t_vb=  " No sounds
@@ -61,7 +38,6 @@ set expandtab  " causes spaces to be used in place of tab characters
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set nosmartindent
 set hidden
 " set noshowmode
 set wildmode=longest:full,full
@@ -72,18 +48,6 @@ set cursorline
 set ignorecase
 set smartcase
 
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <Leader>sv :source $MYVIMRC<CR>
-nnoremap <CR> o<Esc>
-
-augroup fix_cr_mapping
-  autocmd!
-  autocmd CmdwinEnter * nnoremap <CR> <CR>
-  autocmd BufReadPost quickfix nnoremap <CR> <CR>
-augroup END
-
-inoremap jk <Esc>
-
 let g:currentmode={
       \ 'n': 'NORMAL',
       \ 'v': 'VISUAL',
@@ -92,7 +56,6 @@ let g:currentmode={
       \ 'i': 'INSERT',
       \ 'R': 'REPLACE',
       \}
-
 
 function! StripTrailingWhitespace()
   if !&binary && &filetype != 'diff'
@@ -130,10 +93,5 @@ function! WinMove(key)
     exec 'wincmd ' . a:key
   endif
 endfunction
-
-nnoremap <silent> <Leader>h :call WinMove('h')<CR>
-nnoremap <silent> <Leader>j :call WinMove('j')<CR>
-nnoremap <silent> <Leader>k :call WinMove('k')<CR>
-nnoremap <silent> <Leader>l :call WinMove('l')<CR>
 
 colorscheme happyhacking
