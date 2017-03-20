@@ -62,6 +62,28 @@ function! statusline#readonly()
   endif
 endfunction
 
+function! statusline#errors()
+  let str = ale#statusline#Status()
+  let idx = stridx(str, "E")
+  let idx2 = stridx(str, "F")
+  if idx != -1
+    return " " . strpart(str, idx + 1, idx2 - idx - 1) . " "
+  else
+    return ''
+  endif
+endfunction
+
+function! statusline#warnings()
+  let str = ale#statusline#Status()
+  let idx = stridx(str, "W")
+  let idx2 = stridx(str, "V")
+  if idx != -1
+    return " " . strpart(str, idx + 1, idx2 - idx - 1) . " "
+  else
+    return ''
+  endif
+endfunction
+
 function! statusline#mode()
   return ''
 endfunction
