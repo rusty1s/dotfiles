@@ -6,7 +6,6 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 nnoremap <CR> o<Esc>
 augroup fix_cr_mapping
   autocmd!
-  autocmd CmdwinEnter * nnoremap <CR> <CR>
-  autocmd BufReadPost quickfix nnoremap <CR> <CR>
+  autocmd CmdwinEnter * nunmap <CR>
+  autocmd BufReadPost quickfix nunmap <CR>
 augroup END
-
