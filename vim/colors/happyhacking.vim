@@ -5,7 +5,7 @@ hi CursorLine ctermbg=8 cterm=None
 hi ColorColumn ctermbg=8
 hi LineNr ctermfg=4 ctermbg=none
 hi CursorLineNr ctermfg=15 ctermbg=none
-hi String ctermfg=1
+hi String ctermfg=3
 hi TabLineFill ctermfg=2
 hi TabLineSel ctermfg=2 cterm=bold
 hi TabLine ctermbg=2 ctermfg=0 cterm=none
