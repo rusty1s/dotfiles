@@ -15,13 +15,13 @@ export default ${1:name};$0
 endsnippet
 
 snippet class
-class ${1:name} {
+class ${1:`!p snip.rv = snip.basename.capitalize() or 'ClassName'`} {
 	${VISUAL}$0
 }
 endsnippet
 
 snippet "class extends"
-class ${1:name} extends ${2:extension} {
+class ${1:`!p snip.rv = snip.basename.capitalize() or 'ClassName'`} extends ${2:SuperclassName} {
 	${VISUAL}$0
 }
 endsnippet
@@ -30,21 +30,27 @@ snippet "if without braces"
 if (${1:condition}) ${VISUAL}$0
 endsnippet
 
-snippet if
+snippet if "If"
 if (${1:condition}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet elseif
-else if (${1:condition}) {
-	${VISUAL}$0
+snippet ifee "If / Else if / Else"
+if (${1:condition}) {
+	${VISUAL}$2
+} else if (${3:condition}) {
+	${4:return;}
+} else {
+	${5:return;}
 }
 endsnippet
 
-snippet else
-else {
-	${VISUAL}$0
+snippet ife "If / Else"
+if (${1:condition}) {
+	${VISUAL}$2
+} else {
+	${3:return;}
 }
 endsnippet
 

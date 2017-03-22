@@ -21,6 +21,7 @@ set statusline+=%*                          " Reset highlight group.
 set statusline+=%=
 
 set statusline+=%8*
+set statusline+=               " Powerline arrow.
 set statusline+=%{statusline#errors()}
 set statusline+=%*                          " Reset highlight group.
 set statusline+=%9*
