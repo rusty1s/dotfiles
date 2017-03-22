@@ -9,5 +9,5 @@ windows:
       panes:
         - vim
         - #empty
-  - tomcat: cd ~/svn/helicrc && mvn clean install -DskipTests && cd tests/helicrc-test-integration && mvn test -Dtest=FitNesseWikiStart
+  - tomcat: cd ~/svn/helicrc && svn update && mvn clean install -DskipTests && cd tests/helicrc-test-integration && mvn test -Dtest=FitNesseWikiStart
   - webpack: npm run watch
