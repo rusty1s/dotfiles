@@ -1,5 +1,12 @@
 #!/bin/sh
 
+if [ ! -d ~/.sources/neovim ]; then
+  git clone https://github.com/neovim/neovim.git ~/.sources/neovim
+else
+  cd ~.sources/neovim || exit
+  git pull
+fi
+
 sudo apt-get install -y libtool autoconf automake g++ pkg-config unzip cmake
 sudo apt-get install -y python-dev python-pip python3-dev python3-pip
 
