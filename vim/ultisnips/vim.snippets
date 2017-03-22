@@ -1,0 +1,52 @@
+snippet Plug
+Plug '${1:author}/${2:name}'
+endsnippet
+
+snippet marker
+" ${1:header} {{{
+
+${VISUAL}$0
+
+" }}}
+endsnippet
+
+snippet set "" i
+set ${1:option}=${2:value}
+endsnippet
+
+snippet function
+function! ${1:name}($2)
+	${VISUAL}$3
+endfunction
+endsnippet
+
+snippet if "If"
+if ${1:condition}
+	${VISUAL}$2
+endif
+endsnippet
+
+snippet ife "If / Else"
+if ${1:condition}
+	${VISUAL}$2
+else
+	$3
+endif
+endsnippet
+
+snippet ifee "If / Elseif / Else"
+if ${1:condition}
+	${VISUAL}$2
+elseif ${2:condition}
+	$3
+else
+	$4
+endif
+endsnippet
+
+snippet augroup
+augroup ${1:group}
+	autocmd!
+	${VISUAL}$2
+augroup END
+endsnippet
