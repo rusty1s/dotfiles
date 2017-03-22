@@ -1,0 +1,47 @@
+global !p
+import re
+
+
+def id(author="", year=""):
+	# Concat first author's last name and two last digits of year.
+	match = re.compile('\s?(\w*),').search(author)
+	return "" if match is None else match.group(1) + year[-2:]
+endglobal
+
+snippet book
+@book{`!p snip.rv = id(t[2], t[4])`,
+	title={${1:Title}},
+	author={${2:Author}},
+	publisher={${3:Publisher}},
+	year={${4:2017}},
+}
+endsnippet
+
+snippet article
+@article{`!p snip.rv = id(t[2], t[6])`
+	title={${1:Title}},
+	author={${2:Author}},
+	journal={${3:Journal}},
+	pages={${4:Start}--${5:End}},
+	year={${6:2017}},
+}
+endsnippet
+
+snippet inproceedings
+@inproceedings{`!p snip.rv = id(t[2], t[6])`
+	title={${1:Title}},
+	author={${2:Author}},
+	booktitle={${3:Booktitle}},
+	pages={${4:Start}--${5:End}},
+	year={${6:2017}},
+}
+endsnippet
+
+snippet phdthesis
+@phdthesis{`!p snip.rv = id(t[2], t[4])`
+	title={${1:Title}},
+	author={${2:Author}},
+	school={${3:School}},
+	year={${4:2017}},
+}
+endsnippet

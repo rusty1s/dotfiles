@@ -1,35 +1,35 @@
 #!/bin/sh
 
 if test ! "$(which brew)"; then
-  echo "Installing homebrew..."
-
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-  brew tap caskroom/cask
 else
-  echo "Updating homebrew..."
-
   brew update
 fi
 
-echo "Installing homebrew packages..."
-
-# git
 brew install git
+brew install zsh zsh-completions
+brew install node
+brew install python3
+brew install ripgrep
+brew install fasd
 
-echo "Installing homebrew cask applications..."
+brew tap neovim/neovim
+brew install neovim
 
-brew cask install iterm2
-brew cask install virtualbox
-brew cask install vagrant
+brew install tmux
+# pbcopy broken in tmux under sierra
+brew install reattach-to-user-namespace
 
-# brew cask install texpad
-brew cask install tower
+brew tap caskroom/fonts
+brew cask install font-fira-code
 
+brew tap caskroom/cask
 brew cask install google-chrome
-brew cask install chrome-devtools
-
 brew cask install 1password
 brew cask install spotify
 brew cask install dropbox
 brew cask install whatsapp
+brew cask install hyper
+brew cask install discord
+brew cask install league-of-legends
+brew cask install mactex

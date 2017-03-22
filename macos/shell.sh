@@ -1,17 +1,22 @@
-#!/bin/bash
+#!/bin/sh
 
-cd "$HOME" || exit
-
-if [ ! -d "$DOTFILES/.git" ]; then
-  rm -rf "$DOTFILES"
-  git clone https://github.com/rusty1s/dotfiles "$DOTFILES"
+if [ ! -d ~/dotfiles ]; then
+  git clone git@github.com:rusty1s/dotfiles.git ~/dotfiles
 else
-  cd "$DOTFILES" || exit
   git pull
 fi
 
-ln -sf "$DOTFILES/shell/bash_profile" "$HOME/.bash_profile"
-# shellcheck source=/dev/null
-source "$HOME/.bash_profile"
+ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/macos/hyper.js ~/.hyper.js
 
-ln -sf "$DOTFILES/git/gitconfig" "$HOME/.gitconfig"
+mkdir -p ~/.ssh
+ln -sf ~/dotfiles/macos/ssh_config ~/.ssh/config
+
+npm install -g pure-prompt
+mkdir -p ~/.config/nvim
+ln -sf ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
+ln -sf ~/dotfiles/vim/.tern-project ~/.tern-project
+ln -sf ~/dotfiles/vim/after ~/.config/nvim/after
+ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+
+mkdir -p ~/github
