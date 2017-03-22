@@ -65,13 +65,13 @@ for ${1:item} in ${2:iterable}:
 endsnippet
 
 snippet class
-class ${1:name}(object):
+class ${1:`!p snip.rv = snip.basename.capitalize() or 'ClassName'`}(object):
 	def __init__(self${2}):
 		${3:${VISUAL:pass}}
 endsnippet
 
 snippet subclass
-class ${1:name}(${2:Superclass}):
+class ${1:`!p snip.rv = snip.basename.capitalize() or 'ClassName'`}(${2:SuperclassName}):
 	def __init__(self${3}):
 		super($1, self).__init__(${4:args})
 		${5:${VISUAL}}
