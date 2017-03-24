@@ -14,7 +14,7 @@ hi StatusLine ctermfg=15 ctermbg=2 cterm=none
 hi User1 ctermfg=15 ctermbg=2 cterm=italic
 hi User2 ctermfg=15 ctermbg=8
 hi User3 ctermfg=15 ctermbg=2 cterm=bold
-hi User7 ctermfg=15 ctermbg=9
+hi User7 ctermfg=8 ctermbg=7
 hi User8 ctermfg=15 ctermbg=1 cterm=bold
 hi User9 ctermfg=15 ctermbg=3 cterm=bold
 hi ALEErrorSign ctermfg=1 ctermbg=none cterm=none
