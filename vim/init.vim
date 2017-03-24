@@ -28,5 +28,5 @@ Plug 'ap/vim-buftabline'
 Plug 'w0rp/ale'
 call plug#end()
 
-colorscheme happyhacking
 set background=dark
+colorscheme happyhacking

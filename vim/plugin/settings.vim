@@ -1,5 +1,5 @@
 set clipboard=unnamed
-set lazyredraw
+" set lazyredraw
 set visualbell t_vb=  " No sounds
 set noswapfile
 set wildignore+=*.pyc
