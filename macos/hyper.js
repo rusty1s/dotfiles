@@ -1,7 +1,6 @@
 module.exports = {
   config: {
     shell: '/bin/zsh',
-    env: {},
   },
   plugins: [],
   localPlugins: [
