@@ -22,4 +22,3 @@ if [ -d /usr/local/lib/python3.6 ]; then
     source ~/venv/bin/activate
   fi
 fi
-
