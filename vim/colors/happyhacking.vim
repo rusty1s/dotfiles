@@ -9,16 +9,15 @@ hi ALEErrorSign ctermfg=1 ctermbg=none cterm=none
 hi ALEWarningSign ctermfg=3 ctermbg=none cterm=none
 
 " Status line
-hi StatusLine ctermbg=2 ctermfg=15 cterm=none
-hi User1 ctermbg=1 ctermfg=15
-hi User2 ctermbg=1 ctermfg=15 cterm=bold
-hi User3 ctermbg=2 ctermfg=1
-hi User4 ctermbg=2 ctermfg=8
+hi StatusLine ctermbg=8 ctermfg=7 cterm=none
+hi User1 ctermbg=7 ctermfg=8
+hi User2 ctermbg=7 ctermfg=8 cterm=bold
+hi User3 ctermbg=8 ctermfg=7
 
 hi User6 ctermbg=2 ctermfg=8
 hi User7 ctermbg=8 ctermfg=15
-hi User8 ctermbg=8 ctermfg=4
-hi User9 ctermbg=4 ctermfg=0
+hi User8 ctermbg=8 ctermfg=7
+hi User9 ctermbg=7 ctermfg=8
 
 " Tab line
 hi TabLineFill ctermfg=2
