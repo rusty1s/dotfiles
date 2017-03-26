@@ -18,3 +18,10 @@ set numberwidth=2
 set cursorline
 set ignorecase
 set smartcase
+
+set list
+set listchars=tab:▸\ ,trail:•
+
+set linebreak
+set breakindent
+set showbreak=…

@@ -4,7 +4,7 @@ hi ColorColumn ctermbg=8
 
 " Line numbers + Left side
 hi LineNr ctermfg=4
-hi CursorLineNr ctermfg=15
+hi CursorLineNr ctermfg=15 cterm=bold
 hi ALEErrorSign ctermfg=1 ctermbg=none cterm=none
 hi ALEWarningSign ctermfg=3 ctermbg=none cterm=none
 
