@@ -1,6 +1,6 @@
 " Cursor line
-hi CursorLine ctermbg=8 cterm=None
-hi ColorColumn ctermbg=8
+hi CursorLine ctermbg=0 cterm=None
+hi ColorColumn ctermbg=0
 
 " Line numbers + Left side
 hi LineNr ctermfg=4
@@ -10,7 +10,7 @@ hi ALEWarningSign ctermfg=3 ctermbg=none cterm=none
 
 " Status line
 hi StatusLine ctermbg=8 ctermfg=7 cterm=none
-hi StatuslineNC ctermbg=0 ctermfg=7 cterm=none
+hi StatuslineNC ctermbg=8 ctermfg=7 cterm=none
 hi User1 ctermbg=7 ctermfg=8
 hi User2 ctermbg=7 ctermfg=8 cterm=bold
 hi User3 ctermbg=8 ctermfg=7
@@ -21,10 +21,10 @@ hi User8 ctermbg=8 ctermfg=7
 hi User9 ctermbg=7 ctermfg=8
 
 " Tab line
-hi TabLineFill ctermbg=none ctermfg=7 cterm=underline
-hi TabLine ctermbg=none ctermfg=7 cterm=underline
-hi TabLineSel ctermbg=none ctermfg=15 cterm=bold,underline
-hi BufTabLineActive ctermbg=none ctermfg=7 cterm=underline
+hi TabLineFill ctermbg=8 ctermfg=none cterm=none
+hi TabLine ctermbg=8 ctermfg=7 cterm=none
+hi TabLineSel ctermbg=7 ctermfg=8 cterm=bold
+hi BufTabLineActive ctermbg=8 ctermfg=7 cterm=none
 
 " Split
 hi VertSplit ctermbg=none ctermfg=8 cterm=none
