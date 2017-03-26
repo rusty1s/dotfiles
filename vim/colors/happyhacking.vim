@@ -10,6 +10,7 @@ hi ALEWarningSign ctermfg=3 ctermbg=none cterm=none
 
 " Status line
 hi StatusLine ctermbg=8 ctermfg=7 cterm=none
+hi StatuslineNC ctermbg=0 ctermfg=7 cterm=none
 hi User1 ctermbg=7 ctermfg=8
 hi User2 ctermbg=7 ctermfg=8 cterm=bold
 hi User3 ctermbg=8 ctermfg=7
@@ -24,6 +25,9 @@ hi TabLineFill ctermbg=none ctermfg=7 cterm=underline
 hi TabLine ctermbg=none ctermfg=7 cterm=underline
 hi TabLineSel ctermbg=none ctermfg=15 cterm=bold,underline
 hi BufTabLineActive ctermbg=none ctermfg=7 cterm=underline
+
+" Split
+hi VertSplit ctermbg=none ctermfg=8 cterm=none
 
 " Text
 hi String ctermfg=1
