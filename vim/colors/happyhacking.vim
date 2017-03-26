@@ -20,10 +20,10 @@ hi User8 ctermbg=8 ctermfg=7
 hi User9 ctermbg=7 ctermfg=8
 
 " Tab line
-hi TabLineFill ctermbg=none ctermfg=7 cterm=underline
-hi TabLine ctermbg=none ctermfg=7 cterm=underline
-hi TabLineSel ctermbg=none ctermfg=3 cterm=underline,bold
-hi BufTabLineActive ctermbg=none ctermfg=5 cterm=underline
+hi TabLineFill ctermbg=none ctermfg=none cterm=none
+hi TabLine ctermbg=none ctermfg=7 cterm=italic
+hi TabLineSel ctermbg=7 ctermfg=8 cterm=bold
+hi BufTabLineActive ctermbg=none ctermfg=4 cterm=italic
 
 hi String ctermfg=1
 hi Comment ctermfg=7 cterm=italic
