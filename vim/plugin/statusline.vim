@@ -1,7 +1,7 @@
 set statusline=                             " Start with a clean line.
 set statusline+=%1*                         " User group 1.
 set statusline+=\                           " Space.
-set statusline+=%{statusline#fileprefix()}  " Relative path to directory.
+set statusline+=%.20{statusline#fileprefix()}  " Relative path to directory.
 set statusline+=%*                          " Reset highlight group.
 set statusline+=%2*                         " User group 2.
 set statusline+=%t                          " Filename.
@@ -22,8 +22,7 @@ set statusline+=%([
       \%{statusline#filesize()}
       \]%)
 
-" Split point for left and right groups.
-set statusline+=%=
+set statusline+=%=      " Split point for left and right groups.
 
 set statusline+=%8*     " User group 8.
 set statusline+=       " Powerline arrow.
