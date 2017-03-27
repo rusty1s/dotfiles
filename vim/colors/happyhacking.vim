@@ -12,9 +12,9 @@ hi ALEErrorSign ctermfg=1 ctermbg=none cterm=none
 hi ALEWarningSign ctermfg=3 ctermbg=none cterm=none
 hi SignifySignAdd ctermbg=none ctermfg=2
 hi SignifySignChange ctermbg=none ctermfg=3
-hi SignifySignDelete ctermbg=none ctermfg=1
-hi SignifySignChangeDelete ctermbg=none ctermfg=1
-hi SignifySignDeleteFirstLine ctermbg=none ctermfg=1
+hi SignifySignDelete ctermbg=none ctermfg=5
+hi SignifySignChangeDelete ctermbg=none ctermfg=5
+hi SignifySignDeleteFirstLine ctermbg=none ctermfg=5
 
 " Status line
 hi StatusLine ctermbg=8 ctermfg=7 cterm=none
