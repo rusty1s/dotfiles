@@ -30,6 +30,8 @@ Plug 'mxw/vim-jsx'
 " Try to detect the kind of indentation in your file and set Vim's options to
 " keep it that way.
 Plug 'tpope/vim-sleuth'
+" Automatic closing of quotes, parenthesis, brackets, etc.
+Plug 'Raimondi/delimitMate'
 call plug#end()
 
 set background=dark

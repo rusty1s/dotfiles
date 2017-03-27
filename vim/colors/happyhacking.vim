@@ -2,11 +2,19 @@
 hi CursorLine ctermbg=0 cterm=None
 hi ColorColumn ctermbg=0
 
-" Line numbers + Left side
+" Line numbers
 hi LineNr ctermfg=4
 hi CursorLineNr ctermfg=15 cterm=bold
+
+" Gutter
+hi SignColumn ctermbg=none
 hi ALEErrorSign ctermfg=1 ctermbg=none cterm=none
 hi ALEWarningSign ctermfg=3 ctermbg=none cterm=none
+hi SignifySignAdd ctermbg=none ctermfg=2
+hi SignifySignChange ctermbg=none ctermfg=3
+hi SignifySignDelete ctermbg=none ctermfg=1
+hi SignifySignChangeDelete ctermbg=none ctermfg=1
+hi SignifySignDeleteFirstLine ctermbg=none ctermfg=1
 
 " Status line
 hi StatusLine ctermbg=8 ctermfg=7 cterm=none
