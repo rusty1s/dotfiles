@@ -12,7 +12,7 @@ let mapleader=" "
 let &runtimepath.=",~/dotfiles/vim"
 call plug#begin('~/.config/nvim/bundle')
 Plug 'elzr/vim-json'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
@@ -26,6 +26,10 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-buftabline'
 Plug 'w0rp/ale'
+Plug 'mxw/vim-jsx'
+" Try to detect the kind of indentation in your file and set Vim's options to
+" keep it that way.
+Plug 'tpope/vim-sleuth'
 call plug#end()
 
 set background=dark

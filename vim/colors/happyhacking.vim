@@ -35,3 +35,7 @@ hi Comment ctermfg=7 cterm=italic
 hi Todo ctermbg=none ctermfg=15 cterm=bold
 hi ALEError ctermbg=1 ctermfg=15
 hi ALEWarning ctermbg=3 ctermfg=15
+
+" Listchars
+hi NonText ctermfg=8
+hi Specialkey ctermfg=8
