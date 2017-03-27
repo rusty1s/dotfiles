@@ -14,7 +14,6 @@ hi StatuslineNC ctermbg=8 ctermfg=7 cterm=none
 hi User1 ctermbg=7 ctermfg=8
 hi User2 ctermbg=7 ctermfg=8 cterm=bold
 hi User3 ctermbg=8 ctermfg=7
-hi User4 ctermbg=8 ctermfg=7 cterm=italic
 
 hi User6 ctermbg=2 ctermfg=8
 hi User7 ctermbg=8 ctermfg=15
