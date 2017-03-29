@@ -42,10 +42,17 @@ COMPLETION_WAITING_DOTS="true"
 HISTFILE=~/.zhistory
 HISTSIZE=10000000
 SAVEHIST=$HISTSIZE
-setopt EXTENDED_HISTORY
-setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY
-setopt HIST_SAVE_NO_DUPS
+setopt EXTENDED_HISTORY    # Write format.
+setopt INC_APPEND_HISTORY  # Write to history file immediately.
+setopt SHARE_HISTORY       # Share history between sessions.
+setopt HIST_SAVE_NO_DUPS   # No saving of duplicates.
+setopt HIST_IGNORE_SPACE   # No saving of events starting with a space.
+setopt HIST_FIND_NO_DUPS   # No display of prevously found event.
+setopt HIST_VERIFY         # No immediate execute on expansion.
+# histappend
+# histreedit
+# histverify
+# histcontrol ignoreboth
 
 # Python 3 Virtualenv
 source $DOTFILES/macos/python.sh
