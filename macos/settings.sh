@@ -89,3 +89,6 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 echo "No press and hold for accents"
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+echo "Only show scrollbars when scrolling"
+defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"

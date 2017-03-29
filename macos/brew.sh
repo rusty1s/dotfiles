@@ -9,9 +9,15 @@ fi
 brew install git
 brew install zsh zsh-completions
 brew install node
-brew install python3
 brew install ripgrep
 brew install fasd
+
+brew install python
+pip install --upgrade distribute
+pip install --upgrade pip
+brew install python3
+pip3 install --upgrade pip
+pip3 install --upgrade distribute
 
 brew tap neovim/neovim
 brew install neovim
