@@ -15,9 +15,11 @@ brew install fasd
 brew install python
 pip install --upgrade distribute
 pip install --upgrade pip
+pip install virtualenv
 brew install python3
 pip3 install --upgrade pip
 pip3 install --upgrade distribute
+pip3 install virtualenv
 
 brew tap neovim/neovim
 brew install neovim
