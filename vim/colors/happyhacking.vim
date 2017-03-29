@@ -1,5 +1,5 @@
 " Cursor line.
-hi CursorLine ctermbg=0 ctermfg=15 cterm=None
+hi CursorLine ctermbg=0 cterm=None
 hi ColorColumn ctermbg=0
 
 " Line numbers.
