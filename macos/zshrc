@@ -76,3 +76,10 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Plugins
 source $DOTFILES/macos/plugins.sh
+
+# Delete apple system logs to make Terminal.app blazingly fast.
+# if ! [[ -w /private/var/log/asl ]]; then
+#   sudo chown $(whoami) /private/var/log/asl
+# fi
+# setopt +o nomatch
+# rm -f /private/var/log/asl/*.asl

@@ -92,3 +92,6 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 echo "Only show scrollbars when scrolling"
 defaults write NSGlobalDomain AppleShowScrollBars -string "WhenScrolling"
+
+echo "Disabling automatic marks in Terminal.app"
+defaults write com.apple.Terminal AutoMarkPromptLines -int 0
