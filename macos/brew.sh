@@ -30,6 +30,7 @@ brew install reattach-to-user-namespace
 
 brew tap caskroom/fonts
 brew cask install font-fira-code
+brew cask install font-humor-sans
 
 brew tap caskroom/cask
 brew cask install google-chrome
