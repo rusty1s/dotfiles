@@ -55,8 +55,8 @@ hi Search ctermbg=4 ctermfg=0
 " Diff.
 hi DiffAdd ctermbg=2 ctermfg=0
 hi DiffChange ctermbg=3 ctermfg=0
-hi DiffDelete ctermbg=1 ctermfg=15
-hi DiffText ctermbg=15 ctermfg=0
+hi DiffDelete ctermbg=1 ctermfg=0
+hi DiffText ctermbg=3 ctermfg=1 cterm=bold
 
 " Fold.
 hi Folded ctermbg=none ctermfg=4
