@@ -33,6 +33,6 @@ set statusline+=%3l/%L  " Current line number.
 set statusline+=\       " Space.
 set statusline+=ℓ       " (Literal, \u2113 "SCRIPT SMALL L").
 set statusline+=\       " Space.
-set statusline+=%-2v    " Current virtual column number.
+set statusline+=%-3v    " Current virtual column number.
 set statusline+=\       " Space
 set statusline+=%*      " Reset highlight group.
