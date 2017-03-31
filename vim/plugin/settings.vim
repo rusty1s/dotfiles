@@ -15,6 +15,7 @@ set numberwidth=2
 set cursorline
 set ignorecase
 set smartcase
+set ttimeoutlen=10  " Unnoticeable small timeout for key codes.
 
 set list
 set listchars=trail:•,tab:▸\   " Mark trailing whitespaces and tabs.
