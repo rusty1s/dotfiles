@@ -11,6 +11,7 @@ brew install zsh zsh-completions
 brew install node
 brew install ripgrep
 brew install fasd
+brew install duti  # Set default applications for file types.
 
 brew install python
 pip install --upgrade distribute
@@ -41,6 +42,7 @@ brew cask install whatsapp
 brew cask install hyper
 brew cask install iterm2-nightly
 brew cask install marked
+duti -s com.bretterpstra.marked2 .md all
 brew cask install discord
 brew cask install league-of-legends
 brew cask install mactex

@@ -9,3 +9,6 @@ augroup fix_cr_mapping
   autocmd CmdwinEnter * nunmap <CR>
   autocmd BufReadPost quickfix nunmap <CR>
 augroup END
+
+" Map make command.
+nnoremap <Leader>m :silent make<CR>
