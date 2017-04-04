@@ -1,113 +1,43 @@
-snippet a4paper
-\usepackage[a4paper,left=${1:3.5cm},right=${2:2.5cm},bottom=${3:3.5cm},top=${4:3cm}]{geometry}$0
-endsnippet
-
-snippet article
-\documentclass{scrartcl}
-
-\usepackage[utf8]{inputenc}
-\usepackage{ngerman}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{a4wide}
-\usepackage{todonotes}
-\usepackage{graphicx}
-
-\title{${1:Title}}
-\subtitle{${2:Subtitle}}
-\author{${3:Matthias Fey}}
-\date{${4:\today}}
-
-\begin{document}
-	${VISUAL}$0
-\end{document}
-endsnippet
-
-snippet usepackage
-\usepackage[${2:options}]{${1:package}}$0
-endsnippet
-
 snippet chapter
-\chapter{${1:Title}}
-
-$0
+\chapter{${VISUAL}$1}
 endsnippet
 
 snippet section
-\section{${1:Title}}
-
-$0
+\section{${VISUAL}$1}
 endsnippet
 
 snippet subsection
-\subsection{${1:Title}}
-
-$0
+\subsection{${VISUAL}$1}
 endsnippet
 
 snippet subsubsection
-\subsubsection{${1:Title}}
-
-$0
-endsnippet
-
-snippet itemize
-\begin{itemize}
-	${VISUAL}$0
-\end{itemize}
-endsnippet
-
-snippet enumerate
-\begin{enumerate}
-	\item $0
-\end{enumerate}
+\subsubsection{${VISUAL}$1}
 endsnippet
 
 snippet item
 \item $0
 endsnippet
 
-snippet graphic
-\begin{figure}
-	\centering
-	\includegraphics[width=${2:.8}\textwidth]{${1:path}}$0
-\end{figure}
+snippet itemize
+\begin{itemize}
+	${VISUAL}\item $1
+\end{itemize}
 endsnippet
 
-snippet equation
-\begin{equation}
-	${VISUAL}$0
-\end{equation}
-endsnippet
-
-snippet equation*
-\begin{equation*}
-	${VISUAL}$0
-\end{equation*}
-endsnippet
-
-snippet matrix
-\begin{pmatrix}
-	${VISUAL}$0
-\end{pmatrix}
-endsnippet
-
-snippet emph
-\emph{${VISUAL}$1}$0
+snippet enumerate
+\begin{enumerate}
+	${VISUAL}\item $1
+\end{enumerate}
 endsnippet
 
 snippet todo
-\todo{$1}$0
+\todo{${VISUAL}$1}
 endsnippet
 
-snippet textbf
-\textbf{$1}$0
+snippet emph
+\emph{${VISUAL}$1}
 endsnippet
 
-snippet underline
-\underline{${VISUAL}$1}$0
-endsnippet
-
-snippet include
-\include{${VISUAL}$1}$0
+snippet newglosassaryentry
+\newglossaryentry{${1:Id}}{name=\ensuremath{${2:Symbol}}, description={${3:Description}}}
 endsnippet
