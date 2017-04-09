@@ -7,10 +7,9 @@ export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30
 
 export DOTFILES=~/dotfiles
 export GITHUB=~/github
-export LOCAL_HYPER_PLUGINS=~/.hyper_plugins/local
 
 export PATH="$PATH:$DOTFILES/bin"
-export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$LOCAL_HYPER_PLUGINS"
+export CDPATH=".:$HOME:$DOTFILES:$GITHUB"
 export EDITOR=vim
 export VISUAL=vim
 
