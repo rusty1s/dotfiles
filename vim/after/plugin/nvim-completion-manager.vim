@@ -6,5 +6,3 @@ call cm#register_source({'name' : 'cm-ultisnips',
       \ 'word_pattern': '\S+',
       \ 'cm_refresh': 'cm#sources#ultisnips#cm_refresh',
       \ })
-
-
