@@ -1,5 +1,13 @@
 #!/bin/bash
 
+mkdir -p ~/.config/sh
+
+# Z - jump around
+if [ ! -d ~/.config/sh/z ]; then
+  git clone https://github.com/rupa/z ~/.config/sh/z
+fi
+source ~/.config/sh/z/z.sh
+
 mkdir -p ~/.config/zsh
 
 # Completions
@@ -13,10 +21,6 @@ if [ ! -d ~/.config/zsh/autosuggestions ]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/zsh/autosuggestions
 fi
 source ~/.config/zsh/autosuggestions/zsh-autosuggestions.zsh
-
-# Fasd
-# eval "$(fasd --init auto)"
-# alias z="fasd_cd -di"
 
 # Syntax Highlighting
 if [ ! -d ~/.config/zsh/syntax-highlighting ]; then
