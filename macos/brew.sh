@@ -37,7 +37,6 @@ brew cask install font-humor-sans
 
 brew tap caskroom/cask
 brew cask install google-chrome
-brew cask install 1password
 brew cask install spotify
 brew cask install dropbox
 brew cask install whatsapp
@@ -48,3 +47,5 @@ duti -s com.bretterpstra.marked2 .md all
 brew cask install discord
 brew cask install league-of-legends
 brew cask install mactex
+
+echo "Please install 1Password from the App Store."
