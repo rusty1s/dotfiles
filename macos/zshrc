@@ -30,6 +30,10 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias cask="brew cask"
+alias gs="git status"
+alias ga="git add . -A"
+alias gc="git commit -m"
+alias gp="git push"
 
 # Automatically ls after cd.
 chpwd() { ls }
