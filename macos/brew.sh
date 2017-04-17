@@ -9,14 +9,16 @@ fi
 brew install git
 brew install zsh zsh-completions
 brew install node
+npm install -g npm@latest
+brew install yarn
 brew install ripgrep
-brew install fasd
 brew install duti  # Set default applications for file types.
 
 brew install python
 pip install --upgrade distribute
 pip install --upgrade pip
 pip install virtualenv
+
 brew install python3
 pip3 install --upgrade pip
 pip3 install --upgrade distribute
