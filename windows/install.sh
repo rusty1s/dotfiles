@@ -24,8 +24,16 @@ fi
 sudo apt-get install -y --force-yes tmux-next
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+if [ ! -d ~/.nvm ]; then
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+fi
 . ~/.nvm/nvm.sh
 nvm install node
 npm install npm@latest
 npm install -g yarn
+
+sudo apt-get install -y zsh
+sudo chsh -s "$(which zsh)" "$(whoami)"
+rm -rf ~/.bashrc
+rm -rf ~/.bash_logout
+rm -rf ~/.bash_history

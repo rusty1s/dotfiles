@@ -33,3 +33,7 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 * Tmux
 * SSH Key
 * ConsoleZ Config Save
+* RIPGREP
+* TMUXINATOR
+* mysql
+* java
