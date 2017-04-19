@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "Check that terminal can render italics"
 echo "======================================"
-echo -e "\e[3mThis should be italic!\e[23m"
+printf "\e[3mThis should be italic!\e[23m\n"
 echo ""
 echo "Check that terminal type supports italics"
 echo "========================================="
