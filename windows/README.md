@@ -37,3 +37,5 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 * TMUXINATOR
 * mysql
 * java
+* Mouse Input nervt
+* Copy Paste Clibboard rumspielen
