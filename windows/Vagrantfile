@@ -2,10 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "v0rtex/xenial64"
-  config.vm.box_check_update = false
-  config.ssh.username = "vagrant"
-  config.ssh.password = "vagrant"
+  config.vm.box = "ubuntu/trusty64"
 
   config.vm.network "forwarded_port", guest: 3000, host: 3000, host_ip: "127.0.0.1"
   config.vm.network "forwarded_port", guest: 8080, host: 8081, host_ip: "127.0.0.1"

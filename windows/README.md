@@ -39,3 +39,4 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 * java
 * Mouse Input nervt
 * Copy Paste Clibboard rumspielen
+* Terminal Color
