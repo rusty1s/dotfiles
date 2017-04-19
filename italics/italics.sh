@@ -11,5 +11,5 @@ infocmp $TERM | grep sitm
 infocmp $TERM | grep ritm
 echo "The output should contain sitm=\E[3m and ritm\E[23m."
 echo ""
-echo "Create \"xterm-256color-italic\" terminal type. Please update \$TERM."
 tic ~/dotfiles/italics/xterm-256color-italic.terminfo
+echo "Created \"xterm-256color-italic\" terminal type. Please update \$TERM."
