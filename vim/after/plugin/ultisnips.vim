@@ -1,4 +1,4 @@
-let g:UltiSnipsSnippetsDir='~/dotfiles/vim/ultisnips'
+let g:UltiSnipsSnippetsDir='~/dotfiles/vim/UltiSnips'
 let g:UltiSnipsEditSplit='vertical'
 
 nnoremap <Leader>u :UltiSnipsEdit<CR>
