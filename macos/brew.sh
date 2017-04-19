@@ -8,7 +8,8 @@ fi
 
 brew install git
 brew install zsh zsh-completions
-brew install node
+brew install nvm
+nvm install node
 npm install -g npm@latest
 brew install yarn
 brew install ripgrep
