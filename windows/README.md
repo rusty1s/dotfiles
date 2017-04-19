@@ -8,6 +8,11 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 1. Kompatibilität
 1. "Programm als Adminstrator ausfuehren"
 
+## Fonts
+
+* Fira Code
+* Sans Francisco Mono
+
 ## ConsoleZ
 
 1. Doubleclick `dotfiles/windows/console-Z-powerline.reg` to enable powerline symbols.
@@ -19,3 +24,12 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 1. `sudo apt-get install git`
 1. `git clone https://github.com/rusty1s/dotfiles`
 1. `./dotfiles/windows/install.sh`
+
+## ToDos
+
+* No bell sound
+* Zshrc
+* Node
+* Tmux
+* SSH Key
+* ConsoleZ Config Save
