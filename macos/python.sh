@@ -8,7 +8,7 @@ if [ -d /usr/local/lib/python3.6 ]; then
 
   if [ ! -d ~/venv ]; then
     virtualenv3 ~/venv
-    source ~/venv/bin/activate
+    . ~/venv/bin/activate
     pip install neovim
     pip install jedi
     pip install yapf
@@ -19,6 +19,6 @@ if [ -d /usr/local/lib/python3.6 ]; then
     pip install scipy
     pip install tensorflow
   else
-    source ~/venv/bin/activate
+    . ~/venv/bin/activate
   fi
 fi

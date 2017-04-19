@@ -21,6 +21,7 @@ ln -sf ~/dotfiles/vim/.tern-project ~/.tern-project
 if [ ! -d ~/.config/nvim/after ]; then
   ln -sf ~/dotfiles/vim/after ~/.config/nvim/after
 fi
+
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 mkdir -p ~/github
