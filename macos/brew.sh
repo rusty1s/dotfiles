@@ -11,7 +11,7 @@ brew install zsh zsh-completions
 brew install nvm
 nvm install node
 npm install -g npm@latest
-brew install yarn
+npm install -g yarn
 brew install ripgrep
 brew install duti  # Set default applications for file types.
 

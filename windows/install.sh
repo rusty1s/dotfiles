@@ -25,3 +25,7 @@ sudo apt-get install -y --force-yes tmux-next
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+. ~/.nvm/nvm.sh
+nvm install node
+npm install npm@latest
+npm install -g yarn
