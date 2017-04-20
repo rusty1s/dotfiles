@@ -8,7 +8,7 @@ export DOTFILES=~/dotfiles
 export GITHUB=~/github
 
 export PATH="$PATH:$DOTFILES/bin"
-export CDPATH=".:$HOME:$DOTFILES:$GITHUB"
+export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 export EDITOR=vim
 export VISUAL=vim
 

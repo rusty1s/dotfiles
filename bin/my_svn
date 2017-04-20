@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p "$HOME/svn"
-cd "$HOME/svn" || exit
+mkdir -p ~/svn
+cd ~/svn || exit
 
 svn checkout https://subversion01/svn/fs_helic_base/helic-admin/trunk helic-admin
 svn checkout https://subversion01/svn/fs_helic_rc/helicrc/trunk helicrc
