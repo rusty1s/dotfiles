@@ -27,9 +27,7 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 
 ## ToDos
 
-* Tmux
-* mysql
-* java
+* Tmux Bugfixes
 * Terminal Color
 * No bell sound
 * SSH Key

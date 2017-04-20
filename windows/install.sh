@@ -3,6 +3,7 @@
 sudo apt-get update
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo add-apt-repository ppa:pi-rho/dev
+sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
 
 sudo apt-get install -y git
@@ -21,7 +22,8 @@ if [ ! -d ~/.config/nvim/after ]; then
   ln -sf ~/dotfiles/vim/after ~/.config/nvim/after
 fi
 
-sudo apt-get install -y --force-yes tmux-next
+# sudo apt-get install -y --force-yes tmux-next  # 2.3
+sudo apt-get install -y --force-yes tmux  # 2.0
 ln -sf ~/dotfiles/tmux/windows.conf ~/.tmux.conf
 
 if [ ! -d ~/.nvm ]; then
@@ -34,6 +36,12 @@ npm install -g pure-prompt
 
 curl -sSf https://static.rust-lang.org/rustup.sh | sh
 cargo install ripgrep
+
+sudo apt-get install -y --force-yes oracle-java8-installer
+sudo apt-get install -y maven
+mkdir -p ~/.m2
+ln -sf ~/dotfiles/comline/m2-settings.xml ~/.m2/settings.xml
+sudo apt-get install -y mysql-server
 
 sudo apt-get install -y zsh
 sudo chsh -s "$(which zsh)" "$(whoami)"
