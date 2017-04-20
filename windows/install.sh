@@ -25,6 +25,10 @@ fi
 # sudo apt-get install -y --force-yes tmux-next  # 2.3
 sudo apt-get install -y --force-yes tmux  # 2.0
 ln -sf ~/dotfiles/tmux/windows.conf ~/.tmux.conf
+sudo gem install tmuxinator
+if [ ! -d ~/.tmuxinator ]; then
+  ln -sf ~/dotfiles/tmux/tmuxinator ~/.tmuxinator
+fi
 
 if [ ! -d ~/.nvm ]; then
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
