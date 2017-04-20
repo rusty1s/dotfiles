@@ -8,3 +8,5 @@ fpath=(~/.nvm/versions/node/v7.9.0/lib/node_modules/pure-prompt/functions $fpath
 source ~/.nvm/nvm.sh
 
 source ~/dotfiles/zshrc/base.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
