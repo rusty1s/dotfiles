@@ -27,13 +27,13 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 
 ## ToDos
 
-* No bell sound
 * Tmux
+* mysql
+* java
+* Terminal Color
+* No bell sound
 * SSH Key
 * ConsoleZ Config Save
 * TMUXINATOR
-* mysql
-* java
 * Mouse Input nervt
 * Copy Paste Clibboard rumspielen
-* Terminal Color

@@ -22,6 +22,6 @@ if [ ! -d ~/.config/nvim/after ]; then
   ln -sf ~/dotfiles/vim/after ~/.config/nvim/after
 fi
 
-ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/tmux/macos.conf ~/.tmux.conf
 
 mkdir -p ~/github

@@ -22,7 +22,7 @@ if [ ! -d ~/.config/nvim/after ]; then
 fi
 
 sudo apt-get install -y --force-yes tmux-next
-ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/tmux/windows.conf ~/.tmux.conf
 
 if [ ! -d ~/.nvm ]; then
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
