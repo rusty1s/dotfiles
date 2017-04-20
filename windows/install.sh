@@ -29,11 +29,15 @@ if [ ! -d ~/.nvm ]; then
 fi
 . ~/.nvm/nvm.sh
 nvm install node
-npm install npm@latest
 npm install -g yarn
+npm install -g pure-prompt
+
+curl -sSf https://static.rust-lang.org/rustup.sh | sh
+cargo install ripgrep
 
 sudo apt-get install -y zsh
 sudo chsh -s "$(which zsh)" "$(whoami)"
 rm -rf ~/.bashrc
 rm -rf ~/.bash_logout
 rm -rf ~/.bash_history
+ln -sf ~/dotfiles/zshrc/windows.zsh ~/.zshrc

@@ -1,4 +1,3 @@
-export TERM="xterm-256color-italic"
 export LANG=en_US.UTF-8
 
 # https://geoff.greer.fm/lscolors/
@@ -16,8 +15,8 @@ export VISUAL=vim
 alias vi=nvim
 alias vim=nvim
 alias vimrc="$EDITOR $DOTFILES/vim/init.vim"
-alias tmuxconf="$EDTIOR $DOTFILES/tmux/tmux.conf"
-alias zshrc="$EDITOR $DOTFILES/macos/zshrc"
+alias tmuxconf="$EDTIOR ~/.tmux.conf"
+alias zshrc="$EDITOR ~/.zshrc"
 alias homebrew="$EDITOR $DOTFILES/macos/brew.sh"
 alias shell="$EDITOR $DOTFILES/macos/shell.sh"
 alias hyper="$EDITOR ~/.hyper.js"
@@ -29,7 +28,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
-alias cask="brew cask"
 alias gs="git status"
 alias ga="git add"
 alias gall="git add . -A"
@@ -54,12 +52,6 @@ setopt HIST_IGNORE_SPACE   # No saving of events starting with a space.
 setopt HIST_FIND_NO_DUPS   # No display of prevously found event.
 setopt HIST_VERIFY         # No immediate execute on expansion.
 
-# Python 3 Virtualenv
-source $DOTFILES/macos/python.sh
-
-# NPM Autocompletion
-source <(npm completion)
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
@@ -79,11 +71,4 @@ zstyle ':completion:*:warnings' format 'Too bad there is nothing'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Plugins
-source $DOTFILES/macos/plugins.sh
-
-# Delete apple system logs to make Terminal.app blazingly fast.
-# if ! [[ -w /private/var/log/asl ]]; then
-#   sudo chown $(whoami) /private/var/log/asl
-# fi
-# setopt +o nomatch
-# rm -f /private/var/log/asl/*.asl
+source $DOTFILES/zshrc/plugins.sh

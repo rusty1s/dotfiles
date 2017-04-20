@@ -10,7 +10,7 @@ ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/macos/hyper.js ~/.hyper.js
 
 npm install -g pure-prompt
-ln -sf ~/dotfiles/macos/zshrc ~/.zshrc
+ln -sf ~/dotfiles/zshrc/macos.zsh ~/.zshrc
 
 mkdir -p ~/.ssh
 ln -sf ~/dotfiles/macos/ssh_config ~/.ssh/config

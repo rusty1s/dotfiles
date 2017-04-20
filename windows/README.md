@@ -28,12 +28,9 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 ## ToDos
 
 * No bell sound
-* Zshrc
-* Node
 * Tmux
 * SSH Key
 * ConsoleZ Config Save
-* RIPGREP
 * TMUXINATOR
 * mysql
 * java
