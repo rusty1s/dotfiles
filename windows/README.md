@@ -23,7 +23,14 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 1. `sudo apt-get update`
 1. `sudo apt-get install git`
 1. `git clone https://github.com/rusty1s/dotfiles`
+1. `./dotfiles/windows/pacman.sh`
 1. `./dotfiles/windows/install.sh`
+
+## Locales
+
+1. `sudo localectl set-locale LANG=en_US.UTF-8`
+1. Uncomment line in `/etc/locale.gen`
+1. `sudo locale-gen`
 
 ## ToDos
 
@@ -32,6 +39,5 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 * No bell sound
 * SSH Key
 * ConsoleZ Config Save
-* TMUXINATOR
 * Mouse Input nervt
 * Copy Paste Clibboard rumspielen

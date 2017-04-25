@@ -1,12 +1,23 @@
-export TERM="cygwin"
-export PATH="$PATH:$HOME/.cargo/bin"
+#!/bin/zsh
+
+export TERM="xterm-256color"
 
 export SVN=~/svn
 export CDPATH="$SVN:$CDPATH"
 
-fpath=(~/.nvm/versions/node/v7.9.0/lib/node_modules/pure-prompt/functions $fpath)
-source ~/.nvm/nvm.sh
+# Pure prompt installation.
+if [ ! -d ~/.config/yarn/global/node_modules/pure-prompt ]; then
+  yarn global add pure-prompt
+fi
+fpath=(~/.config/yarn/global/node_modules/pure-prompt/functions $fpath)
+
+# Python 3 Virtualenv.
+if [ ! -d ~/venv ]; then
+  virtualenv ~/venv
+  source ~/venv/bin/activate
+  pip install -r ~/dotfiles/zshrc/requirements.txt
+else
+  source ~/venv/bin/activate
+fi
 
 source ~/dotfiles/zshrc/base.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -11,6 +11,7 @@ export PATH="$PATH:$DOTFILES/bin"
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 export EDITOR=vim
 export VISUAL=vim
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 alias vi=nvim
 alias vim=nvim
@@ -33,6 +34,7 @@ alias ga="git add"
 alias gall="git add . -A"
 alias gc="git commit -m"
 alias gp="git push"
+alias py="python"
 
 # Automatically ls after cd.
 chpwd() { ls }
@@ -71,4 +73,4 @@ zstyle ':completion:*:warnings' format 'Too bad there is nothing'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Plugins
-source $DOTFILES/zshrc/plugins.sh
+source $DOTFILES/zshrc/plugins.zsh
