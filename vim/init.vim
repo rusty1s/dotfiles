@@ -11,6 +11,7 @@ let mapleader=" "
 " Add all plugins and my configuration to the runtimepath.
 let &runtimepath.=",~/dotfiles/vim"
 call plug#begin('~/.config/nvim/bundle')
+Plug 'scrooloose/nerdtree'
 Plug 'elzr/vim-json'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-sensible'
