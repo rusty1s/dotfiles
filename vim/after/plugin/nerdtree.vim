@@ -1,1 +1,1 @@
-nnoremap <C-Space> :NERDTreeToggle<CR>
+nnoremap <silent> <C-Space> :NERDTreeToggle<CR>

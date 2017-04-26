@@ -19,7 +19,6 @@ set statusline+=%([
       \%{statusline#filetype()}
       \%{statusline#fileencoding()}
       \%{statusline#fileformat()}
-      \%{statusline#filesize()}
       \]%)
 
 set statusline+=%=      " Split point for left and right groups.
@@ -30,9 +29,10 @@ set statusline+=%*      " Reset highlight group.
 set statusline+=%9*     " User group 9.
 set statusline+=\       " Space
 set statusline+=%3l/%L  " Current line number.
-" set statusline+=\       " Space.
-" set statusline+=ℓ       " (Literal, \u2113 "SCRIPT SMALL L").
-set statusline+=\       " Space.
-set statusline+=%3v    " Current virtual column number.
+set statusline+=\       " Space
+" set statusline+=ℓ     " (Literal, \u2113 "SCRIPT SMALL L").
+set statusline+=:       " Separator
+set statusline+=\       " Space
+set statusline+=%2v     " Current virtual column number.
 set statusline+=\       " Space
 set statusline+=%*      " Reset highlight group.
