@@ -15,4 +15,10 @@ sudo pacman -S --noconfirm neovim
 sudo pacman -S --noconfirm ripgrep
 sudo pacman -S --noconfirm nodejs npm
 sudo pacman -S --noconfirm yarn
-sudo pacman -S --noconfirm jdk8-openjdk maven mariadb
+sudo pacman -S --noconfirm jdk8-openjdk maven
+
+sudo pacman -S --noconfirm mariadb
+sudo mysql_install_db --basedir=/usr --datadir=/var/lib/mysql
+sudo systemctl start mysqld  # Start the service.
+sudo systemctl enable mysqld  # Enable the service to start on boot.
+mysql_secure_installation

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-export TERM="xterm-256color"
+export TERM="xterm-256color-italic"
 
 export SVN=~/svn
 export PATH="$HOME/.gem/ruby/2.4.0/bin:$PATH"
