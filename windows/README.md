@@ -34,10 +34,5 @@ Dazu Rechtsklick auf das Terminal-Icon und:
 
 ## ToDos
 
-* Tmux Bugfixes
-* Terminal Color
-* No bell sound
+* MySQL
 * SSH Key
-* ConsoleZ Config Save
-* Mouse Input nervt
-* Copy Paste Clibboard rumspielen
