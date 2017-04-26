@@ -19,6 +19,8 @@ if [ ! -d ~/.tmuxinator ]; then
 fi
 ln -sf ~/dotfiles/tmux/windows.conf ~/.tmux.conf
 
+gem install mdl  # markdownlint
+
 mkdir -p ~/.m2
 ln -sf ~/dotfiles/comline/m2-settings.xml ~/.m2/settings.xml
 

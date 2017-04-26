@@ -22,6 +22,12 @@ if [ ! -d ~/.config/nvim/after ]; then
   ln -sf ~/dotfiles/vim/after ~/.config/nvim/after
 fi
 
+sudo gem install tmuxinator
+if [ ! -d ~/.tmuxinator ]; then
+  ln -sf ~/dotfiles/tmux/tmuxinator ~/.tmuxinator
+fi
 ln -sf ~/dotfiles/tmux/macos.conf ~/.tmux.conf
+
+sudo gem install mdl  # markdownlint
 
 mkdir -p ~/github

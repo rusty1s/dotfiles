@@ -11,6 +11,7 @@ brew install zsh zsh-completions
 brew install node
 brew install yarn
 brew install ripgrep
+brew install ruby
 brew install duti  # Set default applications for file types.
 
 brew install python
