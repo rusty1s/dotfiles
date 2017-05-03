@@ -6,6 +6,9 @@ export SVN=~/svn
 export PATH="$HOME/.gem/ruby/2.4.0/bin:$PATH"
 export CDPATH="$SVN:$CDPATH"
 
+alias mvni="mvn clean install -DskipTests"
+alias mvnt="mvn test -Dtest=FitNesseWikiStart"
+
 # Pure prompt installation.
 if [ ! -d ~/.config/yarn/global/node_modules/pure-prompt ]; then
   yarn global add pure-prompt
