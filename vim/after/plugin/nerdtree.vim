@@ -1,2 +1,2 @@
-let NERDTreeStatusline="%{getcwd()}"
+let NERDTreeStatusline=" "
 nnoremap <silent> <C-Space> :NERDTreeToggle<CR>
