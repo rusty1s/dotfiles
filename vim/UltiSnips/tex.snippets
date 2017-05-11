@@ -14,6 +14,18 @@ snippet subsubsection
 \subsubsection{${VISUAL}$1}
 endsnippet
 
+snippet label
+\label{${VISUAL}$1}
+endsnippet
+
+snippet usepackage
+\usepackage{${VISUAL}$1}
+endsnippet
+
+snippet paragraph
+\paragraph{${VISUAL}$1}
+endsnippet
+
 snippet item
 \item $0
 endsnippet
@@ -65,5 +77,5 @@ snippet begin
 endsnippet
 
 snippet newglosssaryentry
-\newglossaryentry{${1:Id}}{name=\ensuremath{${2:Symbol}}, description={${3:Description}}}
+\newglossaryentry{${1:Id}}{name={\ensuremath{${2:Symbol}}}, description={${3:Description}}}
 endsnippet
