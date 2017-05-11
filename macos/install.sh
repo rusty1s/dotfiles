@@ -6,10 +6,13 @@ else
   git pull
 fi
 
+yarn global add pure-prompt
+yarn global add create-react-app
+yarn global add prettier
+
 ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/macos/hyper.js ~/.hyper.js
 
-npm install -g pure-prompt
 ln -sf ~/dotfiles/zshrc/macos.zsh ~/.zshrc
 
 mkdir -p ~/.ssh

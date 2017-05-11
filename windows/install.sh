@@ -1,5 +1,9 @@
 #!/bin/sh
 
+yarn global add pure-prompt
+yarn global add create-react-app
+yarn global add prettier
+
 rm -rf ~/.vimrc
 rm -rf ~/.tmux.conf
 

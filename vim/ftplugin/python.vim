@@ -1,3 +1,8 @@
 setlocal textwidth=79
-nnoremap <Leader>y :0,$!yapf<CR>
 setlocal nosmartindent
+
+nnoremap <Leader>y :Neoformat yapf<CR>
+augroup group
+  autocmd!
+  autocmd BufWritePre * Neoformat yapf
+augroup END

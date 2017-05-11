@@ -9,10 +9,7 @@ export CDPATH="$SVN:$CDPATH"
 alias mvni="mvn clean install -DskipTests"
 alias mvnt="mvn test -Dtest=FitNesseWikiStart"
 
-# Pure prompt installation.
-if [ ! -d ~/.config/yarn/global/node_modules/pure-prompt ]; then
-  yarn global add pure-prompt
-fi
+# Pure prompt.
 fpath=(~/.config/yarn/global/node_modules/pure-prompt/functions $fpath)
 
 # Python 3 Virtualenv.

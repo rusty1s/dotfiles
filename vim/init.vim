@@ -12,6 +12,7 @@ let mapleader=" "
 let &runtimepath.=",~/dotfiles/vim"
 call plug#begin('~/.config/nvim/bundle')
 Plug 'scrooloose/nerdtree'
+Plug 'sbdchd/neoformat'
 Plug 'elzr/vim-json'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-sensible'
