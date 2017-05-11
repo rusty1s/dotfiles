@@ -13,8 +13,8 @@ export EDITOR=vim
 export VISUAL=vim
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-alias vi=nvim
-alias vim=nvim
+alias via="nvim"
+alias vim="nvim"
 alias vimrc="$EDITOR $DOTFILES/vim/init.vim"
 alias tmuxconf="$EDTIOR ~/.tmux.conf"
 alias zshrc="$EDITOR ~/.zshrc"
