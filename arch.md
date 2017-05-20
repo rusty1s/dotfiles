@@ -5,16 +5,23 @@
 * `dos` label type
 * `/dev/sda1`: Primary root partition: 16G, Primary, Bootable
 * `/dev/sda2`: Swap Partition: 4G, Primary
+* `/dev/sda3`: Partition for private files, 20G, Primary
 
 ## Anlegen der Dateisysteme
 
 * `mkfs.ext4 /dev/sda1`
+* `mkfs.ext4 /dev/sda3`
 * `mksawp /dev/sda2`
 
 ## Einbinden der Partitionen
 
 * `mount /dev/sda1 /mnt`
+* `mount /dev/sda3 /mnt/home`
 * `swapon /dev/sda2`
+
+## Konfiguriere Pacman Mirrorlist
+
+* `vim /etc/pacman.d/mirrorlist`
 
 ## Das Basissystem installieren
 
@@ -33,13 +40,17 @@ echo LANG=en_US.UTF-8 > /etc/locale.conf
 echo LC_COLLATE=C >> /etc/locale.conf
 echo LANGUAGE=en_US >> /etc/locale.conf
 ```
-* Die Zeitzone festlegen: `ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime`
 * Konfiguration von `/etc/locale.gen`: `vi /etc/locale/gen` und `#` am Anfang folgender Zeilen entfernen `en_US*` (2 Eintraege) und `de_DE*` (3 Eintraege)
 * Locale generieren: `locale-gen`
+* Die Zeitzone festlegen: `ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime`
+* `hwclock --systohc --utc`
+
+## Internet konfigurieren
+
+* `systemctl enable dhcpcd`
 
 ## Pacman Repository
 * Pacman Repository Datenbanken neu laden: `pacman -Sy`
-* Falls dies Fehler wirft, in `/etc/pacman.d/mirrorlist` den ersten Server auskommentieren
 
 ## Linux Kernel erzeugen
 
@@ -59,6 +70,7 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 
 * `exit`
 * `umount /dev/sda1`
+* `umount /dev/sda3`
 * `reboot`
 * `Boot existing OS` im Auswahlmenue waehlen
 
@@ -70,9 +82,8 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 * In `/etc/sudoers` die Zeile `# %wheel ALL=(ALL) ALL` auskommentieren
 * Mit `gpasswd -a rusty1s wheel` den neuen Benutzer zu der Gruppe wheel hinzufuegen
 
-## Weitere notwendige Dienste
+## Weitere Dienste (optional)
 
-* `systemctl enable dhcpcd`
 * `pacman -S acpid ntp dbus avahi cups cronie`
 * `systemctl enable acpid`
 * `systemctl enable ntpd`
@@ -80,6 +91,10 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 * `systemctl enable org.cups.cupsd.service`
 * `systemctl enable cronie`
 
-## Benutzer wechseln
+## Desktopumgebung erstellen
 
-* `sudo rusty1s`
+* `pacman -S xorg-server xorg-xinit`
+* `pacman -S ttf-dejavu`
+* `pacman -S gnome`
+* `sudo systemctl enable gdm`
+* `reboot`

@@ -3,15 +3,15 @@
 sudo pacman -Syu --noconfirm  # Full system upgrade
 
 sudo pacman -S --noconfirm python-pip python2-pip
-sudo pip install --upgrade distribute
-sudo pip install --upgrade pip
+sudo pip install pip
 sudo pip install virtualenv
-sudo pip2 install --upgrade distribute
-sudo pip2 install --upgrade pip
+sudo pip2 install pip
 sudo pip2 install virtualenv
 
+sudo pacman -S --noconfirm git
 sudo pacman -S --noconfirm subversion
 sudo pacman -S --noconfirm neovim
+sudo pacman -S python-neovim python2-neovim
 sudo pacman -S --noconfirm ripgrep
 sudo pacman -S --noconfirm nodejs npm
 sudo pacman -S --noconfirm yarn
