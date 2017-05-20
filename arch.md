@@ -11,7 +11,7 @@
 
 * `mkfs.ext4 /dev/sda1`
 * `mkfs.ext4 /dev/sda3`
-* `mksawp /dev/sda2`
+* `mkswap /dev/sda2`
 
 ## Einbinden der Partitionen
 
@@ -28,8 +28,7 @@
 * `pacstrap /mnt base base-devel`
 fstab (file system table) erzeugen, in der die Laufwerke festgelegt werden:
 * `genfstab -p /mnt > /mnt/etc/fstab`
-Das Installationsmedium verlassen und das neu installierte System starten:
-* ` arch-chroot /mnt`
+* Das Installationsmedium verlassen und das neu installierte System starten: ` arch-chroot /mnt`
 
 ## Systemkonfiguration
 
@@ -51,10 +50,6 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 
 ## Pacman Repository
 * Pacman Repository Datenbanken neu laden: `pacman -Sy`
-
-## Linux Kernel erzeugen
-
-* `mkinitcpio -p linux`
 
 ## Root-Passwort setzen
 
