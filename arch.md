@@ -71,6 +71,7 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 * Mit `gpasswd -a rusty1s wheel` den neuen Benutzer zu der Gruppe wheel hinzufuegen
 
 ## Weitere notwendige Dienste
+
 * `systemctl enable dhcpcd`
 * `pacman -S acpid ntp dbus avahi cups cronie`
 * `systemctl enable acpid`
@@ -78,3 +79,7 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 * `systemctl enable avahi-daemon`
 * `systemctl enable org.cups.cupsd.service`
 * `systemctl enable cronie`
+
+## Benutzer wechseln
+
+* `sudo rusty1s`
