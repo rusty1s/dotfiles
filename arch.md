@@ -5,18 +5,15 @@
 * `dos` label type
 * `/dev/sda1`: Primary root partition: 16G, Primary, Bootable
 * `/dev/sda2`: Swap Partition: 4G, Primary
-* `/dev/sda3`: Partition for private files, 20G, Primary
 
 ## Anlegen der Dateisysteme
 
 * `mkfs.ext4 /dev/sda1`
-* `mkfs.ext4 /dev/sda3`
 * `mkswap /dev/sda2`
 
 ## Einbinden der Partitionen
 
 * `mount /dev/sda1 /mnt`
-* `mount /dev/sda3 /mnt/home`
 * `swapon /dev/sda2`
 
 ## Konfiguriere Pacman Mirrorlist
@@ -65,7 +62,6 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 
 * `exit`
 * `umount /dev/sda1`
-* `umount /dev/sda3`
 * `reboot`
 * `Boot existing OS` im Auswahlmenue waehlen
 
@@ -90,6 +86,18 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 
 * `pacman -S xorg-server xorg-xinit`
 * `pacman -S ttf-dejavu`
+
+### KDE
+
+* `pacman -S plasma kde-l10n-de`
+* `pacman -S kde-applications` (optional)
+* `pacman -S sddm sddm-kcm`
+* `systemctl enable sddm`
+* `reboot`
+
+### GNOME
+
 * `pacman -S gnome`
+* `pacman -S gnome-extra` (optional)
 * `sudo systemctl enable gdm`
 * `reboot`
