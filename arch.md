@@ -48,6 +48,10 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 ## Pacman Repository
 * Pacman Repository Datenbanken neu laden: `pacman -Sy`
 
+## Linux Kernel erzeugen		
+
+* `mkinitcpio -p linux`		
+
 ## Root-Passwort setzen
 
 * `passwd`
