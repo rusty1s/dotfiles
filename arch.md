@@ -90,10 +90,11 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 
 * `pacman -S xorg-server xorg-xinit`
 * `pacman -S ttf-dejavu`
+* `pacman -S virtualbox-guest-utils`
 
 ### KDE
 
-* `pacman -S plasma kde-l10n-de`
+* `pacman -S plasma kde-l10n-de konsole`
 * `pacman -S kde-applications` (optional)
 * `pacman -S sddm sddm-kcm`
 * `systemctl enable sddm`
