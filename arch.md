@@ -64,8 +64,8 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 
 ## Arch Linux neu booten
 
-* `exit`
 * `umount /dev/sda1`
+* `exit`
 * `reboot`
 * `Boot existing OS` im Auswahlmenue waehlen
 
