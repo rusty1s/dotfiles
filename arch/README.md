@@ -48,9 +48,9 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 ## Pacman Repository
 * Pacman Repository Datenbanken neu laden: `pacman -Sy`
 
-## Linux Kernel erzeugen		
+## Linux Kernel erzeugen
 
-* `mkinitcpio -p linux`		
+* `mkinitcpio -p linux`
 
 ## Root-Passwort setzen
 
@@ -88,13 +88,12 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 
 ## Desktopumgebung erstellen
 
-* `pacman -S xorg-server xorg-xinit`
-* `pacman -S ttf-dejavu`
+* `pacman -S xorg-server xorg-xinit xorg-xset`
 * `pacman -S virtualbox-guest-utils`
 
 ### KDE
 
-* `pacman -S plasma kde-l10n-de konsole`
+* `pacman -S plasma kde-l10n-de`
 * `pacman -S kde-applications` (optional)
 * `pacman -S sddm sddm-kcm`
 * `systemctl enable sddm`
@@ -104,5 +103,12 @@ echo LANGUAGE=en_US >> /etc/locale.conf
 
 * `pacman -S gnome`
 * `pacman -S gnome-extra` (optional)
-* `sudo systemctl enable gdm`
+* `systemctl enable gdm`
+* `reboot`
+
+### i3
+
+* `pacman -S i3 dmenu`
+* `pacman -S lightdm lightdm-gtk-greeter`
+* `systemctl enable lightdm`
 * `reboot`
