@@ -30,5 +30,4 @@ pacman -S --noconfirm grub
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install /dev/sda
 
-umount /dev/sda1
-echo "Please exit and reboot."
+echo "Please remove dotfiles, umount/dev/sda1, exit and reboot."
