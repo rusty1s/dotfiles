@@ -31,7 +31,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # Split in horizontal orientation.
-bindsym $mod+bar split h
+bindsym $mod+backslash split h
 
 # Split in vertical orientation.
 bindsym $mod+minus split v
@@ -112,3 +112,4 @@ bar {
 
 exec VBoxClient-all
 exec xset r rate 200 80
+exec_always feh --bg-fill ~/Wallpapers/bg03.jpg
