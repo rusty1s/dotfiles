@@ -1,5 +1,7 @@
 # Arch Installation
 
+1. `Boot Arch Linux (x86_64)`
+
 ## Partition the disks
 
 1. `cfdisk`
@@ -20,6 +22,7 @@
 ## Select the mirrors
 
 1. `vim /etc/pacman.d/mirrorlist`
+1. Cut and prepend second german mirror to the list
 
 ## Install the base packages
 
@@ -30,9 +33,9 @@
 ## Configure the system
 
 1. `pacman -S git`
-1. `git clone https://github.com/rusty1s/dotfiles /root`
-1. `/root/dotfiles/arch/system.sh`
-1. `rm -rf /root/dotfiles`
+1. `git clone https://github.com/rusty1s/dotfiles /dotfiles`
+1. `/dotfiles/arch/system.sh`
+1. `rm -rf /dotfiles`
 1. `umount/dev/sda1`
 1. `exit`
 1. `reboot`
