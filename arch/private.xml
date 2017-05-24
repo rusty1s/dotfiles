@@ -6,7 +6,7 @@
   </appdef>
 
   <item>
-    <name>Swap Alt to Cmd in VirtualBoxVM</name>
+    <name>Swap Cmd and Alt in VirtualBoxVM</name>
     <identifier>private.app_virtualboxvm_swap_cmd_and_alt</identifier>
     <only>VirtualBoxVM</only>
     <autogen>__KeyToKey__ KeyCode::COMMAND_L, KeyCode::OPTION_L</autogen>
