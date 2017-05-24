@@ -13,6 +13,8 @@
 
 ## Bugfix
 
-In macOS `cmd+Q` and `cmd+H` still doesn't get passed to the Guest OS (a limitation by VirtualBox).
-* Make VirtualBox VM accessable: `ln -sf /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app /Applications/VirtualBoxVM.app`
-* Disable via [BetterTouchTool](https://www.boastr.net/): [Tutorial](http://stackoverflow.com/questions/15719135/how-to-disable-keyboard-shortcuts-in-mac-os-x)
+In macOS `Cmd+Q` and `Cmd+H` still doesn't get passed to the Guest OS (a limitation by VirtualBox).
+Until VirtualBox fixes the issue, we can use **karabiner** and swap the `Alt` and `Cmd` key.
+
+1. Make VirtualBoxVM accessable: `ln -sf /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app /Applications/VirtualBoxVM.app`
+1. Download karabiner: `brew cask install karabiner`

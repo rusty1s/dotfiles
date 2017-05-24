@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<root>
+  <appdef>
+    <appname>VirtualBoxVM</appname>
+    <equal>org.virtualbox.app.VirtualBoxVM</equal>
+  </appdef>
+
+  <item>
+    <name>Swap Alt to Cmd in VirtualBoxVM</name>
+    <identifier>private.app_virtualboxvm_swap_cmd_and_alt</identifier>
+    <only>VirtualBoxVM</only>
+    <autogen>__KeyToKey__ KeyCode::COMMAND_L, KeyCode::OPTION_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::COMMAND_R, KeyCode::OPTION_R</autogen>
+    <autogen>__KeyToKey__ KeyCode::OPTION_L, KeyCode::COMMAND_L</autogen>
+    <autogen>__KeyToKey__ KeyCode::OPTION_R, KeyCode::COMMAND_R</autogen>
+  </item>
+</root>
