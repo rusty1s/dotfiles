@@ -1,5 +1,7 @@
 #!/bin/sh
 
+ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
+
 sudo pacman -Syu
 
 sudo pacman -S --noconfirm feh
