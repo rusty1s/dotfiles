@@ -1,10 +1,15 @@
 #!/bin/sh
 
-useradd -m -g users -s /bin/bash rusty1s
-echo "Please enter a password for user rusty1s:"
-passwd rusty1s
+if [[ $1 == "" ]]; then
+  echo "Please pass a username."
+  exit
+fi
+
+useradd -m -g users -s /bin/bash "$1"
+echo "Please enter a password for $1:"
+passwd "$1"
 
 pacman -S --noconfirm sudo
-gpasswd -a rusty1s wheel
+gpasswd -a "$1" wheel
 
-echo "Please uncomment %wheel ALL=(ALL) ALL in /etc/sudoers."
+sed -i "s/^# %wheel ALL=(ALL) NOPASSWD/%wheel ALL=(ALL) NOPASSWD/g" /etc/sudoers

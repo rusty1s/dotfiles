@@ -40,23 +40,12 @@
 1. `exit`
 1. `reboot`
 1. `Boot existing OS`
+1. Login as `root`
 
 ## Configure a user
 
-* `useradd -m -g users -s /bin/bash rusty1s`
-* `passwd rusty1s`
-* `pacman -S sudo`
-* In `/etc/sudoers` die Zeile `# %wheel ALL=(ALL) ALL` auskommentieren
-* Mit `gpasswd -a rusty1s wheel` den neuen Benutzer zu der Gruppe wheel hinzufuegen
-
-## Weitere Dienste (optional)
-
-* `pacman -S acpid ntp dbus avahi cups cronie`
-* `systemctl enable acpid`
-* `systemctl enable ntpd`
-* `systemctl enable avahi-daemon`
-* `systemctl enable org.cups.cupsd.service`
-* `systemctl enable cronie`
+1. `git clone https://github.com/rusty1s/dotfiles /root/dotfiles`
+1. `/root/dotfiles/arch/user.sh username`
 
 ## Desktopumgebung erstellen
 
