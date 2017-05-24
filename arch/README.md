@@ -1,75 +1,44 @@
 # Arch Installation
 
-## Partitionierung der Festplatte mit `cfdisk`
+## Partition the disks
 
-* `dos` label type
-* `/dev/sda1`: Primary root partition: 16G, Primary, Bootable
-* `/dev/sda2`: Swap Partition: 4G, Primary
+1. `cfdisk`
+1. Choose `dos` label type
+1. `/dev/sda1`: Primary root partition (primary, bootable, write)
+1. `/dev/sda2`: Swap Partition (primary, type, write)
 
-## Anlegen der Dateisysteme
+## Format the disks
 
-* `mkfs.ext4 /dev/sda1`
-* `mkswap /dev/sda2`
+1. `mkfs.ext4 /dev/sda1`
+1. `mkswap /dev/sda2`
 
-## Einbinden der Partitionen
+## Mount the file systems
 
-* `mount /dev/sda1 /mnt`
-* `swapon /dev/sda2`
+1. `mount /dev/sda1 /mnt`
+1. `swapon /dev/sda2`
 
-## Konfiguriere Pacman Mirrorlist
+## Select the mirrors
 
-* `vim /etc/pacman.d/mirrorlist`
+1. `vim /etc/pacman.d/mirrorlist`
 
-## Das Basissystem installieren
+## Install the base packages
 
-* `pacstrap /mnt base base-devel`
-fstab (file system table) erzeugen, in der die Laufwerke festgelegt werden:
-* `genfstab -p /mnt > /mnt/etc/fstab`
-* Das Installationsmedium verlassen und das neu installierte System starten: ` arch-chroot /mnt`
+1. `pacstrap /mnt base base-devel`
+1. `genfstab -p /mnt > /mnt/etc/fstab`
+1. `arch-chroot /mnt`
 
-## Systemkonfiguration
+## Configure the system
 
-* Den Rechnernamen festlegen: `echo arch > /etc/hostname`
-* Die Spracheinstellung festlegen:
-```
-echo LANG=en_US.UTF-8 > /etc/locale.conf
-echo LC_COLLATE=C >> /etc/locale.conf
-echo LANGUAGE=en_US >> /etc/locale.conf
-```
-* Konfiguration von `/etc/locale.gen`: `vi /etc/locale/gen` und `#` am Anfang folgender Zeilen entfernen `en_US*` (2 Eintraege) und `de_DE*` (3 Eintraege)
-* Locale generieren: `locale-gen`
-* Die Zeitzone festlegen: `ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime`
-* `hwclock --systohc --utc`
+1. `pacman -S git`
+1. `git clone https://github.com/rusty1s/dotfiles /root`
+1. `/root/dotfiles/arch/system.sh`
+1. `rm -rf /root/dotfiles`
+1. `umount/dev/sda1`
+1. `exit`
+1. `reboot`
+1. `Boot existing OS`
 
-## Internet konfigurieren
-
-* `systemctl enable dhcpcd`
-
-## Pacman Repository
-* Pacman Repository Datenbanken neu laden: `pacman -Sy`
-
-## Linux Kernel erzeugen
-
-* `mkinitcpio -p linux`
-
-## Root-Passwort setzen
-
-* `passwd`
-
-## Installation des GRUB Bootloaders
-
-* `pacman -S grub`
-* `grub-mkconfig -o /boot/grub/grub.cfg`
-* `grub-install /dev/sda`
-
-## Arch Linux neu booten
-
-* `umount /dev/sda1`
-* `exit`
-* `reboot`
-* `Boot existing OS` im Auswahlmenue waehlen
-
-## Einen Benutzer hinzufuegen und Gruppen waehlen
+## Configure a user
 
 * `useradd -m -g users -s /bin/bash rusty1s`
 * `passwd rusty1s`
