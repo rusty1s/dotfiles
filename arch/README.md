@@ -40,36 +40,27 @@
 1. `exit`
 1. `reboot`
 1. `Boot existing OS`
-1. Login as `root`
+1. Login as `root`.
 
 ## Configure a user
 
 1. `git clone https://github.com/rusty1s/dotfiles /root/dotfiles`
 1. `/root/dotfiles/arch/user.sh username`
+1. `rm -rf /root/dotfiles`
+1. `reboot`
+1. Login as user.
 
-## Desktopumgebung erstellen
+## Configure X Server and i3
 
-* `pacman -S xorg-server xorg-xinit xorg-xset`
-* `pacman -S virtualbox-guest-utils`
+1. `git clone https://github.com/rusty1s/dotfiles`
+1. `./arch/xorg.sh`
 
-### KDE
+## Install pacman apps
 
-* `pacman -S plasma kde-l10n-de`
-* `pacman -S kde-applications` (optional)
-* `pacman -S sddm sddm-kcm`
-* `systemctl enable sddm`
-* `reboot`
+1. `./arch/pacman.sh`
 
-### GNOME
+## Start X Server
 
-* `pacman -S gnome`
-* `pacman -S gnome-extra` (optional)
-* `systemctl enable gdm`
-* `reboot`
-
-### i3
-
-* `pacman -S i3 dmenu`
-* `pacman -S lightdm lightdm-gtk-greeter`
-* `systemctl enable lightdm`
-* `reboot`
+1. `reboot`
+1. Login as user.
+1. `startx`
