@@ -58,6 +58,7 @@
 ## Install pacman apps
 
 1. `./arch/pacman.sh`
+1. `./arch/install-yaourt.sh`
 1. `./arch/yaourt.sh`
 
 ## Start X Server
