@@ -6,17 +6,13 @@ font pango:DejaVu Sans Mono 10
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec termite
 
 # Kill focused window.
 bindsym $mod+q kill
 
 # Start dmenu.
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Change focus.
 bindsym $mod+h focus left
