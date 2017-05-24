@@ -12,7 +12,7 @@ sed -i s/^#en_US/en_US/g /etc/locale.gen
 
 locale-gen
 
-ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localetime
+ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 hwclock --systohc --utc
 
 systemctl enable dhcpcd
