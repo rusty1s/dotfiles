@@ -47,5 +47,6 @@ duti -s com.bretterpstra.marked2 .md all
 brew cask install discord
 brew cask install league-of-legends
 brew cask install mactex
+brew cask install the-unarchiver
 
 echo "Please install 1Password from the App Store."
