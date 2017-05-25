@@ -13,13 +13,21 @@ else
   yaourt -S --noconfirm system-sans-francisco-font-git
 fi
 
+if [[ $(fc-list : file | grep "Tinos") != "" ]]; then
+  echo -e "\033[1mTinos\033[0m" already installed.
+else
+  yaourt -S --noconfirm ttf-chromeos-fonts
+fi
+
 if [[ $(fc-list : file | grep "FiraCode") != "" ]]; then
   echo -e "\033[1mFiraCode\033[0m" already installed.
 else
   yaourt -S --noconfirm ttf-fira-code
 fi
 
-for family in serif sans-serif monospace Arial Helvetica Verdana "Times New Roman" "Coruier New"; do
+echo
+
+for family in serif sans-serif monospace Arial Helvetica Verdana Tahoma "Times New Roman" Times "Courier New"; do
   echo -en "\033[1m$family:\033[0m "
   fc-match "$family"
 done
