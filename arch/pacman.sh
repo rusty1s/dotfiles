@@ -2,7 +2,7 @@
 
 ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
 
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
 sudo pacman -S --noconfirm git subversion
 sudo pacman -S --noconfirm feh
