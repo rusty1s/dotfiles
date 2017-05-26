@@ -63,10 +63,9 @@
 1. `./arch/font-settings.sh`
 1. `./konsole/konsole.sh`
 
-## Start X Server
+## Start i3
 
 1. `reboot`
 1. Login as user.
 1. `startx`
 1. Open `lxappearance` and select `SFNS Display` with font size `12`.
-

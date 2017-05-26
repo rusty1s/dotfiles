@@ -112,6 +112,18 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+x exec i3lock
 
+set $bg-color             #2f343f
+set $inactive-bg-color    #2f343f
+set $text-color           #f3f4f5
+set $inactive-text-color  #676e7d
+set $urgent-bg-color      #e53945
+
+# Window colors:         Border              Background          Text                  Indicator
+client.focused           $bg-color           $bg-color           $text-color           #00ff00
+client.unfocused         $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #00ff00
+client.focused_inactive  $inactive-bg-color  $inactive-bg-color  $inactive-text-color  #00ff00
+client.urgent            $urgent-bg-color    $urgent-bg-color    $text-color           #00ff00
+
 # Start i3bar to display a workspace bar.
 bar {
   status_command i3status
