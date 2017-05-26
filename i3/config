@@ -1,6 +1,6 @@
 set $mod Mod1
 
-font pango:System San Francisco Display 12
+font pango:SFNS Display 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
@@ -11,8 +11,8 @@ bindsym $mod+Return exec konsole
 # Kill focused window.
 bindsym $mod+q kill
 
-# Start dmenu.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+# Start program launcher.
+bindsym $mod+d exec rofi -show drun -font "SFNS Display 24"
 
 # Change focus.
 bindsym $mod+h focus left
@@ -116,7 +116,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+x exec i3lock
+bindsym $mod+x exec i3lock --color "$bg-color"
 
 set $bg-color             #2f343f
 set $inactive-bg-color    #2f343f
@@ -134,7 +134,8 @@ client.urgent            $urgent-bg-color    $urgent-bg-color    $urgent-text-co
 
 # Start i3bar to display a workspace bar.
 bar {
-  status_command i3status
+  status_command i3blocks -c ~/dotfiles/i3/blocks.conf
+
   colors {
     background $bg-color
     separator #757575
@@ -149,6 +150,7 @@ bar {
 exec VBoxClient-all
 exec xset r rate 200 80
 exec_always feh --bg-fill ~/Wallpapers/bg03.jpg
+exec_always compton -f
 
 exec konsole
 exec google-chrome-stable
