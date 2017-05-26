@@ -52,10 +52,10 @@ bindsym $mod+space focus mode_toggle
 # Focus the child container.
 #bindsym $mod+d focus child
 
-set $workspace1 "1. Editor"
-set $workspace2 "2. Browser"
-set $workspace10 "10. Music"
-set $workspace9 "9. Chat"
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace9 "9: "
+set $workspace10 "10: "
 
 # Switch to workspace.
 bindsym $mod+1 workspace $workspace1
