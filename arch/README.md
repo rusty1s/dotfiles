@@ -55,11 +55,13 @@
 1. `git clone https://github.com/rusty1s/dotfiles`
 1. `./arch/xorg.sh`
 
-## Install pacman apps
+## Install and configure user system
 
 1. `./arch/pacman.sh`
 1. `./arch/install-yaourt.sh`
 1. `./arch/yaourt.sh`
+1. `./arch/font-settings.sh`
+1. `./konsole/konsole.sh`
 
 ## Start X Server
 
