@@ -1,8 +1,9 @@
 #!/bin/sh
 
-sudo ln -sf /etc/fonts/conf.avail/10-hinting-full.conf /etc/fonts/conf.d/
-sudo ln -sf /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d/
-sudo ln -sf /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d/
+# No scaling of bitmap fonts.
+sudo rm -f /etc/fonts/conf.d/10-scale-bitmap-fonts.conf
+
+sudo pacman -S --noconfirm lxappearance
 
 mkdir -p ~/.config/fontconfig
 ln -sf ~/dotfiles/arch/fonts.conf ~/.config/fontconfig/fonts.conf
@@ -27,7 +28,11 @@ fi
 
 echo
 
-for family in serif sans-serif monospace Arial Helvetica Verdana Tahoma "Times New Roman" Times "Courier New"; do
+for family in serif sans-serif monospace Arial Helvetica "Times New Roman" Times "Courier New"; do
   echo -en "\033[1m$family:\033[0m "
   fc-match "$family"
 done
+
+echo
+
+echo -e "Please change your font settings in \033[1mlxappearance\033[0m to \033[1mSFNS Display 12\033[0m."
