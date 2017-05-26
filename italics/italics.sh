@@ -2,7 +2,7 @@
 
 echo "Check that terminal can render italics"
 echo "======================================"
-printf "\e[3mThis should be italic!\e[23m\n"
+echo -e "\e[3mThis should be italic!\e[23m\n"
 echo ""
 echo "Check that terminal type supports italics"
 echo "========================================="
