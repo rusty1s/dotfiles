@@ -116,7 +116,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+x exec i3lock --color "$bg-color"
+bindsym $mod+x exec ~/dotfiles/i3/lock.sh
 
 set $bg-color             #2f343f
 set $inactive-bg-color    #2f343f
