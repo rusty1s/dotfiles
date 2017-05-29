@@ -61,7 +61,6 @@
 1. `./arch/install-yaourt.sh`
 1. `./arch/yaourt.sh`
 1. `./arch/font-settings.sh`
-1. `./konsole/konsole.sh`
 
 ## Start i3
 

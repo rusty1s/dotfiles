@@ -6,7 +6,7 @@ font pango:SFNS Display 12
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec urxvt
 
 # Kill focused window.
 bindsym $mod+q kill
@@ -148,11 +148,13 @@ bar {
 }
 
 exec VBoxClient-all
-exec_always xset r rate 150 80
+exec compton -f
+exec_always xset r rate 200 80
+exec_always xset m rate 16 0
 exec_always feh --bg-fill ~/Wallpapers/bg03.jpg
-exec_always compton -f
+exec_always xrdb ~/.Xresources
 
-exec konsole
+exec urxvt
 exec google-chrome-stable
 exec spotify
 exec whatsapp-web-desktop
