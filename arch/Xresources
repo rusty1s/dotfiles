@@ -1,7 +1,8 @@
 URxvt.font: xft:SF Mono:size=14
 URxvt.boldFont: xft:SF Mono:semibold
+URxvt.italicFont: xft:SF Mono:thin:italic
 URxvt.scrollBar: false
-URxvt.letterSpace: -1
+URxvt.letterSpace: -2
 
 URxvt*foreground: #eee8d5
 URxvt*background: #212121
