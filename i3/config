@@ -151,7 +151,7 @@ exec VBoxClient-all
 exec compton -f
 exec_always xset r rate 200 80
 exec_always xset m rate 16 0
-exec_always feh --bg-fill ~/Wallpapers/bg03.jpg
+exec_always feh --bg-fill ~/Wallpapers/bg01.jpg
 exec_always xrdb ~/.Xresources
 
 exec urxvt

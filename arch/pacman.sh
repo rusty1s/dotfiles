@@ -4,6 +4,7 @@ ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
 
 sudo pacman -Syu --noconfirm
 
+sudo pacman -S --noconfirm wget curl
 sudo pacman -S --noconfirm git subversion
 sudo pacman -S --noconfirm vim
 sudo pacman -S --noconfirm neovim
