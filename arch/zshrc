@@ -46,6 +46,13 @@ setopt HIST_FIND_NO_DUPS   # No display of prevously found event.
 setopt HIST_VERIFY         # No immediate execute on expansion.
 
 # Pure Prompt
+if ! which yarn >/dev/null; then
+  sudo pacman -S yarn
+fi
+if [ ! -d ~/.config/yarn/global/node_modules/pure-prompt ]; then
+  yarn global add pure-prompt
+fi
+
 fpath=(~/.config/yarn/global/node_modules/pure-prompt/functions $fpath)
 autoload -U promptinit; promptinit
 prompt pure
@@ -65,5 +72,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR"  -eq 1 ]; then
   exec startx
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $DOTFILES/zshrc/plugins.zsh
+
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
