@@ -12,7 +12,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+q kill
 
 # Start program launcher.
-bindsym $mod+d exec rofi -show drun -font "SFNS Display 24"
+bindsym $mod+d exec ~/dotfiles/i3/rofi.sh
 
 # Change focus.
 bindsym $mod+h focus left
@@ -47,10 +47,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # Focus the parent container.
-# bindsym $mod+a focus parent
-
-# Focus the child container.
-#bindsym $mod+d focus child
+bindsym $mod+a focus parent
 
 set $workspace1 " 1:   "
 set $workspace2 " 2:   "
@@ -157,4 +154,4 @@ exec_always xrdb ~/.Xresources
 exec urxvt
 exec google-chrome-stable
 exec spotify
-exec whatsapp-web-desktop
+# exec whatsapp-web-desktop
