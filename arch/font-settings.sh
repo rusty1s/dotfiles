@@ -55,7 +55,5 @@ for family in serif sans-serif monospace Arial Helvetica "Times New Roman" Times
 done
 
 echo "========================================="
-
 echo -e "Please change your font settings in \033[1mlxappearance\033[0m to \033[1mSFNS Display 12\033[0m."
-
 echo "========================================="
