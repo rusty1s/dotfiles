@@ -8,6 +8,7 @@ export VISUAL=nvim
 export DOTFILES=~/dotfiles
 export GITHUB=~/github
 export PATH="$PATH:$DOTFILES"
+export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 

@@ -5,7 +5,7 @@ ln -sf ~/dotfiles/git/gitconfig ~/.gitconfig
 sudo pacman -Syu --noconfirm
 
 sudo pacman -S --noconfirm wget curl
-sudo pacman -S --noconfirm zsh
+sudo pacman -S --noconfirm zsh zsh-completions
 sudo pacman -S --noconfirm git subversion
 sudo pacman -S --noconfirm vim
 sudo pacman -S --noconfirm neovim
@@ -14,6 +14,8 @@ sudo pacman -S --noconfirm python-pip python2-pip
 sudo pip install virtualenv
 sudo pacman -S --noconfirm python-neovim python2-neovim
 sudo pacman -S --noconfirm nodejs npm yarn
+sudo pacman -S --noconfirm ruby
+gem install mdl  # markdownlint: gem installer needs no root permissions.
 sudo pacman -S --noconfirm rigpreg
 sudo pacman -S --noconfirm tmux
 sudo pacman -S --noconfirm rxvt-unicode

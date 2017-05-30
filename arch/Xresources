@@ -1,6 +1,5 @@
 URxvt.font: xft:SF Mono for Powerline:size=14
 URxvt.boldFont: xft:SF Mono for Powerline:semibold
-URxvt.italicFont: xft:SF Mono for Powerline:thin:italic
 URxvt.scrollBar: false
 URxvt.letterSpace: -2
 
