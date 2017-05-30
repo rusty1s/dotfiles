@@ -27,3 +27,11 @@ passwd
 pacman -S --noconfirm grub
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install /dev/sda
+
+# Hide GRUB unless the Shift key is held down
+# https://wiki.archlinux.org/index.php/GRUB/Tips_and_tricks
+echo GRUB_FORCE_HIDDEN_MENU=\"true\" >> /etc/default/grub
+pacman -S --noconfirm wget
+wget https://gist.githubusercontent.com/anonymous/8eb2019db2e278ba99be/raw/257f15100fd46aeeb8e33a7629b209d0a14b9975/gistfile1.sh -O /etc/grub.d/31_hold_shift
+chmod a+x /etc/grub.d/31_hold_shift
+grub-mkconfig -o /boot/grub/grub.cfg
