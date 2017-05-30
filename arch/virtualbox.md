@@ -11,6 +11,7 @@
 
 1. `Settings > System > Processor > 2 CPUs`
 1. `Settings > General > Advanced > Shared Clipboard: Bidirectional`
+1. Right click Statusbar and hide
 
 ## Bugfix
 
