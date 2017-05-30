@@ -34,6 +34,7 @@ from [Mirrorlist](https://www.archlinux.org/mirrorlist/) [[Germany](https://www.
 
 ## Install the base packages
 
+1. `export http_proxy` and `export https_proxy` (optional)
 1. `pacstrap /mnt base base-devel`
 1. `genfstab -p /mnt > /mnt/etc/fstab`
 1. `arch-chroot /mnt`
@@ -52,6 +53,7 @@ from [Mirrorlist](https://www.archlinux.org/mirrorlist/) [[Germany](https://www.
 
 ## Configure a user
 
+1. `export http_proxy` and `export https_proxy` (optional)
 1. `git clone https://github.com/rusty1s/dotfiles /root/dotfiles`
 1. `/root/dotfiles/arch/user.sh username`
 1. `rm -rf /root/dotfiles`
