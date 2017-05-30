@@ -21,8 +21,16 @@
 
 ## Select the mirrors
 
+1. `ping google.com`
 1. `vim /etc/pacman.d/mirrorlist`
 1. Cut and prepend second german mirror to the list
+1. Add these to the top (optional or if mirrorlist is outdated):
+```
+## Germany
+Server = http://mirror.23media.de/archlinux/$repo/os/$arch
+Server = https://arch.32g.eu/$repo/os/$arch
+```
+from [Mirrorlist](https://www.archlinux.org/mirrorlist/) [[Germany](https://www.archlinux.org/mirrorlist/?country=DE&protocol=http&protocol=https&ip_version=4)]
 
 ## Install the base packages
 
