@@ -1,0 +1,27 @@
+URxvt.font: xft:SF Mono:size=14
+URxvt.boldFont: xft:SF Mono:semibold
+URxvt.italicFont: xft:SF Mono:thin:italic
+URxvt.scrollBar: false
+URxvt.letterSpace: -2
+
+URxvt*foreground: #eee8d5
+URxvt*background: #212121
+URxvt*cursorColor: #c3839d
+URxvt*cursorColor2: #212121
+
+URxvt*color0:  #282828
+URxvt*color1:  #dc3c3c
+URxvt*color2:  #689d6a
+URxvt*color3:  #d79921
+URxvt*color4:  #458588
+URxvt*color5:  #ce839d
+URxvt*color6:  #00aba5
+URxvt*color7:  #a89984
+URxvt*color8:  #3c3836
+URxvt*color9:  #dc3c3c
+URxvt*color10:  #689d6a
+URxvt*color11:  #d79921
+URxvt*color12:  #458588
+URxvt*color13:  #ce839d
+URxvt*color14:  #00aba5
+URxvt*color15: #eee8d5

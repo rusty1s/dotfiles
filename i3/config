@@ -6,13 +6,13 @@ font pango:SFNS Display 12
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec urxvt
 
 # Kill focused window.
 bindsym $mod+q kill
 
 # Start program launcher.
-bindsym $mod+d exec rofi -show drun -font "SFNS Display 24"
+bindsym $mod+d exec ~/dotfiles/i3/rofi.sh
 
 # Change focus.
 bindsym $mod+h focus left
@@ -47,10 +47,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # Focus the parent container.
-# bindsym $mod+a focus parent
-
-# Focus the child container.
-#bindsym $mod+d focus child
+bindsym $mod+a focus parent
 
 set $workspace1 " 1:   "
 set $workspace2 " 2:   "
@@ -116,7 +113,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+x exec i3lock --color "$bg-color"
+bindsym $mod+x exec ~/dotfiles/i3/lock.sh
 
 set $bg-color             #2f343f
 set $inactive-bg-color    #2f343f
@@ -148,11 +145,13 @@ bar {
 }
 
 exec VBoxClient-all
-exec_always xset r rate 150 80
-exec_always feh --bg-fill ~/Wallpapers/bg03.jpg
-exec_always compton -f
+exec compton -f
+exec_always xset r rate 200 80
+exec_always xset m rate 16 0
+exec_always feh --bg-fill ~/Wallpapers/bg01.jpg
+exec_always xrdb ~/.Xresources
 
-exec konsole
+exec urxvt
 exec google-chrome-stable
 exec spotify
-exec whatsapp-web-desktop
+# exec whatsapp-web-desktop
