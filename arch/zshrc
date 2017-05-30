@@ -7,7 +7,7 @@ export VISUAL=nvim
 
 export DOTFILES=~/dotfiles
 export GITHUB=~/github
-export PATH="$PATH:$DOTFILES/bin:$(yarn global bin)"
+export PATH="$PATH:$DOTFILES"
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -50,10 +50,9 @@ if ! which yarn >/dev/null; then
   sudo pacman -S yarn
 fi
 if [ ! -d ~/.config/yarn/global/node_modules/pure-prompt ]; then
-  yarn global add pure-prompt
+  sudo yarn global add pure-prompt
 fi
 
-fpath=(~/.config/yarn/global/node_modules/pure-prompt/functions $fpath)
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -73,6 +72,7 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR"  -eq 1 ]; then
 fi
 
 source $DOTFILES/zshrc/plugins.zsh
+source $DOTFILES/zshrc/python.sh
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
