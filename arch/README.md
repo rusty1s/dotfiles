@@ -40,12 +40,12 @@ from [Mirrorlist](https://www.archlinux.org/mirrorlist/) [[Germany](https://www.
 
 ## Configure the system
 
-1. `pacman -S git`
+1. `pacman -S git vim`
 1. `git clone https://github.com/rusty1s/dotfiles /dotfiles`
 1. `/dotfiles/arch/system.sh`
 1. `rm -rf /dotfiles`
-1. `umount/dev/sda1`
 1. `exit`
+1. `umount /dev/sda1`
 1. `reboot`
 1. `Boot existing OS`
 1. Login as `root`.
