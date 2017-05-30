@@ -21,10 +21,20 @@ else
 fi
 
 if [[ $(fc-list : file | grep "FiraCode") != "" ]]; then
-  echo -e "\033[1mFiraCode\033[0m" already installed.
+  echo -e "\033[1mFira Code\033[0m" already installed.
 else
   yaourt -S --noconfirm ttf-fira-code
 fi
+
+if [[ $(fc-list : file | grep "SF Mono") != "" ]]; then
+  echo -e "\033[1mSan Francisco Mono\033[0m" already installed.
+else
+  sudo pacman -S --noconfirm unzip > /dev/null 2>&1
+  unzip ~/dotfiles/fonts.zip -d /tmp/fonts > /dev/null 2>&1
+  sudo mv /tmp/fonts/fonts/* /usr/share/fonts/OTF/
+  rm -rf /tmp/fonts
+fi
+
 
 echo "========================================="
 
