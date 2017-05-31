@@ -13,6 +13,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 alias vi=$EDITOR
 alias vim=$EDITOR
+alias sudo="sudo -E"
 alias reload="exec zsh"
 alias mkdir="mkdir -p"
 alias grep="rg"
