@@ -59,7 +59,7 @@ from [Mirrorlist](https://www.archlinux.org/mirrorlist/) [[Germany](https://www.
 1. `rm -rf /root/dotfiles`
 1. `reboot`
 1. Login as user.
-1. Add `export http_proxy` and `export https_proxy` to `~/.bashrc` and source it (optional)
+1. Add `export http_proxy`, `export https_proxy`, `alias sudo="sudo -E"` to `~/.bashrc` and source it (optional)
 
 ## Configure X Server and i3
 
