@@ -30,6 +30,7 @@ sudo yarn global add create-react-app
 sudo yarn global add prettier
 
 ln -sf ~/dotfiles/arch/Xresources ~/.Xresources
+ln -sf ~/dotfiles/arch/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/arch/zshrc ~/.zshrc
 rm -rf ~/.bashrc
 rm -rf ~/.bash_profile
