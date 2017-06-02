@@ -49,16 +49,16 @@ bindsym $mod+space focus mode_toggle
 # Focus the parent container.
 bindsym $mod+a focus parent
 
-set $workspace1 " 1:   "
-set $workspace2 " 2:   "
+set $workspace1 "1 "
+set $workspace2 "2 "
 set $workspace3 " 3 "
 set $workspace4 " 4 "
 set $workspace5 " 5 "
 set $workspace6 " 6 "
 set $workspace7 " 7 "
 set $workspace8 " 8 "
-set $workspace9 " 9:   "
-set $workspace10 " 10:   "
+set $workspace9 "9 "
+set $workspace10 "10 "
 
 # Switch to workspace.
 bindsym $mod+1 workspace $workspace1
@@ -116,8 +116,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+x exec ~/dotfiles/i3/lock.sh
 
 set $bg-color             #2f343f
-set $inactive-bg-color    #2f343f
 set $text-color           #f3f4f5
+set $inactive-bg-color    #2f343f
 set $inactive-text-color  #676e7d
 set $urgent-bg-color      #e53945
 set $urgent-text-color    #f3f4f5
@@ -131,8 +131,6 @@ client.urgent            $urgent-bg-color    $urgent-bg-color    $urgent-text-co
 
 # Start i3bar to display a workspace bar.
 bar {
-  status_command i3blocks -c ~/dotfiles/i3/blocks.conf
-
   colors {
     background $bg-color
     separator #757575
@@ -142,6 +140,8 @@ bar {
     inactive_workspace  $inactive-bg-color  $inactive-bg-color  $inactive-text-color
     urgent_workspace    $urgent-bg-color    $urgent-bg-color    $urgent-text-color
   }
+  position top
+  status_command i3blocks -c ~/dotfiles/i3/blocks.conf
 }
 
 exec VBoxClient-all

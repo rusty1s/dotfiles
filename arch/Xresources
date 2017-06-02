@@ -1,7 +1,7 @@
 URxvt.font: xft:SFMono Nerd Font::medium:size=14
 URxvt.scrollBar: false
 URxvt.letterSpace: -1
-URxvt.internalBorder: 10
+URxvt.internalBorder: 0
 
 URxvt*foreground: #eee8d5
 URxvt*background: #212121
