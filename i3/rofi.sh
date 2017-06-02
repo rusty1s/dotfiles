@@ -5,4 +5,4 @@ rofi \
   -lines 10 \
   -hide-scrollbar \
   -matching fuzzy \
-  -font "SFNS Display Thin 28" \
+  -font "SFUI Display Nerd Font Ultralight 28" \

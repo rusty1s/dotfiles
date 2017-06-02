@@ -78,4 +78,4 @@ from [Mirrorlist](https://www.archlinux.org/mirrorlist/) [[Germany](https://www.
 
 1. `reboot`
 1. Login as user.
-1. Open `lxappearance` and select `SFNS Display` with font size `12`.
+1. Open `lxappearance` and select `SFUI Text Nerd Font` with font size `12`.

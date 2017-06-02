@@ -1,6 +1,6 @@
 set $mod Mod1
 
-font pango:SFNS Display 12
+font pango:SFUI Text Nerd Font 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
