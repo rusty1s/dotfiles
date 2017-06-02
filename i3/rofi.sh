@@ -11,4 +11,7 @@ rofi \
   -line-margin 10 \
   -separator-style none \
   -padding 10 \
-  -fake-transparency \
+  -color-window "#1f222d, #7780a1" \
+  -color-normal "#1f222d, #ffffff, #1f222d, #1f222d, #7780a1" \
+  -color-active "#1f222d, #ffffff, #1f222d, #1f222d, #7780a1" \
+  -color-urgent "#1f222d, #ffffff, #1f222d, #dc322f, #7780a1" \
