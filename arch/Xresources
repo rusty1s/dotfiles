@@ -1,4 +1,4 @@
-URxvt.font: xft:SFMono Nerd Font::medium:size=14
+URxvt.font: xft:SFMono Nerd Font::medium:size=12
 URxvt.scrollBar: false
 URxvt.letterSpace: -1
 URxvt.internalBorder: 5

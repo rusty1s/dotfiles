@@ -1,3 +1,5 @@
+# vi: set ft=config :
+
 set $mod Mod1
 
 font pango:SFUI Text Nerd Font 12
@@ -51,16 +53,16 @@ bindsym $mod+space focus mode_toggle
 # Focus the parent container.
 bindsym $mod+a focus parent
 
-set $workspace1 "1 "
-set $workspace2 "2 "
-set $workspace3 " 3 "
-set $workspace4 " 4 "
-set $workspace5 " 5 "
-set $workspace6 " 6 "
-set $workspace7 " 7 "
-set $workspace8 " 8 "
-set $workspace9 "9 "
-set $workspace10 "10 "
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9: "
+set $workspace10 "10: "
 
 # Switch to workspace.
 bindsym $mod+1 workspace $workspace1
@@ -144,7 +146,7 @@ bar {
     urgent_workspace    $urgent-bg-color    $urgent-bg-color    $urgent-text-color
   }
   position top
-  status_command i3blocks -c ~/dotfiles/i3/blocks.conf
+  status_command ~/dotfiles/i3/bar.sh
 }
 
 exec VBoxClient-all
