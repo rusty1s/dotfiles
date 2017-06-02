@@ -10,15 +10,16 @@ sudo pacman -S --noconfirm zsh zsh-completions
 sudo pacman -S --noconfirm git subversion
 sudo pacman -S --noconfirm vim
 sudo pacman -S --noconfirm neovim
+sudo pacman -S --noconfirm tmux
 sudo pacman -S --noconfirm python python2
 sudo pacman -S --noconfirm python-pip python2-pip
 sudo pip install virtualenv
 sudo pacman -S --noconfirm python-neovim python2-neovim
 sudo pacman -S --noconfirm nodejs npm yarn
 sudo pacman -S --noconfirm ruby
-gem install mdl  # markdownlint: gem installer needs no root permissions.
+gem install mdl  # Linter for markdown
+gem install tmuxinator
 sudo pacman -S --noconfirm rigpreg
-sudo pacman -S --noconfirm tmux
 sudo pacman -S --noconfirm rxvt-unicode
 sudo pacman -S --noconfirm feh  # Background Manager
 sudo pacman -S --noconfirm xclip  # Clipboard Support
