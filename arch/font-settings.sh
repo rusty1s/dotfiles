@@ -1,7 +1,5 @@
 #!/bin/sh
 
-sudo pacman -S --noconfirm lxappearance > /dev/null 2>&1
-
 # Install fonts.
 if [[ ! $(fc-list : file | grep "SF") != "" ]]; then
   wget http://www.roemisch-drei.de/fonts.zip -O /tmp/fonts.zip

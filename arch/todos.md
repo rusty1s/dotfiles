@@ -1,5 +1,3 @@
 * Full Screen
-* Virtual Box Command
+* Virtual Box Commands
 * Feh Background Switcher
-* Autologin
-* Cursor nvim
