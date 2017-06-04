@@ -27,6 +27,7 @@ sudo pacman -S --noconfirm thunar  # File Manager
 sudo pacman -S --noconfirm rofi  # Program Launcher
 sudo pacman -S --noconfirm compton  # Opacity Support
 sudo pacman -S --noconfirm lxappearance  # Look & Feel Customizer
+sudo pacman -S --noconfirm screenfetch  # System information
 
 
 sudo yarn global add pure-prompt
