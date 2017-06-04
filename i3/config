@@ -4,7 +4,7 @@ set $mod Mod1
 
 font pango:SFUI Text Nerd Font 12
 
-new_window pixel 1
+new_window pixel 2
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
@@ -125,8 +125,8 @@ set $inactive-bg-color    #2f343f
 set $inactive-text-color  #676e7d
 set $urgent-bg-color      #e53945
 set $urgent-text-color    #f3f4f5
-set $active-bg-color      #f3f4f5
-set $indicator            #00ff00
+set $active-bg-color      #c3839d
+set $indicator            #00aba5
 
 # Window colors:         Border              Background          Text                  Indicator
 client.focused           $active-bg-color    $active-bg-color    $text-color           $indicator
