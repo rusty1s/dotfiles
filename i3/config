@@ -4,7 +4,9 @@ set $mod Mod1
 
 font pango:SFUI Text Nerd Font 12
 
-new_window pixel 2
+new_window pixel 0
+smart_borders on
+gaps inner 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
@@ -138,7 +140,6 @@ client.urgent            $urgent-bg-color    $urgent-bg-color    $urgent-text-co
 bar {
   colors {
     background $bg-color
-    separator #757575
 
     # Tag colors:       Border              Background          Text
     focused_workspace   $bg-color           $bg-color           $text-color

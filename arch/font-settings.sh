@@ -21,5 +21,3 @@ for family in sans-serif Arial Helvetica serif "Times New Roman" Times monospace
   echo -en "\033[1m$family:\033[0m "
   fc-match "$family"
 done
-
-echo -e "\nPlease change your font settings in \033[1mlxappearance\033[0m to \033[1mSFUIText Nerd Font 12\033[0m."
