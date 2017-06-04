@@ -70,7 +70,7 @@ zstyle ':completion:*:warnings' format 'Too bad there is nothing'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR"  -eq 1 ]; then
-  exec startx
+  exec startx &> /dev/null
 fi
 
 source $DOTFILES/zshrc/plugins.zsh
