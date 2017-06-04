@@ -156,7 +156,7 @@ exec_always xset m rate 16 0
 exec_always feh --bg-fill ~/Wallpapers/bg01.jpg
 exec_always xrdb ~/.Xresources
 
-exec urxvt
+exec urxvt -e $SHELL -c 'screenfetch;$SHELL -i'
 exec google-chrome-stable
 exec spotify
 # exec whatsapp-web-desktop

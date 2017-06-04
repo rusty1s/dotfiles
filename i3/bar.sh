@@ -2,6 +2,6 @@
 
 while :
 do
-  echo $(date +"%a. %H:%M") " "
+  echo "$(~/dotfiles/i3/spotify.sh)$(date +"%a. %H:%M")   "
   sleep 1
 done
