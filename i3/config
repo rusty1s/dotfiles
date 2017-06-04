@@ -4,7 +4,7 @@ set $mod Mod1
 
 font pango:SFUI Text Nerd Font 12
 
-new_window pixel 0
+new_window pixel 2
 smart_borders on
 gaps inner 10
 
