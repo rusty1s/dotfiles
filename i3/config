@@ -56,8 +56,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3"
+set $workspace2 "2: "
+set $workspace3 "3: "
 set $workspace4 "4"
 set $workspace5 "5"
 set $workspace6 "6"
@@ -90,9 +90,8 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-assign [class="Google-chrome"] $workspace2
+# Assign applications to specific workspaces.
 assign [class="whats-app-nativefier-7bbd2c"] $workspace9
-
 # Spotify has a bug where it can't be assigned to a workspace, so we create the
 # window in the current workspace and move it afterwards.
 for_window [class="Spotify"] move to workspace $workspace10
@@ -158,6 +157,5 @@ exec_always feh --bg-fill ~/Wallpapers/bg01.jpg
 exec_always xrdb ~/.Xresources
 
 exec urxvt -e $SHELL -c 'echo "";neofetch;$SHELL -i'
-exec google-chrome-stable
 exec spotify
 # exec whatsapp-web-desktop
