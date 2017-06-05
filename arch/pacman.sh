@@ -50,3 +50,8 @@ fi
 
 chsh -s $(which zsh)
 exec zsh
+
+# Override neovim desktop file.
+sudo sed -i /^Exec=/d /usr/share/applications/nvim.desktop
+sudo sed -i s/^Terminal=true/Terminal=false/g /usr/share/applications/nvim.desktop
+echo 'Exec=urxvt -e /usr/bin/zsh -c "nvim %F"' | sudo tee --append /usr/share/applications/nvim.desktop > /dev/null
