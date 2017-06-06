@@ -1,5 +1,5 @@
 ---
-- name: git | Install packages
+- name: git | arch | Install packages
   become: true
   pacman:
     name: "{{ item }}"

@@ -6,7 +6,7 @@
 
 - name: git | Create symlinks
   file:
-    src: ~/dotfiles/playbooks/roles/git/files{{ item }}
+    src: ~/dotfiles/playbooks/roles/git/files/{{ item }}
     dest: ~/{{ item }}
     state: link
     force: yes
