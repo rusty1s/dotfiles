@@ -5,9 +5,6 @@
     update_cache: yes
     upgrade: yes
 
-- name: Install vim
-  become: true
-  pacman:
-    name: vim
-    state: latest
+- include: git.yml
+- include: vim.yml
 ...

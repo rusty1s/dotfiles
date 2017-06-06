@@ -1,0 +1,19 @@
+---
+- name: vim | Install packages
+  become: true
+  pacman:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - vim
+    - neovim
+    - python-neovim
+    - python2-neovim
+
+- name: vim | Symlink config
+  file:
+    src: ~/dotfiles/vim/init.vim
+    dest: ~/.config/nvim/init.vim
+    force: yes
+    state: link
+...
