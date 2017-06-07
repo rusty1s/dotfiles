@@ -1,5 +1,8 @@
-[localhost]
-localhost
+[common]
+localhost ansible_connection=local
 
-[localhost]
+[arch]
+localhost ansible_connection=local
+
+[osx]
 localhost ansible_connection=local

@@ -1,5 +1,5 @@
 ---
 - name: Set up local development environment
-  hosts: localhost
+  hosts: common
   roles:
     - git

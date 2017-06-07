@@ -1,15 +1,22 @@
 ---
-- include: arch.yml
-  when: ansible_os_family == "Archlinux"
-- include: osx.yml
-  when: ansible_os_family == "Darwin"
+- name: Install packages
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ git_packages }}"
 
-- name: git | Create symlinks
+- name: Create symlinks
   file:
-    src: ~/dotfiles/playbooks/roles/git/files/{{ item }}
-    dest: ~/{{ item }}
+    src: "{{ dotfiles_home }}/playbooks/roles/git/files/{{ item }}"
+    dest: "{{ user_home }}/{{ item }}"
     state: link
     force: yes
   with_items:
-    - .gitconfig
     - .gitignore
+
+- name: Create templates
+  template:
+    src: "{{ item }}.j2"
+    dest: "{{ user_home }}/{{ item }}"
+  with_items:
+    - .gitconfig
