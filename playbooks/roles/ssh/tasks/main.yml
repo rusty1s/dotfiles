@@ -1,6 +1,23 @@
 ---
+- name: Install packages
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - openssh
+    - seahorse
+
 - name: Create .ssh directory
   file:
     path: "{{ user_home }}/.ssh"
     state: directory
     mode: 0700
+
+- name: Copy public SSH keys to .ssh directory
+  copy:
+    src: "{{ dotfiles_home }}/playbooks/roles/ssh/files/{{ item }}"
+    dest: "{{ user_home }}/.ssh/{{ item }}"
+    force: true
+    mode: 0700
+  with_items:
+    - id_rsa
