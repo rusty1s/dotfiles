@@ -22,14 +22,14 @@
   with_items:
     - id_rsa
 
-- name: Check if dotfiles directory has HTTPS URL
+- name: Get remote URL in repository "dotfiles"
   command: git remote get-url origin
   args:
     chdir: "{{ dotfiles_home }}"
   register: dotfiles_url
   changed_when: False
 
-- name: Change dotfiles directory remote URL from HTTPS to SSH
+- name: Change remote URL from HTTPS to SSH in repository "dotfiles"
   command: git remote set-url origin git@github.com:{{ git_user }}/dotfiles.git
   args:
     chdir: "{{ dotfiles_home }}"
