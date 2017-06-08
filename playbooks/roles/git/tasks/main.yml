@@ -6,7 +6,7 @@
   with_items:
     - git
 
-- name: Create symlinks for home folder
+- name: Create symlinks
   file:
     src: "{{ dotfiles_home }}/playbooks/roles/git/files/{{ item }}"
     dest: "{{ user_home }}/{{ item }}"
@@ -15,7 +15,7 @@
   with_items:
     - .gitignore
 
-- name: Create templates for home folder
+- name: Create templates
   template:
     src: "{{ item }}.j2"
     dest: "{{ user_home }}/{{ item }}"

@@ -1,11 +1,13 @@
 ---
 - name: Install packages
-  package:
+  become: yes
+  pacman:
     name: "{{ item }}"
     state: latest
   with_items:
     - openssh
     - seahorse
+  when: ansible_distribution == "Archlinux"
 
 - name: Create .ssh directory
   file:

@@ -1,0 +1,7 @@
+---
+- name: Upgrade packages
+  become: yes
+  pacman:
+    update_cache: yes
+    upgrade: yes
+  when: ansible_distribution == "Archlinux"
