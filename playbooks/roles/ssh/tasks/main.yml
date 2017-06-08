@@ -17,7 +17,20 @@
   copy:
     src: "{{ dotfiles_home }}/playbooks/roles/ssh/files/{{ item }}"
     dest: "{{ user_home }}/.ssh/{{ item }}"
-    force: true
+    force: yes
     mode: 0700
   with_items:
     - id_rsa
+
+- name: Check if dotfiles directory has HTTPS URL
+  command: git remote get-url origin
+  args:
+    chdir: "{{ dotfiles_home }}"
+  register: dotfiles_url
+  changed_when: False
+
+- name: Change dotfiles directory remote URL from HTTPS to SSH
+  command: git remote set-url origin git@github.com:{{ git_user }}/dotfiles.git
+  args:
+    chdir: "{{ dotfiles_home }}"
+  changed_when: dotfiles_url.stdout | search("http")
