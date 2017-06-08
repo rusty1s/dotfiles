@@ -3,3 +3,4 @@
   hosts: common
   roles:
     - git
+    - ssh

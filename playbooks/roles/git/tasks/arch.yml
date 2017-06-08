@@ -1,8 +1,0 @@
----
-- name: git | arch | Install packages
-  become: true
-  pacman:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - git

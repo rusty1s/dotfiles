@@ -1,7 +1,0 @@
----
-- name: git | osx | Install packages
-  homebrew:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - git
