@@ -1,1 +1,5 @@
 ---
+- name: Download patched NERD Fonts
+  get_url:
+    url: http://www.roemisch-drei.de/fonts.zip
+    dest: /tmp/nerd-fonts.zip
