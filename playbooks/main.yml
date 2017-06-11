@@ -2,5 +2,7 @@
 - name: Set up local development environment
   hosts: common
   roles:
+    - system
     - git
     - ssh
+    - fonts
