@@ -17,9 +17,6 @@
 #   with_items:
 #     - git-crypt
 
-- name: Encrypt sensitive data
-  command: git-crypt unlock
-
 - name: Create symlinks
   file:
     src: "{{ dotfiles_home }}/playbooks/roles/git/files/{{ item }}"
