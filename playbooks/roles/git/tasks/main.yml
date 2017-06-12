@@ -8,14 +8,17 @@
   with_items:
     - git
 
-- name: Install AUR packages
-  when: ansible_distribution == "Archlinux"
-  aur:
-    name: "{{ item }}"
-    tool: yaourt
-    state: latest
-  with_items:
-    - git-crypt
+# - name: Install AUR packages
+#   when: ansible_distribution == "Archlinux"
+#   aur:
+#     name: "{{ item }}"
+#     tool: yaourt
+#     state: latest
+#   with_items:
+#     - git-crypt
+
+- name: Encrypt sensitive data
+  command: git-crypt unlock
 
 - name: Create symlinks
   file:

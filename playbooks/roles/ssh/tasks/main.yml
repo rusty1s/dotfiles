@@ -15,14 +15,14 @@
     state: directory
     mode: 0700
 
-- name: Copy public SSH keys to .ssh directory
-  copy:
-    src: "{{ dotfiles_home }}/playbooks/roles/ssh/files/{{ item }}"
-    dest: "{{ user_home }}/.ssh/{{ item }}"
-    force: yes
-    mode: 0700
-  with_items:
-    - id_rsa
+# - name: Copy public SSH keys to .ssh directory
+#   copy:
+#     src: "{{ dotfiles_home }}/playbooks/roles/ssh/files/{{ item }}"
+#     dest: "{{ user_home }}/.ssh/{{ item }}"
+#     force: yes
+#     mode: 0700
+#   with_items:
+#     - id_rsa
 
 - name: Get remote URL in dotfiles repository
   command: git remote get-url origin
