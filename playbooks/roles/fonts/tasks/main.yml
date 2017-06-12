@@ -1,5 +1,20 @@
 ---
-- name: Download patched NERD Fonts
+- name: Install packages
+  when: ansible_distribution == "Archlinux"
+  become: yes
+  pacman:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - unzip
+    - lxappearance
+
+- name: Download patched NERD fonts
   get_url:
     url: http://www.roemisch-drei.de/fonts.zip
     dest: /tmp/nerd-fonts.zip
+
+- name: Unarchive patched NERD fonts
+  unarchive:
+    src: /tmp/nerd-fonts.zip
+    dest: /tmp

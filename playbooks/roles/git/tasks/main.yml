@@ -1,10 +1,21 @@
 ---
 - name: Install packages
-  package:
+  when: ansible_distribution == "Archlinux"
+  become: yes
+  pacman:
     name: "{{ item }}"
     state: latest
   with_items:
     - git
+
+- name: Install AUR packages
+  when: ansible_distribution == "Archlinux"
+  aur:
+    name: "{{ item }}"
+    tool: yaourt
+    state: latest
+  with_items:
+    - git-crypt
 
 - name: Create symlinks
   file:

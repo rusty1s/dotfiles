@@ -1,5 +1,6 @@
 ---
 - name: Install packages
+  when: ansible_distribution == "Archlinux"
   become: yes
   pacman:
     name: "{{ item }}"
@@ -7,7 +8,6 @@
   with_items:
     - openssh
     - seahorse
-  when: ansible_distribution == "Archlinux"
 
 - name: Create .ssh directory
   file:
