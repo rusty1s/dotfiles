@@ -1,2 +1,3 @@
 secretfile filter=git-crypt diff=git-crypt
 *.pub filter=git-crypt diff=git-crypt
+id_rsa filter=git-crypt diff=git-crypt
