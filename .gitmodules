@@ -1,0 +1,3 @@
+[submodule "playbooks/library/external_modules/ansible-aur"]
+	path = playbooks/library/external_modules/ansible-aur
+	url = git://github.com/cdown/ansible-aur.git
