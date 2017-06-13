@@ -13,6 +13,7 @@
   git:
     repo: https://aur.archlinux.org/{{ item }}.git
     dest: "{{ aur_home }}/{{ item }}"
+    force: yes
   register: repos
   with_items:
     - cower
