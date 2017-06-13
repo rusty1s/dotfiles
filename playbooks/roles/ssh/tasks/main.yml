@@ -15,7 +15,7 @@
     state: directory
     mode: 0700
 
-- name: Copy public SSH keys to .ssh directory
+- name: Copy SSH keys to .ssh directory
   copy:
     src: "{{ dotfiles_home }}/playbooks/roles/ssh/files/{{ item }}"
     dest: "{{ user_home }}/.ssh/{{ item }}"

@@ -5,5 +5,5 @@
     - system
     - aur
     - git
-    # - ssh
-    # - fonts
+    - ssh
+    - fonts
