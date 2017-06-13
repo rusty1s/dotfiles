@@ -1,6 +1,7 @@
 #!/bin/sh
 
 git pull
+git submodule update --init --recursive --remote
 
 HOST_OS=$(uname)
 

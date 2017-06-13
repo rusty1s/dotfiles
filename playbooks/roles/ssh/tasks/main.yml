@@ -15,11 +15,6 @@
     state: directory
     mode: 0700
 
-- name: Encrypt sensitive dotfiles data
-  command: git-crypt unlock
-  args:
-    chdir: "{{ dotfiles_home }}"
-
 - name: Copy public SSH keys to .ssh directory
   copy:
     src: "{{ dotfiles_home }}/playbooks/roles/ssh/files/{{ item }}"
@@ -35,7 +30,7 @@
   args:
     chdir: "{{ dotfiles_home }}"
   register: dotfiles_url
-  changed_when: False
+  changed_when: no
 
 - name: Change remote URL from HTTPS to SSH in dotfiles repository
   command: git remote set-url origin git@github.com:{{ git_user }}/dotfiles.git

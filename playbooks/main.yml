@@ -3,6 +3,7 @@
   hosts: common
   roles:
     - system
-    - git
-    - ssh
-    - fonts
+    - aur
+    # - git
+    # - ssh
+    # - fonts

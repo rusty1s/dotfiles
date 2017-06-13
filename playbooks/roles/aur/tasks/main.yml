@@ -1,0 +1,56 @@
+---
+- name: Install required cower packages
+  become: yes
+  pacman:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - expac
+    - yajl
+
+- name: Create cower directory
+  file:
+    path: "{{ user_home }}/.aur/cower"
+    state: directory
+
+- name: Check if cower GPG key exists
+  command: gpg --list-keys 1EB2638FF56C0C53
+  register: gpg_key_stdout
+  ignore_errors: yes
+  failed_when: no
+  changed_when: no
+
+- name: Import cower GPG key
+  command: gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+  when: gpg_key_stdout | failed
+
+- name: Download cower PKGBUILD
+  get_url:
+    url: https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+    dest: "{{ user_home }}/.aur/cower/PKGBUILD"
+    force: yes
+  register: pkgfile
+
+- name: Install cower
+  when: pkgfile | changed
+  command: makepkg -i PKGBUILD --noconfirm
+  args:
+    chdir: "{{ user_home }}/.aur/cower"
+
+- name: Create pacaur directory
+  file:
+    path: "{{ user_home }}/.aur/pacaur"
+    state: directory
+
+- name: Download pacaur PKGBUILD
+  get_url:
+    url: https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+    dest: "{{ user_home }}/.aur/pacaur/PKGBUILD"
+    force: yes
+  register: pkgfile
+
+- name: Install pacaur
+  when: pkgfile | changed
+  command: makepkg -i PKGBUILD --noconfirm
+  args:
+    chdir: "{{ user_home }}/.aur/pacaur"
