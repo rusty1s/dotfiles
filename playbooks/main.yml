@@ -4,6 +4,6 @@
   roles:
     - system
     - aur
-    # - git
-    # - ssh
+    - git
+    - ssh
     # - fonts

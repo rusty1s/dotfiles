@@ -1,6 +1,5 @@
 ---
 - name: Install packages
-  when: ansible_distribution == "Archlinux"
   become: yes
   pacman:
     name: "{{ item }}"
@@ -9,12 +8,17 @@
     - unzip
     - lxappearance
 
+- name: Create directory
+  file:
+    path: "{{ fonts_home }}"
+    state: directory
+
 - name: Download patched NERD fonts
   get_url:
     url: http://www.roemisch-drei.de/fonts.zip
-    dest: /tmp/nerd-fonts.zip
+    dest: "{{ fonts_home }}/nerd-fonts.zip"
 
 - name: Unarchive patched NERD fonts
   unarchive:
-    src: /tmp/nerd-fonts.zip
-    dest: /tmp
+    src: "{{ fonts_home }}/nerd-fonts.zip"
+    dest: "{{ fonts_home }}"

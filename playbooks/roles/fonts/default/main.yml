@@ -1,0 +1,1 @@
+fonts_home: "{{ user_home }}/.fonts"

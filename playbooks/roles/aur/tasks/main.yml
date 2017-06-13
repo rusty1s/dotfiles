@@ -1,5 +1,5 @@
 ---
-- name: Install required cower packages
+- name: Install packages
   become: yes
   pacman:
     name: "{{ item }}"
@@ -8,49 +8,49 @@
     - expac
     - yajl
 
-- name: Create cower directory
-  file:
-    path: "{{ user_home }}/.aur/cower"
-    state: directory
-
 - name: Check if cower GPG key exists
-  command: gpg --list-keys 1EB2638FF56C0C53
-  register: gpg_key_stdout
+  command: gpg --list-keys "{{ cower_gpg_key }}"
+  register: cower_gpg_key_exists
   ignore_errors: yes
-  failed_when: no
+  # failed_when: no
   changed_when: no
 
 - name: Import cower GPG key
-  command: gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-  when: gpg_key_stdout | failed
+  command: gpg --recv-keys --keyserver hkp://pgp.mit.edu "{{ cower_gpg_key }}"
+  changed_when: cower_gpg_key_exists | failed
+
+- name: Create cower directory
+  file:
+    path: "{{ cower_home }}"
+    state: directory
 
 - name: Download cower PKGBUILD
   get_url:
     url: https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
-    dest: "{{ user_home }}/.aur/cower/PKGBUILD"
+    dest: "{{ cower_home }}/PKGBUILD"
     force: yes
-  register: pkgfile
+  register: cower_pkgfile
 
 - name: Install cower
-  when: pkgfile | changed
+  changed_when: cower_pkgfile | changed
   command: makepkg -i PKGBUILD --noconfirm
   args:
-    chdir: "{{ user_home }}/.aur/cower"
+    chdir: "{{ cower_home }}"
 
 - name: Create pacaur directory
   file:
-    path: "{{ user_home }}/.aur/pacaur"
+    path: "{{ pacaur_home }}"
     state: directory
 
 - name: Download pacaur PKGBUILD
   get_url:
     url: https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
-    dest: "{{ user_home }}/.aur/pacaur/PKGBUILD"
+    dest: "{{ pacaur_home }}/PKGBUILD"
     force: yes
-  register: pkgfile
+  register: pacaur_pkgfile
 
 - name: Install pacaur
-  when: pkgfile | changed
+  changed_when: pacaur_pkgfile | changed
   command: makepkg -i PKGBUILD --noconfirm
   args:
-    chdir: "{{ user_home }}/.aur/pacaur"
+    chdir: "{{ pacaur_home }}"
