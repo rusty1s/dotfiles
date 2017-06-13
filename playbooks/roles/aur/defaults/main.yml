@@ -1,5 +1,1 @@
 aur_home: "{{ user_home }}/.aur"
-cower_home: "{{ aur_home }}/cower"
-pacaur_home: "{{ aur_home }}/pacaur"
-
-cower_gpg_key: "1EB2638FF56C0C53"
