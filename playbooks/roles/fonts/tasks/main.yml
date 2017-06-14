@@ -5,7 +5,7 @@
     name: "{{ item }}"
     state: latest
   with_items:
-    - unzip
+    - tar
     - lxappearance
 
 - name: Create directory
@@ -13,12 +13,22 @@
     path: "{{ fonts_home }}"
     state: directory
 
-- name: Download patched NERD fonts
+- name: Download fonts
   get_url:
-    url: http://www.roemisch-drei.de/fonts.zip
-    dest: "{{ fonts_home }}/nerd-fonts.zip"
+    url: "http://www.roemisch-drei.de/{{ fonts_tar }}"
+    dest: "{{ fonts_home }}/{{ fonts_tar }}"
 
-- name: Unarchive patched NERD fonts
+- name: Unarchive fonts
   unarchive:
-    src: "{{ fonts_home }}/nerd-fonts.zip"
+    src: "{{ fonts_home }}/{{ fonts_tar }}"
     dest: "{{ fonts_home }}"
+
+- name: Symlink fonts
+  # become: yes
+  file:
+    src: "{{ fonts_home }}/patched-fonts/fonts/SFDisplay/{{ item }}"
+    dest: "~/.fonts/patched-fonts/{{ item }}"
+    state: link
+  with_items:
+    - "SFDisplay-Regular.otf"
+    # sudo mv -f /tmp/fonts/fonts/patched-fonts/**/*.otf /usr/share/fonts/OTF
