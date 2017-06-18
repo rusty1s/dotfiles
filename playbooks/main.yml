@@ -2,8 +2,8 @@
 - name: Set up local development environment
   hosts: common
   roles:
-    # - system
-    # - aur
-    # - git
-    # - ssh
+    - system
+    - aur
+    - git
+    - ssh
     - fonts
