@@ -36,3 +36,24 @@
     - "{{ fonts_home }}/patched-fonts/patched-fonts/SFText/*.otf"
     - "{{ fonts_home }}/patched-fonts/patched-fonts/SFDisplay/*.otf"
     - "{{ fonts_home }}/patched-fonts/patched-fonts/SFMono/*.otf"
+
+- name: Create font configuration directory
+  file:
+    path: "{{ fonts_config_home }}"
+    state: directory
+
+- name: Symlink font configuration
+  file:
+    src: "{{ dotfiles_home }}/playbooks/roles/fonts/files/{{ item }}"
+    dest: "{{ fonts_config_home }}/{{ item }}"
+    state: link
+  with_items:
+    - fonts.conf
+
+- name: Ensure absence of font configuration
+  become: yes
+  file:
+    path: "/etc/fonts/conf.d/{{ item }}"
+    state: absent
+  with_items:
+    - 10-scale-bitmap-fonts.conf

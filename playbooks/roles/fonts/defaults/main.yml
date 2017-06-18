@@ -1,2 +1,3 @@
 fonts_home: "{{ user_home }}/.fonts"
 fonts_tar: "patched-fonts.tar.gz"
+fonts_config_home: "{{ user_home }}/.config/fontconfig"
