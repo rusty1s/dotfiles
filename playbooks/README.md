@@ -1,4 +1,4 @@
-# Ansible Install Playbook
+# Dotfiles as ansible roles
 
 ## Preinstall
 
