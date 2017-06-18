@@ -24,11 +24,15 @@
     dest: "{{ fonts_home }}"
 
 - name: Symlink fonts
-  # become: yes
+  become: yes
   file:
-    src: "{{ fonts_home }}/patched-fonts/fonts/SFDisplay/{{ item }}"
-    dest: "~/.fonts/patched-fonts/{{ item }}"
+    src: "{{ item }}"
+    dest: /usr/share/fonts/OTF/{{ item | basename }}
     state: link
-  with_items:
-    - "SFDisplay-Regular.otf"
-    # sudo mv -f /tmp/fonts/fonts/patched-fonts/**/*.otf /usr/share/fonts/OTF
+  with_fileglob:
+    - "{{ fonts_home }}/patched-fonts/fonts/SFText/*.otf"
+    - "{{ fonts_home }}/patched-fonts/fonts/SFDisplay/*.otf"
+    - "{{ fonts_home }}/patched-fonts/fonts/SFMono/*.otf"
+    - "{{ fonts_home }}/patched-fonts/patched-fonts/SFText/*.otf"
+    - "{{ fonts_home }}/patched-fonts/patched-fonts/SFDisplay/*.otf"
+    - "{{ fonts_home }}/patched-fonts/patched-fonts/SFMono/*.otf"
