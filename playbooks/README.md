@@ -5,7 +5,6 @@
 Import GPG key or replace the encrypted files in the specific roles (`ssh`).
 
 * `./dotfiles/playbooks/bootstrap`
-* **macOS**: `brew install gpg gpg-agent`
 * `gpg --import private_key.key`
 * `gpg --import public_key.key`
 * `cd dotfiles && git-crypt unlock`
