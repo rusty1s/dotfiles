@@ -1,3 +1,26 @@
 #!/bin/sh
 
-brew install gpg gpg-agent
+HOST_OS=$(uname)
+
+if [ "$HOST_OS" = 'Linux' ]; then
+  sudo pacman -S --noconfirm git
+  sudo pacman -S --noconfirm ansible
+
+  mkdir -p /tmp/aur/git-crypt
+  cd /tmp/aur/git-crypt
+  curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=git-crypt
+  makepkg -i PKGBUILD --noconfirm
+elif [ "$HOST_OS" = 'Darwin' ]; then
+  if test ! "$(which brew)"; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+    brew update
+  fi
+
+  brew install git git-crypt
+  brew install gpg gpg-agent
+  brew install ansible
+else
+  echo "Unknown host OS: $HOST_OS"
+  exit 1
+fi
