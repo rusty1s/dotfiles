@@ -24,11 +24,36 @@
     dest: "{{ fonts_home }}"
 
 - name: Symlink fonts
-  # become: yes
+  become: yes
   file:
-    src: "{{ fonts_home }}/patched-fonts/fonts/SFDisplay/{{ item }}"
-    dest: "~/.fonts/patched-fonts/{{ item }}"
+    src: "{{ item }}"
+    dest: /usr/share/fonts/OTF/{{ item | basename }}
+    state: link
+  with_fileglob:
+    - "{{ fonts_home }}/patched-fonts/fonts/SFText/*.otf"
+    - "{{ fonts_home }}/patched-fonts/fonts/SFDisplay/*.otf"
+    - "{{ fonts_home }}/patched-fonts/fonts/SFMono/*.otf"
+    - "{{ fonts_home }}/patched-fonts/patched-fonts/SFText/*.otf"
+    - "{{ fonts_home }}/patched-fonts/patched-fonts/SFDisplay/*.otf"
+    - "{{ fonts_home }}/patched-fonts/patched-fonts/SFMono/*.otf"
+
+- name: Create font configuration directory
+  file:
+    path: "{{ fonts_config_home }}"
+    state: directory
+
+- name: Symlink font configuration
+  file:
+    src: "{{ dotfiles_home }}/playbooks/roles/fonts/files/{{ item }}"
+    dest: "{{ fonts_config_home }}/{{ item }}"
     state: link
   with_items:
-    - "SFDisplay-Regular.otf"
-    # sudo mv -f /tmp/fonts/fonts/patched-fonts/**/*.otf /usr/share/fonts/OTF
+    - fonts.conf
+
+- name: Ensure absence of font configuration
+  become: yes
+  file:
+    path: "/etc/fonts/conf.d/{{ item }}"
+    state: absent
+  with_items:
+    - 10-scale-bitmap-fonts.conf

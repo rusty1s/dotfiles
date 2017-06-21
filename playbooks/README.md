@@ -1,9 +1,15 @@
-# Ansible Install Playbook
+# Dotfiles as ansible roles
 
 ## Preinstall
 
-Import GPG key or replace the encrypted files in the roles `ssh`.
+Import GPG key or replace the encrypted files in the specific roles (`ssh`).
 
-* `brew install gpg gpg-agent` (MacOS)
+* `./dotfiles/playbooks/bootstrap`
 * `gpg --import private_key.key`
 * `gpg --import public_key.key`
+* `cd dotfiles && git-crypt unlock`
+
+## Install
+
+* `cd dotfiles/playbooks`
+* `./launch`
