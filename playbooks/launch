@@ -7,6 +7,7 @@ HOST_OS=$(uname)
 
 if [ "$HOST_OS" = 'Linux' ]; then
   ansible-playbook -i hosts main.yml
+
 else
   echo "Unknown host OS: $HOST_OS"
   exit 1
