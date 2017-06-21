@@ -1,0 +1,29 @@
+---
+- name: Install node
+  become: yes
+  pacman:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - nodejs
+    - npm
+    - yarn
+
+- name: Create symlinks
+  file:
+    src: "{{ dotfiles_home }}/playbooks/roles/js/files/{{ item }}"
+    dest: "{{ user_home }}/{{ item }}"
+    state: link
+    force: yes
+  with_items:
+    - .npmrc
+
+- name: Install node packages
+  npm:
+    name: "{{ item }}"
+    global: yes
+    state: latest
+  with_items:
+    - npm@latest
+    - create-react-app
+    - prettier

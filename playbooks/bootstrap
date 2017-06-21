@@ -3,6 +3,7 @@
 HOST_OS=$(uname)
 
 if [ "$HOST_OS" = 'Linux' ]; then
+  sudo pacman -S --noconfirm curl
   sudo pacman -S --noconfirm zip unzip
   sudo pacman -S --noconfirm git
   sudo pacman -S --noconfirm ansible

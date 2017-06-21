@@ -5,3 +5,15 @@
     update_cache: yes
     upgrade: yes
   when: ansible_distribution == "Archlinux"
+
+- name: Install base packages
+  become: yes
+  pacman:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - wget
+    - curl
+    - zip
+    - unzip
+    - ripgrep
