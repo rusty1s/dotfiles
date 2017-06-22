@@ -24,6 +24,5 @@
     global: yes
     state: latest
   with_items:
-    - npm@latest
     - create-react-app
     - prettier
