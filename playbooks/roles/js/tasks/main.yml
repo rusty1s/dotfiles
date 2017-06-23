@@ -19,11 +19,25 @@
     - .npmrc
     - .tern-project
 
-- name: Install node packages
-  npm:
-    name: "{{ item }}"
-    global: yes
-    state: latest
+- name: Create global yarn directory
+  file:
+    path: "{{ yarn_global_home }}"
+    state: directory
+
+- name: Check for outdated packages
+  command: "yarn outdated {{ item }}"
+  register: packages
+  args:
+    chdir: "{{ yarn_global_home }}"
+  changed_when: no
+  failed_when: no
   with_items:
     - create-react-app
     - prettier
+
+- name: Install node packages
+  command: "yarn global add {{ item.item }}@latest"
+  changed_when: item.stdout.find(item.item) != -1
+  with_items: "{{ packages.results }}"
+  loop_control:
+    label: "{{ item.item }}"
