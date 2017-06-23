@@ -17,6 +17,7 @@
     force: yes
   with_items:
     - .npmrc
+    - .tern-project
 
 - name: Install node packages
   npm:
