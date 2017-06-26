@@ -49,14 +49,6 @@ setopt HIST_IGNORE_SPACE   # No saving of events starting with a space.
 setopt HIST_FIND_NO_DUPS   # No display of prevously found event.
 setopt HIST_VERIFY         # No immediate execute on expansion.
 
-# Pure Prompt
-if ! which yarn >/dev/null; then
-  sudo pacman -S yarn
-fi
-if [ ! -d ~/.config/yarn/global/node_modules/pure-prompt ]; then
-  sudo yarn global add pure-prompt
-fi
-
 autoload -U promptinit; promptinit
 prompt pure
 

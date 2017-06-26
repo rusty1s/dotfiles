@@ -24,20 +24,32 @@
     path: "{{ yarn_global_home }}"
     state: directory
 
-- name: Check for outdated packages
-  command: "yarn outdated {{ item }}"
+- name: Check installed packages
+  stat:
+    path: "{{ yarn_global_home }}/node_modules/{{ item }}"
   register: packages
+  with_items:
+    - create-react-app
+    - prettier
+    - pure-prompt
+
+# Packages are outdated if they contain the item name in its stdout.
+- name: Check outdated packages
+  command: "yarn outdated {{ item.item }}"
+  register: packages_outdated
   args:
     chdir: "{{ yarn_global_home }}"
   changed_when: no
   failed_when: no
-  with_items:
-    - create-react-app
-    - prettier
-
-- name: Install node packages
-  command: "yarn global add {{ item.item }}@latest"
-  changed_when: item.stdout.find(item.item) != -1
   with_items: "{{ packages.results }}"
   loop_control:
     label: "{{ item.item }}"
+
+- name: Install packages
+  command: "yarn global add {{ item.0.item }}@latest"
+  changed_when: not item.0.stat.exists and item.1.stdout.find(item.1.item.item) != -1
+  with_together:
+    - "{{ packages.results }}"
+    - "{{ packages_outdated.results }}"
+  loop_control:
+    label: "{{ item.0.item }}"
