@@ -25,10 +25,6 @@ function header() {
   linebreak
 }
 
-function bot() {
-  printf "$COL_YELLOW\[._.]/$COL_RESET   $1\n"
-}
-
 function running() {
   printf "$COL_MAGENTA[running]$COL_RESET $1"
 }
@@ -38,7 +34,7 @@ function ok() {
 }
 
 function error() {
-  printf "\r\033[K$COL_RED[error]$COL_RESET   $1\n"
-  printf "$2"
+  printf "\r\033[K$COL_RED[error]$COL_RESET   $1\n\n"
+  printf "$2\n"
   exit 1
 }

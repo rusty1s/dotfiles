@@ -1,8 +1,7 @@
 #!/bin/sh
 
-. ./echos.sh
+. ./helper/echos.sh
 
-linebreak
-bot "Hi! I'm going to install and tweak your system. Here I go..."
-
+# Run the tasks.
+. ./system.sh
 . ./js.sh
