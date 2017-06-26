@@ -1,7 +1,5 @@
 #!/bin/sh
 
-. ./helper/echos.sh
-
 # Run the tasks.
 . ./system.sh
 . ./js.sh

@@ -3,16 +3,16 @@
 . ./helper/echos.sh
 
 function yarn_install() {
-  prefix="Install"
+  output="Install $1"
 
-  running "$prefix $1"
+  running "$output"
 
   yarn global add --no-progress "$1@latest" > /dev/null 2> /tmp/error
   error=$(</tmp/error)
 
   if echo $error | grep -q "error"; then
-    error "$prefix $1" "$error"
+    error "$output" "$error"
   fi
 
-  ok "$prefix $1"
+  ok "$output"
 }
