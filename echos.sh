@@ -10,7 +10,7 @@ COL_MAGENTA=$ESC_SEQ"35;01m"
 COL_CYAN=$ESC_SEQ"36;01m"
 
 function linebreak() {
-  echo ""
+  printf "\n"
 }
 
 function header() {
@@ -26,7 +26,7 @@ function header() {
 }
 
 function bot() {
-  printf "$COL_GREEN\[._.]/$COL_RESET - $1\n"
+  printf "$COL_YELLOW\[._.]/$COL_RESET   $1\n"
 }
 
 function running() {
@@ -39,6 +39,6 @@ function ok() {
 
 function error() {
   printf "\r\033[K$COL_RED[error]$COL_RESET   $1\n"
-  echo $2
+  printf "$2"
   exit 1
 }

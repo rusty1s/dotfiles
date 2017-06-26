@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. ./echos.sh
+
+linebreak
+bot "Hi! I'm going to install and tweak your system. Here I go..."
+
+. ./js.sh
