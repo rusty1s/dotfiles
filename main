@@ -1,5 +1,0 @@
-#!/bin/sh
-
-# Run the tasks.
-. ./system.sh
-. ./js.sh
