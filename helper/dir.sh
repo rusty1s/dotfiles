@@ -2,10 +2,10 @@
 
 . ./helper/echos.sh
 
-function makedir() {
+function make_dir() {
   output="Create directory $1"
-
   running "$output"
+  command_exists mkdir "$output"
 
   mkdir -p "${1/#\~/$HOME}" > /dev/null 2> /tmp/error
   error=$(</tmp/error)
@@ -17,7 +17,7 @@ function makedir() {
   ok "$output"
 }
 
-function isdir() {
+function is_dir() {
   if [ -d "${1/#\~/$HOME}" ]; then
     return 0
   else
