@@ -34,3 +34,18 @@ function pacman_install() {
 
   ok "$output"
 }
+
+function pacman_search() {
+  if ! command_exists pacman; then
+    return 1
+  fi
+
+  pacman -Ss "$1" > /tmp/info
+  info=$(</tmp/info)
+
+  if [ ! -z "$info" ]; then
+    return 0
+  else
+    return 1
+  fi
+}

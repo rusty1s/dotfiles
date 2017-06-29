@@ -54,3 +54,18 @@ function brew_install() {
 
   ok "$output"
 }
+
+function brew_search() {
+  if ! command_exists brew; then
+    return 1
+  fi
+
+  brea search "$1" > /tmp/info
+  info=$(</tmp/info)
+
+  if echo $info | grep -qi "no formula found"; then
+    return 1
+  else
+    return 0
+  fi
+}
