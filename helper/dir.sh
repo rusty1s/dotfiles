@@ -7,9 +7,7 @@ function makedir() {
 
   running "$output"
 
-  dir="${1/#\~/$HOME}"
-
-  mkdir -p "$dir" > /dev/null 2> /tmp/error
+  mkdir -p "${1/#\~/$HOME}" > /dev/null 2> /tmp/error
   error=$(</tmp/error)
 
   if [ ! -z "$error" ]; then
@@ -17,4 +15,12 @@ function makedir() {
   fi
 
   ok "$output"
+}
+
+function isdir() {
+  if [ -d "${1/#\~/$HOME}" ]; then
+    return 0
+  else
+    return 1
+  fi
 }
