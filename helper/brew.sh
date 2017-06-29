@@ -8,6 +8,10 @@ function install_brew() {
   output="Install brew"
   running "$output"
 
+  if ! on_mac; then
+    error "$output" "error: brew can only be installed on a mac."
+  fi
+
   if ! command_exists brew; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" > /dev/null 2> /tmp/error
   else
