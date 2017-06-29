@@ -60,12 +60,12 @@ function brew_search() {
     return 1
   fi
 
-  brea search "$1" > /tmp/info
+  brew search "$1" > /tmp/info
   info=$(</tmp/info)
 
-  if echo $info | grep -qi "no formula found"; then
-    return 1
-  else
+  if [ ! -z "$info" ]; then
     return 0
+  else
+    return 1
   fi
 }
