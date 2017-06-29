@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function on_arch() {
-  if uname -a | grep -q "arch"; then
+  if uname -a | grep -qi "arch"; then
     return 0
   else
     return 1
@@ -9,7 +9,7 @@ function on_arch() {
 }
 
 function on_mac() {
-  if uname | grep -q "Darwin"; then
+  if uname | grep -qi "darwin"; then
     return 0
   else
     return 1
