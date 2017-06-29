@@ -1,7 +1,5 @@
 #!/bin/sh
 
-git pull
-
 . ./system/main.sh
 # . ./js/main.sh
 # . ./mouse/main.sh  # Arch
