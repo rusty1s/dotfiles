@@ -6,7 +6,8 @@
 function pacman_update() {
   output="Update packages"
   running "$output"
-  command_exists pacman "$output"
+
+  verify_command_exists pacman "$output"
 
   sudo pacman -Syu --noconfirm --noprogressbar > /dev/null 2> /tmp/error
   error=$(</tmp/error)
@@ -21,7 +22,8 @@ function pacman_update() {
 function pacman_install() {
   output="Install $1"
   running "$output"
-  command_exists pacman "$output"
+
+  verify_command_exists pacman "$output"
 
   if ! command_exists pacman; then
     error "$output" "error: pacman doesn't exist."

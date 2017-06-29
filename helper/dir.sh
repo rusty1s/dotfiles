@@ -5,7 +5,6 @@
 function make_dir() {
   output="Create directory $1"
   running "$output"
-  command_exists mkdir "$output"
 
   mkdir -p "${1/#\~/$HOME}" > /dev/null 2> /tmp/error
   error=$(</tmp/error)

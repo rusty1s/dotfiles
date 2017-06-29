@@ -6,7 +6,8 @@
 function yarn_install() {
   output="Install $1"
   running "$output"
-  command_exists yarn "$output"
+
+  verify_command_exists yarn "$output"
 
   yarn global add --no-progress "$1@latest" > /dev/null 2> /tmp/error
   error=$(</tmp/error)
