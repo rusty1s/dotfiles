@@ -25,10 +25,6 @@ function pacman_install() {
 
   verify_command_exists pacman "$output"
 
-  if ! command_exists pacman; then
-    error "$output" "error: pacman doesn't exist."
-  fi
-
   sudo pacman -S --noconfirm --noprogressbar "$1" > /dev/null 2> /tmp/error
   error=$(</tmp/error)
 
