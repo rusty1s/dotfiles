@@ -12,7 +12,7 @@ function yarn_install() {
   yarn global add --no-progress "$1@latest" > /dev/null 2> /tmp/error
   error=$(</tmp/error)
 
-  if echo $error | grep -q "error"; then
+  if echo $error | grep -qi "error"; then
     error "$output" "$error"
   fi
 

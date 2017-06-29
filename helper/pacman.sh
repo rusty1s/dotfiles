@@ -12,7 +12,7 @@ function pacman_update() {
   sudo pacman -Syu --noconfirm --noprogressbar > /dev/null 2> /tmp/error
   error=$(</tmp/error)
 
-  if echo $error | grep -q "error"; then
+  if echo $error | grep -qi "error"; then
     error "$output" "$error"
   fi
 
@@ -28,7 +28,7 @@ function pacman_install() {
   sudo pacman -S --noconfirm --noprogressbar "$1" > /dev/null 2> /tmp/error
   error=$(</tmp/error)
 
-  if echo $error | grep -q "error"; then
+  if echo $error | grep -qi "error"; then
     error "$output" "$error"
   fi
 
