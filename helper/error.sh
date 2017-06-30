@@ -4,7 +4,7 @@
 
 error_exit() {
   print_running "$1"
-  clear_prev_line
+  clear_lines 2
   print_error "$1" "$2"
   exit 1
 }

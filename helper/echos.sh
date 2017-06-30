@@ -13,10 +13,12 @@ clear_line() {
   printf "\r\033[K"
 }
 
-clear_prev_line() {
+clear_lines() {
   clear_line
-  tput cuu1
-  clear_line
+  for _ in $(seq 2 "$1"); do
+    tput cuu1
+    clear_line
+  done
 }
 
 print_header() {
