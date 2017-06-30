@@ -39,7 +39,7 @@ if on_mac; then
   brew_cask_update
 
   # Mac only applications.
-  brew cask install discord
-  brew cask install league-of-legends
-  brew cask install the-unarchiver
+  brew_cask_install discord
+  brew_cask_install league-of-legends
+  brew_cask_install the-unarchiver
 fi
