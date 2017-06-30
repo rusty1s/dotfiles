@@ -11,8 +11,8 @@ package_update() {
   if on_arch; then
     pacman_update
   elif on_mac; then
-    brew_update
     install_brew
+    brew_update
   else
     print_error "Update packages" "$os_not_supported"
     exit 1
