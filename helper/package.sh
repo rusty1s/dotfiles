@@ -1,9 +1,9 @@
 #!/bin/sh
 
-. ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/pacman.sh
 . ./helper/brew.sh
+. ./helper/error.sh
 
 os_not_supported="It seems that your OS is not supported"
 
@@ -14,8 +14,7 @@ package_update() {
     install_brew
     brew_update
   else
-    print_error "Update packages" "$os_not_supported"
-    exit 1
+    error_exit "Update packages" "$os_not_supported"
   fi
 }
 
@@ -25,7 +24,6 @@ package_install() {
   elif on_mac; then
     brew_install "$1"
   else
-    print_error "Install $1" "$os_not_supported"
-    exit 1
+    error_exit "Install $1" "$os_not_supported"
   fi
 }

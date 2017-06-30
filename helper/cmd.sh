@@ -7,6 +7,8 @@ cmd_exists() {
 }
 
 eval_cmd() {
+  print_running "$1"
+
   eval "$2" 2> /tmp/error |
     while IFS= read -r line; do
       clear_line

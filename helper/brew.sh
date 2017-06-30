@@ -1,17 +1,14 @@
 #!/bin/sh
 
-. ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/cmd.sh
+. ./helper/error.sh
 
 install_brew() {
   name="Install brew"
-  print_running "$name"
 
   if ! on_mac; then
-    clear_prev_line
-    print_error "$name" "brew can only be installed on macOS"
-    exit 1
+    error_exit "$name" "brew can only be installed on macOS"
   fi
 
   if ! cmd_exists brew; then
@@ -23,19 +20,16 @@ install_brew() {
 
 brew_update() {
   name="Update packages"
-  print_running "$name"
   eval_cmd "$name" "brew upgrade"
 }
 
 brew_install() {
   name="Install $1"
-  print_running "$name"
   eval_cmd "$name" "brew install $1"
 }
 
 brew_tap() {
   name="Tap $1"
-  print_running "$name"
   eval_cmd "$name" "brew tap $1"
 }
 
