@@ -34,7 +34,10 @@ brew_tap() {
 }
 
 brew_cask_update() {
-  echo "TODO: Update casks"
+  brew_tap "buo/cask-upgrade"
+
+  name="Update casks"
+  eval_cmd "$name" "brew cu"
 }
 
 brew_cask_install() {
