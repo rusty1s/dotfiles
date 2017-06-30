@@ -1,9 +1,16 @@
 #!/bin/sh
 
 . ./helper/cmd.sh
+. ./helper/dir.sh
 
 yarn_update() {
-  echo "TODO"
+  if [ ! -d "$HOME/.config/yarn/global" ]; then
+    make_dir "$HOME/.config/yarn/global"
+    eval_cmd "Init global packages" "cd $HOME/.config/yarn/global && yarn init --yes"
+  fi
+
+  name="Update yarn packages"
+  eval_cmd "$name" "yarn global upgrade"
 }
 
 yarn_install() {
