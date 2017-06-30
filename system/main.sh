@@ -20,6 +20,7 @@ package_install ruby
 
 if ! on_mac; then
   package_install zip
+  package_install xclip
 fi
 
 if on_arch; then
