@@ -1,6 +1,6 @@
 #!/bin/sh
 
 . ./system/main.sh
-. ./git/main.sh
+. ./vcs/main.sh
 . ./js/main.sh
 # . ./mouse/main.sh  # Arch
