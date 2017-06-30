@@ -37,7 +37,7 @@ brew_cask_update() {
   brew_tap "buo/cask-upgrade"
 
   name="Update casks"
-  eval_cmd "$name" "brew cu"
+  eval_cmd "$name" "brew cu --yes"
 }
 
 brew_cask_install() {

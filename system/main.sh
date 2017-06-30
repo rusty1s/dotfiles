@@ -33,8 +33,8 @@ if on_mac; then
   package_install neofetch
   package_install duti  # Set default applications for file types.
 
-  brew_tap "caskroom/fonts"
   brew_tap "caskroom/cask"
+  brew_tap "caskroom/fonts"
 
   brew_cask_update
 
