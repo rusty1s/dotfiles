@@ -4,6 +4,7 @@
 
 if on_arch; then
   . ./helper/echos.sh
+  . ./helper/pacaur.sh
   . ./helper/symlink.sh
 
   print_header "Mouse Settings"

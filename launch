@@ -1,8 +1,6 @@
 #!/bin/sh
 
 . ./system/main.sh
-. ./pacaur/main.sh
-. ./casks/main.sh
 . ./vcs/main.sh
 . ./js/main.sh
 . ./fonts/main.sh
