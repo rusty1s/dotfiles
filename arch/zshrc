@@ -30,6 +30,7 @@ alias grm="git rm -r"
 alias gc="git commit -m"
 alias gp="git push"
 alias py="python"
+alias shellcheck="shellcheck -x"
 
 # Automatically ls after cd.
 chpwd() { ls }
