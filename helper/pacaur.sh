@@ -25,10 +25,10 @@ install_pacaur() {
 
 pacaur_update() {
   name="Update pacaur packages"
-  eval_cmd "$name" "pacaur -Syu --noconfirm"
+  eval_cmd "$name" "pacaur -Syu --noconfirm --needed"
 }
 
 pacaur_install() {
   name="Install pacaur $1"
-  eval_cmd "$name" "pacaur -S --noconfirm $1"
+  eval_cmd "$name" "pacaur -S --needed --noconfirm --noedit $1"
 }
