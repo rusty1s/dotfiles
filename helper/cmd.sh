@@ -9,12 +9,10 @@ cmd_exists() {
 eval_cmd() {
   print_running "$1"
 
-  rows=0
   eval "$2" 2> /tmp/error |
     while IFS= read -r line; do
-      clear_lines $rows
-      printf "%s" "$line"
-      rows=$((${#line} / $(tput cols) + 1))
+      clear_line
+      printf "%s" "$(echo "$line" | cut -c1-"$(tput cols)")"
     done
 
   status=${PIPESTATUS[0]}
