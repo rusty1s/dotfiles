@@ -1,5 +1,9 @@
 [user]
-  name = "rusty1s"
+  name = rusty1s
   email = matthias.fey@tu-dortmund.de
+
+[github]
+  user = rusty1s
+
 [push]
   default = simple
