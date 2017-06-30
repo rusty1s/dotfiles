@@ -1,11 +1,14 @@
 #!/bin/sh
 
-. ./helper/echos.sh
-. ./helper/pacaur.sh
-. ./helper/symlink.sh
+. ./helper/os.sh
 
-header "Mouse"
+if on_arch; then
+  . ./helper/echos.sh
+  . ./helper/symlink.sh
 
-pacaur_install "imwheel"
+  print_header "Mouse Settings"
 
-symlink "~/dotfiles/mouse/.imwheelrc" "~/.imwheelrc"
+  pacaur_install imwheel
+
+  symlink "$HOME/dotfiles/mouse/.imwheelrc" "$HOME/.imwheelrc"
+fi

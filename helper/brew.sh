@@ -33,6 +33,11 @@ brew_tap() {
   eval_cmd "$name" "brew tap $1"
 }
 
-brew_search() {
-  brew search "$1" > /dev/null 2>&1
+brew_cask_update() {
+  true
+}
+
+brew_cask_install() {
+  name="Install cask $1"
+  eval_cmd "$name" "brew cask install $1"
 }

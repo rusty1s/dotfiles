@@ -11,7 +11,3 @@ pacman_install() {
   name="Install $1"
   eval_cmd "$name" "sudo pacman -S --noconfirm $1"
 }
-
-pacman_search() {
-  pacman -Ss "$1" > /dev/null 2>&1
-}

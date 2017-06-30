@@ -4,7 +4,7 @@
 . ./helper/package.sh
 . ./helper/symlink.sh
 
-print_header "Version Control System"
+print_header "Version Control Systems"
 
 package_install git
 symlink "$HOME/dotfiles/vcs/.gitconfig" "$HOME/.gitconfig"
