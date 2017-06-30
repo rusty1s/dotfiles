@@ -16,3 +16,8 @@ git_clone() {
     eval_cmd "Update $(basename "$1")" "git -C $2 pull"
   fi
 }
+
+git_remote_url() {
+  name="Set remote url of $(basename "$1")"
+  eval_cmd "$name" "cd $1 && git remote set-url origin $2"
+}

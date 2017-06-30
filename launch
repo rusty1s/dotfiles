@@ -2,6 +2,7 @@
 
 . ./system/main.sh
 . ./vcs/main.sh
+. ./ssh/main.sh
 . ./js/main.sh
 . ./fonts/main.sh
 . ./mouse/main.sh
