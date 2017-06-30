@@ -16,6 +16,7 @@ package_install unzip
 package_install ripgrep
 package_install shellcheck
 package_install ranger
+package_install ruby
 
 if ! on_mac; then
   package_install zip
@@ -36,4 +37,9 @@ if on_mac; then
   brew_tap "caskroom/cask"
 
   brew_cask_update
+
+  # Mac only applications.
+  brew cask install discord
+  brew cask install league-of-legends
+  brew cask install the-unarchiver
 fi

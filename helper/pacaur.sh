@@ -3,7 +3,7 @@
 . ./helper/cmd.sh
 
 install_pacaur() {
-  true
+  echo "TODO: Install pacaur"
 }
 
 pacaur_update() {

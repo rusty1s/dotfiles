@@ -19,7 +19,7 @@ install_brew() {
 }
 
 brew_update() {
-  name="Update packages"
+  name="Update formulas"
   eval_cmd "$name" "brew upgrade"
 }
 
@@ -34,7 +34,7 @@ brew_tap() {
 }
 
 brew_cask_update() {
-  true
+  echo "TODO: Update casks"
 }
 
 brew_cask_install() {
