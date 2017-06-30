@@ -6,8 +6,10 @@
 
 print_header "Version Control System"
 
-package_install "git"
+package_install git
 symlink "$HOME/dotfiles/vcs/.gitconfig" "$HOME/.gitconfig"
 symlink "$HOME/dotfiles/vcs/.gitignore" "$HOME/.gitignore"
 
-package_install "subversion"
+if ! on_mac; then
+  package_install subversion
+fi

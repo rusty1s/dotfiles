@@ -4,7 +4,7 @@
 . ./helper/os.sh
 . ./helper/package.sh
 
-print_header "System"
+print_header System
 
 package_update
 
