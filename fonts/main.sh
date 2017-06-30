@@ -32,5 +32,5 @@ if on_arch; then
 fi
 
 if on_mac; then
-  symlink "$HOME/.fonts/patched-fonts/patched-fonts/*.otf" "$HOME/Library/Fonts"
+  symlink "$HOME/.fonts/patched-fonts/patched-fonts/**/*.otf" "$HOME/Library/Fonts"
 fi
