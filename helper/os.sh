@@ -1,6 +1,6 @@
 #!/bin/sh
 
-function on_arch() {
+on_arch() {
   if uname -a | grep -qi "arch"; then
     return 0
   else
@@ -8,7 +8,7 @@ function on_arch() {
   fi
 }
 
-function on_mac() {
+on_mac() {
   if uname | grep -qi "darwin"; then
     return 0
   else

@@ -1,21 +1,16 @@
 #!/bin/sh
 
 . ./helper/echos.sh
-. ./helper/os.sh
-. ./helper/pacman.sh
-. ./helper/brew.sh
+. ./helper/package.sh
 
-header "System"
+print_header "System"
 
-if on_arch; then
-  pacman_update
-else
-  install_brew
-  brew_update
-fi
+package_update
 
-# pacman_install "wget"
-# pacman_install "curl"
-# pacman_install "zip"
-# pacman_install "unzip"
-# pacman_install "ripgrep"
+package_install wget
+package_install curl
+package_install zip
+package_install unzip
+package_install ripgrep
+package_install shellcheck
+package_install ranger

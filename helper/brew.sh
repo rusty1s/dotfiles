@@ -1,75 +1,31 @@
 #!/bin/sh
 
 . ./helper/echos.sh
-. ./helper/os.sh
-. ./helper/command.sh
+. ./helper/cmd.sh
 
-function install_brew() {
-  output="Install brew"
-  running "$output"
+install_brew() {
+  name="Install brew"
+  print_running "$name"
 
-  if ! on_mac; then
-    error "$output" "error: brew can only be installed on a mac."
-  fi
-
-  if ! command_exists brew; then
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" > /dev/null 2> /tmp/error
+  if ! cmd_exists brew; then
+    eval_cmd "$name" "/usr/bin/ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   else
-    brew update > /dev/null 2> /tmp/error
+    eval_cmd "$name" "brew update"
   fi
-
-  error=$(</tmp/error)
-
-  if echo $error | grep -qi "error"; then
-    error "$output" "$error"
-  fi
-
-  ok "$output"
 }
 
-function brew_update() {
-  output="Update packages"
-  running "$output"
-
-  verify_command_exists brew "$output"
-
-  brew upgrade > /dev/null 2> /tmp/error
-  error=$(</tmp/error)
-
-  if echo $error | grep -qi "error"; then
-    error "$output" "$error"
-  fi
-
-  ok "$output"
+brew_update() {
+  name="Update packages"
+  print_running "$name"
+  eval_cmd "$name" "brew upgrade"
 }
 
-function brew_install() {
-  output="Install $1"
-  running "$output"
-
-  verify_command_exists brew "$output"
-
-  brew install --upgrade "$1" > /dev/null 2> /tmp/error
-  error=$(</tmp/error)
-
-  if echo $error | grep -qi "error"; then
-    error "$output" "$error"
-  fi
-
-  ok "$output"
+brew_install() {
+  name="Install $1"
+  print_running "$name"
+  eval_cmd "$name" "brew install $1"
 }
 
-function brew_search() {
-  if ! command_exists brew; then
-    return 1
-  fi
-
-  brew search "$1" > /tmp/info
-  info=$(</tmp/info)
-
-  if [ ! -z "$info" ]; then
-    return 0
-  else
-    return 1
-  fi
+brew_search() {
+  brew search "$1" > /dev/null 2>&1
 }

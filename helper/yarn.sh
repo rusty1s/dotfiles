@@ -3,7 +3,7 @@
 . ./helper/echos.sh
 . ./helper/command.sh
 
-function yarn_install() {
+yarn_install() {
   output="Install $1"
   running "$output"
 
@@ -12,7 +12,7 @@ function yarn_install() {
   yarn global add --no-progress "$1@latest" > /dev/null 2> /tmp/error
   error=$(</tmp/error)
 
-  if echo $error | grep -qi "error"; then
+  if echo "$error" | grep -qi "error"; then
     error "$output" "$error"
   fi
 

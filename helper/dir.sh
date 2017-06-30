@@ -2,7 +2,7 @@
 
 . ./helper/echos.sh
 
-function make_dir() {
+make_dir() {
   output="Create directory $1"
   running "$output"
 
@@ -16,7 +16,7 @@ function make_dir() {
   ok "$output"
 }
 
-function is_dir() {
+is_dir() {
   if [ -d "${1/#\~/$HOME}" ]; then
     return 0
   else

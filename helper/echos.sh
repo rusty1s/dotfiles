@@ -1,40 +1,40 @@
 #!/bin/sh
 
 ESC_SEQ="\x1b["
-COL_RESET=$ESC_SEQ"39;49;00m"
-COL_RED=$ESC_SEQ"31;01m"
-COL_GREEN=$ESC_SEQ"32;01m"
-COL_YELLOW=$ESC_SEQ"33;01m"
-COL_BLUE=$ESC_SEQ"34;01m"
-COL_MAGENTA=$ESC_SEQ"35;01m"
-COL_CYAN=$ESC_SEQ"36;01m"
+COL_RESET="${ESC_SEQ}39;49;00m"
+COL_RED="${ESC_SEQ}31;01m"
+COL_GREEN="${ESC_SEQ}32;01m"
+# COL_YELLOW="${ESC_SEQ}33;01m"
+# COL_BLUE="${ESC_SEQ}34;01m"
+COL_MAGENTA="${ESC_SEQ}35;01m"
+COL_CYAN="${ESC_SEQ}36;01m"
 
-function linebreak() {
-  printf "\n"
+clear_line() {
+  printf "\r\033[K"
 }
 
-function header() {
-  width=$(tput cols)
-  len=${#1}
-  sep=$((width - len - 11))
-
-  linebreak
-  printf "$COL_CYAN######### $1 "
-  printf "%0.s#" $(seq 1 $sep)
-  printf "$COL_RESET\n"
-  linebreak
+clear_prev_line() {
+  clear_line
+  tput cuu1
+  clear_line
 }
 
-function running() {
-  printf "$COL_MAGENTA[running]$COL_RESET $1"
+print_header() {
+  count=$(($(tput cols) - ${#1} - 11))
+
+  printf "\n%b######### %s " "$COL_CYAN" "$1"
+  printf "%0.s#" $(seq 1 $count)
+  printf "%b\n\n" "$COL_RESET"
 }
 
-function ok() {
-  printf "\r\033[K$COL_GREEN[ok]$COL_RESET      $1\n"
+print_running() {
+  printf "%b[running]%b %s\n" "$COL_MAGENTA" "$COL_RESET" "$1"
 }
 
-function error() {
-  printf "\r\033[K$COL_RED[error]$COL_RESET   $1\n\n"
-  printf "$2\n"
-  exit 1
+print_ok() {
+  printf "%b[ok]%b      %s\n" "$COL_GREEN" "$COL_RESET" "$1"
+}
+
+print_error() {
+  printf "%b[error]%b   %s\n\n%s\n" "$COL_RED" "$COL_RESET" "$1" "$2"
 }

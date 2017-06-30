@@ -2,7 +2,7 @@
 
 . ./helper/echos.sh
 
-function symlink() {
+symlink() {
   output="Symlink $(basename $1)"
   running "$output"
 
