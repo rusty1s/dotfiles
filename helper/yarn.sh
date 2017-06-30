@@ -1,20 +1,10 @@
 #!/bin/sh
 
 . ./helper/echos.sh
-. ./helper/command.sh
+. ./helper/cmd.sh
 
 yarn_install() {
-  output="Install $1"
-  running "$output"
-
-  verify_command_exists yarn "$output"
-
-  yarn global add --no-progress "$1@latest" > /dev/null 2> /tmp/error
-  error=$(</tmp/error)
-
-  if echo "$error" | grep -qi "error"; then
-    error "$output" "$error"
-  fi
-
-  ok "$output"
+  name="Install $1"
+  print_running "$name"
+  eval_cmd "$name" "yarn global add $1@latest"
 }

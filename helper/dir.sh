@@ -1,25 +1,10 @@
 #!/bin/sh
 
 . ./helper/echos.sh
+. ./helper/cmd.sh
 
 make_dir() {
-  output="Create directory $1"
-  running "$output"
-
-  mkdir -p "${1/#\~/$HOME}" > /dev/null 2> /tmp/error
-  error=$(</tmp/error)
-
-  if [ ! -z "$error" ]; then
-    error "$output" "$error"
-  fi
-
-  ok "$output"
-}
-
-is_dir() {
-  if [ -d "${1/#\~/$HOME}" ]; then
-    return 0
-  else
-    return 1
-  fi
+  name="Create directory $(basename "$1")"
+  print_running "$name"
+  eval_cmd "$name" "mkdir -p $1"
 }

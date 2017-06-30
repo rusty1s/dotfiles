@@ -1,5 +1,5 @@
 #!/bin/sh
 
 . ./system/main.sh
-# . ./js/main.sh
+. ./js/main.sh
 # . ./mouse/main.sh  # Arch
