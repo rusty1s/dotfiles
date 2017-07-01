@@ -10,7 +10,5 @@ download() {
     package_install curl
   fi
 
-  if [ ! -f "$2" ]; then
-    eval_cmd "$name" "curl -o $2 $1"
-  fi
+  eval_cmd "$name" "curl -o $2 $1"
 }

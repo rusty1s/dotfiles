@@ -1,7 +1,34 @@
 #!/bin/sh
 
+. ./helper/echos.sh
 . ./helper/cmd.sh
 . ./helper/dir.sh
+
+system_pip_update() {
+  name="Update system pip packages"
+
+  if [ -f /usr/bin/pip ]; then
+    eval_cmd "$name" "/usr/bin/pip list --outdated --format=freeze | xargs -n1 pip install --upgrade"
+  elif [ -f /usr/local/bin/pip ]; then
+    eval_cmd "$name" "/usr/local/bin/pip list --outdated --format=freeze | xargs -n1 pip install --upgrade"
+  else
+    print_error "$name" "Could not find system pip package"
+    exit 1
+  fi
+}
+
+system_pip_install() {
+  name="Install system $1"
+
+  if [ -f /usr/bin/pip ]; then
+    eval_cmd "$name" "/usr/bin/pip install --upgrade $1"
+  elif [ -f /usr/local/bin/pip ]; then
+    eval_cmd "$name" "/usr/local/bin/pip install --upgrade $1"
+  else
+    print_error "$name" "Could not find system pip package"
+    exit 1
+  fi
+}
 
 pip_update() {
   name="Update pip packages"
@@ -14,33 +41,22 @@ pip_install() {
 }
 
 python_virtualenv_create() {
-  python_virtualenv_deactivate
+  name="Create virtual environment"
 
-  if [ ! -d "$1" ]; then
-    name="Create virtual environment"
-    eval_cmd "$name" "virtualenv --python=python$2 $1"
+  if [ -f /usr/bin/virtualenv ]; then
+    eval_cmd "$name" "/usr/bin/virtualenv --python=python$2 $1"
+  elif [ -f /usr/local/bin/virtualenv ]; then
+    eval_cmd "$name" "/usr/local/bin/virtualenv --python=python$2 $1"
+  else
+    print_error "$name" "Could not find system virtualenv package"
+    exit 1
   fi
 }
 
 python_virtualenv_activate() {
-  python_virtualenv_deactivate
+  name="Activate virtual environment"
+  eval_cmd "$name" ". $1/bin/activate"
 
-  if [ -f "$1/bin/activate" ]; then
-    name="Activate virtual environment"
-    print_running "$name"
-    # shellcheck source=/dev/null
-    . "$1/bin/activate"
-    clear_lines 2
-    print_ok "$name"
-  fi
-}
-
-python_virtualenv_deactivate() {
-  if cmd_exists deactivate; then
-    name="Deactivate virtual environment"
-    print_running "$name"
-    deactivate
-    clear_lines 2
-    print_ok "$name"
-  fi
+  # shellcheck source=/dev/null
+  . "$1/bin/activate"
 }
