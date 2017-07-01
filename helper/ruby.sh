@@ -1,3 +1,7 @@
+#!/bin/sh
+
+. ./helper/cmd.sh
+
 install_ruby() {
   rbenv init
   rbenv install "$1"
@@ -6,9 +10,11 @@ install_ruby() {
 }
 
 gem_update() {
-  true
+  name="Update gems"
+  eval_cmd "$name" "gem update --force"
 }
 
 gem_install() {
-  gem install "$1"
+  name="Install $1"
+  eval_cmd "$name" "gem install $1"
 }
