@@ -40,7 +40,20 @@ if on_mac; then
   brew_cask_update
 
   # Mac only applications.
+  brew_cask_install google-chrome
+  brew_cask_install spotify
+  brew_cask_install dropbox
+  brew_cask_install whatsapp
+  brew_cask_install iterm2-nightly
+  brew_cask_install mactex
   brew_cask_install discord
   brew_cask_install league-of-legends
   brew_cask_install the-unarchiver
+  brew_cask_install filezilla
+  brew_cask_install virtualbox
+  brew_cask_install adobe-photoshop-cc
+
+  # Fonts.
+  brew_cask_install font-fira-code
+
 fi
