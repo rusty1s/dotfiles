@@ -28,6 +28,20 @@ if on_arch; then
   pacaur_update
 
   pacaur_install neofetch
+
+  # Applications.
+  package_install thunar
+  pacaur_install thunar-vcs-plugin
+  pacaur_install arc-gtk-theme
+  pacaur_install paper-icon-theme
+  pacaur_install google-chrome
+  pacaur_install spotify
+  pacaur_install dropbox
+  pacaur_install whatsapp-web-desktop
+  pacaur_install filezilla
+
+  # Fonts.
+  pacaur_install ttf-fira-code
 fi
 
 if on_mac; then
@@ -39,12 +53,11 @@ if on_mac; then
 
   brew_cask_update
 
-  # Mac only applications.
+  # Applications.
   brew_cask_install google-chrome
   brew_cask_install spotify
   brew_cask_install dropbox
   brew_cask_install whatsapp
-  brew_cask_install iterm2-nightly
   brew_cask_install mactex
   brew_cask_install discord
   brew_cask_install league-of-legends
