@@ -18,7 +18,7 @@ python_virtualenv_create() {
 
   if [ ! -d "$1" ]; then
     name="Create virtual environment"
-    eval_cmd "$name" "virtualenv --python=python3.6 $1"
+    eval_cmd "$name" "virtualenv --python=python$2 $1"
   fi
 }
 
@@ -38,6 +38,9 @@ python_virtualenv_activate() {
 python_virtualenv_deactivate() {
   if cmd_exists deactivate; then
     name="Deactivate virtual environment"
-    eval_cmd "$name" "deactivate"
+    print_running "$name"
+    deactivate
+    clear_lines 2
+    print_ok "$name"
   fi
 }

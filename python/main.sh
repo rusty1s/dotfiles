@@ -26,8 +26,8 @@ pip_update
 pip_install pip
 pip_install virtualenv
 
-python_virtualenv_create "$HOME/.venv"
-python_virtualenv_activate "$HOME/.venv"
+python_virtualenv_create "$HOME/.venv3.6" "3.6"
+python_virtualenv_activate "$HOME/.venv3.6"
 
 pip_update
 
