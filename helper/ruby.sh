@@ -5,6 +5,10 @@ install_ruby() {
   eval "(rbenv init -)"
 }
 
+gem_update() {
+  true
+}
+
 gem_install() {
   gem install "$1"
 }
