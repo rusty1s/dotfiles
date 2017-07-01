@@ -6,7 +6,7 @@
 yarn_update() {
   if [ ! -d "$HOME/.config/yarn/global" ]; then
     make_dir "$HOME/.config/yarn/global"
-    eval_cmd "Init global packages" "cd $HOME/.config/yarn/global && yarn init --yes"
+    eval_cmd "Init global yarn directory" "cd $HOME/.config/yarn/global && yarn init --yes"
   fi
 
   name="Update yarn packages"

@@ -7,6 +7,8 @@
 
 print_header Python
 
+python_virtualenv_deactivate
+
 if on_arch; then
   package_install python
   package_install python-pip
@@ -18,8 +20,6 @@ if on_mac; then
   package_install python
   package_install python3
 fi
-
-python_virtualenv_deactivate "$HOME/.venv"
 
 pip_update
 
