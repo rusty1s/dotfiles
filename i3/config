@@ -5,7 +5,7 @@ set $mod Mod1
 font pango:SFUI Text Nerd Font 12
 
 new_window pixel 2
-smart_borders on
+# smart_borders on
 gaps inner 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
