@@ -24,6 +24,8 @@ if ! on_mac; then
 fi
 
 if on_arch; then
+  package_install tar
+
   install_pacaur
   pacaur_update
 
