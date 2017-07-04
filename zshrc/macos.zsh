@@ -20,5 +20,3 @@ if [ -d /usr/local/lib/python3.6 ]; then
 fi
 
 source ~/dotfiles/zshrc/base.zsh
-
-eval "$(rbenv init -)"

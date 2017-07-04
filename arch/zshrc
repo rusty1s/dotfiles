@@ -53,7 +53,9 @@ setopt HIST_VERIFY         # No immediate execute on expansion.
 autoload -U promptinit; promptinit
 prompt pure
 
-eval "$(rbenv init -)"
+if command -v rbenv > /dev/null; then
+  eval "$(rbenv init -)"
+fi
 
 # Completion
 zmodload zsh/complist

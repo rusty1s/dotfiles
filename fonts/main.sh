@@ -26,7 +26,8 @@ if on_arch; then
   make_dir "$HOME/.config/fontconfig"
   symlink "$HOME/fonts/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
 
-  # Ensure absence of font configuration.
+  sudo_symlink "/etc/fonts/conf.avail/11-lcdfilter-default.conf" "/etc/fonts/conf.d"
+  sudo_symlink "/etc/fonts/conf.avail/10-sub-pixel-rgb.conf" "/etc/fonts/conf.d"
   sudo_remove "/etc/fonts/conf.d/10-scale-bitmap-fonts.conf"
 fi
 
