@@ -39,9 +39,6 @@ if on_arch; then
   pacaur_install dropbox
   pacaur_install whatsapp-web-desktop
   pacaur_install filezilla
-
-  # Fonts.
-  pacaur_install ttf-fira-code
 fi
 
 if on_mac; then
@@ -64,9 +61,4 @@ if on_mac; then
   brew_cask_install the-unarchiver
   brew_cask_install filezilla
   brew_cask_install virtualbox
-  brew_cask_install adobe-photoshop-cc
-
-  # Fonts.
-  brew_cask_install font-fira-code
-
 fi
