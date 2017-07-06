@@ -3,6 +3,7 @@
 . ./helper/cmd.sh
 
 install_ruby() {
+  true
   # rbenv init
   # rbenv install "$1"
   # rbenv global "$1"

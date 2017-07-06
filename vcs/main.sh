@@ -24,3 +24,5 @@ symlink "$HOME/dotfiles/vcs/.gitignore" "$HOME/.gitignore"
 if ! on_mac; then
   package_install subversion
 fi
+
+git_remote_url "$HOME/dotfiles" "git@github.com:rusty1s/dotfiles.git"

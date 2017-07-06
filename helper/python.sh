@@ -43,13 +43,15 @@ pip_install() {
 python_virtualenv_create() {
   name="Create virtual environment"
 
-  if [ -f /usr/bin/virtualenv ]; then
-    eval_cmd "$name" "/usr/bin/virtualenv --python=python$2 $1"
-  elif [ -f /usr/local/bin/virtualenv ]; then
-    eval_cmd "$name" "/usr/local/bin/virtualenv --python=python$2 $1"
-  else
-    print_error "$name" "Could not find system virtualenv package"
-    exit 1
+  if [ ! -f "$1" ]; then
+    if [ -f /usr/bin/virtualenv ]; then
+      eval_cmd "$name" "/usr/bin/virtualenv --python=python$2 $1"
+    elif [ -f /usr/local/bin/virtualenv ]; then
+      eval_cmd "$name" "/usr/local/bin/virtualenv --python=python$2 $1"
+    else
+      print_error "$name" "Could not find system virtualenv package"
+      exit 1
+    fi
   fi
 }
 
