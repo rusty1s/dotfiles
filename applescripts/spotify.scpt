@@ -5,7 +5,7 @@ if application "Spotify" is running then
     set theName to the name of the current track
 
     try
-      return "♫ " & theArtist & " - " & theName & " "
+      return theArtist & " - " & theName
     on error err
     end try
 
