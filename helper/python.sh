@@ -43,7 +43,7 @@ pip_install() {
 python_virtualenv_create() {
   name="Create virtual environment"
 
-  if [ ! -f "$1" ]; then
+  if [ ! -d "$1" ]; then
     if [ -f /usr/bin/virtualenv ]; then
       eval_cmd "$name" "/usr/bin/virtualenv --python=python$2 $1"
     elif [ -f /usr/local/bin/virtualenv ]; then
