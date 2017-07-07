@@ -21,7 +21,7 @@ download "http://www.roemisch-drei.de/patched-fonts.zip" "$HOME/.fonts/patched-f
 extract_zip_with_password "$HOME/.fonts/patched-fonts.zip" "$(cat "$HOME/dotfiles/fonts/password.txt")" "$HOME/.fonts"
 
 if on_arch; then
-  sudo_symlink "$HOME/.fonts/patched-fonts/*.otf" "/usr/share/fonts/OTF"
+  sudo_symlink "$HOME/.fonts/patched-fonts/*Complete.otf" "/usr/share/fonts/OTF"
 
   make_dir "$HOME/.config/fontconfig"
   symlink "$HOME/fonts/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
@@ -32,5 +32,5 @@ if on_arch; then
 fi
 
 if on_mac; then
-  symlink "$HOME/.fonts/patched-fonts/*.otf" "$HOME/Library/Fonts"
+  symlink "$HOME/.fonts/patched-fonts/*Complete.otf" "$HOME/Library/Fonts"
 fi
