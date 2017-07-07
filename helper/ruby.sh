@@ -3,11 +3,10 @@
 . ./helper/cmd.sh
 
 install_ruby() {
-  true
-  # rbenv init
-  # rbenv install "$1"
-  # rbenv global "$1"
-  # eval "(rbenv init -)"
+  name="Install ruby $1"
+  eval_cmd "$name" "rbenv install --skip-existing $1"
+  rbenv global "$1"
+  eval "$(rbenv init -)"
 }
 
 gem_update() {
