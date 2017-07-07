@@ -5,14 +5,13 @@ set $mod Mod1
 font pango:SFUI Text Nerd Font 12
 
 new_window pixel 2
-# smart_borders on
 gaps inner 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # Kill focused window.
 bindsym $mod+q kill
@@ -152,10 +151,9 @@ bar {
 exec VBoxClient-all
 exec compton -f
 exec_always xset r rate 200 80
-exec_always xset m rate 16 0
 exec_always feh --bg-fill ~/Wallpapers/bg01.jpg
 exec_always xrdb ~/.Xresources
 
-exec urxvt -e $SHELL -c 'echo "";neofetch;$SHELL -i'
+exec alacritty
 exec spotify
 # exec whatsapp-web-desktop
