@@ -1,12 +1,12 @@
 #!/bin/sh
 
 . ./helper/echos.sh
-. ./helper/package.sh
+. ./helper/os.sh
 . ./helper/ruby.sh
 
 print_header Ruby
 
-package_install ruby
+ruby_install "2.4.1"
 
 gem_update
 
