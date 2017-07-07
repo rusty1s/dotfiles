@@ -26,3 +26,34 @@ font:
 visual_bell:
   animation: EaseOutExpo
   duration: 0
+
+custom_cursor_colors: true
+
+colors:
+  primary:
+    background: '0x212121'
+    foreground: '0xeee8d5'
+
+  cursor:
+    text: '0x212121'
+    cursor: '0xce839d'
+
+  normal:
+    black:   '0x282828'
+    red:     '0xdc3c3c'
+    green:   '0x689d6a'
+    yellow:  '0xd79921'
+    blue:    '0x458588'
+    magenta: '0xce839d'
+    cyan:    '0x00aba5'
+    white:   '0xa89984'
+
+  bright:
+    black:   '0x3c3836'
+    red:     '0xdc3c3c'
+    green:   '0x689d6a'
+    yellow:  '0xd79921'
+    blue:    '0x458588'
+    magenta: '0xce839d'
+    cyan:    '0x00aba5'
+    white:   '0xeee8d5'
