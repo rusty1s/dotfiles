@@ -1,3 +1,0 @@
-export PATH="$PATH:$HOME/dotfiles/bin"
-export DOTFILES="$HOME/dotfiles"
-export VAGRANT_DIR="$HOME/vagrant"
