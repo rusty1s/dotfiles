@@ -4,33 +4,22 @@
 . ./helper/os.sh
 . ./helper/package.sh
 
-install_ruby() {
-  package_install libffi
-  package_install libyaml
-  package_install openssl
-
-  if ! on_mac; then
-    package_install zlib
-  fi
-
-  name="Install ruby $1"
-  init_rbenv
-  eval_cmd "$name" "rbenv install --skip-existing $1"
-  rbenv global "$1"
-}
-
 gem_update() {
   name="Update gems"
-  init_rbenv
-  eval_cmd "$name" "gem update --force"
+
+  if on_mac; then
+    eval_cmd "$name" "sudo gem update --force"
+  else
+    eval_cmd "$name" "gem update --force"
+  fi
 }
 
 gem_install() {
   name="Install $1"
-  init_rbenv
-  eval_cmd "$name" "gem install $1"
-}
 
-init_rbenv() {
-  eval "$(rbenv init -)"
+  if on_mac; then
+    eval_cmd "$name" "sudo gem install $1"
+  else
+    eval_cmd "$name" "gem install $1"
+  fi
 }

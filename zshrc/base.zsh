@@ -76,7 +76,3 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Plugins
 source $DOTFILES/zshrc/plugins.zsh
-
-if command -v rbenv > /dev/null; then
-  eval "$(rbenv init -)"
-fi
