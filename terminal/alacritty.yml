@@ -1,0 +1,28 @@
+padding:
+  x: 10
+  y: 5
+
+draw_bold_text_with_bright_colors: false
+
+font:
+  normal:
+    family: "Operator Mono"
+    style: Book
+
+  bold:
+    family: "Operator Mono"
+    style: Medium
+
+  italic:
+    family: "Operator Mono"
+    style: "Book Italic"
+
+  size: 14.0
+
+  offset:
+    x: 0.0
+    y: 0.0
+
+visual_bell:
+  animation: EaseOutExpo
+  duration: 0
