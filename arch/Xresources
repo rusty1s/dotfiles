@@ -5,10 +5,10 @@ Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba: none
 
-URxvt.font: xft:OperatorMono Nerd Font:pixelsize=18:style=Book
-URxvt.italicFont: xft:OperatorMono Nerd Font:pixelsize=18:style=Book Italic
-URxvt.boldFont: xft:OperatorMono Nerd Font:pixelsize=18:style=Medium
-URxvt.boldItalicFont: xft:OperatorMono Nerd Font:pixelsize=18:style=Medium Italic
+URxvt.font: xft:OperatorMono Nerd Font:pixelsize=18:style=Medium
+URxvt.italicFont: xft:OperatorMono Nerd Font:pixelsize=18:style=Medium Italic
+URxvt.boldFont: xft:OperatorMono Nerd Font:pixelsize=18:style=Bold
+URxvt.boldItalicFont: xft:OperatorMono Nerd Font:pixelsize=18:style=Bold Italic
 URxvt.scrollBar: false
 URxvt.letterSpace: -1
 URxvt.internalBorder: 5

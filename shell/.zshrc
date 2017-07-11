@@ -12,6 +12,10 @@ export PATH="$PATH:$DOTFILES/bin:$HOME/.gem/ruby/2.4.0/bin"
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
+if [ -f ~/.config/sh/even-better-ls/append_to_profile.sh ]; then
+  source ~/.config/sh/even-better-ls/append_to_profile.sh
+fi
+
 alias vi=$EDITOR
 alias vim=$EDITOR
 alias sudo="sudo -E"
