@@ -10,7 +10,7 @@ URxvt.italicFont: xft:OperatorMono Nerd Font:pixelsize=18:style=Medium Italic
 URxvt.boldFont: xft:OperatorMono Nerd Font:pixelsize=18:style=Bold
 URxvt.boldItalicFont: xft:OperatorMono Nerd Font:pixelsize=18:style=Bold Italic
 URxvt.scrollBar: false
-URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 URxvt.internalBorder: 5
 
 URxvt*foreground: #eee8d5

@@ -11,7 +11,7 @@ gaps inner 10
 floating_modifier $mod
 
 # Start a terminal.
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec urxvt
 
 # Kill focused window.
 bindsym $mod+q kill
@@ -154,6 +154,6 @@ exec_always xset r rate 200 80
 exec_always feh --bg-fill ~/Wallpapers/bg01.jpg
 exec_always xrdb ~/.Xresources
 
-exec alacritty
+exec urxvt
 exec spotify
 # exec whatsapp-web-desktop
