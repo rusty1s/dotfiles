@@ -8,6 +8,7 @@
 # . ./js/main.sh
 # . ./python/main.sh
 # . ./ruby/main.sh
-. ./shell/main.sh
+# . ./terminal/main.sh
+# . ./shell/main.sh
 # . ./tmux/main.sh
-. ./addressbook/main.sh
+# . ./addressbook/main.sh
