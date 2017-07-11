@@ -12,3 +12,4 @@
 # . ./shell/main.sh
 # . ./tmux/main.sh
 # . ./addressbook/main.sh
+. ./mutt/main.sh
