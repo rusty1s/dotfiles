@@ -2,12 +2,12 @@
 
 . ./helper/echos.sh
 . ./helper/package.sh
-. ./helper/dir.sh
+. ./helper/remove.sh
 . ./helper/symlink.sh
 
 print_header Addressbook
 
 package_install abook
 
-make_dir "$HOME/.abook"
-symlink "$HOME/dotfiles/addressbook/addressbook" "$HOME/.abook/addressbook"
+remove "$HOME/.abook"
+symlink "$HOME/dotfiles/addressbook" "$HOME/.abook"
