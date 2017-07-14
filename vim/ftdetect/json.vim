@@ -4,5 +4,6 @@ augroup detect_json
         \ .babelrc,
         \.eslintrc,
         \.stylelintrc,
+        \.prettierrc,
         \.tern-project set filetype=json
 augroup END

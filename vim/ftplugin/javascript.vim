@@ -1,10 +1,10 @@
-setlocal textwidth=100
+setlocal textwidth=80
 set expandtab  " Use spaces.
 set shiftwidth=2
 
 let g:neoformat_javascript_prettier = {
       \ 'exe': 'prettier',
-      \ 'args': ['--stdin', '--trailing-comma all', '--print-width 100', '--single-quote'],
+      \ 'args': ['--stdin'],
       \ 'stdin': 1,
       \ }
 

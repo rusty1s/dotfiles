@@ -16,4 +16,5 @@ yarn_update
 yarn_install create-react-app
 yarn_install prettier
 
+symlink "$HOME/dotfiles/js/.prettierrc" "$HOME/.prettierrc"
 symlink "$HOME/dotfiles/js/.tern-project" "$HOME/.tern-project"
