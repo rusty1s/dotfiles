@@ -14,7 +14,11 @@ package_install yarn
 yarn_update
 
 yarn_install create-react-app
+yarn_install eslint
 yarn_install prettier
+yarn_install eslint-plugin-prettier
+yarn_install eslint-config-prettier
 
+symlink "$HOME/dotfiles/js/.eslintrc" "$HOME/.eslintrc"
 symlink "$HOME/dotfiles/js/.prettierrc" "$HOME/.prettierrc"
 symlink "$HOME/dotfiles/js/.tern-project" "$HOME/.tern-project"
