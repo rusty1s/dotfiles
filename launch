@@ -1,15 +1,15 @@
 #!/bin/sh
 
-# . ./system/main.sh
-# . ./vcs/main.sh
-# . ./ssh/main.sh
-# . ./fonts/main.sh
-# . ./mouse/main.sh
-# . ./js/main.sh
-# . ./python/main.sh
-# . ./ruby/main.sh
-# . ./terminal/main.sh
-# . ./shell/main.sh
-# . ./tmux/main.sh
-# . ./addressbook/main.sh
+. ./system/main.sh
+. ./vcs/main.sh
+. ./ssh/main.sh
+. ./fonts/main.sh
+. ./mouse/main.sh
+. ./js/main.sh
+. ./python/main.sh
+. ./ruby/main.sh
+. ./terminal/main.sh
+. ./shell/main.sh
+. ./tmux/main.sh
+. ./addressbook/main.sh
 . ./mutt/main.sh

@@ -20,3 +20,5 @@ if [ -d /usr/local/lib/python3.6 ]; then
 fi
 
 source ~/dotfiles/zshrc/base.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
