@@ -18,6 +18,7 @@ yarn_install eslint
 yarn_install prettier
 yarn_install eslint-plugin-prettier
 yarn_install eslint-config-prettier
+yarn_install markdownlint-cli
 
 symlink "$HOME/dotfiles/js/.eslintrc" "$HOME/.eslintrc"
 symlink "$HOME/dotfiles/js/.prettierrc" "$HOME/.prettierrc"
