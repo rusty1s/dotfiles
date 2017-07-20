@@ -2,6 +2,7 @@
 
 . ./helper/echos.sh
 . ./helper/package.sh
+. ./helper/cmd.sh
 . ./helper/yarn.sh
 . ./helper/symlink.sh
 
@@ -11,7 +12,7 @@ package_install nodejs
 package_install npm
 package_install yarn
 
-symlink "$HOME/dotfiles/js/.npmrc" "$HOME/.npmrc"
+eval_cmd "Set yarn global bin" "yarn config set prefix ~/.yarn-global"
 
 yarn_update
 
