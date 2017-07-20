@@ -14,7 +14,7 @@ print_header Shell
 package_install zsh
 package_install zsh-completions
 
-remove "$HOME/.bash_profile"
+remove "$HOME/.bashrc"
 remove "$HOME/.bash_history"
 remove "$HOME/.bash_logout"
 

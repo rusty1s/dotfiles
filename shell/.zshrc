@@ -77,3 +77,5 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 if command -v rbenv > /dev/null; then
   eval "$(rbenv init -)"
 fi
+
+[ -f ~/.proxy.sh ] && source ~/.proxy.sh
