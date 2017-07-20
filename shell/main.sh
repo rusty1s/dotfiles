@@ -1,15 +1,19 @@
 #!/bin/sh
 
 . ./helper/echos.sh
+. ./helper/package.sh
 . ./helper/remove.sh
 . ./helper/dir.sh
 . ./helper/git.sh
-. ./helper/cmd.sh
+. ./helper/yarn.sh
 . ./helper/symlink.sh
+
 
 print_header Shell
 
-remove "$HOME/.bashrc"
+package_install zsh
+package_install zsh-completions
+
 remove "$HOME/.bash_profile"
 remove "$HOME/.bash_history"
 remove "$HOME/.bash_logout"
@@ -22,5 +26,7 @@ git_clone https://github.com/zsh-users/zsh-completions "$HOME/.config/zsh/comple
 git_clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.config/zsh/autosuggestions"
 git_clone https://github.com/zsh-users/zsh-syntax-highlighting "$HOME/.config/zsh/syntax-highlighting"
 git_clone https://github.com/zsh-users/zsh-history-substring-search "$HOME/.config/zsh/history-substring-search"
+
+yarn_install pure-prompt
 
 symlink "$HOME/dotfiles/shell/.zshrc" "$HOME/.zshrc"
