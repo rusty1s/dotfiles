@@ -17,6 +17,7 @@ if on_arch; then
   package_install feh
 
   # Lockscreen dependencies.
+  package_install i3lock
   package_install scrot
   package_install imagemagick
 
