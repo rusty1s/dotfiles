@@ -21,7 +21,7 @@ system_pip_install() {
   name="Install system $1"
 
   if [ -f /usr/bin/pip ]; then
-    eval_cmd "$name" "/usr/bin/pip install --upgrade $1"
+    eval_cmd "$name" "sudo /usr/bin/pip install --upgrade $1"
   elif [ -f /usr/local/bin/pip ]; then
     eval_cmd "$name" "/usr/local/bin/pip install --upgrade $1"
   else
