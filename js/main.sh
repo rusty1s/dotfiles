@@ -11,6 +11,8 @@ package_install nodejs
 package_install npm
 package_install yarn
 
+symlink "$HOME/dotfiles/js/.npmrc" "$HOME/.npmrc"
+
 yarn_update
 
 yarn_install create-react-app
