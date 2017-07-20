@@ -8,7 +8,6 @@ export VISUAL=nvim
 export DOTFILES=~/dotfiles
 export GITHUB=~/github
 export PATH="$PATH:$DOTFILES/bin:$(yarn global bin)"
-export PATH="$PATH:$DOTFILES/bin:$HOME/.gem/ruby/2.4.0/bin"
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -69,8 +68,19 @@ if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR"  -eq 1 ]; then
   exec startx &> /dev/null
 fi
 
-source $DOTFILES/zshrc/plugins.zsh
-source $DOTFILES/zshrc/python.sh
+source ~/.config/sh/z/z.sh
+fpath=(~/.config/zsh/completions/src $fpath)
+source ~/.config/zsh/autosuggestions/zsh-autosuggestions.zsh
+if [[ $ZSH_HIGHLIGHT_REVISION != 'HEAD' ]]; then
+  source ~/.config/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+source ~/.config/zsh/history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+if [ -f ~/.venv/3.6/bin/activate ]; then
+  source ~/.venv/3.6/bin/activate
+fi
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
