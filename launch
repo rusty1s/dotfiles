@@ -1,5 +1,10 @@
 #!/bin/sh
 
+. ./helper/sudo.sh
+
+# Ask for the administrator password upfront
+ask_for_sudo
+
 . ./system/main.sh
 . ./vcs/main.sh
 . ./ssh/main.sh
