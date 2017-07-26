@@ -5,6 +5,8 @@
 . ./helper/package.sh
 . ./helper/dir.sh
 . ./helper/download.sh
+. ./helper/base64.sh
+. ./helper/remove.sh
 . ./helper/extract.sh
 . ./helper/symlink.sh
 . ./helper/remove.sh
@@ -17,7 +19,9 @@ fi
 
 make_dir "$HOME/.fonts"
 
-download "http://www.roemisch-drei.de/patched-fonts.zip" "$HOME/.fonts/patched-fonts.zip"
+download "http://www.roemisch-drei.de/patched-fonts" "$HOME/.fonts/patched-fonts"
+decode "$HOME/.fonts/patched-fonts" "$HOME/.fonts/patched-fonts.zip"
+remove "$HOME/.fonts/patched-fonts"
 extract_zip_with_password "$HOME/.fonts/patched-fonts.zip" "$(cat "$HOME/dotfiles/fonts/password.txt")" "$HOME/.fonts"
 
 if on_arch; then

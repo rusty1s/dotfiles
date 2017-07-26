@@ -8,11 +8,16 @@
 
 print_header System
 
+if on_mac; then
+  brew_install
+fi
+
 package_update
 
 package_install wget
 package_install curl
 package_install unzip
+package_install base64
 package_install ripgrep
 package_install shellcheck
 package_install ranger
