@@ -10,7 +10,7 @@ encode() {
     package_install base64
   fi
 
-  eval_cmd "$name" "base64 -i $1 -o $2"
+  eval_cmd "$name" "base64 -e $1 $2"
 }
 
 decode() {
@@ -20,5 +20,5 @@ decode() {
     package_install base64
   fi
 
-  eval_cmd "$name" "base64 -D -i $1 -o $2"
+  eval_cmd "$name" "base64 -d $1 $2"
 }

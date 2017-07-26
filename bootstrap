@@ -20,7 +20,7 @@ print_header Bootstrap
 ask_for_sudo
 
 print_running_inline "GPG Password:"
-read -s password
+read -sr password
 clear_line
 
 if on_mac; then
@@ -34,7 +34,7 @@ package_install git
 download "http://www.roemisch-drei.de/gpg" "$HOME/gpg"
 decode "$HOME/gpg" "$HOME/gpg.zip"
 remove "$HOME/gpg"
-extract_zip_with_password "$HOME/gpg.zip" "$HOME/gpg" "$password"
+extract_zip_with_password "$HOME/gpg.zip" "$password" "$HOME"
 remove "$HOME/gpg.zip"
 gpg_import "$HOME/gpg/private_key.key"
 gpg_import "$HOME/gpg/public_key.key"
