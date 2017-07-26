@@ -1,7 +1,5 @@
 #!/bin/sh
 
-. ./vars.sh
-
 . ./helper/cmd.sh
 . ./helper/package.sh
 . ./helper/os.sh
@@ -38,5 +36,5 @@ git_crypt_unlock() {
     fi
   fi
 
-  eval_cmd "$name" "cd $DOTFILES && git-crypt unlock"
+  eval_cmd "$name" "cd $HOME/dotfiles && git-crypt unlock"
 }
