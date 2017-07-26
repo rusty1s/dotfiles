@@ -2,9 +2,6 @@
 
 . ./helper/cmd.sh
 . ./helper/package.sh
-. ./helper/os.sh
-. ./helper/brew.sh
-. ./helper/pacaur.sh
 
 git_clone() {
   name="Clone $(basename "$1")"
@@ -27,14 +24,5 @@ git_remote_url() {
 
 git_crypt_unlock() {
   name="Encrypt $(basename "$1")"
-
-  if ! cmd_exists git-crypt; then
-    if on_mac; then
-      brew_install git-crypt
-    elif on_arch; then
-      pacaur_install git-crypt
-    fi
-  fi
-
   eval_cmd "$name" "cd $HOME/dotfiles && git-crypt unlock"
 }

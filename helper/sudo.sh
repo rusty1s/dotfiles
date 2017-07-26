@@ -1,10 +1,11 @@
 #!/bin/sh
 
+. ./helper/echos.sh
 . ./helper/cmd.sh
 
 ask_for_sudo() {
-  name="Ask for sudo"
-
-  eval_cmd "$name" "sudo -v"
+  print_running_inline
+  eval "sudo -v"
+  clear_line
   eval "while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &"
 }

@@ -29,8 +29,13 @@ print_header() {
   printf "%b\n\n" "$COL_RESET"
 }
 
+print_running_inline() {
+  printf "%b[running]%b %s" "$COL_MAGENTA" "$COL_RESET" "$1"
+}
+
 print_running() {
-  printf "%b[running]%b %s\n" "$COL_MAGENTA" "$COL_RESET" "$1"
+  print_running_inline "$1"
+  printf "\n"
 }
 
 print_ok() {

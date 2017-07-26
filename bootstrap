@@ -1,22 +1,32 @@
-#!/bin/sh
+#!/bin/bash
 
-./helper/os.sh
-./helper/brew.sh
-./helper/pacaur.sh
-./helper/package.sh
-./helper/download.sh
-./helper/base64.sh
-./helper/remove.sh
-./helper/extract.sh
-./helper/gpg.sh
-./helper/git.sh
+. ./vars.sh
 
-password=
+. ./helper/echos.sh
+. ./helper/sudo.sh
+. ./helper/os.sh
+. ./helper/brew.sh
+. ./helper/pacaur.sh
+. ./helper/package.sh
+. ./helper/download.sh
+. ./helper/base64.sh
+. ./helper/remove.sh
+. ./helper/extract.sh
+. ./helper/gpg.sh
+. ./helper/git.sh
+
+print_header Bootstrap
+
+ask_for_sudo
+
+print_running_inline "GPG Password:"
+read -s password
+clear_line
 
 if on_mac; then
-  brew_install
+  install_brew
 elif on_arch; then
-  pacaur_install
+  install_pacaur
 fi
 
 package_install git
@@ -28,6 +38,11 @@ extract_zip_with_password "$HOME/gpg.zip" "$HOME/gpg" "$password"
 remove "$HOME/gpg.zip"
 gpg_import "$HOME/gpg/private_key.key"
 gpg_import "$HOME/gpg/public_key.key"
-remove "$HOME/gpg"
+
+if on_mac; then
+  brew_install git-crypt
+elif on_arch; then
+  pacaur_install git-crypt
+fi
 
 git_crypt_unlock "$DOTFILES"
