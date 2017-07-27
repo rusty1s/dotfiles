@@ -9,7 +9,7 @@
 print_header System
 
 if on_mac; then
-  brew_install
+  install_brew
 fi
 
 package_update
