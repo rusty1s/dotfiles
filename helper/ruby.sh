@@ -8,7 +8,7 @@ ruby_install() {
   package_install ruby
 
   if on_mac; then
-
+    # Install rbenv for user specific gem installation.
     package_install libffi
     package_install libyaml
     package_install openssl
@@ -16,7 +16,7 @@ ruby_install() {
     package_install rbenv
     package_install ruby-build
 
-    name="Install rbenv ruby $1"
+    name="Install ruby $1 with rbenv"
     rbenv_init
     eval_cmd "$name" "rbenv install --skip-existing $1"
     rbenv global "$1"
