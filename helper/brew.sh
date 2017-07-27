@@ -13,8 +13,6 @@ install_brew() {
 
   if ! cmd_exists brew; then
     eval_cmd "$name" "/usr/bin/ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  else
-    eval_cmd "Update brew" "brew update"
   fi
 }
 
