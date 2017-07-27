@@ -9,7 +9,7 @@ print_header Terminal
 
 if on_arch; then
   package_install rxvt-unicode
- 
+
   symlink "$HOME/dotfiles/terminal/.Xresources" "$HOME/.Xresources"
 fi
 
