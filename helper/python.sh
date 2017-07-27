@@ -9,8 +9,8 @@ system_pip_update() {
 
   if [ -f /usr/bin/pip ]; then
     eval_cmd "$name" "/usr/bin/pip list --outdated --format=freeze | xargs -n1 pip install --upgrade"
-  elif [ -f /usr/local/bin/pip ]; then
-    eval_cmd "$name" "/usr/local/bin/pip list --outdated --format=freeze | xargs -n1 pip install --upgrade"
+  elif [ -f /usr/local/bin/pip3 ]; then
+    eval_cmd "$name" "/usr/local/bin/pip3 list --outdated --format=freeze | xargs -n1 /usr/local/bin/pip3 install --upgrade"
   else
     print_error "$name" "Could not find system pip package"
     exit 1
@@ -22,8 +22,8 @@ system_pip_install() {
 
   if [ -f /usr/bin/pip ]; then
     eval_cmd "$name" "sudo /usr/bin/pip install --upgrade $1"
-  elif [ -f /usr/local/bin/pip ]; then
-    eval_cmd "$name" "/usr/local/bin/pip install --upgrade $1"
+  elif [ -f /usr/local/bin/pip3 ]; then
+    eval_cmd "$name" "/usr/local/bin/pip3 install --upgrade $1"
   else
     print_error "$name" "Could not find system pip package"
     exit 1
