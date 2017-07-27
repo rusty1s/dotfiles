@@ -1,0 +1,10 @@
+# Folder hooks.
+folder-hook 'account.r3.fey' 'source ~/.mutt/account.r3.fey'
+
+# Default account.
+source ~/.mutt/account.r3.fey
+
+# Set default text editor.
+set editor="$EDITOR"
+
+set query_command="abook --mutt-query '%s'"

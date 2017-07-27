@@ -13,4 +13,4 @@ make_dir "$HOME/.mutt"
 symlink "$HOME/dotfiles/mutt/muttrc" "$HOME/.mutt/muttrc"
 
 # Symlink accounts.
-symlink "$HOME/dotfiles/mutt/account.com.r3.fey" "$HOME/.mutt/account.com.r3.fey"
+symlink "$HOME/dotfiles/mutt/account.r3.fey" "$HOME/.mutt/account.r3.fey"
