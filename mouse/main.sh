@@ -1,12 +1,11 @@
 #!/bin/sh
 
 . ./helper/os.sh
+. ./helper/echos.sh
+. ./helper/pacaur.sh
+. ./helper/symlink.sh
 
 if on_arch; then
-  . ./helper/echos.sh
-  . ./helper/pacaur.sh
-  . ./helper/symlink.sh
-
   print_header "Mouse Settings"
 
   pacaur_install imwheel
