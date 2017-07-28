@@ -20,3 +20,4 @@ ask_for_sudo
 . ./mutt/main.sh
 . ./x/main.sh
 . ./i3/main.sh
+. ./settings/main.sh
