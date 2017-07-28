@@ -7,9 +7,9 @@
 . ./helper/symlink.sh
 . ./helper/dir.sh
 
-print_header "i3"
-
 if on_arch; then
+  print_header "i3"
+
   pacaur_install i3-gaps
   package_install dmenu
   package_install rofi

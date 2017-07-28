@@ -17,3 +17,5 @@ ask_for_sudo
 . ./tmux/main.sh
 . ./addressbook/main.sh
 . ./mutt/main.sh
+. ./x/main.sh
+. ./i3/main.sh
