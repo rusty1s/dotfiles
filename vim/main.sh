@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/brew.sh
@@ -24,8 +26,7 @@ fi
 
 system_pip_install neovim
 
-version="3.6"
-python_virtualenv_activate "$HOME/.venv/$version"
+python_virtualenv_activate "$PYTHON_VENV/$PYTHON_VENV_VERSION"
 
 pip_install neovim
 
@@ -33,4 +34,3 @@ make_dir "$HOME/.config/nvim"
 symlink "$HOME/dotfiles/vim/init.vim" "$HOME/.config/nvim/init.vim"
 remove "$HOME/.config/nvim/after"
 symlink "$HOME/dotfiles/vim/after" "$HOME/.config/nvim/after"
-

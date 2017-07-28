@@ -1,11 +1,13 @@
 # https://geoff.greer.fm/lscolors/
+. $HOME/dotfiles/vars.sh
+. $HOME/dotfiles/helper/os.sh
+
 export CLICOLOR=1
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
 export EDITOR=nvim
 export VISUAL=nvim
 
-export DOTFILES=~/dotfiles
 export GITHUB=~/github
 export PATH="$PATH:$DOTFILES/bin:$(yarn global bin)"
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
@@ -17,7 +19,11 @@ alias sudo="sudo -E"
 alias reload="exec zsh"
 alias mkdir="mkdir -p"
 alias grep="rg"
-alias ls="ls -AFG"
+if on_mac; then
+  alias ls="ls -AFG"
+else
+  alias ls="ls -AF --color=always"
+fi
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
@@ -78,8 +84,8 @@ source ~/.config/zsh/history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-if [ -f ~/.venv/3.6/bin/activate ]; then
-  source ~/.venv/3.6/bin/activate
+if [ -f "$PYTHON_VENV/$PYTHON_VENV_VERSION/bin/activate" ]; then
+  source "$PYTHON_VENV/$PYTHON_VENV_VERSION/bin/activate"
 fi
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'

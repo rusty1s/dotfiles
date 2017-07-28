@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/dir.sh
@@ -25,10 +27,9 @@ system_pip_update
 system_pip_install pip
 system_pip_install virtualenv
 
-version="3.6"
-make_dir "$HOME/.venv"
-python_virtualenv_create "$HOME/.venv/$version" "$version"
-python_virtualenv_activate "$HOME/.venv/$version"
+make_dir "$PYTHON_VENV"
+python_virtualenv_create "$PYTHON_VENV/$PYTHON_VENV_VERSION" "$PYTHON_VENV_VERSION"
+python_virtualenv_activate "$PYTHON_VENV/$PYTHON_VENV_VERSION"
 
 pip_update
 
