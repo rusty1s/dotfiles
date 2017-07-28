@@ -46,4 +46,4 @@ elif on_arch; then
   pacaur_install git-crypt
 fi
 
-# git_crypt_unlock "$DOTFILES"
+git_crypt_unlock "$DOTFILES"

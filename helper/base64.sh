@@ -10,7 +10,10 @@ encode() {
   if on_mac; then
     eval_cmd "$name" "base64 -e $1 $2"
   elif on_arch; then
-    eval_cmd "$name" "base64 $1 >> $2"
+    print_running "$name"
+    base64 "$1" >> "$2"
+    clear_lines 2
+    print_ok "$name"
   fi
 }
 
@@ -20,6 +23,9 @@ decode() {
   if on_mac; then
     eval_cmd "$name" "base64 -d $1 $2"
   elif on_arch; then
-    eval_cmd "$name" "base64 -d $1 >> $2"
+    print_running "$name"
+    base64 -d "$1" >> "$2"
+    clear_lines 2
+    print_ok "$name"
   fi
 }
