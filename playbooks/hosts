@@ -1,8 +1,0 @@
-[common]
-localhost ansible_connection=local
-
-[arch]
-localhost ansible_connection=local
-
-[osx]
-localhost ansible_connection=local

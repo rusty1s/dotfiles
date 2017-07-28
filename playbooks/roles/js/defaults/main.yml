@@ -1,1 +1,0 @@
-yarn_global_home: "{{ user_home }}/.config/yarn/global"

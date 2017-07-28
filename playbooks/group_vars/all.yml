@@ -1,6 +1,0 @@
-user_home: "{{ '~' | expanduser }}"
-dotfiles_home: "{{ user_home }}/dotfiles"
-
-user_name: rusty1s
-git_user: rusty1s
-git_email: matthias.fey@tu-dortmund.de
