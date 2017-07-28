@@ -15,6 +15,7 @@ ask_for_sudo
 . ./terminal/main.sh
 . ./shell/main.sh
 . ./tmux/main.sh
+. ./vim/main.sh
 . ./addressbook/main.sh
 . ./mutt/main.sh
 . ./x/main.sh
