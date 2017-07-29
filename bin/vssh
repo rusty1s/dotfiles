@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ "$VAGRANT_DIR" == "" ]; then
-  echo "Please set VAGRANT_DIR environment variable and run again."
-  exit 0
-fi
-
-cd "$VAGRANT_DIR" || exit
-vagrant ssh
