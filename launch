@@ -4,6 +4,7 @@
 
 ask_for_sudo
 
+. ./settings/main.sh
 . ./system/main.sh
 . ./vcs/main.sh
 . ./ssh/main.sh
@@ -20,4 +21,3 @@ ask_for_sudo
 . ./mutt/main.sh
 . ./x/main.sh
 . ./i3/main.sh
-. ./settings/main.sh
