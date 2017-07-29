@@ -1,5 +1,5 @@
 function! trim#whitespaces() abort
-  if !&binary && &filetype != 'diff'
+  if !&binary && &filetype !=? 'diff'
     normal mz
     normal Hmy
     %s/\s\+$//e

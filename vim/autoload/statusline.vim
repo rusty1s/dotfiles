@@ -1,6 +1,6 @@
 function! statusline#fileprefix() abort
   let l:basename=expand('%:h')
-  if l:basename == '' || l:basename == '.'
+  if l:basename ==? '' || l:basename ==? '.'
     return ''
   else
     " Make sure we show $HOME as ~ (https://goo.gl/LloMaA).
@@ -17,7 +17,7 @@ function! statusline#filetype() abort
 endfunction
 
 function! statusline#fileencoding() abort
-  if strlen(&fenc) && &fenc != 'utf-8'
+  if strlen(&fenc) && &fenc !=? 'utf-8'
     return ',' . &fenc
   else
     return ''
@@ -25,7 +25,7 @@ function! statusline#fileencoding() abort
 endfunction
 
 function! statusline#fileformat() abort
-  if strlen(&ff) && &ff != 'unix'
+  if strlen(&ff) && &ff !=? 'unix'
     return ',' . &ff
   else
     return ''

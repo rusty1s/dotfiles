@@ -28,7 +28,7 @@ function! s:update_statusline(default, action) abort
 endfunction
 
 function! s:get_custom_statusline(action) abort
-  if &ft ==# 'nerdtree'
+  if &ft ==? 'nerdtree'
     return 0  " Don't override; NERDTree does its own thing.
   endif
 
