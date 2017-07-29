@@ -9,7 +9,7 @@ function! trim#whitespaces() abort
 endfunction
 
 function! trim#lines() abort
-  let save_cursor = getpos('.')
+  let l:save_cursor = getpos('.')
   :silent! %s#\($\n\s*\)\+\%$##
-  call setpos('.', save_cursor)
+  call setpos('.', l:save_cursor)
 endfunction

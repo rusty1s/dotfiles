@@ -3,13 +3,17 @@
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+
+  augroup plug_install
+    autocmd!
+    autocmd VimEnter * PlugInstall | source $MYVIMRC
+  augroup END
 endif
 
-let mapleader=" "
+let mapleader=' '
 
 " Add all plugins and my configuration to the runtimepath.
-let &runtimepath.=",~/dotfiles/vim"
+let &runtimepath.=',~/dotfiles/vim'
 call plug#begin('~/.config/nvim/bundle')
 Plug 'scrooloose/nerdtree'
 Plug 'sbdchd/neoformat'
