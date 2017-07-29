@@ -7,6 +7,7 @@
 . ./helper/package.sh
 . ./helper/dir.sh
 . ./helper/copy.sh
+. ./helper/chmod.sh
 . ./helper/symlink.sh
 . ./helper/git.sh
 
@@ -20,6 +21,7 @@ fi
 make_dir "$HOME/.ssh"
 
 copy "$DOTFILES/ssh/id_rsa" "$HOME/.ssh/id_rsa"
+chmod_private "$HOME/.ssh/id_rsa"
 copy "$DOTFILES/ssh/id_rsa.pub" "$HOME/.ssh/id_rsa.pub"
 
 if on_mac; then
