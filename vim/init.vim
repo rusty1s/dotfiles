@@ -1,3 +1,6 @@
+set encoding=utf-8
+scriptencoding utf-8
+
 " vim-plug (https://github.com/junegunn/vim-plug) settings
 " Automatically install vim-plug and run PlugInstall if vim-plug not found
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -10,7 +13,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
   augroup END
 endif
 
-let mapleader=' '
+let g:mapleader=' '
 
 " Add all plugins and my configuration to the runtimepath.
 let &runtimepath.=',~/dotfiles/vim'
