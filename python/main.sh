@@ -38,6 +38,7 @@ pip_install jedi
 pip_install yapf
 pip_install pep8
 pip_install flake8
+pip_install vim-vint
 pip_install nose
 pip_install coverage
 pip_install numpy
