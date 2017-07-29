@@ -11,7 +11,7 @@
 1. Vergrößerung an und automatische ein-/ausblenden
 1. Dock aufräumen:
 ```
-Finder | Mail | Kalender | Notizen | Nachrichten | WhatsApp | Chrome | Hyper | Spofity | Systemeinstellungen
+Finder | Mail | Kalender | Notizen | Nachrichten | WhatsApp | Spotify | Chrome | Terminal | Systemeinstellungen
 ```
 
 ### Mouse
