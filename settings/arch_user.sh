@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [[ $1 == "" ]]; then
+if [ "$1" -eq "" ]; then
   echo "Please pass a username."
   exit
 fi

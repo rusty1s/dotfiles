@@ -26,10 +26,12 @@
 1. `ping google.com`
 1. `vim /etc/pacman.d/mirrorlist`
 1. Add to the top:
+
 ```
 ## Germany
 Server = https://arch.32g.eu/$repo/os/$arch
 ```
+
 from [Mirrorlist](https://www.archlinux.org/mirrorlist/) [[Germany]](https://www.archlinux.org/mirrorlist/?country=DE&protocol=http&protocol=https&ip_version=4)
 
 ### Install the base packages
