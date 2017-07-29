@@ -6,6 +6,7 @@
 . ./helper/pacaur.sh
 . ./helper/symlink.sh
 . ./helper/dir.sh
+. ./helper/download.sh
 
 if on_arch; then
   print_header "i3"
