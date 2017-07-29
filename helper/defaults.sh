@@ -45,6 +45,12 @@ disable_natural_scrolling() {
   eval_cmd "$name" "$cmd"
 }
 
+show_scrollbars_only_when_scrolling() {
+  name="Only show scrollbars when scrolling"
+  cmd="defaults write NSGlobalDomain AppleShowScrollBars -string \"WhenScrolling\""
+  eval_cmd "$name" "$cmd"
+}
+
 set_faster_keyboard_repeat_rate() {
   name="Set a faster keyboard repeat rate"
   cmd1="defaults write NSGlobalDomain KeyRepeat -int 1"
@@ -63,6 +69,12 @@ disable_smart_quotes() {
   cmd1="defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false"
   cmd2="defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false"
   eval_cmd "$name" "$cmd1;$cmd2"
+}
+
+disable_hold_for_accents() {
+  name="No press and hold for accents"
+  cmd="defaults write -g ApplePressAndHoldEnabled -bool false"
+  eval_cmd "$name" "$cmd"
 }
 
 search_current_folder_first() {
@@ -86,5 +98,66 @@ show_all_file_extensions() {
 disable_change_file_extension_warning() {
   name="Disable the warning when changing a file extension"
   cmd="defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false"
+  eval_cmd "$name" "$cmd"
+}
+
+avoid_ds_store_on_network() {
+  name="Avoid creating .DS_Store files on network volumes"
+  cmd="defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true"
+  eval_cmd "$name" "$cmd"
+}
+
+show_library_folder() {
+  name="Show the ~/Library folder"
+  cmd="chflags nohidden ~/Library"
+  eval_cmd "$name" "$cmd"
+}
+
+show_volumes_folder() {
+  name="Show the /Volumes folder"
+  cmd="chflags nohidden /Volumes"
+  eval_cmd "$name" "$cmd"
+}
+
+mail_set_copy_format() {
+  name="Copy email addresses as foo@example.com"
+  cmd="defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false"
+  eval_cmd "$name" "$cmd"
+}
+
+mail_show_as_plain_text() {
+  name="Force all mail messages to display as plain text"
+  cmd="defaults write com.apple.mail PreferPlainText -bool true"
+  eval_cmd "$name" "$cmd"
+}
+
+textedit_save_as_plain_text() {
+  name="Use plain text mode for new documents"
+  cmd="defaults write com.apple.TextEdit RichText -int 0"
+  eval_cmd "$name" "$cmd"
+}
+
+textedit_save_as_utf8() {
+  name="Open and save new files as utf-8"
+  cmd1="defaults write com.apple.TextEdit PlainTextEncoding -int 4"
+  cmd2="defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4"
+  eval_cmd "$name" "$cmd1;$cmd2"
+}
+
+itunes_disable_media_keys() {
+  name="Stop iTunes from responding to the keyboard media keys"
+  cmd="launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null"
+  eval_cmd "$name" "$cmd"
+}
+
+photos_disable_autostart() {
+  name="Disable Photos from starting everytime a device is plugged in"
+  cmd="defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true"
+  eval_cmd "$name" "$cmd"
+}
+
+terminal_disable_marks() {
+  name="Disable automatic marks in Terminal.app"
+  cmd="defaults write com.apple.Terminal AutoMarkPromptLines -int 0"
   eval_cmd "$name" "$cmd"
 }
