@@ -6,7 +6,6 @@
 . ./helper/os.sh
 . ./helper/defaults.sh
 
-
 if on_mac; then
   print_header Settings
 
