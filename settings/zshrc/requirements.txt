@@ -1,8 +1,0 @@
-neovim
-jedi
-yapf
-pep8
-flake8
-nose
-numpy
-scipy

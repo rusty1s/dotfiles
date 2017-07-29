@@ -1,9 +1,0 @@
-Windows Registry Editor Version 5.00
-
-[HKEY_CURRENT_USER\Console\ConsoleZ command window]
-"CodePage"=dword:000003a8
-"FontSize"=dword:000a0000
-"FontFamily"=dword:00000036
-"FontWeight"=dword:00000190
-"FaceName"="Consolas"
-"HistoryNoDup"=dword:00000000
