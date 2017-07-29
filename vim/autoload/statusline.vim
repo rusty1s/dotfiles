@@ -1,4 +1,4 @@
-function! statusline#fileprefix()
+function! statusline#fileprefix() abort
   let l:basename=expand('%:h')
   if l:basename == '' || l:basename == '.'
     return ''
@@ -8,7 +8,7 @@ function! statusline#fileprefix()
   endif
 endfunction
 
-function! statusline#filetype()
+function! statusline#filetype() abort
   if strlen(&ft)
     return ',' . &ft
   else
@@ -16,7 +16,7 @@ function! statusline#filetype()
   endif
 endfunction
 
-function! statusline#fileencoding()
+function! statusline#fileencoding() abort
   if strlen(&fenc) && &fenc != 'utf-8'
     return ',' . &fenc
   else
@@ -24,7 +24,7 @@ function! statusline#fileencoding()
   endif
 endfunction
 
-function! statusline#fileformat()
+function! statusline#fileformat() abort
   if strlen(&ff) && &ff != 'unix'
     return ',' . &ff
   else
@@ -32,7 +32,7 @@ function! statusline#fileformat()
   endif
 endfunction
 
-function! statusline#readonly()
+function! statusline#readonly() abort
   if &readonly || !&modifiable
     return ' '
   else

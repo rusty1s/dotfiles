@@ -1,4 +1,4 @@
-function! trim#whitespaces()
+function! trim#whitespaces() abort
   if !&binary && &filetype != 'diff'
     normal mz
     normal Hmy
@@ -8,7 +8,7 @@ function! trim#whitespaces()
   endif
 endfunction
 
-function! trim#lines()
+function! trim#lines() abort
   let save_cursor = getpos('.')
   :silent! %s#\($\n\s*\)\+\%$##
   call setpos('.', save_cursor)

@@ -1,4 +1,4 @@
-function! window#move(key)
+function! window#move(key) abort
   let t:curwin = winnr()
   exec 'wincmd ' . a:key
   if (t:curwin == winnr())

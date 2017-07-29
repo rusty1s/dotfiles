@@ -1,4 +1,4 @@
-function! autocmds#blur_statusline()
+function! autocmds#blur_statusline() abort
   let l:blurred=''      " Start with a clean line.'
   let l:blurred.='\ '   " Space.
   " Relative path to directory.
@@ -9,11 +9,11 @@ function! autocmds#blur_statusline()
   call s:update_statusline(l:blurred, 'blur')
 endfunction
 
-function! autocmds#focus_statusline()
+function! autocmds#focus_statusline() abort
   call s:update_statusline('', 'focus')
 endfunction
 
-function! s:update_statusline(default, action)
+function! s:update_statusline(default, action) abort
   let l:statusline = s:get_custom_statusline(a:action)
 
   if type(l:statusline) == type('')
@@ -27,7 +27,7 @@ function! s:update_statusline(default, action)
   endif
 endfunction
 
-function! s:get_custom_statusline(action)
+function! s:get_custom_statusline(action) abort
   if &ft ==# 'nerdtree'
     return 0  " Don't override; NERDTree does its own thing.
   endif
