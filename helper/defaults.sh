@@ -19,8 +19,8 @@ disable_sleep_mode() {
 
 system_language() {
   name="Set system language"
-  cmd1="defaults write NSGlobalDomain AppleLanguages -array \"en\" \"de\""
-  cmd2="defaults write NSGlobalDomain AppleLocale -string \"en_GB@currency=EUR\""
+  cmd1="defaults write NSGlobalDomain AppleLanguages -array \"de\""
+  cmd2="defaults write NSGlobalDomain AppleLocale -string \"de_DE@currency=EUR\""
   cmd4="defaults write NSGlobalDomain AppleMeasurementUnits -string \"Centimeters\""
   cmd4="defaults write NSGlobalDomain AppleMetricUnits -bool true"
   eval_cmd "$name" "$cmd1;$cmd2;$cmd3;$cmd4"
