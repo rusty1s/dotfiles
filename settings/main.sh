@@ -11,7 +11,7 @@ if on_mac; then
 
   computer_name "$COMPUTER_NAME"
   disable_sleep_mode
-  system_language_to_en
+  system_language
   expand_save_panel
   expand_print_panel
   quit_printer_automatically

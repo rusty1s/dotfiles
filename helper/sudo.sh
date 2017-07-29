@@ -11,6 +11,6 @@ ask_for_sudo() {
     print_running_inline "Administration "
     eval "sudo -v"
     clear_lines 2
-    while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
   fi
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 }
