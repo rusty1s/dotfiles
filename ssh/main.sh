@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/package.sh
@@ -17,11 +19,11 @@ fi
 
 make_dir "$HOME/.ssh"
 
-copy "$HOME/dotfiles/ssh/id_rsa" "$HOME/.ssh/id_rsa"
-copy "$HOME/dotfiles/ssh/id_rsa.pub" "$HOME/.ssh/id_rsa.pub"
+copy "$DOTFILES/ssh/id_rsa" "$HOME/.ssh/id_rsa"
+copy "$DOTFILES/ssh/id_rsa.pub" "$HOME/.ssh/id_rsa.pub"
 
 if on_mac; then
-  symlink "$HOME/dotfiles/ssh/config" "$HOME/.ssh/config"
+  symlink "$DOTFILES/ssh/config" "$HOME/.ssh/config"
 fi
 
-git_remote_url "$HOME/dotfiles" "git@github.com:rusty1s/dotfiles.git"
+git_remote_url "$DOTFILES" "git@github.com:rusty1s/dotfiles.git"

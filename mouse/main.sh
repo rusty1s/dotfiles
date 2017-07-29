@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/os.sh
 . ./helper/echos.sh
 . ./helper/pacaur.sh
@@ -10,5 +12,5 @@ if on_arch; then
 
   pacaur_install imwheel
 
-  symlink "$HOME/dotfiles/mouse/.imwheelrc" "$HOME/.imwheelrc"
+  symlink "$DOTFILES/mouse/.imwheelrc" "$HOME/.imwheelrc"
 fi

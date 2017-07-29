@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/package.sh
 . ./helper/cmd.sh
@@ -23,6 +25,6 @@ yarn_install eslint-plugin-prettier
 yarn_install eslint-config-prettier
 yarn_install markdownlint-cli
 
-symlink "$HOME/dotfiles/js/.eslintrc" "$HOME/.eslintrc"
-symlink "$HOME/dotfiles/js/.prettierrc" "$HOME/.prettierrc"
-symlink "$HOME/dotfiles/js/.tern-project" "$HOME/.tern-project"
+symlink "$DOTFILES/js/.eslintrc" "$HOME/.eslintrc"
+symlink "$DOTFILES/js/.prettierrc" "$HOME/.prettierrc"
+symlink "$DOTFILES/js/.tern-project" "$HOME/.tern-project"

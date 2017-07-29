@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/package.sh
@@ -22,7 +24,7 @@ make_dir "$HOME/.fonts"
 download "http://www.roemisch-drei.de/patched-fonts.base64" "$HOME/.fonts/patched-fonts.base64"
 decode "$HOME/.fonts/patched-fonts.base64" "$HOME/.fonts/patched-fonts.zip"
 remove "$HOME/.fonts/patched-fonts.base64"
-extract_zip_with_password "$HOME/.fonts/patched-fonts.zip" "$(cat "$HOME/dotfiles/fonts/password.txt")" "$HOME/.fonts"
+extract_zip_with_password "$HOME/.fonts/patched-fonts.zip" "$(cat "$DOTFILES/fonts/password.txt")" "$HOME/.fonts"
 remove "$HOME/.fonts/patched-fonts.zip"
 
 if on_arch; then

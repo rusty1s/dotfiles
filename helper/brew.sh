@@ -5,14 +5,14 @@
 . ./helper/error.sh
 
 install_brew() {
-  name="Install brew"
-
   if ! on_mac; then
     error_exit "$name" "brew can only be installed on macOS"
   fi
 
   if ! cmd_exists brew; then
-    eval_cmd "$name" "/usr/bin/ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    eval_cmd "Install brew" "/usr/bin/ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+    eval_cmd "Update brew" "brew update"
   fi
 }
 

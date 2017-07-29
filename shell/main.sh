@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/package.sh
 . ./helper/remove.sh
@@ -29,4 +31,4 @@ git_clone https://github.com/zsh-users/zsh-history-substring-search "$HOME/.conf
 
 yarn_install pure-prompt
 
-symlink "$HOME/dotfiles/shell/.zshrc" "$HOME/.zshrc"
+symlink "$DOTFILES/shell/.zshrc" "$HOME/.zshrc"

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/package.sh
@@ -23,7 +25,7 @@ if on_arch; then
   package_install imagemagick
 
   make_dir "$HOME/.config/i3"
-  symlink "$HOME/dotfiles/i3/config" "$HOME/.config/i3/config"
+  symlink "$DOTFILES/i3/config" "$HOME/.config/i3/config"
 
   # Wallpapers.
   make_dir "$HOME/wallpapers"

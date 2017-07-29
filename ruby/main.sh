@@ -1,12 +1,14 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/ruby.sh
 
 print_header Ruby
 
-ruby_install "2.4.1"
+ruby_install "$RUBY_VERSION"
 
 gem_update
 

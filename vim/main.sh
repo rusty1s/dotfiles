@@ -31,6 +31,6 @@ python_virtualenv_activate "$PYTHON_VENV/$PYTHON_VENV_VERSION"
 pip_install neovim
 
 make_dir "$HOME/.config/nvim"
-symlink "$HOME/dotfiles/vim/init.vim" "$HOME/.config/nvim/init.vim"
+symlink "$DOTFILES/vim/init.vim" "$HOME/.config/nvim/init.vim"
 remove "$HOME/.config/nvim/after"
-symlink "$HOME/dotfiles/vim/after" "$HOME/.config/nvim/after"
+symlink "$DOTFILES/vim/after" "$HOME/.config/nvim/after"

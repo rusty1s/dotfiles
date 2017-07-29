@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/package.sh
@@ -11,7 +13,7 @@ print_header Terminal
 if on_arch; then
   package_install rxvt-unicode
 
-  symlink "$HOME/dotfiles/terminal/.Xresources" "$HOME/.Xresources"
+  symlink "$DOTFILES/terminal/.Xresources" "$HOME/.Xresources"
 fi
 
 if on_mac; then

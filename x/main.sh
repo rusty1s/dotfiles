@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ./vars.sh
+
 . ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/package.sh
@@ -14,5 +16,5 @@ if on_arch; then
   package_install xorg-xrandr
   package_install xorg-xprop
 
-  symlink "$HOME/dotfiles/x/.xinitrc" "$HOME/.xinitrc"
+  symlink "$DOTFILES/x/.xinitrc" "$HOME/.xinitrc"
 fi
