@@ -4,20 +4,20 @@
 
 ask_for_sudo
 
-. ./system/main.sh
-. ./vcs/main.sh
-. ./ssh/main.sh
-. ./fonts/main.sh
-. ./mouse/main.sh
-. ./js/main.sh
-. ./python/main.sh
-. ./ruby/main.sh
-. ./terminal/main.sh
-. ./shell/main.sh
-. ./tmux/main.sh
-. ./vim/main.sh
-. ./addressbook/main.sh
-. ./mutt/main.sh
-. ./x/main.sh
-. ./i3/main.sh
+# . ./system/main.sh
+# . ./vcs/main.sh
+# . ./ssh/main.sh
+# . ./fonts/main.sh
+# . ./mouse/main.sh
+# . ./js/main.sh
+# . ./python/main.sh
+# . ./ruby/main.sh
+# . ./terminal/main.sh
+# . ./shell/main.sh
+# . ./tmux/main.sh
+# . ./vim/main.sh
+# . ./addressbook/main.sh
+# . ./mutt/main.sh
+# . ./x/main.sh
+# . ./i3/main.sh
 . ./settings/main.sh

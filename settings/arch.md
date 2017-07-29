@@ -67,3 +67,5 @@ from [Mirrorlist](https://www.archlinux.org/mirrorlist/) [[Germany]](https://www
 1. `git clone https://github.com/rusty1s/dotfiles`
 1. `./bootstrap`
 1. `./launch`
+
+## Configuration

@@ -23,4 +23,8 @@ if on_arch; then
 
   make_dir "$HOME/.config/i3"
   symlink "$HOME/dotfiles/i3/config" "$HOME/.config/i3/config"
+
+  # Wallpapers.
+  make_dir "$HOME/wallpapers"
+  download "https://i.imgur.com/zF1V6EE.jpg" "$HOME/wallpapers/bg01.jpg"
 fi
