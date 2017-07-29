@@ -23,12 +23,13 @@ engines:
         python:
 ratings:
   paths:
-    - "vim/vimrc"
-    - "vagrant/Vagrantfile"
+    - "launch"
+    - "bootstrap"
+    - "x/.xinitrc"
+    - "shell/.zshrc"
     - "**.sh"
     - "**.vim"
     - "**.md"
     - "**.rb"
     - "**.py"
     - "bin/**"
-    - "shell/**"
