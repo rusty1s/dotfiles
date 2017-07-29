@@ -4,12 +4,25 @@
 
 computer_name() {
   name="Set computer name to $1"
-
   cmd1="sudo scutil --set ComputerName $1"
   cmd2="sudo scutil --set HostName $1"
   cmd3="sudo scutil --set LocalHostName $1"
   cmd4="sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string \"$1\""
+  eval_cmd "$name" "$cmd1;$cmd2;$cmd3;$cmd4"
+}
 
+disable_sleep_mode() {
+  name="Never go into computer sleep mode"
+  cmd="sudo systemsetup -setcomputersleep Off > /dev/null"
+  eval_cmd "$name" "$cmd"
+}
+
+system_language() {
+  name="Set system language"
+  cmd1="defaults write NSGlobalDomain AppleLanguages -array \"en\" \"de\""
+  cmd2="defaults write NSGlobalDomain AppleLocale -string \"en_GB@currency=EUR\""
+  cmd4="defaults write NSGlobalDomain AppleMeasurementUnits -string \"Centimeters\""
+  cmd4="defaults write NSGlobalDomain AppleMetricUnits -bool true"
   eval_cmd "$name" "$cmd1;$cmd2;$cmd3;$cmd4"
 }
 
@@ -77,6 +90,12 @@ disable_hold_for_accents() {
   eval_cmd "$name" "$cmd"
 }
 
+disable_automatic_capitalization() {
+  name="Disable automatic capitalization"
+  cmd="defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false"
+  eval_cmd "$name" "$cmd"
+}
+
 search_current_folder_first() {
   name="Search the current folder by default"
   cmd="defaults write com.apple.finder FXDefaultSearchScope -string \"SCcf\""
@@ -116,6 +135,12 @@ show_library_folder() {
 show_volumes_folder() {
   name="Show the /Volumes folder"
   cmd="chflags nohidden /Volumes"
+  eval_cmd "$name" "$cmd"
+}
+
+finder_allow_quitting() {
+  name="Allow quitting Finder via ⌘ + Q"
+  cmd="defaults write com.apple.finder QuitMenuItem -bool true"
   eval_cmd "$name" "$cmd"
 }
 

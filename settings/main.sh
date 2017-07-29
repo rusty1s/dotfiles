@@ -11,6 +11,8 @@ if on_mac; then
   print_header Settings
 
   computer_name "$COMPUTER_NAME"
+  disable_sleep_mode
+  system_language_to_en
   expand_save_panel
   expand_print_panel
   quit_printer_automatically
@@ -21,6 +23,7 @@ if on_mac; then
   disable_autocorrect
   disable_smart_quotes
   disable_hold_for_accents
+  disable_automatic_capitalization
   search_current_folder_first
   show_hidden_files
   show_all_file_extensions
@@ -28,6 +31,7 @@ if on_mac; then
   avoid_ds_store_on_network
   show_library_folder
   show_volumes_folder
+  finder_allow_quitting
   mail_set_copy_format
   mail_show_as_plain_text
   textedit_save_as_plain_text
