@@ -19,16 +19,21 @@ if ! on_mac; then
   package_install lxappearance
 fi
 
-make_dir "$HOME/.fonts"
+font_dir="$HOME/.fonts"
+filename="patched-fonts"
+filepath="$font_dir/$filename"
+password="$(cat "$DOTFILES/fonts/password.txt")"
 
-download "http://www.roemisch-drei.de/patched-fonts.base64" "$HOME/.fonts/patched-fonts.base64"
-decode "$HOME/.fonts/patched-fonts.base64" "$HOME/.fonts/patched-fonts.zip"
-remove "$HOME/.fonts/patched-fonts.base64"
-extract_zip_with_password "$HOME/.fonts/patched-fonts.zip" "$(cat "$DOTFILES/fonts/password.txt")" "$HOME/.fonts"
-remove "$HOME/.fonts/patched-fonts.zip"
+make_dir "$font_dir"
+
+download "http://www.roemisch-drei.de/$filename.base64" "$filepath.base64"
+decode "$filepath.base64" "$filepath.zip"
+remove "$filepath.base64"
+extract_zip_with_password "$filepath.zip" "$password" "$font_dir"
+remove "$filepath.zip"
 
 if on_arch; then
-  sudo_symlink "$HOME/.fonts/patched-fonts/*Complete.otf" "/usr/share/fonts/OTF"
+  sudo_symlink "$filepath/*Complete.otf" "/usr/share/fonts/OTF"
 
   make_dir "$HOME/.config/fontconfig"
   symlink "$HOME/fonts/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
@@ -39,5 +44,5 @@ if on_arch; then
 fi
 
 if on_mac; then
-  symlink "$HOME/.fonts/patched-fonts/*Complete.otf" "$HOME/Library/Fonts"
+  symlink "$filepath/*Complete.otf" "$HOME/Library/Fonts"
 fi
