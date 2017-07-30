@@ -13,6 +13,7 @@ ask_for_sudo
 . ./js/main.sh
 . ./python/main.sh
 . ./ruby/main.sh
+. ./java/main.sh
 . ./terminal/main.sh
 . ./shell/main.sh
 . ./tmux/main.sh
