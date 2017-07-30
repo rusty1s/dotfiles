@@ -8,3 +8,4 @@ source ~/.mutt/account.r3.fey
 set editor="$EDITOR"
 
 set query_command="abook --mutt-query '%s'"
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
