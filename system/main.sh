@@ -62,6 +62,7 @@ if on_mac; then
   brew_cask_install dropbox
   brew_cask_install whatsapp
   brew_cask_install mactex
+  brew_cask_install marked
   brew_cask_install vlc
   brew_cask_install discord
   brew_cask_install league-of-legends
