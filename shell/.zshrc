@@ -1,3 +1,5 @@
+export LANG=en_US.UTF-8
+
 # https://geoff.greer.fm/lscolors/
 . $HOME/dotfiles/vars.sh
 . $HOME/dotfiles/helper/os.sh
