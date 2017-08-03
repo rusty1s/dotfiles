@@ -20,6 +20,9 @@ let &runtimepath.=',~/dotfiles/vim'
 call plug#begin('~/.config/nvim/bundle')
 Plug 'scrooloose/nerdtree'
 Plug 'sbdchd/neoformat'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-sensible'
@@ -35,7 +38,6 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-buftabline'
 Plug 'w0rp/ale'
-Plug 'mxw/vim-jsx'
 " Try to detect the kind of indentation in your file and set Vim's options to
 " keep it that way.
 Plug 'tpope/vim-sleuth'
