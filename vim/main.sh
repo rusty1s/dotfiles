@@ -26,7 +26,7 @@ fi
 
 system_pip_install neovim
 
-python_virtualenv_activate "$PYTHON_VENV/$PYTHON_VENV_VERSION"
+python_virtualenv_activate "$PYTHON_VENV/$PYTHON_VERSION"
 
 pip_install neovim
 

@@ -28,8 +28,8 @@ system_pip_install pip
 system_pip_install virtualenv
 
 make_dir "$PYTHON_VENV"
-python_virtualenv_create "$PYTHON_VENV/$PYTHON_VENV_VERSION" "$PYTHON_VENV_VERSION"
-python_virtualenv_activate "$PYTHON_VENV/$PYTHON_VENV_VERSION"
+python_virtualenv_create "$PYTHON_VENV/$PYTHON_VERSION" "$PYTHON_VERSION"
+python_virtualenv_activate "$PYTHON_VENV/$PYTHON_VERSION"
 
 pip_update
 
