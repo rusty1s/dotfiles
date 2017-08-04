@@ -15,7 +15,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 export GITHUB=~/github
-export PATH="$PATH:$DOTFILES/bin:$(yarn global bin)"
+export PATH="$PATH:$DOTFILES/bin:$(yarn global bin):$HOME/.config/yarn/global/node_modules/.bin"
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
