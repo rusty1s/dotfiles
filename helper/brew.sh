@@ -40,7 +40,7 @@ brew_cask_update() {
 }
 
 brew_cask_install() {
-  if ! brew cask_installed "$1"; then
+  if ! brew_cask_installed "$1"; then
     eval_cmd "Install cask $1" "brew cask install $1"
   fi
 }
