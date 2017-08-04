@@ -22,8 +22,9 @@ brew_update() {
 }
 
 brew_install() {
-  name="Install $1"
-  eval_cmd "$name" "brew install $1"
+  if ! brew_installed "$1"; then
+    eval_cmd "Install $1" "brew install $1"
+  fi
 }
 
 brew_tap() {
@@ -39,6 +40,15 @@ brew_cask_update() {
 }
 
 brew_cask_install() {
-  name="Install cask $1"
-  eval_cmd "$name" "brew cask install $1"
+  if ! brew cask_installed "$1"; then
+    eval_cmd "Install cask $1" "brew cask install $1"
+  fi
+}
+
+brew_installed() {
+  brew list "$1" > /dev/null 2>&2
+}
+
+brew_cask_installed() {
+  brew cask list "$1" > /dev/null 2>&2
 }
