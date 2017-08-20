@@ -156,4 +156,5 @@ exec_always xrdb ~/.Xresources
 
 exec urxvt
 exec spotify
+exec dropbox
 # exec whatsapp-web-desktop
