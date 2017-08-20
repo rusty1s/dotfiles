@@ -4,6 +4,7 @@
 
 . ./helper/echos.sh
 . ./helper/package.sh
+. ./helper/cmd.sh
 . ./helper/remove.sh
 . ./helper/dir.sh
 . ./helper/git.sh
@@ -22,6 +23,8 @@ remove "$HOME/.bash_logout"
 
 make_dir "$HOME/.config/sh"
 git_clone https://github.com/rupa/z "$HOME/.config/sh/z"
+git_clone https://github.com/illinoisjackson/even-better-ls "$HOME/.config/sh/even-better-ls"
+eval_cmd "sh $HOME/.config/sh/even-better-ls/install.sh"
 
 make_dir "$HOME/.config/zsh"
 git_clone https://github.com/zsh-users/zsh-completions "$HOME/.config/zsh/completions"

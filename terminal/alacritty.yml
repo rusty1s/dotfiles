@@ -1,5 +1,5 @@
 padding:
-  x: 10
+  x: 2
   y: 5
 
 draw_bold_text_with_bright_colors: false
