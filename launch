@@ -14,6 +14,7 @@ ask_for_sudo
 . ./python/main.sh
 . ./ruby/main.sh
 . ./java/main.sh
+. ./rust/main.sh
 . ./terminal/main.sh
 . ./shell/main.sh
 . ./tmux/main.sh
