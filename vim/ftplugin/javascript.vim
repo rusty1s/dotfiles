@@ -1,6 +1,6 @@
 setlocal textwidth=80
-set expandtab  " Use spaces.
-set shiftwidth=2
+setlocal expandtab  " Use spaces.
+setlocal shiftwidth=2
 
 let g:jsx_ext_required = 0  " Allow JSX in normal .js files.
 
