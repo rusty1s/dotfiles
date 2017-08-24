@@ -37,6 +37,7 @@ if on_arch; then
 
   # Applications.
   package_install thunar
+  pacaur_install bash-pipes
   pacaur_install thunar-vcs-plugin
   pacaur_install arc-gtk-theme
   pacaur_install paper-icon-theme
