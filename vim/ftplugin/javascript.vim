@@ -11,7 +11,7 @@ let g:neoformat_javascript_prettier = {
       \ }
 
 nnoremap <Leader>y :Neoformat prettier<CR>
-augroup js_group
+augroup group
   autocmd!
   autocmd BufWritePre * Neoformat prettier
 augroup END
