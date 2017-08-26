@@ -14,5 +14,7 @@ title=$(echo "$title" | grep -v "title")     # Filter wrong lines.
 title=$(echo "$title" | cut -d '"' -f 2)     # Cut everything inside quotes.
 
 if [ "$artist" != "" ]; then
-  echo " $artist - $title | "
+  if [[ "$artist" != *"]"* ]]; then
+    echo " $artist - $title"
+  fi
 fi
