@@ -4,14 +4,14 @@ setlocal shiftwidth=2
 
 let g:jsx_ext_required = 0  " Allow JSX in normal .js files.
 
-let g:neoformat_javascript_prettier = {
+let g:neoformat_json_prettier = {
       \ 'exe': 'prettier',
       \ 'args': ['--stdin'],
       \ 'stdin': 1,
       \ }
 
 nnoremap <Leader>y :Neoformat prettier<CR>
-augroup group
+augroup js_group
   autocmd!
   autocmd BufWritePre * Neoformat prettier
 augroup END
