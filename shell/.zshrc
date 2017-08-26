@@ -104,3 +104,6 @@ fi
 [ -f ~/.proxy.sh ] && source ~/.proxy.sh
 
 eval $(thefuck --alias)
+
+evenbetterls="$HOME/.config/sh/even-better-ls/append_to_profile.sh"
+[ -f "$evenbetterls" ] && source "$evenbetterls"
