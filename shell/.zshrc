@@ -25,11 +25,6 @@ alias sudo="sudo -E"
 alias reload="exec zsh"
 alias mkdir="mkdir -p"
 alias grep="rg"
-if on_mac; then
-  alias ls="ls -AFG"
-else
-  alias ls="ls -AF --color=always"
-fi
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
@@ -107,3 +102,9 @@ eval $(thefuck --alias)
 
 evenbetterls="$HOME/.config/sh/even-better-ls/append_to_profile.sh"
 [ -f "$evenbetterls" ] && source "$evenbetterls"
+
+if on_mac; then
+  alias ls="ls -AFG"
+else
+  alias ls="ls -AF --color=always"
+fi
