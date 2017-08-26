@@ -21,6 +21,7 @@ package_install ripgrep
 package_install shellcheck
 package_install ranger
 package_install ruby
+package_install thefuck
 
 if ! on_mac; then
   package_install zip

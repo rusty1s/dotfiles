@@ -102,3 +102,5 @@ if command -v rbenv > /dev/null; then
 fi
 
 [ -f ~/.proxy.sh ] && source ~/.proxy.sh
+
+eval $(thefuck --alias)
