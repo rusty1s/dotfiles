@@ -1,9 +1,9 @@
 setlocal expandtab  " Use spaces.
 setlocal shiftwidth=2
 
-let g:neoformat_javascript_prettier = {
+let g:neoformat_json_prettier = {
       \ 'exe': 'prettier',
-      \ 'args': ['--stdin'],
+      \ 'args': ['--stdin', '--parser', 'json'],
       \ 'stdin': 1,
       \ }
 
