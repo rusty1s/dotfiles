@@ -6,7 +6,7 @@ let g:jsx_ext_required = 0  " Allow JSX in normal .js files.
 
 let g:neoformat_javascript_prettier = {
       \ 'exe': 'prettier',
-      \ 'args': ['--stdin'],
+      \ 'args': ['--stdin', '--parser', 'flow'],
       \ 'stdin': 1,
       \ }
 
