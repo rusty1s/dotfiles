@@ -15,6 +15,7 @@ ask_for_sudo
 . ./ruby/main.sh
 . ./java/main.sh
 . ./rust/main.sh
+. ./latex/main.sh
 . ./terminal/main.sh
 . ./shell/main.sh
 . ./tmux/main.sh

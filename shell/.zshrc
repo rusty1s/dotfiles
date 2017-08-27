@@ -15,7 +15,11 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 export GITHUB=~/github
-export PATH="$PATH:$DOTFILES/bin:$(yarn global bin):$HOME/.config/yarn/global/node_modules/.bin"
+export PATH="$PATH:$DOTFILES/bin:$(yarn global bin)"
+export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
+if on_arch; then
+  export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
+fi
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
@@ -37,9 +41,6 @@ alias gc="git commit -m"
 alias gp="git push"
 alias py="python"
 alias shellcheck="shellcheck -x"
-
-# Automatically ls after cd.
-chpwd() { ls }
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
@@ -108,3 +109,6 @@ if on_mac; then
 else
   alias ls="ls -AF --color=always"
 fi
+
+# Automatically ls after cd.
+chpwd() { ls }
