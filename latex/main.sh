@@ -13,4 +13,8 @@ fi
 
 if on_arch; then
   package_install texlive-most
+
+  # PDF-Viewer.
+  package_install zathura
+  package_install zathura-pdf-mupdf
 fi
