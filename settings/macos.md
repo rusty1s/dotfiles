@@ -19,6 +19,16 @@ Finder | Mail | Kalender | Notizen | Nachrichten | WhatsApp | Spotify | Chrome |
 
 1. schnelleres Scrolltempo
 
+### Trackpad
+
+1. Rightclick
+1. Enable Tap click
+
+### Keyboard
+
+1. Sondertasten: Ctrl on Capslock
+1. Add US layout
+
 ### Print & Scan
 
 1. Drucker hinzufügen
