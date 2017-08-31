@@ -134,7 +134,7 @@ show_library_folder() {
 
 show_volumes_folder() {
   name="Show the /Volumes folder"
-  cmd="chflags nohidden /Volumes"
+  cmd="sudo chflags nohidden /Volumes"
   eval_cmd "$name" "$cmd"
 }
 
