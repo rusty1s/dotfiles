@@ -22,7 +22,7 @@ if on_arch; then
 fi
 
 if on_mac; then
-  brew_cask_install iterm2-nightly
+  brew_cask_install iterm2
 
   # TODO: Symlink iterm2 config.
 fi
