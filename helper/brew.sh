@@ -3,6 +3,7 @@
 . ./helper/os.sh
 . ./helper/cmd.sh
 . ./helper/error.sh
+. ./helper/echos.sh
 
 install_brew() {
   if ! on_mac; then
@@ -22,8 +23,11 @@ brew_update() {
 }
 
 brew_install() {
+  name="Install $1"
   if ! brew_installed "$1"; then
-    eval_cmd "Install $1" "brew install $1"
+    eval_cmd "$name" "brew install $1"
+  else
+    print_ok "$name"
   fi
 }
 
@@ -40,8 +44,11 @@ brew_cask_update() {
 }
 
 brew_cask_install() {
+  name="Install cask $1"
   if ! brew_cask_installed "$1"; then
-    eval_cmd "Install cask $1" "brew cask install $1"
+    eval_cmd "$name" "brew cask install $1"
+  else
+    print_ok "$name"
   fi
 }
 
