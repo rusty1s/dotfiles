@@ -5,6 +5,7 @@
 . ./helper/package.sh
 . ./helper/pacaur.sh
 . ./helper/brew.sh
+. ./helper/cmd.sh
 
 print_header System
 
@@ -51,7 +52,6 @@ fi
 
 if on_mac; then
   package_install neofetch
-  package_install duti  # Set default applications for file types.
 
   brew_tap "caskroom/cask"
   brew_tap "caskroom/fonts"
@@ -64,6 +64,8 @@ if on_mac; then
   brew_cask_install dropbox
   brew_cask_install whatsapp
   brew_cask_install marked
+  package_install duti  # Set default applications for file types.
+  eval_cmd "Set default application for markdown" "duti -s com.bretterpstra.marked2 .md all"
   brew_cask_install vlc
   brew_cask_install discord
   brew_cask_install league-of-legends
