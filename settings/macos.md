@@ -42,6 +42,7 @@ Finder | Mail | Kalender | Notizen | Nachrichten | WhatsApp | Spotify | Chrome |
 ![Dock](https://user-images.githubusercontent.com/6945922/28742144-ebd575c0-7428-11e7-9c63-d09c421eea1e.png)
 ![Mouse](https://user-images.githubusercontent.com/6945922/28742148-f8478424-7428-11e7-8d61-f7019195ebb0.png)
 ![Startup](https://user-images.githubusercontent.com/6945922/28742149-fd1be35a-7428-11e7-823e-47513da457c1.png)
+![Trackpad](https://user-images.githubusercontent.com/6945922/29923248-2b9f54c4-8e59-11e7-8112-a2adb4a68b41.png)
 
 ### Marked
 
