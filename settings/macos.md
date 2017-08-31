@@ -57,6 +57,8 @@ Pass MathJax configuration to `Preferences > Style > Advanced Configuration`:
 }
 ```
 
-### Fonts
+### Downloads
 
-1. Myriad Pro
+1. 1Password
+1. Pages
+1. Keynote
