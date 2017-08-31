@@ -9,7 +9,6 @@
 . ./helper/pacaur.sh
 . ./helper/package.sh
 . ./helper/download.sh
-. ./helper/base64.sh
 . ./helper/remove.sh
 . ./helper/extract.sh
 . ./helper/gpg.sh
@@ -32,9 +31,7 @@ fi
 
 package_install git
 
-download "http://www.roemisch-drei.de/gpg.base64" "$HOME/gpg.base64"
-decode "$HOME/gpg.base64" "$HOME/gpg.zip"
-remove "$HOME/gpg.base64"
+download "http://www.roemisch-drei.de/gpg.zip" "$HOME/gpg.zip"
 extract_zip_with_password "$HOME/gpg.zip" "$password" "$HOME"
 remove "$HOME/gpg.zip"
 gpg_import_private_key "$HOME/gpg/private_key.key" "$(cat "$HOME/gpg/id")"

@@ -7,7 +7,6 @@
 . ./helper/package.sh
 . ./helper/dir.sh
 . ./helper/download.sh
-. ./helper/base64.sh
 . ./helper/remove.sh
 . ./helper/extract.sh
 . ./helper/symlink.sh
@@ -20,20 +19,19 @@ if ! on_mac; then
 fi
 
 font_dir="$HOME/.fonts"
-filename="patched-fonts"
+filename="fonts"
 filepath="$font_dir/$filename"
 password="$(cat "$DOTFILES/fonts/password.txt")"
 
 make_dir "$font_dir"
 
-download "http://www.roemisch-drei.de/$filename.base64" "$filepath.base64"
-decode "$filepath.base64" "$filepath.zip"
-remove "$filepath.base64"
+download "http://www.roemisch-drei.de/$filename.zip" "$filepath.zip"
 extract_zip_with_password "$filepath.zip" "$password" "$font_dir"
 remove "$filepath.zip"
 
 if on_arch; then
-  sudo_symlink "$filepath/*Complete.otf" "/usr/share/fonts/OTF"
+  sudo_symlink "$filepath/*.otf" "/usr/share/fonts/OTF"
+  sudo_symlink "$filepath/patched/*.otf" "/usr/share/fonts/OTF"
 
   make_dir "$HOME/.config/fontconfig"
   symlink "$HOME/fonts/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
@@ -44,5 +42,6 @@ if on_arch; then
 fi
 
 if on_mac; then
-  symlink "$filepath/*Complete.otf" "$HOME/Library/Fonts"
+  symlink "$filepath/*.otf" "$HOME/Library/Fonts"
+  symlink "$filepath/patched/*.otf" "$HOME/Library/Fonts"
 fi
