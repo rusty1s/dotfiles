@@ -9,8 +9,10 @@ yarn_update() {
     eval_cmd "Init global yarn directory" "cd $HOME/.config/yarn/global && yarn init --yes"
   fi
 
-  name="Update yarn packages"
-  eval_cmd "$name" "yarn global upgrade"
+  if [ -f "$HOME/.config/yarn/global/package.json" ]; then
+    name="Update yarn packages"
+    eval_cmd "$name" "yarn global upgrade"
+  fi
 }
 
 yarn_install() {
