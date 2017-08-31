@@ -57,6 +57,12 @@ Pass MathJax configuration to `Preferences > Style > Advanced Configuration`:
 }
 ```
 
+### ZSH
+
+1. Run `./terminal/italics.sh`
+1. Run `chsh -s $(which zsh)`
+1. Reboot
+
 ### Downloads
 
 1. 1Password
