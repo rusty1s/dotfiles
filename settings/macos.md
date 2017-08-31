@@ -56,3 +56,7 @@ Pass MathJax configuration to `Preferences > Style > Advanced Configuration`:
    }
 }
 ```
+
+### Fonts
+
+1. Myriad Pro
