@@ -3,6 +3,7 @@
 . ./vars.sh
 
 . ./helper/echos.sh
+. ./helper/os.sh
 . ./helper/package.sh
 . ./helper/cmd.sh
 . ./helper/remove.sh
@@ -23,8 +24,11 @@ remove "$HOME/.bash_logout"
 
 make_dir "$HOME/.config/sh"
 git_clone https://github.com/rupa/z "$HOME/.config/sh/z"
-git_clone https://github.com/illinoisjackson/even-better-ls "$HOME/.config/sh/even-better-ls"
-eval_cmd "Install even-better-ls" "cd $HOME && sh $HOME/.config/sh/even-better-ls/install.sh"
+
+if ! on_mac; then
+  git_clone https://github.com/illinoisjackson/even-better-ls "$HOME/.config/sh/even-better-ls"
+  eval_cmd "Install even-better-ls" "cd $HOME && sh $HOME/.config/sh/even-better-ls/install.sh"
+fi
 
 make_dir "$HOME/.config/zsh"
 git_clone https://github.com/zsh-users/zsh-completions "$HOME/.config/zsh/completions"

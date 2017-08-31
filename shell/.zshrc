@@ -101,8 +101,10 @@ fi
 
 eval $(thefuck --alias)
 
-evenbetterls="$HOME/.config/sh/even-better-ls/append_to_profile.sh"
-[ -f "$evenbetterls" ] && source "$evenbetterls"
+if ! on_mac; then
+  evenbetterls="$HOME/.config/sh/even-better-ls/append_to_profile.sh"
+  [ -f "$evenbetterls" ] && source "$evenbetterls"
+fi
 
 if on_mac; then
   alias ls="ls -AFG"
