@@ -25,6 +25,7 @@ brew_update() {
 brew_install() {
   name="Install $1"
   if ! brew_installed "$1"; then
+    # TODO: Show no useless brew errors.
     eval_cmd "$name" "brew install $1"
   else
     print_ok "$name"
