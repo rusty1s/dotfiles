@@ -8,6 +8,9 @@
 . ./helper/brew.sh
 . ./helper/pacaur.sh
 . ./helper/package.sh
+. ./helper/dir.sh
+. ./helper/symlink.sh
+. ./helper/eval_cmd.sh
 . ./helper/download.sh
 . ./helper/remove.sh
 . ./helper/extract.sh
@@ -27,6 +30,11 @@ if on_mac; then
   brew_install gpg
   brew_install gpg-agent
 elif on_arch; then
+  package_install gnupg
+  make_dir "$HOME/.gnupg"
+  symlink "$DOTFILES/settings/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+  eval_cmd "Reload gpg agent" "gpg-connect-agent reloadagent /bye"
+
   install_pacaur
 fi
 
