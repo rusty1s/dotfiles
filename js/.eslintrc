@@ -11,7 +11,7 @@
         "semi": true,
         "singleQuote": true,
         "trailingComma": "all",
-        "backetSpacing": true,
+        "bracketSpacing": true,
         "jsxBracketSameLine": false
       }
     ]
