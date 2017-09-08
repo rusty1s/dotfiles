@@ -30,7 +30,7 @@ extract_zip_with_password "$filepath.zip" "$password" "$font_dir"
 remove "$filepath.zip"
 
 if on_arch; then
-  make_dir "/usr/share/fonts/OTF"
+  sudo_make_dir "/usr/share/fonts/OTF"
   sudo_symlink "$filepath/*.otf" "/usr/share/fonts/OTF"
   sudo_symlink "$filepath/patched/*.otf" "/usr/share/fonts/OTF"
 
