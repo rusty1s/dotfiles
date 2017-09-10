@@ -22,3 +22,14 @@ Until VirtualBox fixes the issue, we can use **Karabiner**, swap the `Alt` and `
 1. Download Karabiner: `brew cask install karabiner`
 1. `ln -sf ~/dotfiles/arch/private.xml ~/Library/Application\ Support/Karabiner/private.xml`
 1. Click `Reload XML` and check `Swap Alt to Cmd in VirtualBoxVM`
+
+## Shared folders
+
+1. Create a shared folder `shared` on the host system.
+1. Configure under VirtualBox settings.
+1. Creaate `host` folder on the guest system
+1. Run:
+
+```sh
+sudo mount -t vboxsf -o uid=$UD,gid=$(id -g) shared ~/host
+```
