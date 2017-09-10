@@ -28,6 +28,7 @@ git_clone https://github.com/rupa/z "$HOME/.config/sh/z"
 if ! on_mac; then
   git_clone https://github.com/illinoisjackson/even-better-ls "$HOME/.config/sh/even-better-ls"
   eval_cmd "Install even-better-ls" "cd $HOME && sh $HOME/.config/sh/even-better-ls/install.sh"
+  remove "$HOME/coreutils-8.2"
 fi
 
 make_dir "$HOME/.config/zsh"
