@@ -57,7 +57,7 @@ setopt HIST_IGNORE_SPACE   # No saving of events starting with a space.
 setopt HIST_FIND_NO_DUPS   # No display of prevously found event.
 setopt HIST_VERIFY         # No immediate execute on expansion.
 
-fpath=("$(yarn global bin)/node_modules/pure-prompt/functions" $fpath)
+fpath=("$HOME/.config/yarn/global/node_modules/pure-prompt/functions" $fpath)
 autoload -U promptinit; promptinit
 prompt pure
 
