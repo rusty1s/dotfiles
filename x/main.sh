@@ -10,6 +10,7 @@
 if on_arch; then
   print_header "X Window System"
 
+  package_install xorg
   package_install xorg-server
   package_install xorg-xinit
   package_install xorg-xset
