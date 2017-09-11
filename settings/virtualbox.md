@@ -31,5 +31,5 @@ Until VirtualBox fixes the issue, we can use **Karabiner**, swap the `Alt` and `
 1. Run:
 
 ```sh
-sudo mount -t vboxsf -o uid=$UD,gid=$(id -g) shared ~/host
+sudo mount -t vboxsf -o uid=$UID,gid=$(id -g) shared ~/host
 ```
