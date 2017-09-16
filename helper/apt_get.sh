@@ -13,3 +13,5 @@ apt_get_install() {
   # TODO
   eval_cmd "$name" "sudo apt-get $1"
 }
+
+# TODO: ADDING PPA
