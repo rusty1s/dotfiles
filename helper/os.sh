@@ -8,6 +8,11 @@ on_arch() {
   fi
 }
 
+on_ubuntu() {
+  # TODO
+  return 1
+}
+
 on_mac() {
   if uname | grep -qi "darwin"; then
     return 0
