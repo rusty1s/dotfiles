@@ -1,22 +1,21 @@
 #!/bin/sh
 
-on_arch() {
-  if uname -a | grep -qi "arch"; then
+on_os() {
+  if uname -a | grep -qi "$1"; then
     return 0
   else
     return 1
   fi
+}
+
+on_arch() {
+  on_os "arch"
 }
 
 on_ubuntu() {
-  # TODO
-  return 1
+  on_os "ubuntu"
 }
 
 on_mac() {
-  if uname | grep -qi "darwin"; then
-    return 0
-  else
-    return 1
-  fi
+  on_os "darwin"
 }
