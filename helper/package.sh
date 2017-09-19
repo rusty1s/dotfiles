@@ -2,6 +2,7 @@
 
 . ./helper/os.sh
 . ./helper/pacman.sh
+. ./helper/apt_get.sh
 . ./helper/brew.sh
 . ./helper/error.sh
 
@@ -10,6 +11,8 @@ os_not_supported="It seems that your OS is not supported"
 package_update() {
   if on_arch; then
     pacman_update
+  elif on_ubuntu; then
+    apt_get_update
   elif on_mac; then
     brew_update
   else
@@ -20,6 +23,8 @@ package_update() {
 package_install() {
   if on_arch; then
     pacman_install "$1"
+  elif on_ubuntu; then
+    apt_get_install "$1"
   elif on_mac; then
     brew_install "$1"
   else
