@@ -9,7 +9,7 @@
 
 print_header Ruby
 
-ruby_install "$RUBY_VERSION"
+package_install ruby
 
 gem_update
 

@@ -11,5 +11,3 @@ if uname -a | grep -qi "ubuntu"; then
 else
   export PYTHON_VERSION="3.6"
 fi
-
-export RUBY_VERSION="2.4.1"

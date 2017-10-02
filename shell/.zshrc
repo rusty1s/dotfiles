@@ -17,7 +17,6 @@ export VISUAL=nvim
 export GITHUB=~/github
 export PATH="$PATH:$DOTFILES/bin:$(yarn global bin)"
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
@@ -92,10 +91,6 @@ fi
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if command -v rbenv > /dev/null; then
-  eval "$(rbenv init -)"
-fi
 
 [ -f ~/.proxy.sh ] && source ~/.proxy.sh
 
