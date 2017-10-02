@@ -12,11 +12,9 @@ print_header "Version Control Systems"
 
 package_install git
 
-if on_mac; then
+if ! on_arch; then
   package_install git-crypt
-fi
-
-if on_arch; then
+else
   pacaur_install git-crypt
 fi
 
