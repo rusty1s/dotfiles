@@ -17,6 +17,13 @@ if on_arch; then
   package_install python2-pip
 fi
 
+if on_ubuntu; then
+  package_install python
+  package_install python-pip
+  package_install python3
+  package_install python3-pip
+fi
+
 if on_mac; then
   package_install python
   package_install python3

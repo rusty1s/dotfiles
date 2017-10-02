@@ -8,7 +8,15 @@ system_pip_update() {
   name="Update system pip packages"
 
   if [ -f /usr/bin/pip ]; then
-    eval_cmd "$name" "/usr/bin/pip list --outdated --format=freeze | xargs -n1 pip install --upgrade"
+    eval_cmd "$name" "/usr/bin/pip list --outdated --format=freeze | xargs -n1 /usr/bin/pip install --upgrade"
+  elif [ -f /usr/bin/pip2 ]; then
+    eval_cmd "$name" "/usr/bin/pip2 list --outdated --format=freeze | xargs -n1 /usr/bin/pip2 install --upgrade"
+  elif [ -f /usr/bin/pip3 ]; then
+    eval_cmd "$name" "/usr/bin/pip3 list --outdated --format=freeze | xargs -n1 /usr/bin/pip3 install --upgrade"
+  elif [ -f /usr/local/bin/pip ]; then
+    eval_cmd "$name" "/usr/local/bin/pip list --outdated --format=freeze | xargs -n1 /usr/local/bin/pip install --upgrade"
+  elif [ -f /usr/local/bin/pip2 ]; then
+    eval_cmd "$name" "/usr/local/bin/pip2 list --outdated --format=freeze | xargs -n1 /usr/local/bin/pip2 install --upgrade"
   elif [ -f /usr/local/bin/pip3 ]; then
     eval_cmd "$name" "/usr/local/bin/pip3 list --outdated --format=freeze | xargs -n1 /usr/local/bin/pip3 install --upgrade"
   else
@@ -22,6 +30,14 @@ system_pip_install() {
 
   if [ -f /usr/bin/pip ]; then
     eval_cmd "$name" "sudo /usr/bin/pip install --upgrade $1"
+  elif [ -f /usr/bin/pip2 ]; then
+    eval_cmd "$name" "sudo /usr/bin/pip2 install --upgrade $1"
+  elif [ -f /usr/bin/pip3 ]; then
+    eval_cmd "$name" "sudo /usr/bin/pip3 install --upgrade $1"
+  elif [ -f /usr/local/bin/pip ]; then
+    eval_cmd "$name" "/usr/local/bin/pip install --upgrade $1"
+  elif [ -f /usr/local/bin/pip2 ]; then
+    eval_cmd "$name" "/usr/local/bin/pip2 install --upgrade $1"
   elif [ -f /usr/local/bin/pip3 ]; then
     eval_cmd "$name" "/usr/local/bin/pip3 install --upgrade $1"
   else
