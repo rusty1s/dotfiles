@@ -3,16 +3,29 @@
 . ./vars.sh
 
 . ./helper/echos.sh
+. ./helper/os.sh
+. ./helper/cmd.sh
 . ./helper/package.sh
 . ./helper/cmd.sh
+. ./helper/apt.sh
 . ./helper/yarn.sh
 . ./helper/symlink.sh
 
 print_header JavaScript
 
-package_install nodejs
-package_install npm
-package_install yarn
+if ! on_ubuntu; then
+  package_install nodejs
+  package_install npm
+  package_install yarn
+else
+  eval_cmd "nodejs prerequisites" "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -"
+  package_install nodejs
+
+  eval_cmd "Add key" "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -"
+  eval_cmd "Set source" "echo deb https://dl.yarnpkg.com/debian/ stable main | sudo tee /etc/apt/sources.list.d/yarn.list"
+  apt_update_sources
+  package_install yarn
+fi
 
 eval_cmd "Set yarn global bin" "yarn config set prefix ~/.yarn-global"
 

@@ -33,16 +33,20 @@ if on_arch; then
   sudo_make_dir "/usr/share/fonts/OTF"
   sudo_symlink "$filepath/*.otf" "/usr/share/fonts/OTF"
   sudo_symlink "$filepath/patched/*.otf" "/usr/share/fonts/OTF"
+elif on_ubuntu; then
+  sudo_symlink "$filepath/*.otf" "/usr/share/fonts/opentype"
+  sudo_symlink "$filepath/patched/*.otf" "/usr/share/fonts/opentype"
+elif on_mac; then
+  symlink "$filepath/*.otf" "$HOME/Library/Fonts"
+  symlink "$filepath/patched/*.otf" "$HOME/Library/Fonts"
+fi
 
+if on_arch; then
   make_dir "$HOME/.config/fontconfig"
   symlink "$HOME/fonts/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
 
   sudo_symlink "/etc/fonts/conf.avail/11-lcdfilter-default.conf" "/etc/fonts/conf.d"
   sudo_symlink "/etc/fonts/conf.avail/10-sub-pixel-rgb.conf" "/etc/fonts/conf.d"
   sudo_remove "/etc/fonts/conf.d/10-scale-bitmap-fonts.conf"
-fi
 
-if on_mac; then
-  symlink "$filepath/*.otf" "$HOME/Library/Fonts"
-  symlink "$filepath/patched/*.otf" "$HOME/Library/Fonts"
 fi

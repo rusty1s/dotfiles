@@ -5,6 +5,7 @@
 . ./helper/echos.sh
 . ./helper/os.sh
 . ./helper/brew.sh
+. ./helper/apt.sh
 . ./helper/package.sh
 . ./helper/python.sh
 . ./helper/dir.sh
@@ -15,6 +16,10 @@ print_header Vim
 
 if on_mac; then
   brew_tap neovim/neovim
+fi
+
+if on_ubuntu; then
+  apt_add_ppa "ppa:neovim-ppa/stable"
 fi
 
 package_install neovim
