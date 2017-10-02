@@ -2,7 +2,7 @@
 
 . ./helper/os.sh
 . ./helper/pacman.sh
-. ./helper/apt_get.sh
+. ./helper/apt.sh
 . ./helper/brew.sh
 . ./helper/error.sh
 
@@ -12,7 +12,7 @@ package_update() {
   if on_arch; then
     pacman_update
   elif on_ubuntu; then
-    apt_get_update
+    apt_update
   elif on_mac; then
     brew_update
   else
@@ -24,7 +24,7 @@ package_install() {
   if on_arch; then
     pacman_install "$1"
   elif on_ubuntu; then
-    apt_get_install "$1"
+    apt_install "$1"
   elif on_mac; then
     brew_install "$1"
   else

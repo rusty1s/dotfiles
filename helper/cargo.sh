@@ -21,7 +21,16 @@ cargo_update() {
 }
 
 cargo_install() {
-  name="Install $1"
-  eval_cmd "$name" "cargo install --force $1"
+  if ! cargo_installed "$1"; then
+    name="Install $1"
+    eval_cmd "$name" "cargo install $1"
+  fi
 }
 
+cargo_installed() {
+  if cargo install --list | grep -qi "$1"; then
+    return 0
+  else
+    return 1
+  fi
+}

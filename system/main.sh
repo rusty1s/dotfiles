@@ -5,6 +5,7 @@
 . ./helper/package.sh
 . ./helper/pacaur.sh
 . ./helper/brew.sh
+. ./helper/apt.sh
 . ./helper/cargo.sh
 . ./helper/cmd.sh
 
@@ -56,6 +57,11 @@ if on_arch; then
   pacaur_install dropbox
   pacaur_install whatsapp-web-desktop
   pacaur_install filezilla
+fi
+
+if on_ubuntu; then
+  apt_add_ppa "dawidd0811/neofetch-daily"
+  apt_install neofetch
 fi
 
 if on_mac; then
