@@ -59,13 +59,17 @@ if on_arch; then
 fi
 
 if on_ubuntu; then
-  apt_add_ppa "dawidd0811/neofetch-daily"
+  apt_add_ppa "ppa:dawidd0811/neofetch-daily"
   apt_install neofetch
 
-  apt_add_key "hkp://keyserver.ubuntu.com:80" "BBEBDCB318AD50EC6865090613B00F1FD2C19886"
+  apt_add_key hkp://keyserver.ubuntu.com:80 BBEBDCB318AD50EC6865090613B00F1FD2C19886
   eval_cmd "Set spotify source" "echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list"
   apt_update_sources
-  apt_install "spotify-client"
+  apt_install spotify-client
+
+  apt_add_key pgp.mit.edu 5044912E
+  apt_add_ppa "\"deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main\""
+  apt_install dropbox
 fi
 
 if on_mac; then

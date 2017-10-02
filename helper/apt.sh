@@ -18,8 +18,8 @@ apt_install() {
 }
 
 apt_add_ppa() {
-  name="Add ppa:$1"
-  eval_cmd "$name" "sudo add-apt-repository -y ppa:$1"
+  name="Add $1"
+  eval_cmd "$name" "sudo add-apt-repository -y $1"
   apt_update_sources
 }
 
