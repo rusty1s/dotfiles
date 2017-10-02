@@ -1,8 +1,8 @@
 #!/bin/sh
 
 . ./helper/echos.sh
-. ./helper/package.sh
+. ./helper/cargo.sh
 
 print_header Rust
 
-package_install rust
+install_cargo

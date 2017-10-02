@@ -17,9 +17,9 @@ export VISUAL=nvim
 export GITHUB=~/github
 export PATH="$PATH:$DOTFILES/bin:$(yarn global bin)"
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
-if on_arch; then
-  export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
-fi
+export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 

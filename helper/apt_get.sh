@@ -4,7 +4,7 @@
 
 apt_get_update() {
   name="Update packages"
-  eval_cmd "$name" "sudo apt-get --y --force-yes upgrade"
+  eval_cmd "$name" "sudo apt-get upgrade"
 }
 
 apt_get_install() {

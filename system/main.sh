@@ -5,6 +5,7 @@
 . ./helper/package.sh
 . ./helper/pacaur.sh
 . ./helper/brew.sh
+. ./helper/cargo.sh
 . ./helper/cmd.sh
 
 print_header System
@@ -14,15 +15,22 @@ if on_mac; then
 fi
 
 package_update
-
+ 
 package_install wget
 package_install curl
 package_install unzip
-package_install ripgrep
+ 
 package_install shellcheck
 package_install ranger
 package_install ruby
 package_install thefuck
+
+if ! on_ubuntu; then
+  package_install ripgrep
+else
+  install_cargo
+  cargo_install ripgrep
+fi
 
 if ! on_mac; then
   package_install zip
