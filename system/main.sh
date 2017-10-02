@@ -36,11 +36,10 @@ fi
 if ! on_mac; then
   package_install zip
   package_install xclip
+  package_install tar
 fi
 
 if on_arch; then
-  package_install tar
-
   install_pacaur
   pacaur_update
 
@@ -62,6 +61,11 @@ fi
 if on_ubuntu; then
   apt_add_ppa "dawidd0811/neofetch-daily"
   apt_install neofetch
+
+  apt_add_key "hkp://keyserver.ubuntu.com:80" "BBEBDCB318AD50EC6865090613B00F1FD2C19886"
+  eval_cmd "Set spotify source" "echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list"
+  apt_update_sources
+  apt_install "spotify-client"
 fi
 
 if on_mac; then
