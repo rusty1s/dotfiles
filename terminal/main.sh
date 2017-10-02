@@ -9,6 +9,9 @@
 . ./helper/brew.sh
 . ./helper/dir.sh
 . ./helper/symlink.sh
+. ./helper/git.sh
+. ./helper/cmd.sh
+. ./helper/copy.sh
 
 print_header Terminal
 
@@ -30,4 +33,9 @@ elif on_ubuntu; then
   package_install libfreetype6-dev
   package_install libfontconfig1-dev
   package_install xclip
+
+  git_clone https://github.com/jwilm/alacritty "$HOME/.alacritty"
+  eval_cmd "Install alacritty" "cd $HOME/.alacritty && cargo build --release"
+  sudo_copy "$HOME/.alacritty/target/release/alacritty" "/usr/local/bin/alacritty"
+  copy "$HOME/.alacritty/Alacritty.desktop" "$HOME/.local/share/applications/Alacritty.desktop"
 fi

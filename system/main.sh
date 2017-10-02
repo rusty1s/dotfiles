@@ -16,11 +16,11 @@ if on_mac; then
 fi
 
 package_update
- 
+
 package_install wget
 package_install curl
 package_install unzip
- 
+
 package_install shellcheck
 package_install ranger
 package_install ruby
