@@ -96,10 +96,10 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 eval $(thefuck --alias)
 
-if ! on_mac; then
-  evenbetterls="$HOME/.config/sh/even-better-ls/append_to_profile.sh"
-  [ -f "$evenbetterls" ] && source "$evenbetterls"
-fi
+# if ! on_mac; then
+#   evenbetterls="$HOME/.config/sh/even-better-ls/append_to_profile.sh"
+#   [ -f "$evenbetterls" ] && source "$evenbetterls"
+# fi
 
 if on_mac; then
   alias ls="ls -AFG"
