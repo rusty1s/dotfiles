@@ -154,8 +154,5 @@ exec_always xset r rate 200 80
 exec_always feh --bg-fill ~/wallpapers/bg01.jpg
 exec_always xrdb ~/.Xresources
 
-# exec alacritty
-# exec urxvt
 exec spotify
 exec dropbox
-# exec whatsapp-web-desktop

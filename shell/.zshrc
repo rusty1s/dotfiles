@@ -86,8 +86,8 @@ source ~/.config/zsh/history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-if [ -f "$PYTHON_VENV/$PYTHON_VENV_VERSION/bin/activate" ]; then
-  source "$PYTHON_VENV/$PYTHON_VENV_VERSION/bin/activate"
+if [ -f "$PYTHON_VENV/$PYTHON_VERSION/bin/activate" ]; then
+  source "$PYTHON_VENV/$PYTHON_VERSION/bin/activate"
 fi
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'

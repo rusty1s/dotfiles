@@ -18,3 +18,7 @@ if on_arch; then
   package_install zathura
   package_install zathura-pdf-mupdf
 fi
+
+if on_ubuntu; then
+  package_install texlive-full
+fi

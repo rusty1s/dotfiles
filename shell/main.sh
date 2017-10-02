@@ -12,11 +12,13 @@
 . ./helper/yarn.sh
 . ./helper/symlink.sh
 
-
 print_header Shell
 
 package_install zsh
-package_install zsh-completions
+
+if ! on_ubuntu; then
+  package_install zsh-completions
+fi
 
 remove "$HOME/.bashrc"
 remove "$HOME/.bash_history"
