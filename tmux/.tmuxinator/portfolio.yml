@@ -1,0 +1,12 @@
+# ~/.tmuxinator/dotfiles.yml
+
+name: portfolio
+root: ~/github/rusty1s.github.io
+
+windows:
+  - editor:
+      layout: main-horizontal
+      panes:
+        - vim
+        - #empty
+  - webpack: yarn install && yarn start
