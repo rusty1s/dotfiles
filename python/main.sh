@@ -51,7 +51,6 @@ pip_install coverage
 pip_install numpy
 pip_install numpy-groupies
 pip_install scipy
-pip_install tensorflow
 pip_install ipython
 pip_install jupyter
 pip_install matplotlib
