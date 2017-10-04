@@ -1,0 +1,17 @@
+#!/bin/bash
+
+. ./vars.sh
+
+. ./helper/echos.sh
+. ./helper/apt.sh
+. ./helper/python.sh
+
+print_header Cuda
+
+apt_purge "nvidia*"
+apt_add_ppa ppa:graphics-drivers/ppa
+apt_install nvidia-381
+
+python_virtualenv_activate "$PYTHON_VENV/$PYTHON_VERSION"
+
+pip_install tensorflow-gpu
