@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$TMUX" != "" ] ; then
+  echo "Abort: Leave the tmux session."
+  exit 0
+fi
+
+tmux kill-session
