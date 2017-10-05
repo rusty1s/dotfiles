@@ -27,8 +27,3 @@ apt_add_key() {
   name="Add key"
   eval_cmd "$name" "sudo apt-key adv --keyserver $1 --recv-keys $2"
 }
-
-apt_purge() {
-  name="Purge $1"
-  eval_cmd "$name" "sudo apt -y --force-yes purge $1"
-}
