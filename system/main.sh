@@ -75,6 +75,11 @@ if on_ubuntu; then
   eval_cmd "Set source" "echo deb http://dl.google.com/linux/chrome/deb/ stable main | sudo tee /etc/apt/sources.list.d/google.list"
   apt_update_sources
   apt_install google-chrome-stable
+
+  apt_add_ppa "deb http://archive.canonical.com/ precise partner"
+  apt_install adobereader-enu
+
+  apt_install gimp
 fi
 
 if on_mac; then
