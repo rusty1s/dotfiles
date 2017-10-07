@@ -1,6 +1,6 @@
 ---
-name: portfolio
-root: ~/github/rusty1s.github.io
+name: pytorch_geometric
+root: ~/github/pytorch_geometric
 
 windows:
   - editor:
@@ -8,5 +8,5 @@ windows:
       panes:
         - vim
         - #empty
-  - webpack: yarn install && yarn start
+  - pip: #empty
   - git: git status
