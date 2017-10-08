@@ -32,6 +32,6 @@ fi
 if on_mac; then
   python_virtualenv_activate "$PYTHON_VENV/$PYTHON_VERSION"
   pip_install tensorflow
-  pip_install http://download.pytorch.org/whl/torch-0.2.0.post3-cp35-cp35m-macosx_10_7_x86_64.whl
+  pip_install http://download.pytorch.org/whl/torch-0.2.0.post3-cp36-cp36m-macosx_10_7_x86_64.whl
   pip_install torchvision
 fi
