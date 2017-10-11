@@ -30,5 +30,6 @@ if on_arch; then
   # Wallpapers.
   make_dir "$HOME/wallpapers"
   download "https://i.imgur.com/zF1V6EE.jpg" "$HOME/wallpapers/bg01.jpg"
+  # https://www.reddit.com/r/unixporn/comments/74nqax/herbstluftwm_tiling_in_the_name_of/
   download "https://orig00.deviantart.net/88bd/f/2015/234/0/8/yosmite_by_amdpastrana-d96orw5.png" "$HOME/wallpapers/bg02.png"
 fi
