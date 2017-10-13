@@ -84,8 +84,14 @@ if [[ $ZSH_HIGHLIGHT_REVISION != 'HEAD' ]]; then
   source ~/.config/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 source ~/.config/zsh/history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+
+if on_ubuntu; then
+  bindkey '^[OA' history-substring-search-up
+  bindkey '^[OB' history-substring-search-down
+else
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
 
 if [ -f "$PYTHON_VENV/$PYTHON_VERSION/bin/activate" ]; then
   source "$PYTHON_VENV/$PYTHON_VERSION/bin/activate"
