@@ -9,7 +9,7 @@ set statusline+=%{statusline#readonly()}       " Readonly flag.
 set statusline+=\                              " Space.
 set statusline+=%*                             " Reset highlight group.
 set statusline+=%3*                            " User group 3.
-set statusline+=                              " Powerline arrow.
+" set statusline+=                              " Powerline arrow.
 set statusline+=%*                             " Reset highlight group.
 set statusline+=%<                             " Truncation point.
 set statusline+=\                              " Space.
@@ -24,7 +24,7 @@ set statusline+=%([
 set statusline+=%=      " Split point for left and right groups.
 
 set statusline+=%8*     " User group 8.
-set statusline+=       " Powerline arrow.
+" set statusline+=       " Powerline arrow.
 set statusline+=%*      " Reset highlight group.
 set statusline+=%9*     " User group 9.
 set statusline+=\       " Space
