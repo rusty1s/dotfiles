@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import Autosuggest from "react-autosuggest";
+import React, { Component } from 'react';
+import Autosuggest from 'react-autosuggest';
 
 const options = {
-  method: "GET",
-  mode: "cors",
+  method: 'GET',
+  mode: 'cors',
   headers: {
-    Aaccept: "application/json",
-    "Access-Control-Allow-Origin": "*"
-  }
+    Aaccept: 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  },
 };
 
 console.log(options);
@@ -26,42 +26,39 @@ const getSuggestions = value => {
     .then(json => json[1]);
 };
 
-const renderSuggestion = suggestion =>
-  <div>
-    {suggestion}
-  </div>;
+const renderSuggestion = suggestion => <div>{suggestion}</div>;
 
 export default class Search extends Component {
   state = {
-    value: "",
-    suggestions: []
+    value: '',
+    suggestions: [],
   };
 
   onChange = e =>
     this.setState({
-      value: e.target.value
+      value: e.target.value,
     });
 
   onSuggestionsFetchRequested = ({ value }) =>
     getSuggestions(value).then(json => {
       console.log(json);
       this.setState({
-        suggestions: []
+        suggestions: [],
       });
     });
 
   onSuggestionsClearRequested = () =>
     this.setState({
-      suggestions: []
+      suggestions: [],
     });
 
   render() {
     const { value, suggestions } = this.state;
 
     const inputProps = {
-      placeholder: "Search term ...",
+      placeholder: 'Search term ...',
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
     };
 
     return (

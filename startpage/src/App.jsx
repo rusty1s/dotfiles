@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import Search from "./Search";
+import Search from './Search';
 
-const App = () =>
+const App = () => (
   <div>
     <h1>Welcome</h1>
     <Search />
-  </div>;
+  </div>
+);
 
 export default App;
