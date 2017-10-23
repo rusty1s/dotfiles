@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "postinstall": "js-dev-utils postinstall",
+    "start": "js-dev-utils webpack dev",
+    "build": "js-dev-utils webpack prod",
+    "lint-js": "js-dev-utils eslint .",
+    "lint-css": "js-dev-utils stylelint **/*.css"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "js-dev-utils": "^0.0.7"
+  }
+}
