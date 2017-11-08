@@ -7,6 +7,6 @@ windows:
       layout: main-horizontal
       panes:
         - vim
-        - git pull
+        - #empty
   - pip: #empty
-  - git: git status
+  - git: git pull && git status
