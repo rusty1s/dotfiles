@@ -57,3 +57,4 @@ pip_install matplotlib
 pip_install networkx
 pip_install scikit-image
 pip_install scikit-learn
+pip_install Sphinx
