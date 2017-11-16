@@ -9,4 +9,4 @@ windows:
         - vim
         - #empty
   - pip: #empty
-  - git: git pull && git status
+  - git: git status
