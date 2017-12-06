@@ -85,6 +85,10 @@ if [[ $ZSH_HIGHLIGHT_REVISION != 'HEAD' ]]; then
 fi
 source ~/.config/zsh/history-substring-search/zsh-history-substring-search.zsh
 
+if [ -f "$HOME/torch/install/bin/torch-activate" ]; then
+  source "$HOME/torch/install/bin/torch-activate"
+fi
+
 if on_ubuntu; then
   bindkey '^[OA' history-substring-search-up
   bindkey '^[OB' history-substring-search-down
