@@ -104,4 +104,5 @@ if on_mac; then
   brew_cask_install the-unarchiver
   brew_cask_install filezilla
   brew_cask_install virtualbox
+  brew_cask_install vanilla
 fi
