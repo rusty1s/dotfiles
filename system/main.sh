@@ -92,6 +92,7 @@ if on_mac; then
 
   # Applications.
   brew_cask_install google-chrome
+  brew_cask_install ubersicht
   brew_cask_install spotify
   brew_cask_install dropbox
   brew_cask_install whatsapp
