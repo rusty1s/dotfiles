@@ -3,7 +3,7 @@ command: "osascript ~/dotfiles/tmux/spotify.scpt"
 refreshFrequency: 100
 
 render: (output) -> """
-  <div>#{output}</div>
+  <div></div>
 """
 
 style: """
@@ -20,4 +20,5 @@ style: """
 """
 
 update: (output, elem) ->
+  output = "🍺 " + output
   $(elem).html(output)
