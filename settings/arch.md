@@ -1,5 +1,7 @@
 # Arch Linux
 
+* [UEFI Installation](https://wiki.archlinux.de/title/UEFI_Installation)
+
 ## Installation
 
 1. `Boot Arch Linux (x86_64)`
