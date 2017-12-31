@@ -5,6 +5,8 @@
 
 MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stackexchange.com/questions/57597/how-to-fix-broken-efi-partition)
 
+* [Fix Audio](http://hackintosher.com/guides/get-hackintosh-audio-working/#step3)
+
 ## z270 MSI
 
 * [MSI z270 Gaming Pro Carbon ATX Hackintosh Build Guide](http://hackintosher.com/builds/msi-z270-gaming-pro-carbon-atx-hackintosh-build-guide/)
