@@ -7,7 +7,13 @@ MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stacke
 
 ## z270 MSI
 
-1. Download [OsxAptioFix2Drv-free2000.efi.zip](http://hackintosher.com/wp-content/uploads/2017/07/OsxAptioFix2Drv-free2000.efi_.zip) and paste it into `EFI/CLOVER/drivers64UEFI/`
+* [MSI z270 Gaming Pro Carbon ATX Hackintosh Build Guide](http://hackintosher.com/builds/msi-z270-gaming-pro-carbon-atx-hackintosh-build-guide/)
+* [MSI z270 Gaming Pro Carbon](https://www.tonymacx86.com/threads/success-msi-z270-gaming-pro-carbon-intel-core-i7-7700k-corsair-rgb-16gb-ram-geforce-gtx-1080.228994/)
+
+* Download [OsxAptioFix2Drv-free2000.efi.zip](http://hackintosher.com/wp-content/uploads/2017/07/OsxAptioFix2Drv-free2000.efi_.zip) and paste it into `EFI/CLOVER/drivers64UEFI/`
+
+### BIOS
+
 1. `Advanced > USB Configuration > XHCI Hand-off` to `enabled`
 1. `Advanced > USB Configuration > Legacy USB Support` to `auto`
 1. `Advanced > Wake Up Event Setup > Resume By USB Device` to `enabled`
@@ -15,3 +21,13 @@ MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stacke
 1. `Advanced > Wake Up Event Setup > From S3/S4/S5 by PS/2 Mouse` to `any key`
 1. `Overclocking > Extreme Memory Profile (X.M.P)` to `enabled`
 1. `Overclocking > CPU Features > CFG-Lock` to `disabled`
+
+### MultiBeast
+
+1. `Drivers > Audio > Realtek ALCxxx > ALC1220`
+1. `Drivers > Disk > 3rd Party SATA`
+1. `Drivers > Misc > FakeSMC`
+1. `Drivers > Network > Intel > IntelMausiEthernet v2.3.0`
+1. `Drivers > USB > Increase Max Port Limit 200 Series`
+1. `Bootloaders > COLVER UEFI Boot Mode + Emulated NVRAM`
+1. `Drivers > Graphics > NVIDIA Web Drivers Boot Flag`
