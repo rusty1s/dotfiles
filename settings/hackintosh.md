@@ -41,4 +41,4 @@ MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stacke
 ### Cuda
 
 Cudnn 6 needs Cuda 8! You need to download both manually
-You also need downgraded [Command Line Tools for Xcode 8.3](https://developer.apple.com/download)
+You also need downgraded [Command Line Tools for Xcode 8.2](https://developer.apple.com/download)
