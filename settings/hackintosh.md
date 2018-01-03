@@ -40,4 +40,4 @@
 
 * Download both Cuda 8 and Cudnn 6 manually
 * You also need downgraded [Command Line Tools for Xcode 8.2](https://developer.apple.com/download) and remove `Library/Developer/CommandLineTools` first!
-* Download XCode to be able to [switch between CommandLineTools versions](https://stackoverflow.com/questions/47898851/how-to-install-nvidia-cudnn-v7-for-cuda-9-1-for-tensorflow-on-os-x-high-sierra-1)
+* Download XCode to be able to [switch between CommandLineTools versions](https://stackoverflow.com/questions/47898851/how-to-install-nvidia-cudnn-v7-for-cuda-9-1-for-tensorflow-on-os-x-high-sierra-1) (`Preferences > Locations`)
