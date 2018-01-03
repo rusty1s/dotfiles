@@ -9,6 +9,13 @@
 * Fix Audio: [Link 1](http://hackintosher.com/guides/get-hackintosh-audio-working/#step3) and [Link 2](https://www.reddit.com/r/hackintosh/comments/766tsy/cant_install_audio_msi_z270_macos_sierra/)
 * Sleep: Set `darkmode=8`
 
+## Cuda
+
+* Download and install both Cuda 8 and Cudnn 6 manually
+* Download and install XCode from the AppStore to be able to [switch between CommandLineTools versions](https://stackoverflow.com/questions/47898851/how-to-install-nvidia-cudnn-v7-for-cuda-9-1-for-tensorflow-on-os-x-high-sierra-1) (`Preferences > Locations`)
+* Download and install additional [Command Line Tools for Xcode 8.2](https://developer.apple.com/download/more)
+* Switch whenever something needs to be build by `nvcc`
+
 ## z270 MSI
 
 * [MSI z270 Gaming Pro Carbon ATX Hackintosh Build Guide](http://hackintosher.com/builds/msi-z270-gaming-pro-carbon-atx-hackintosh-build-guide/)
@@ -35,9 +42,3 @@
 1. `Drivers > USB > Increase Max Port Limit 200 Series`
 1. `Bootloaders > COLVER UEFI Boot Mode + Emulated NVRAM`
 1. `Drivers > Graphics > NVIDIA Web Drivers Boot Flag`
-
-## Cuda
-
-* Download both Cuda 8 and Cudnn 6 manually
-* You also need downgraded [Command Line Tools for Xcode 8.2](https://developer.apple.com/download) and remove `Library/Developer/CommandLineTools` first!
-* Download XCode to be able to [switch between CommandLineTools versions](https://stackoverflow.com/questions/47898851/how-to-install-nvidia-cudnn-v7-for-cuda-9-1-for-tensorflow-on-os-x-high-sierra-1) (`Preferences > Locations`)
