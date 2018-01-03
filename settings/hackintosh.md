@@ -3,9 +3,11 @@
 * [Guide to fresh installing macOS High Sierra on a Hackintohs](http://hackintosher.com/guides/high-sierra-install-full-guide/)
 * [UniBeast: Install macOS High Sierra on Any Supportes Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-high-sierra-on-any-supported-intel-based-pc.235474/)
 
-MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stackexchange.com/questions/57597/how-to-fix-broken-efi-partition)
+## Information
 
-* [Fix Audio](http://hackintosher.com/guides/get-hackintosh-audio-working/#step3)
+* MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stackexchange.com/questions/57597/how-to-fix-broken-efi-partition)
+* Fix Audio: [Link 1](http://hackintosher.com/guides/get-hackintosh-audio-working/#step3) and [Link 2](https://www.reddit.com/r/hackintosh/comments/766tsy/cant_install_audio_msi_z270_macos_sierra/)
+* Sleep: Set `darkmode=8`
 
 ## z270 MSI
 
@@ -34,12 +36,8 @@ MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stacke
 1. `Bootloaders > COLVER UEFI Boot Mode + Emulated NVRAM`
 1. `Drivers > Graphics > NVIDIA Web Drivers Boot Flag`
 
-* [Can't install audio MSI z270 macOS Sierra](https://www.reddit.com/r/hackintosh/comments/766tsy/cant_install_audio_msi_z270_macos_sierra/)
+## Cuda
 
-* Sleep: Set `darkmode=8`
-
-### Cuda
-
-Cudnn 6 needs Cuda 8! You need to download both manually
-You also need downgraded [Command Line Tools for Xcode 8.2](https://developer.apple.com/download)
-Remove `Library/Developer/CommandLineTools` first!
+* Download both Cuda 8 and Cudnn 6 manually
+* You also need downgraded [Command Line Tools for Xcode 8.2](https://developer.apple.com/download) and remove `Library/Developer/CommandLineTools` first!
+* Download XCode to be able to switch between CommandLineTools versions
