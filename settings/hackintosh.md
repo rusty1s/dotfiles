@@ -12,7 +12,7 @@
 ## Cuda
 
 * Download and install both Cuda 8 and Cudnn 6 manually
-* Download and install XCode from the AppStore to be able to [switch between CommandLineTools versions](https://stackoverflow.com/questions/47898851/how-to-install-nvidia-cudnn-v7-for-cuda-9-1-for-tensorflow-on-os-x-high-sierra-1) (`Preferences > Locations`)
+* Download and install newest XCode from the AppStore and [XCode 8.2](https://developer.apple.com/download/more) to be able to [switch between CommandLineTools versions](https://stackoverflow.com/questions/47898851/how-to-install-nvidia-cudnn-v7-for-cuda-9-1-for-tensorflow-on-os-x-high-sierra-1) (`Preferences > Locations`)
 * Download and install additional [Command Line Tools for Xcode 8.2](https://developer.apple.com/download/more)
 * Switch whenever something needs to be build by `nvcc`
 
