@@ -37,3 +37,8 @@ MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stacke
 * [Can't install audio MSI z270 macOS Sierra](https://www.reddit.com/r/hackintosh/comments/766tsy/cant_install_audio_msi_z270_macos_sierra/)
 
 * Sleep: Set `darkmode=8`
+
+### Cuda
+
+Cudnn 6 needs Cuda 8! You need to download both manually
+You also need downgraded [Command Line Tools for Xcode 8.3](https://developer.apple.com/download)
