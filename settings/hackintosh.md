@@ -34,13 +34,3 @@
 1. `Advanced > Wake Up Event Setup > From S3/S4/S5 by PS/2 Mouse` to `any key`
 1. `Overclocking > Extreme Memory Profile (X.M.P)` to `enabled`
 1. `Overclocking > CPU Features > CFG-Lock` to `disabled`
-
-### MultiBeast
-
-1. `Drivers > Audio > Realtek ALCxxx > ALC1220`
-1. `Drivers > Disk > 3rd Party SATA`
-1. `Drivers > Misc > FakeSMC`
-1. `Drivers > Network > Intel > IntelMausiEthernet v2.3.0`
-1. `Drivers > USB > Increase Max Port Limit 200 Series`
-1. `Bootloaders > COLVER UEFI Boot Mode + Emulated NVRAM`
-1. `Drivers > Graphics > NVIDIA Web Drivers Boot Flag`
