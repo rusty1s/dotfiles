@@ -21,3 +21,4 @@ print_header "Finder"
 
 defaults_disable com.apple.finder ShowRecentTags  # Hide tags in sidebar.
 defaults_enable com.apple.finder QuitMenuItem # Allow quitting finder via ⌘ + Q.
+killall Finder
