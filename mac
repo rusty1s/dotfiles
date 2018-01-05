@@ -23,7 +23,7 @@ defaults_enable com.apple.finder AppleShowAllFiles  # Show hidden files.
 defaults_enable NSGlobalDomain AppleShowAllExtensions  # Show all file extensions.
 defaults_disable com.apple.finder FXEnableExtensionsChangeWarning  # Disable file extension change warning.
 defaults_enable com.apple.finder ShowStatusBar  # Show status bar.
-defaults_enable com.apple.finder ShowPathBar  # Show path bar.
+defaults_enable com.apple.finder ShowPathbar  # Show path bar.
 defaults_disable com.apple.finder ShowRecentTags  # Hide tags in sidebar.
 defaults_enable com.apple.finder QuitMenuItem  # Allow quitting finder via ⌘ + Q.
 defaults_set_int com.apple.finder SidebarWidth 175  # Greater sidebar width.
