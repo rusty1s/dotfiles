@@ -1,5 +1,6 @@
 # Hackintosh
 
+* [Video Tutorial](https://www.youtube.com/watch?v=12BvDIMAy6Y&feature=youtu.be)
 * [Guide to fresh installing macOS High Sierra on a Hackintohs](http://hackintosher.com/guides/high-sierra-install-full-guide/)
 * [UniBeast: Install macOS High Sierra on Any Supportes Intel-based PC](https://www.tonymacx86.com/threads/unibeast-install-macos-high-sierra-on-any-supported-intel-based-pc.235474/)
 
@@ -8,6 +9,7 @@
 * MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stackexchange.com/questions/57597/how-to-fix-broken-efi-partition)
 * Fix Audio: [Link 1](http://hackintosher.com/guides/get-hackintosh-audio-working/#step3) and [Link 2](https://www.reddit.com/r/hackintosh/comments/766tsy/cant_install_audio_msi_z270_macos_sierra/)
 * Sleep: Set `darkmode=8`
+* [Remove boot options from CLOVER](https://www.reddit.com/r/hackintosh/comments/7ny7s1/how_to_remove_boot_options_from_clover_so_it_only/)
 
 ## Cuda
 
