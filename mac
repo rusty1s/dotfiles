@@ -19,6 +19,33 @@ defaults_set_int NSGlobalDomain InitialKeyRepeat 10  # Set blazingly fast initia
 
 print_header "Finder"
 
+defaults_enable com.apple.finder AppleShowAllFiles  # Show hidden files.
+defaults_enable NSGlobalDomain AppleShowAllExtensions  # Show all file extensions.
+defaults_disable com.apple.finder FXEnableExtensionsChangeWarning  # Disable file extension change warning.
+defaults_enable com.apple.finder ShowStatusBar  # Show status bar.
+defaults_enable com.apple.finder ShowPathBar  # Show path bar.
 defaults_disable com.apple.finder ShowRecentTags  # Hide tags in sidebar.
-defaults_enable com.apple.finder QuitMenuItem # Allow quitting finder via ⌘ + Q.
+defaults_enable com.apple.finder QuitMenuItem  # Allow quitting finder via ⌘ + Q.
+defaults_set_int com.apple.finder SidebarWidth 175  # Greater sidebar width.
+defaults_disable com.apple.finder WarnOnEmptyTrash  # No warning before emptying trash.
+# Set search scope.
+# This Mac       : `SCev`
+# Current Folder : `SCcf`
+# Previous Scope : `SCsp`
+defaults_set com.apple.finder FXDefaultSearchScope SCcf
+# Set preferred view style.
+# Icon View   : `icnv`
+# List View   : `Nlsv`
+# Column View : `clmv`
+# Cover Flow  : `Flwv`
+defaults_set com.apple.finder FXPreferredViewStyle clmv
+# Set default path for new windows.
+# Computer     : `PfCm`
+# Volume       : `PfVo`
+# $HOME        : `PfHm`
+# Desktop      : `PfDe`
+# Documents    : `PfDo`
+# All My Files : `PfAF`
+# Other…       : `PfLo`
+defaults_set com.apple.finder NewWindowTarget PfHm
 killall Finder
