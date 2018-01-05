@@ -3,12 +3,21 @@
 . ./helper/echos.sh
 . ./helper/defaults.sh
 
-print_header "System Settings"
+print_header "Dock"
 
 defaults_enable com.apple.dock autohide  # Autohide dock.
 defaults_set_int com.apple.dock tilesize 64  # Set dock icon size.
 defaults_enable com.apple.dock magnification  # Enable dock magnification.
 defaults_set_int com.apple.dock largesize 96  # Set dock magnificated icon size.
+killall Dock
 defaults_set NSGlobalDomain AppleInterfaceStyle Dark  # Use dark menu bar and dock.
 
-killall Dock
+print_header "Keyboard"
+
+defaults_set_int NSGlobalDomain KeyRepeat 1  # Set blazingly fast key repeat rate.
+defaults_set_int NSGlobalDomain InitialKeyRepeat 10  # Set blazingly fast initial key repeat rate.
+
+print_header "Finder"
+
+defaults_disable com.apple.finder ShowRecentTags  # Hide tags in sidebar.
+defaults_enable com.apple.finder QuitMenuItem # Allow quitting finder via ⌘ + Q.
