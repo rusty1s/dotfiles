@@ -12,7 +12,7 @@
 
 * Boot:
    * Set `darkwake=8` to enable sleep
-   * Uncheck `Debug` to enable fast boot, set `Timeout=10`
+   * Uncheck `Debug` to enable fast boot, set `Timeout=5`
 * Gui:
    * Uncheck `Legacy`
    * Add `Preboot` and `Recovery` entry under `Hide Volumes`
