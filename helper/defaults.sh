@@ -4,12 +4,12 @@
 
 defaults_enable() {
   name="Enable $2"
-  eval_cmd "$name" "defaults write $1 $2 1"
+  eval_cmd "$name" "defaults write $1 $2 -int 1"
 }
 
 defaults_disable() {
   name="Disable $2"
-  eval_cmd "$name" "defaults write $1 $2 0"
+  eval_cmd "$name" "defaults write $1 $2 -int 0"
 }
 
 defaults_set() {
