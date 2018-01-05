@@ -17,6 +17,11 @@ defaults_set() {
   eval_cmd "$name" "defaults write $1 $2 $3"
 }
 
+defaults_set_int() {
+  name="Set $2 to $3"
+  eval_cmd "$name" "defaults write $1 $2 -int $3"
+}
+
 computer_name() {
   name="Set computer name to $1"
   cmd1="sudo scutil --set ComputerName $1"

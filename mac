@@ -6,7 +6,9 @@
 print_header "System Settings"
 
 defaults_enable com.apple.dock autohide  # Autohide dock.
-defaults_set com.apple.dock tile-size 75  # Set dock icon size.
+defaults_set_int com.apple.dock tilesize 100  # Set dock icon size.
 defaults_enable com.apple.dock magnification  # Enable dock magnification.
-defaults_set com.apple.dock largesize 100  # Set dock magnificated icon size.
+defaults_set_int com.apple.dock largesize 75  # Set dock magnificated icon size.
 defaults_set NSGlobalDomain AppleInterfaceStyle Dark  # Use dark menu bar and dock.
+
+killall Dock
