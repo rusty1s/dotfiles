@@ -40,3 +40,8 @@
 1. `Advanced > Wake Up Event Setup > From S3/S4/S5 by PS/2 Mouse` to `any key`
 1. `Overclocking > Extreme Memory Profile (X.M.P)` to `enabled`
 1. `Overclocking > CPU Features > CFG-Lock` to `disabled`
+
+### Boot Options
+
+1. `Boot > Boot Option #1 > UEFI Hard Disk:UEFI OS`
+1. `Boot > UEFI Hard Disk Drive BBS Priorities > UEFI Hard Disk:UEFI OS > UEFI OS`
