@@ -2,6 +2,21 @@
 
 . ./helper/cmd.sh
 
+defaults_enable() {
+  name="Enable $2"
+  eval_cmd "$name" "defaults write $1 $2 1"
+}
+
+defaults_disable() {
+  name="Disable $2"
+  eval_cmd "$name" "defaults write $1 $2 0"
+}
+
+defaults_set() {
+  name="Set $2 to $3"
+  eval_cmd "$name" "defaults write $1 $2 $3"
+}
+
 computer_name() {
   name="Set computer name to $1"
   cmd1="sudo scutil --set ComputerName $1"
