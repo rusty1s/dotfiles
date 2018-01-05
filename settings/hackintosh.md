@@ -7,9 +7,15 @@
 ## Information
 
 * MacOS needs an EFI-partition larger than 200 MB! [Tutorial](https://apple.stackexchange.com/questions/57597/how-to-fix-broken-efi-partition)
-* Fix Audio: [Link 1](http://hackintosher.com/guides/get-hackintosh-audio-working/#step3) and [Link 2](https://www.reddit.com/r/hackintosh/comments/766tsy/cant_install_audio_msi_z270_macos_sierra/)
-* Sleep: Set `darkmode=8`
-* [Remove boot options from CLOVER](https://www.reddit.com/r/hackintosh/comments/7ny7s1/how_to_remove_boot_options_from_clover_so_it_only/)
+
+## Clover
+
+* Boot:
+   * Set `darkwake=8` to enable sleep
+   * Uncheck `Debug` to enable fast boot, set `Timeout=10`
+* Gui:
+   * Uncheck `Legacy`
+   * Add `Preboot` and `Recovery` entry under `Hide Volumes`
 
 ## Cuda
 
