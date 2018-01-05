@@ -39,6 +39,7 @@ defaults_set com.apple.finder FXDefaultSearchScope SCcf
 # Column View : `clmv`
 # Cover Flow  : `Flwv`
 defaults_set com.apple.finder FXPreferredViewStyle clmv
+rm -rf ~/.DS_Store
 # Set default path for new windows.
 # Computer     : `PfCm`
 # Volume       : `PfVo`
