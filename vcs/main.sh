@@ -21,6 +21,4 @@ fi
 symlink "$DOTFILES/vcs/.gitconfig" "$HOME/.gitconfig"
 symlink "$DOTFILES/vcs/.gitignore" "$HOME/.gitignore"
 
-if ! on_mac; then
-  package_install subversion
-fi
+package_install subversion
