@@ -1,0 +1,13 @@
+#!/bin/bash
+
+brew install neovim
+
+pip install neovim
+
+sudo /usr/bin/easy_install pip
+sudo /usr/local/bin pip install neovim
+
+brew install node
+npm install -g neovim
+
+sudo gem install neovim
