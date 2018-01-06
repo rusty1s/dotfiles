@@ -12,7 +12,7 @@ ask_for_sudo
 brew_install neovim
 
 brew_cask_install miniconda
-conda_activate
+PATH=/usr/local/miniconda3/bin:$PATH  # Activate miniconda environment
 pip_install neovim
 eval_cmd "Install system pip" "sudo /usr/bin/easy_install pip"
 eval_cmd "Install system neovim" "sudo /usr/local/bin/pip install neovim"
