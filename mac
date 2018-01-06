@@ -3,7 +3,18 @@
 . ./helper/echos.sh
 . ./helper/defaults.sh
 
-print_header "Dock"
+print_header General
+
+# Expand print panel by default.
+defaults_enable NSGlobalDomain NSNavPanelExpandedStateForPrintMode
+defaults_enable NSGlobalDomain NSNavPanelExpandedStateForPrintMode2
+# Expand save panel by default.
+defaults_enable NSGlobalDomain NSNavPanelExpandedStateForSaveMode
+defaults_enable NSGlobalDomain NSNavPanelExpandedStateForSaveMode2
+defaults_disable NSGlobalDomain com.apple.swipescrolldirection  # Disable natural-scrolling.
+defaults_set NSGlobalDomain AppleShowScrollBars Always  # Always show scrollbars.
+
+print_header Dock
 
 defaults_enable com.apple.dock autohide  # Autohide dock.
 defaults_set_int com.apple.dock tilesize 64  # Set dock icon size.
@@ -12,12 +23,12 @@ defaults_set_int com.apple.dock largesize 96  # Set dock magnificated icon size.
 killall Dock
 defaults_set NSGlobalDomain AppleInterfaceStyle Dark  # Use dark menu bar and dock.
 
-print_header "Keyboard"
+print_header Keyboard
 
 defaults_set_int NSGlobalDomain KeyRepeat 1  # Set blazingly fast key repeat rate.
-defaults_set_int NSGlobalDomain InitialKeyRepeat 10  # Set blazingly fast initial key repeat rate.
+defaults_set_int NSGlobalDomain InitialKeyRepeat 12  # Set blazingly fast initial key repeat rate.
 
-print_header "Finder"
+print_header Finder
 
 defaults_enable com.apple.finder AppleShowAllFiles  # Show hidden files.
 defaults_enable NSGlobalDomain AppleShowAllExtensions  # Show all file extensions.
@@ -50,3 +61,25 @@ rm -rf ~/.DS_Store
 # Other…       : `PfLo`
 defaults_set com.apple.finder NewWindowTarget PfHm
 killall Finder
+
+defaults_disable com.apple.LaunchServices LSQuarantine  # Disable open application confirm dialog.
+quit_printer_automatically
+
+print_header "Text Correction"
+
+defaults_disable NSGlobalDomain NSAutomaticCapitalizationEnabled  # Disable automatic capitalization.
+defaults_disable NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled  # Disable p
+defaults_disable NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled  # Disable smart quotes.
+defaults_disable NSGlobalDomain NSAutomaticDashSubstitutionEnabled  # Disable smart dashes.
+defaults_disable NSGlobalDomain NSAutomaticCapitalizationEnabled  # Disable automatic capitalization.
+defaults_disable NSGlobalDomain NSAutomaticSpellingCorrectionEnabled  # Disable auto-correct.
+defaults_disable NSGlobalDomain NSAutomaticTextCompletionEnabled  # Disable text-completion.
+defaults_enable NSGlobalDomain NSSpellCheckerAutomaticallyIdentifiesLanguages  # Detect language for spell checker.
+
+print_header Photos
+
+photos_disable_autostart # Disable Photos from starting everytime a device is plugged in.
+
+print_header iTunes
+
+itunes_disable_media_keys  # Stop iTunes from responding to media keys.
