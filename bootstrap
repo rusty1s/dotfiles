@@ -28,7 +28,6 @@ clear_line
 if on_mac; then
   install_brew
   brew_install gpg
-  brew_install gpg-agent
 elif on_arch; then
   package_install gnupg
   make_dir "$HOME/.gnupg"
