@@ -78,3 +78,8 @@ python_virtualenv_activate() {
   # shellcheck source=/dev/null
   . "$1/bin/activate"
 }
+
+conda_activate() {
+  name="Activate conda"
+  eval_cmd "$name" "PATH=/usr/local/miniconda3/bin:$PATH"
+}

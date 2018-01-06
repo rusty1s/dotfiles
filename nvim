@@ -1,13 +1,23 @@
 #!/bin/bash
 
-brew install neovim
+. ./helper/sudo.sh
+. ./helper/brew.sh
+. ./helper/python.sh
+. ./helper/cmd.sh
+. ./helper/npm.sh
+. ./helper/ruby.sh
 
-pip install neovim
+ask_for_sudo
 
-sudo /usr/bin/easy_install pip
-sudo /usr/local/bin pip install neovim
+brew_install neovim
 
-brew install node
-npm install -g neovim
+brew_cask_install miniconda
+conda_activate
+pip_install neovim
+eval_cmd "Install system pip" "sudo /usr/bin/easy_install pip"
+eval_cmd "Install system neovim" "sudo /usr/local/bin/pip install neovim"
 
-sudo gem install neovim
+brew_install node
+npm_install neovim
+
+gem_install neovim
