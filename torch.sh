@@ -1,7 +1,7 @@
 #!/bin/sh
 
-CONDA=/usr/local/miniconda3/bin
-PATH=$CONDA:$PATH
+CONDA=/usr/local/miniconda3
+PATH=$CONDA/bin:$PATH
 CMAKE_PREFIX_PATH=$CONDA
 conda install numpy pyyaml setuptools cmake cffi
 
