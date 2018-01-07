@@ -55,7 +55,7 @@ setopt INC_APPEND_HISTORY  # Write to history file immediately.
 setopt SHARE_HISTORY       # Share history between sessions.
 setopt HIST_SAVE_NO_DUPS   # No saving of duplicates.
 setopt HIST_IGNORE_SPACE   # No saving of events starting with a space.
-setopt HIST_FIND_NO_DUPS   # No display of prevously found event.
+setopt HIST_FIND_NO_DUPS   # No display of previously found event.
 setopt HIST_VERIFY         # No immediate execute on expansion.
 
 fpath=("$HOME/.config/yarn/global/node_modules/pure-prompt/functions" $fpath)
