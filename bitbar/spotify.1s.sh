@@ -1,0 +1,69 @@
+#!/bin/bash
+
+APP="Spotify"
+NERD_FONT="SFUIText Nerd Font"
+
+print() {
+  echo "$1  $2 | font='$NERD_FONT' terminal=false $3"
+}
+
+BitBarDarkMode=${BitBarDarkMode}
+if [ "$BitBarDarkMode" ]; then
+  GRAY="#666666"
+else
+  GRAY="#333333"
+fi
+
+if [ "$1" = "playpause" ]; then
+  osascript -e "tell application \"$APP\" to playpause"
+  exit
+fi
+
+if [ "$1" = "previous" ]; then
+  osascript -e "tell application \"$APP\" to previous track"
+  exit
+fi
+
+if [ "$1" = "next" ]; then
+  osascript -e "tell application \"$APP\" to next track"
+  exit
+fi
+
+if [ "$1" = "activate" ]; then
+  osascript -e "tell application \"$APP\" to activate"
+  exit
+fi
+
+if [ "$1" = "quit" ]; then
+  osascript -e "tell application \"$APP\" to quit"
+  exit
+fi
+
+APP_STATE=$(osascript -e "application \"$APP\" is running")
+
+if [ "$APP_STATE" = "false" ]; then
+  print ""
+  echo "---"
+  print "" "Activate Spotify" "bash='$0' param1=activate"
+else
+  APP_PLAYING=$(osascript -e "tell application \"$APP\" to player state as string")
+  ARTIST=$(osascript -e "tell application \"$APP\" to artist of current track")
+  TRACK=$(osascript -e "tell application \"$APP\" to name of current track")
+
+
+  if [ "$APP_PLAYING" = "paused" ]; then
+    print "  " "$ARTIST - $TRACK" "color=$GRAY"
+    echo "---"
+    print "" "Play" "bash='$0' param1=playpause"
+  else
+    print "  " "$ARTIST - $TRACK"
+    echo "---"
+    print "" "Pause" "bash='$0' param1=playpause"
+  fi
+
+  print "" "Previous" "bash='$0' param1=previous"
+  print "" "Next" "bash='$0' param1=next"
+  echo "---"
+  print "" "Activate Spotify" "bash='$0' param1=activate"
+  print "" "Quit Spotify" "bash='$0' param1=quit"
+fi
