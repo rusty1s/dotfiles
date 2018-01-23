@@ -44,7 +44,7 @@ APP_STATE=$(osascript -e "application \"$APP\" is running")
 if [ "$APP_STATE" = "false" ]; then
   print ""
   echo "---"
-  print "" "Activate Spotify" "bash='$0' param1=activate"
+  print "" "Activate $APP" "bash='$0' param1=activate"
 else
   APP_PLAYING=$(osascript -e "tell application \"$APP\" to player state as string")
   ARTIST=$(osascript -e "tell application \"$APP\" to artist of current track")
@@ -64,6 +64,6 @@ else
   print "" "Previous" "bash='$0' param1=previous"
   print "" "Next" "bash='$0' param1=next"
   echo "---"
-  print "" "Activate Spotify" "bash='$0' param1=activate"
-  print "" "Quit Spotify" "bash='$0' param1=quit"
+  print "" "Activate $APP" "bash='$0' param1=activate"
+  print "" "Quit $APP" "bash='$0' param1=quit"
 fi
