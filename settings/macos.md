@@ -68,6 +68,10 @@ Pass MathJax configuration to `Preferences > Style > Advanced Configuration`:
 }
 ```
 
+### Skim
+
+`Preferences -> Sync -> Check for file changes`
+
 ### ZSH
 
 1. Run `./terminal/italics.sh`

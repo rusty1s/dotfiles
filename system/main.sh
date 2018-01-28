@@ -106,4 +106,5 @@ if on_mac; then
   brew_cask_install filezilla
   brew_cask_install virtualbox
   brew_cask_install bartender
+  brew_cask_install skim
 fi
