@@ -107,4 +107,5 @@ if on_mac; then
   brew_cask_install virtualbox
   brew_cask_install bartender
   brew_cask_install skim
+  eval_cmd "Set default application for pdf" "duti -s net.sourceforge.skim-app.skim .pdf all"
 fi
