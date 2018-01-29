@@ -98,7 +98,7 @@ if on_mac; then
   brew_cask_install whatsapp
   brew_cask_install marked
   package_install duti  # Set default applications for file types.
-  eval_cmd "Set default application for markdown" "duti -s com.bretterpstra.marked2 .md all"
+  eval_cmd "Set default application for markdown" "duti -s com.brettterpstra.marked2 .md all"
   brew_cask_install vlc
   brew_cask_install discord
   brew_cask_install league-of-legends
