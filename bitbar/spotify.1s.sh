@@ -40,13 +40,13 @@ if [ "$1" = "quit" ]; then
 fi
 
 APP_STATE=$(osascript -e "application \"$APP\" is running")
+APP_PLAYING=$(osascript -e "tell application \"$APP\" to player state as string")
 
-if [ "$APP_STATE" = "false" ]; then
+if [ "$APP_STATE" = "false" ] || [ "$APP_PLAYING" = "stopped" ]; then
   print ""
   echo "---"
   print "" "Activate $APP" "bash='$0' param1=activate"
 else
-  APP_PLAYING=$(osascript -e "tell application \"$APP\" to player state as string")
   ARTIST=$(osascript -e "tell application \"$APP\" to artist of current track")
   TRACK=$(osascript -e "tell application \"$APP\" to name of current track")
 
