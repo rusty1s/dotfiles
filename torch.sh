@@ -2,7 +2,7 @@
 
 CONDA=/usr/local/miniconda3
 PATH=$CONDA/bin:$PATH
-CMAKE_PREFIX_PATH=$CONDA
+export CMAKE_PREFIX_PATH=$CONDA
 conda install numpy pyyaml setuptools cmake cffi
 
 TORCH=~/.libs/pytorch
