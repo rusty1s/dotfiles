@@ -5,4 +5,4 @@ if [ "$TMUX" != "" ] ; then
   exit 0
 fi
 
-tmux kill-session
+killall tmux
