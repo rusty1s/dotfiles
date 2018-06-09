@@ -9,7 +9,7 @@ style: """
   -webkit-backdrop-filter: blur(100px)
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  font-family: SF UI Text
+  font-family: SFUIText Nerd Font
   font-size: 14px
   color: rgba(0, 0, 0, 0.8)
   border-right: 1px solid rgba(0,0,0,0.1)
@@ -37,6 +37,14 @@ style: """
     border-top: 1px solid rgba(0,0,0,0.1)
   }
 
+  li.passed {
+    border-left: 10px solid rgba(60,170,92,0.8)
+  }
+
+  li.errored {
+    border-left: 10px solid rgba(218,71,72,0.8)
+  }
+
   .wrapper {
     padding: 10px 10px 10px 20px
     border-left: 1px solid rgba(0,0,0,0.1)
@@ -44,7 +52,7 @@ style: """
 
   .name-box {
     font-weight: 500
-    padding-bottom: 5px
+    margin-bottom: 5px
     display: flex
   }
 
@@ -55,19 +63,18 @@ style: """
   }
 
   .hash {
-    color: rgba(0,0,0,0.5)
+    color: rgba(0,0,0,0.2)
+  }
+
+  .info-box {
+    font-weight: 500
+    margin-bottom: 5px
+    display: flex
+    justify-content: space-between
   }
 
   .time-box {
     color: rgba(0,0,0,0.5)
-  }
-
-  .passed {
-    border-left: 10px solid rgba(60,170,92,0.8)
-  }
-
-  .errored {
-    border-left: 10px solid rgba(218,71,72,0.8)
   }
 """
 
@@ -85,9 +92,15 @@ renderRepo: (repo) -> """
         <div class="name">#{repo.name}</div>
         <div class="build"><span class="hash">#</span> #{repo.build}</div>
       </div>
+      <div class="info-box">
+        <div> #{repo.stars}</div>
+        <div> #{repo.forks}</div>
+        <div> #{repo.issues}</div>
+        <div> #{repo.codecov}%</div>
+      </div>
       <div class="time-box">
-        <div class="duration">Duration: #{repo.duration}</div>
-        <div class="finished">Finished: #{repo.finished} ago</div>
+        <div class="duration"> Duration: #{repo.duration}</div>
+        <div class="finished"> Finished: #{repo.finished} ago</div>
       </div>
     </div>
   </li>
