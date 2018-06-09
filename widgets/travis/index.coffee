@@ -70,7 +70,11 @@ style: """
     font-weight: 500
     margin-bottom: 5px
     display: flex
-    justify-content: space-between
+  }
+
+  .info-box div {
+    text-align: center
+    flex-grow: 1
   }
 
   .time-box {
@@ -96,7 +100,7 @@ renderRepo: (repo) -> """
         <div> #{repo.stars}</div>
         <div> #{repo.forks}</div>
         <div> #{repo.issues}</div>
-        <div> #{repo.codecov}%</div>
+        <div> #{repo.coverage}%</div>
       </div>
       <div class="time-box">
         <div class="duration"> Duration: #{repo.duration}</div>
