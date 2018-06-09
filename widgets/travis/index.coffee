@@ -15,7 +15,7 @@ style: """
   border-right: 1px solid rgba(0,0,0,0.1)
 
   h1 {
-    height: 40px
+    height: 26px
     background: url('./travis/logo.png')
     background-repeat: no-repeat
     opacity: 0.5
