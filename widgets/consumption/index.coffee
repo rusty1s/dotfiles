@@ -40,7 +40,7 @@ style: """
   .stats div:after {
     font-size: 15px
     font-weight: 700
-    padding-left: 3px
+    padding-left: 5px
     color: rgba(0,0,0,0.8)
   }
 
