@@ -1,5 +1,5 @@
 command: "/Users/rusty1s/.venv/3.6/bin/python ./travis/script.py"
-refreshFrequency: '10s'
+refreshFrequency: '30s'
 
 style: """
   bottom: 0
