@@ -16,7 +16,14 @@ for repo in t:
     if repo['active'] is True:
         name = repo['slug'].split('/')[-1]
 
-        duration = humanfriendly.format_timespan(repo['last_build_duration'])
+        state = 'passed' if repo['last_build_status'] == 0 else 'errored'
+
+        duration = repo['last_build_duration']
+        if duration is not None:
+            duration = humanfriendly.format_timespan(duration)
+        else:
+            duration = '-'
+            state = 'building'
 
         date = dateutil.parser.parse(repo['last_build_started_at'])
         timestamp = int((datetime.now(timezone.utc) - date).total_seconds())
@@ -26,17 +33,21 @@ for repo in t:
         repos[name] = {
             'name': name,
             'build': repo['last_build_number'],
-            'state': 'passed' if repo['last_build_status'] == 0 else 'errored',
+            'state': state,
             'duration': duration,
             'finished': finished,
             'timestamp': timestamp,
+            'stars': '-',
+            'forks': '-',
+            'issues': '-',
         }
 
-for repo in g:
-    if repo['name'] in repos:
-        repos[repo['name']]['stars'] = repo['stargazers_count']
-        repos[repo['name']]['forks'] = repo['forks']
-        repos[repo['name']]['issues'] = repo['open_issues']
+if isinstance(g, list):
+    for repo in g:
+        if repo['name'] in repos:
+            repos[repo['name']]['stars'] = repo['stargazers_count']
+            repos[repo['name']]['forks'] = repo['forks']
+            repos[repo['name']]['issues'] = repo['open_issues']
 
 for repo in c['repos']:
     if repo['name'] in repos:

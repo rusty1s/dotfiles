@@ -1,5 +1,5 @@
 command: "/Users/rusty1s/.venv/3.6/bin/python ./travis/script.py"
-refreshFrequency: '60s'
+refreshFrequency: '10s'
 
 style: """
   bottom: 0
@@ -43,6 +43,10 @@ style: """
 
   li.errored {
     border-left: 10px solid rgba(218,71,72,0.8)
+  }
+
+  li.building {
+    border-left: 10px solid rgba(237,222,84,0.8)
   }
 
   .wrapper {
