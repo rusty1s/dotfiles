@@ -2,18 +2,13 @@ command: "/Users/rusty1s/.venv/3.6/bin/python ./consumption/script.py"
 refreshFrequency: '5s'
 
 style: """
-  top: 25px
-  left: 395px
+  bottom: 50px
+  right: 50px
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   font-family: SFUIDisplay Nerd Font
-  color: rgb(0,0,0)
-  width: 720px
-  background: rgba(255,255,255,0.1)
-  -webkit-backdrop-filter: blur(100px)
-  border-radius: 5px
-  border: 1px solid rgba(0,0,0,0.1)
-  padding: 0 10px 10px 10px
+  color: rgb(255,255,255)
+  width: 710px
   text-transform: uppercase
 
   .stats {
@@ -41,7 +36,7 @@ style: """
     font-size: 15px
     font-weight: 700
     padding-left: 5px
-    color: rgba(0,0,0,0.8)
+    color: rgba(255,255,255,0.5)
   }
 
   .used:after {
@@ -58,7 +53,7 @@ style: """
 
   .bar {
     display: flex
-    background: rgba(255,255,255,0.6)
+    background: rgba(255,255,255,0.1)
     border-radius: 5px
     height: 15px
     overflow: hidden
