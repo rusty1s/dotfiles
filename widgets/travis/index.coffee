@@ -1,17 +1,17 @@
 command: "/Users/rusty1s/.venv/3.6/bin/python ./travis/script.py"
-refreshFrequency: '30s'
+refreshFrequency: '60s'
 
 style: """
   bottom: 0
   left: 0
   height: 100%
-  background-color: rgba(#000, 0.1)
+  background: rgba(255,255,255,0.1)
   -webkit-backdrop-filter: blur(100px)
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   font-family: SFUIText Nerd Font
   font-size: 14px
-  color: rgba(0, 0, 0, 0.8)
+  color: rgb(0,0,0)
   border-right: 1px solid rgba(0,0,0,0.1)
 
   h1 {
@@ -67,7 +67,7 @@ style: """
   }
 
   .hash {
-    color: rgba(0,0,0,0.2)
+    color: rgba(0,0,0,0.4)
   }
 
   .info-box {
@@ -77,12 +77,16 @@ style: """
   }
 
   .info-box div {
-    text-align: center
-    flex-grow: 1
+    text-align: left
+    flex-basis: 25%
+  }
+
+  .info-box div:last-child {
+    text-align: right
   }
 
   .time-box {
-    color: rgba(0,0,0,0.5)
+    color: rgba(0,0,0,0.6)
   }
 """
 
