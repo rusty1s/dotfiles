@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Close open System Preferences panes, to prevent them from overriding settings.
+osascript -e 'tell application "System Preferences" to quit'
+
 defaults write com.apple.menuextra.clock DateFormat HH:mm:ss         # Set clock format.
 defaults write NSGlobalDomain AppleLanguage -array "en-DE" "de-DE"  # Set system language.
 
@@ -8,6 +11,7 @@ defaults write com.apple.dock tilesize -int 64          # Set dock icon size.
 defaults write com.apple.dock magnification -bool true  # Enable dock magnification.
 defaults write com.apple.dock largesize -int 96         # Set dock magnificated icon size.
 defaults write NSGlobalDomain AppleInterfaceStyle Dark  # Use dark menu bar and dock.
+defaults write com.apple.dock persistent-apps -array    # Delete all apps from dock.
 
 killall Dock
 
@@ -45,27 +49,30 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false  
 defaults write NSGlobalDomain NSAutomaticTextCompletionEnabled -bool false      # Disable text-completion.
 
 # Finder
-defaults_enable com.apple.finder AppleShowAllFiles  # Show hidden files.
-defaults_enable NSGlobalDomain AppleShowAllExtensions  # Show all file extensions.
-defaults_disable com.apple.finder FXEnableExtensionsChangeWarning  # Disable file extension change warning.
-defaults_enable com.apple.finder ShowStatusBar  # Show status bar.
-defaults_enable com.apple.finder ShowPathbar  # Show path bar.
-defaults_disable com.apple.finder ShowRecentTags  # Hide tags in sidebar.
-defaults_enable com.apple.finder QuitMenuItem  # Allow quitting finder via ⌘ + Q.
-defaults_set_int com.apple.finder SidebarWidth 175  # Greater sidebar width.
-defaults_disable com.apple.finder WarnOnEmptyTrash  # No warning before emptying trash.
+defaults write com.apple.finder AppleShowAllFiles -bool true                 # Show hidden files.
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true              # Show all file extensions.
+defaults write com.apple.finder FXEnableExtensionsChangeWarning -bool false  # Disable file extension change warning.
+defaults write com.apple.finder ShowStatusBar -bool true                     # Show status bar.
+defaults write com.apple.finder ShowPathbar -bool true                       # Show path bar.
+defaults write com.apple.finder ShowRecentTags -bool false                   # Hide tags in sidebar.
+defaults write com.apple.finder QuitMenuItem -bool true                      # Allow quitting finder via ⌘ + Q.
+defaults write com.apple.finder SidebarWidth -int 175                        # Greater sidebar width.
+defaults write com.apple.finder WarnOnEmptyTrash -bool false                 # No warning before emptying trash.
+
 # Set search scope.
 # This Mac       : `SCev`
 # Current Folder : `SCcf`
 # Previous Scope : `SCsp`
-defaults_set com.apple.finder FXDefaultSearchScope SCcf
+defaults write com.apple.finder FXDefaultSearchScope SCcf
+
 # Set preferred view style.
 # Icon View   : `icnv`
 # List View   : `Nlsv`
 # Column View : `clmv`
 # Cover Flow  : `Flwv`
-defaults_set com.apple.finder FXPreferredViewStyle clmv
+defaults write com.apple.finder FXPreferredViewStyle clmv
 rm -rf ~/.DS_Store
+
 # Set default path for new windows.
 # Computer     : `PfCm`
 # Volume       : `PfVo`
@@ -74,7 +81,21 @@ rm -rf ~/.DS_Store
 # Documents    : `PfDo`
 # All My Files : `PfAF`
 # Other…       : `PfLo`
-defaults_set com.apple.finder NewWindowTarget PfHm
+defaults write com.apple.finder NewWindowTarget PfHm
+killall Finder
 
-# Quit printer
-# Photos and iTunes
+# Use plain text mode for new TextEdit documents.
+defaults write com.apple.TextEdit RichText -int 0
+
+# Open and save files as UTF-8 in TextEdit.
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+# Automatically quit printer app once the print jobs complete.
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# Prevent Photos from opening automatically when devices are plugged in.
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+# Stop iTunes from responding to the keyboard media keys.
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
