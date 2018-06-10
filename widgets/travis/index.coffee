@@ -14,6 +14,11 @@ style: """
   color: rgb(0,0,0)
   border-right: 1px solid rgba(0,0,0,0.1)
 
+  a {
+    text-decoration: none
+    color: inherit
+  }
+
   h1 {
     height: 26px
     background: url('./travis/logo.png')
@@ -100,14 +105,19 @@ renderRepo: (repo) -> """
   <li class="#{repo.state}">
     <div class="wrapper">
       <div class="name-box">
-        <div class="name">#{repo.name}</div>
-        <div class="build"><span class="hash">#</span> #{repo.build}</div>
+        <div class="name">
+          <a href="https://github.com/#{repo.slug}">#{repo.name}</a>
+        </div>
+        <div class="build">
+          <span class="hash">#</span>
+          <a href="https://travis-ci.org/#{repo.slug}">#{repo.build}</a>
+        </div>
       </div>
       <div class="info-box">
         <div> #{repo.stars}</div>
         <div> #{repo.forks}</div>
-        <div> #{repo.issues}</div>
-        <div> #{repo.coverage}%</div>
+        <div><a href="https://github.com/#{repo.slug}/issues"> #{repo.issues}</a></div>
+        <div><a href="https://codecov.io/github/#{repo.slug}"> #{repo.coverage}%</a></div>
       </div>
       <div class="time-box">
         <div class="duration"> Duration: #{repo.duration}</div>

@@ -32,6 +32,7 @@ for repo in t:
 
         repos[name] = {
             'name': name,
+            'slug': repo['slug'],
             'build': repo['last_build_number'],
             'state': state,
             'duration': duration,
