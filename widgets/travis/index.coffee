@@ -27,6 +27,13 @@ style: """
     margin: 15px 0 15px 25px
   }
 
+  .error {
+    padding: 15px 25px
+    width: 120px
+    text-align: center
+    color: rgba(0,0,0,0.6)
+  }
+
   ol {
     list-style: none
     margin: 0
@@ -127,9 +134,19 @@ renderRepo: (repo) -> """
   </li>
   """
 
+renderError: () -> """
+  <div class="error">
+    An error occurred.
+  </li>
+  """
+
 update: (output, domEl) ->
-  repos = JSON.parse(output)
   list = $(domEl).find('ol')
-  list.html ""
-  for repo in repos
-    list.append @renderRepo(repo)
+
+  try
+    repos = JSON.parse(output)
+    list.html ""
+    for repo in repos
+      list.append @renderRepo(repo)
+  catch e
+      list.append @renderError()
