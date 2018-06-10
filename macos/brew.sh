@@ -18,6 +18,7 @@ brew cask install skim
 brew cask install marked
 brew cask install the-unarchiver
 brew cask install filezilla
+brew cask install bitbar
 
 duti -s net.sourceforge.skim-app.skim .pdf all
 duti -s com.brettterpstra.marked2 .md all
