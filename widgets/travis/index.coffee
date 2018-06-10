@@ -23,15 +23,16 @@ style: """
     height: 27px
     width: 120px
     background: url('./travis/logo.png')
-    background-repeat: no-repeat
     opacity: 0.5
     margin: 15px 0 15px 25px
   }
 
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  @media
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
     h1 {
       background: url('./travis/logo@2x.png')
-      background-size: 27px 120px
+      background-size: 120px 27px
     }
   }
 
