@@ -1,5 +1,5 @@
 command: "python ./travis/script.py"
-refreshFrequency: "30s"
+refreshFrequency: "60s"
 
 style: """
   bottom: 0
