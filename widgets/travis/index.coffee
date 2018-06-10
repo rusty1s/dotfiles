@@ -1,5 +1,5 @@
 command: "python ./travis/script.py"
-refreshFrequency: '60s'
+refreshFrequency: "60s"
 
 style: """
   bottom: 0
@@ -142,19 +142,15 @@ renderRepo: (repo) -> """
   </li>
   """
 
-renderError: () -> """
-  <div class="error">
-    An error occurred.
-  </li>
-  """
+renderError: (error) -> """<div class="error">#{error}</div>"""
 
 update: (output, domEl) ->
-  list = $(domEl).find('ol')
+  list = $(domEl).find("ol")
+  list.html ""
 
   try
     repos = JSON.parse(output)
-    list.html ""
     for repo in repos
       list.append @renderRepo(repo)
   catch e
-      list.append @renderError()
+      list.append @renderError(output)
