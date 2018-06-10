@@ -1,4 +1,4 @@
-command: "/Users/rusty1s/.venv/3.6/bin/python ./travis/script.py"
+command: "python ./travis/script.py"
 refreshFrequency: '60s'
 
 style: """
@@ -10,7 +10,7 @@ style: """
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   font-family: SFUIText Nerd Font
-  font-size: 14px
+  font-size: 13px
   color: rgb(0,0,0)
   border-right: 1px solid rgba(0,0,0,0.1)
 
@@ -19,8 +19,7 @@ style: """
     background: url('./travis/logo.png')
     background-repeat: no-repeat
     opacity: 0.5
-    margin: 20px 0 20px 30px
-    font-weight: 500
+    margin: 15px 0 15px 25px
   }
 
   ol {
@@ -50,20 +49,20 @@ style: """
   }
 
   .wrapper {
-    padding: 10px 10px 10px 20px
+    padding: 10px 13px 10px 15px
     border-left: 1px solid rgba(0,0,0,0.1)
   }
 
   .name-box {
     font-weight: 500
-    margin-bottom: 5px
+    margin-bottom: 3px
     display: flex
   }
 
   .name {
     flex-grow: 1
-    padding-right: 20px
-    font-size: 16px
+    padding-right: 10px
+    font-size: 14px
   }
 
   .hash {
@@ -72,7 +71,7 @@ style: """
 
   .info-box {
     font-weight: 500
-    margin-bottom: 5px
+    margin-bottom: 3px
     display: flex
   }
 

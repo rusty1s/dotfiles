@@ -53,6 +53,6 @@ for repo in c['repos']:
     if repo['name'] in repos:
         repos[repo['name']]['coverage'] = round(repo['coverage'])
 
-repos = sorted(list(repos.values()), key=lambda x: x['timestamp'])
+repos = sorted(list(repos.values()), key=lambda x: x['timestamp'])[:9]
 repos = json.dumps(repos)
 print(repos)
