@@ -44,7 +44,7 @@ disk = {
     'used': to_size(data.used, binary=False),
     'free': to_size(data.total - data.used, binary=False),
     'total': to_size(data.total, binary=False),
-    'percentage': data.percent,
+    'percentage': ((data.used / data.total) * 100),
     'color': 'rgba(32,173,244,1)',
 }
 
