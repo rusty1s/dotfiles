@@ -19,7 +19,7 @@ style: """
     width: 100px
     height: 100px
     margin-left: 20px
-    background: url('./spotify/unknown_track@2x.png')
+    background-image: url('./spotify/unknown_track@2x.png')
     background-size: 100px 100px
   }
 
@@ -27,7 +27,7 @@ style: """
   (-webkit-min-device-pixel-ratio: 2),
   (min-resolution: 192dpi) {
     .image {
-      background: url('./spotify/unknown_track@2x.png')
+      background-image: url('./spotify/unknown_track@2x.png')
     }
   }
 
