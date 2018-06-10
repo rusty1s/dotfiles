@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 APP="Spotify"
 NERD_FONT="SFUIText Nerd Font"
@@ -46,16 +46,15 @@ if [ "$APP_STATE" = "false" ]; then
   echo "---"
   print "" "Activate $APP" "bash='$0' param1=activate"
 else
-  APP_PLAYING=$(osascript -e "tell application \"$APP\" to player state as string")
-  ARTIST=$(osascript -e "tell application \"$APP\" to artist of current track")
-  TRACK=$(osascript -e "tell application \"$APP\" to name of current track")
+  APP_PLAYING=$(osascript ~/dotfiles/bitbar/spotify/state.scpt)
+  TRACK=$(osascript ~/dotfiles/bitbar/spotify/track.scpt)
 
   if [ "$APP_PLAYING" = "paused" ]; then
-    print "  " "$ARTIST - $TRACK" "color=$GRAY"
+    print "  " "$TRACK" "color=$GRAY"
     echo "---"
     print "" "Play" "bash='$0' param1=playpause"
   else
-    print "  " "$ARTIST - $TRACK"
+  print "  " "$TRACK"
     echo "---"
     print "" "Pause" "bash='$0' param1=playpause"
   fi
