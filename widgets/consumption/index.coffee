@@ -1,39 +1,38 @@
-command: "/Users/rusty1s/.venv/3.6/bin/python ./consumption/script.py"
-refreshFrequency: '5s'
+command: "python ./consumption/script.py"
+refreshFrequency: "5s"
 
 style: """
-  bottom: 50px
+  bottom: 200px
   right: 50px
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   font-family: SFUIDisplay Nerd Font
   color: rgb(255,255,255)
-  width: 710px
   text-transform: uppercase
 
   .stats {
     display: flex
-    font-size: 28px
+    font-size: 24px
     font-weight: 300
     align-items: flex-end
-    padding: 3px 0
+    margin-top: 5px
   }
 
   .stats div {
-    flex-basis: 200px
+    width: 160px
     text-align: right
   }
 
   h1 {
-    font-size: 18px
+    font-size: 16px
     font-weight: 700
     margin: 0
-    padding-bottom: 3px
-    flex-grow: 1
+    width: 100px
+    padding-bottom: 2px
   }
 
   .stats div:after {
-    font-size: 15px
+    font-size: 13px
     font-weight: 700
     padding-left: 5px
     color: rgba(255,255,255,0.5)
@@ -55,7 +54,7 @@ style: """
     display: flex
     background: rgba(255,255,255,0.1)
     border-radius: 5px
-    height: 15px
+    height: 10px
     overflow: hidden
   }
 """
