@@ -3,7 +3,7 @@ refreshFrequency: "5s"
 
 style: """
   bottom: 200px
-  right: 50px
+  right: 100px
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   font-family: SFUIDisplay Nerd Font
