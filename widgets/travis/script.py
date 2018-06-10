@@ -48,7 +48,7 @@ for repo in t:
             'state': state,
             'duration': duration,
             'finished': finished,
-            'timestamp': 0,
+            'timestamp': timestamp,
             'stars': '-',
             'forks': '-',
             'issues': '-',
