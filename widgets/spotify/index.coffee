@@ -1,5 +1,5 @@
-command: "python ./spotify/script.py"
-refreshFrequency: "5s"
+command: "osascript ./spotify/spotify.scpt"
+refreshFrequency: "1s"
 
 style: """
   bottom: 400px
@@ -7,31 +7,20 @@ style: """
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   font-family: SFUIDisplay Nerd Font
-  font-size: 40px
-  color: white
 
   .body {
     display: flex
     align-items: center
   }
 
-  .image {
+  #image {
     width: 100px
     height: 100px
     margin-left: 20px
-    background-image: url('./spotify/unknown_track@2x.png')
-    background-size: 100px 100px
+    background-size: 100%
   }
 
-  @media
-  (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-    .image {
-      background-image: url('./spotify/unknown_track@2x.png')
-    }
-  }
-
-  .track {
+  #track {
     font-size: 36px
     font-weight: 500
     color: rgba(255,255,255,1)
@@ -39,7 +28,7 @@ style: """
     margin-bottom: 5px
   }
 
-  .artist {
+  #artist {
     font-size: 24px
     font-weight: 300
     color: rgba(255,255,255,0.5)
@@ -47,26 +36,23 @@ style: """
   }
 """
 
-render: (output) -> "<div></div>"
-
-getStyle: (image) -> if image? then "background-image: url(#{image})" else ""
-
-renderSong: (data) -> """
+render: (output) -> """
   <div class="body">
     <div class="info">
-      <div class="track">#{data.track}</div>
-      <div class="artist">#{data.artist}</div>
+      <div id="track"></div>
+      <div id="artist"></div>
     </div>
-    <div class="image" style="#{@getStyle(data.image)}"></div>
+    <div id="image"></div>
   </div>
   """
 
 update: (output, domEl) ->
-  body = $(domEl)
-  body.html ""
+  if output
+    data = output.split "|"
+  else
+    data = ["", "", ""]
 
-  try
-    data = JSON.parse(output)
-    body.append @renderSong(data)
-  catch e
-    return
+  body = $(domEl)
+  body.find("#track").text data[0]
+  body.find("#artist").text data[1]
+  body.find("#image").css "background-image", "url(#{data[2]})"
