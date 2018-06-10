@@ -1,14 +1,19 @@
+import sys
 import json
-import requests
+import requests as r
 from datetime import datetime, timezone
 import dateutil.parser
 import humanfriendly
 
 user = 'rusty1s'
 
-g = requests.get('https://api.github.com/users/{}/repos'.format(user)).json()
-t = requests.get('https://api.travis-ci.org/repos/{}'.format(user)).json()
-c = requests.get('https://codecov.io/api/gh/{}'.format(user)).json()
+try:
+    g = r.get('https://api.github.com/users/{}/repos'.format(user)).json()
+    t = r.get('https://api.travis-ci.org/repos/{}'.format(user)).json()
+    c = r.get('https://codecov.io/api/gh/{}'.format(user)).json()
+except Exception as err:
+    print('An error occurred.')
+    sys.exit(1)
 
 repos = {}
 
