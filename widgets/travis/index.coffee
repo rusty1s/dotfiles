@@ -1,6 +1,5 @@
 command: "python ./travis/script.py"
-refreshFrequency: "60s"
-
+refreshFrequency: "60s" 
 style: """
   bottom: 0
   left: 0
@@ -154,4 +153,4 @@ update: (output, domEl) ->
     for repo in repos
       list.append @renderRepo(repo)
   catch e
-      list.append @renderError(output)
+    list.append @renderError(output)

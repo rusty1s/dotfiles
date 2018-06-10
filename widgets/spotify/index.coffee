@@ -61,7 +61,11 @@ renderSong: (data) -> """
   """
 
 update: (output, domEl) ->
-  data = JSON.parse(output)
   body = $(domEl)
   body.html ""
-  body.append @renderSong(data)
+
+  try
+    data = JSON.parse(output)
+    body.append @renderSong(data)
+  catch e
+    return
