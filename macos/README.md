@@ -22,4 +22,3 @@ in `Preferences > Style > Advanced Configuration`.
 ## Skim
 
 `Preferences -> Sync -> Check for file changes`
-
