@@ -30,10 +30,16 @@ for repo in t:
             duration = '-'
             state = 'building'
 
-        date = dateutil.parser.parse(repo['last_build_started_at'])
-        timestamp = int((datetime.now(timezone.utc) - date).total_seconds())
-        finished = humanfriendly.format_timespan(timestamp)
-        finished = finished.split(', ')[0]
+        date = repo['last_build_finished_at']
+        if date is not None:
+            date = dateutil.parser.parse(date)
+            timestamp = int(
+                (datetime.now(timezone.utc) - date).total_seconds())
+            finished = humanfriendly.format_timespan(timestamp)
+            finished = finished.split(', ')[0] + ' ago'
+        else:
+            timestamp = 0
+            finished = '-'
 
         repos[name] = {
             'name': name,
@@ -42,7 +48,7 @@ for repo in t:
             'state': state,
             'duration': duration,
             'finished': finished,
-            'timestamp': timestamp,
+            'timestamp': 0,
             'stars': '-',
             'forks': '-',
             'issues': '-',

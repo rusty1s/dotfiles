@@ -137,7 +137,7 @@ renderRepo: (repo) -> """
       </div>
       <div class="time-box">
         <div class="duration"> Duration: #{repo.duration}</div>
-        <div class="finished"> Finished: #{repo.finished} ago</div>
+        <div class="finished"> Finished: #{repo.finished}</div>
       </div>
     </div>
   </li>
