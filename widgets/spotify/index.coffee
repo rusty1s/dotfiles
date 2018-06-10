@@ -36,6 +36,7 @@ style: """
     font-weight: 500
     color: rgba(255,255,255,1)
     text-align: right
+    margin-bottom: 5px
   }
 
   .artist {
