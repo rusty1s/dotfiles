@@ -3,21 +3,22 @@ export EDITOR=nvim
 export VISUAL=nvim
 export DOTFILES=~/dotfiles
 export GITHUB=~/github
-export PATH="/Users/rusty1s/miniconda3/bin:$PATH"
-export PATH="$DOTFILES/bin:$PATH"
-export PATH="/usr/local/cuda/bin:$PATH"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
-export CPATH="$CPATH:/usr/local/cuda/include"
+export PATH=$DOTFILES/bin:$PATH
+export PATH=$HOME/miniconda3/bin:$PATH
+export PATH=/usr/local/miniconda3/bin:$PATH
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
+export CPATH=/usr/local/cuda/include:$CPATH
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
-export VIRTUAL_ENV_DISABLE_PROMPT=1
 
+# Aliases.
 alias vi="$EDITOR"
 alias vim="$EDITOR"
 alias ls="ls -AFG"
 alias sudo="sudo -E"
 alias reload="exec zsh"
 alias mkdir="mkdir -p"
-alias grep="rg"
+alias grep=rg
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
@@ -28,13 +29,13 @@ alias gall="git add . -A"
 alias grm="git rm -r"
 alias gc="git commit -m"
 alias gp="git push"
-alias py="python"
+alias py=python
 alias shellcheck="shellcheck -x"
 
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 
-# History settings
+# History settings.
 HISTFILE=~/.zhistory
 HISTSIZE=10000000
 SAVEHIST=$HISTSIZE
@@ -46,10 +47,24 @@ setopt HIST_IGNORE_SPACE   # No saving of events starting with a space.
 setopt HIST_FIND_NO_DUPS   # No display of previously found event.
 setopt HIST_VERIFY         # No immediate execute on expansion.
 
+# FZF integration.
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Load pure prompt.
 autoload -U promptinit; promptinit
 prompt pure
 
-# Completion
+# Plugins.
+source ~/.config/sh/z/z.sh
+fpath=(/usr/local/share/zsh-completions $fpath)
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# Completion.
 zmodload zsh/complist
 autoload -U compinit && compinit
 
@@ -59,17 +74,6 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:warnings' format 'Too bad there is nothing'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-source ~/.config/sh/z/z.sh
-fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Automatically ls after cd.
 chpwd() { ls }
