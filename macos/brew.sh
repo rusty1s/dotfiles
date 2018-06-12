@@ -26,3 +26,6 @@ brew cask install latexit
 
 duti -s net.sourceforge.skim-app.skim .pdf all
 duti -s com.brettterpstra.marked2 .md all
+
+# Install all LaTex packages.
+sudo tlmgr install scheme-full

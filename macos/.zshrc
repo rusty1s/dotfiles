@@ -55,15 +55,6 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 autoload -U promptinit; promptinit
 prompt pure
 
-# Plugins.
-source ~/.config/sh/z/z.sh
-fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
 # Completion.
 zmodload zsh/complist
 autoload -U compinit && compinit
@@ -74,6 +65,15 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:warnings' format 'Too bad there is nothing'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Plugins.
+source ~/.config/sh/z/z.sh
+fpath=(/usr/local/share/zsh-completions $fpath)
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # Automatically ls after cd.
 chpwd() { ls }
