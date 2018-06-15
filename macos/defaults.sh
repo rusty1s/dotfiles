@@ -39,6 +39,9 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Disable "natural" scrolling.
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
+# Always open new documents in tabs.
+defaults write NSGlobalDomain AppleWindowTabbingMode always
+
 # Text correction
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false      # Disable automatic capitalization.
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false  # Disable peroid substitution.
