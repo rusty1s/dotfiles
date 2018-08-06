@@ -1,16 +1,18 @@
 export LANG=en_US.UTF-8
+
 export EDITOR=nvim
 export VISUAL=nvim
 export DOTFILES=~/dotfiles
 export GITHUB=~/github
+export CONDA=/usr/local/miniconda3
+export CUDA=/usr/local/cuda
 export PATH=/usr/local/bin:$PATH
 export PATH=/Library/TeX/texbin:$PATH
 export PATH=$DOTFILES/bin:$PATH
-export PATH=$HOME/miniconda3/bin:$PATH
-export PATH=/usr/local/miniconda3/bin:$PATH
-export PATH=/usr/local/cuda/bin:$PATH
-export LD_LIBRARY_PATH=/usr/local/cuda/lib:$DYLD_LIBRARY_PATH
-export CPATH=/usr/local/cuda/include:$CPATH
+export PATH=$CONDA/bin:$PATH
+export PATH=$CUDA/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA/lib:$DYLD_LIBRARY_PATH
+export CPATH=$CUDA/include:$CPATH
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 
 # Aliases.
