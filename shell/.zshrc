@@ -19,6 +19,7 @@ export PATH="$PATH:$DOTFILES/bin:$(yarn global bin)"
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/usr/local/cuda/bin"
+export PATH="/Users/rusty1s/miniconda3/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64"
 
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
@@ -95,10 +96,6 @@ if on_ubuntu; then
 else
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
-fi
-
-if [ -f "$PYTHON_VENV/$PYTHON_VERSION/bin/activate" ]; then
-  source "$PYTHON_VENV/$PYTHON_VERSION/bin/activate"
 fi
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
