@@ -9,6 +9,6 @@
    <string>/Users/rusty1s/dotfiles/widgets/calendar/ical.sh</string>
   </array>
   <key>StartInterval</key>
-  <integer>600</integer>
+  <integer>3600</integer>
  </dict>
 </plist>

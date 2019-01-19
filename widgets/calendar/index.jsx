@@ -1,7 +1,7 @@
 import { css } from 'uebersicht'
 
 export const command = 'cat /tmp/ical.txt';
-export const refreshFrequency = 1000 * 60 * 10; // 10 minutes
+export const refreshFrequency = 1000 * 60 * 60; // 1 hour
 
 export const className = css`
   -webkit-backdrop-filter: blur(100px);
