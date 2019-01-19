@@ -1,5 +1,5 @@
 command: "osascript ./spotify/spotify.scpt"
-refreshFrequency: "1s"
+refreshFrequency: "2s"
 
 style: """
   bottom: 400px
