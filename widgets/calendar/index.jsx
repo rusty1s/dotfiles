@@ -1,7 +1,7 @@
-import { css } from 'uebersicht'
+import { styled, css } from 'uebersicht'
 
 export const command = 'cat /tmp/ical.txt';
-export const refreshFrequency = 1000 * 60 * 60; // 1 hour
+export const refreshFrequency = 1000 * 60 * 10; // 10 minutes.
 
 export const className = css`
   -webkit-backdrop-filter: blur(100px);
@@ -21,7 +21,7 @@ export const className = css`
   top: 30px;
 `
 
-const error = css`
+const Text = styled('div')`
   text-align: center;
   font-weight: 500;
   font-style: italic;
@@ -64,22 +64,23 @@ const header = css`
   }
 `
 
-const entry = css`
-  padding: 7px 20px;
+const borderColor = {
+  'Arbeit': 'rgb(90,214,67)',
+  'Sarah Arbeit': 'rgb(190,88,214)',
+  'Termine': 'rgb(32,173,244)',
+  'Privat': 'rgb(32,173,244)',
+};
 
-  &:nth-child(odd) {
-    background: rgba(255,255,255,0.1);
-  }
-`
+const Entry = styled('div')(props => ({
+  margin: '7px 20px',
+  padding: '0 10px',
+  borderLeft: `3px solid ${borderColor[props.type]}`,
+}))
 
-const desc = css`
+const Desc = styled('div')`
   font-size: 14px;
   font-weight: 500;
   padding-bottom: 2px;
-`
-
-const Arbeit = css`
-  background: green;
 `
 
 const parse = output => {
@@ -93,12 +94,9 @@ const parse = output => {
   });
 }
 
-export const render = ({ output }) => {
-  if (output.length == 0) {
-    return (
-      <div className={[main, error].join(' ')}>No calendar entries found.</div>
-    );
-  }
+export const render = ({ output, error }) => {
+  if (error) return <Text>An error occurred.</Text>;
+  if (output.length == 0) return <Text>No calendar entries found.</Text>;
 
   const days = parse(output);
 
@@ -108,10 +106,10 @@ export const render = ({ output }) => {
         <div>
           <div className={header} data-day={day['day']} data-month={day['month']}>{day['week_name']}</div>
           {day['events'].map(e => (
-            <div className={entry}>
-              <div className={desc}>{e['desc']}</div>
+            <Entry type={e['type']}>
+              <Desc>{e['desc']}</Desc>
               <div>{e['start']} - {e['end']}</div>
-            </div>
+            </Entry>
           ))}
         </div>
       ))}
