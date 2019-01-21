@@ -87,7 +87,9 @@ const parse = output => {
   return output.split('\n\n').map(dayEvents => {
     const [ week_name, day, month ] = dayEvents.split('\n')[0].slice(0, -1).split(' ');
     const events = dayEvents.split('* ').slice(1).map(e => {
-      const [ desc, type, start, end ] = /(.*) \((.*)\)\s+(.*) - (.*)/.exec(e).slice(1, 5);
+      const lines = e.split('\n').filter(str => str.length > 0);
+      e = [lines.slice(0, 1), lines.slice(-1)].join('\n')
+      const [ desc, type, start, end ] = /(.*) \((.*)\)\s+(.*) - (.*)/.exec(e).slice(1);
       return { desc, type, start, end };
     });
     return { week_name, day, month, events };
@@ -103,10 +105,10 @@ export const render = ({ output, error }) => {
   return (
     <div>
       {days.map(day => (
-        <div>
+        <div key={day['day']}>
           <div className={header} data-day={day['day']} data-month={day['month']}>{day['week_name']}</div>
           {day['events'].map(e => (
-            <Entry type={e['type']}>
+            <Entry key={e['desc']} type={e['type']}>
               <Desc>{e['desc']}</Desc>
               <div>{e['start']} - {e['end']}</div>
             </Entry>

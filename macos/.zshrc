@@ -81,3 +81,18 @@ bindkey '^[[B' history-substring-search-down
 
 # Automatically ls after cd.
 chpwd() { ls }
+
+# Vi-mode.
+bindkey -v
+export KEYTIMEOUT=1
+
+function zle-line-init zle-keymap-select {
+  VIM_PROMPT="%F{yellow}-- NORMAL--%f"
+  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}"
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+bindkey '^P' up-history
+bindkey '^N' down-history
