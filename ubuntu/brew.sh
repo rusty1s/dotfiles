@@ -6,6 +6,7 @@ brew install svn
 brew install git
 brew install git-crypt
 brew install neofetch
+brew install ripgrep
 brew install tmux
 brew install neovim
 brew install nodejs
