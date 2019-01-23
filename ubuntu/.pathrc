@@ -21,3 +21,9 @@ export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
 # Dotfiles
 export DOTFILES="$HOME/dotfiles"
 export PATH="$DOTFILES/bin:$PATH"
+
+# Github
+export GITHUB="$HOME/github"
+
+# CDPATH
+export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
