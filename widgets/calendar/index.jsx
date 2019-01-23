@@ -1,6 +1,6 @@
 import { styled, css } from 'uebersicht'
 
-export const command = 'cat /tmp/ical.txt';
+export const command = 'cat ~/ical.txt';
 export const refreshFrequency = 1000 * 60 * 10; // 10 minutes.
 
 export const className = css`
