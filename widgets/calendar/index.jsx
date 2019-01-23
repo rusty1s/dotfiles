@@ -17,7 +17,7 @@ export const className = css`
   min-width: 250px;
 
   position: absolute;
-  left: 345px;
+  left: 317px;
   top: 30px;
 `
 
