@@ -40,6 +40,10 @@ export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Plugins.
+if [ ! -d "$HOMEBREW_PREFIX/share/z" ] ; then
+  git clone https://github.com/rupa/z "$HOMEBREW_PREFIX/share/z"
+fi
+source "$HOMEBREW_PREFIX/share/z/z.sh"
 fpath=("$HOMEBREW_PREFIX/share/zsh-completions" $fpath)
 source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
