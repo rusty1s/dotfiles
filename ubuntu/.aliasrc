@@ -1,6 +1,6 @@
 alias vi=nvim
 alias vim=nvim
-alias ls="ls -AFG"
+alias ls="ls -AFG --color=always"
 alias sudo="sudo -E"
 alias reload="exec zsh"
 alias mkdir="mkdir -p"
