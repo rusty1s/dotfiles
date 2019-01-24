@@ -18,6 +18,9 @@ export PATH="$CUDA_HOME/bin:$PATH"
 export CPATH="$CUDA_HOME/include:$CPATH"
 export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
 
+# LLVM
+export LD_LIBRARY_PATH="/usr/lib/llvm-6.0/lib:$LD_LIBRARY_PATH"
+
 # Dotfiles
 export DOTFILES="$HOME/dotfiles"
 export PATH="$DOTFILES/bin:$PATH"
