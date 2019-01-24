@@ -35,7 +35,7 @@ const header = css`
   padding: 15px 20px 15px 70px;
   position: relative;
 
-  &:before {
+  &::before {
     height: 36px;
     width: 36px;
     left: 20px;
@@ -51,7 +51,7 @@ const header = css`
     position: absolute;
   }
 
-  &:after {
+  &::after {
     width: 36px;
     content: attr(data-month);
     position: absolute;
@@ -72,12 +72,14 @@ const borderColor = {
 };
 
 const Entry = styled('div')(props => ({
-  margin: '7px 20px',
-  padding: '0 10px',
+  padding: '7px 20px',
   borderLeft: `3px solid ${borderColor[props.type]}`,
+  ':nth-child(odd)': {
+    background: 'rgba(255,255,255,0.1)',
+  },
 }))
 
-const Desc = styled('div')`
+const Desc = styled('span')`
   font-size: 14px;
   font-weight: 500;
   padding-bottom: 2px;
