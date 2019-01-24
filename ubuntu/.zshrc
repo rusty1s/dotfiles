@@ -59,3 +59,7 @@ fpath=("$HOMEBREW_PREFIX/lib/node_modules/pure-prompt/functions" $fpath)
 autoload -U promptinit; promptinit
 prompt pure
 prompt_pure_state[username]=%F{242}ssh%f
+
+# SSH.
+keychain "$HOME/.ssh/id_rsa"
+source "$HOME/.keychain/stifel-sh"

@@ -5,6 +5,7 @@ brew install curl
 brew install svn
 brew install git
 brew install git-crypt
+brew install keychain
 brew install neofetch
 brew install ripgrep
 brew install tmux
