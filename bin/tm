@@ -5,14 +5,15 @@ if [ "$TMUX" != "" ] ; then
   exit 0
 fi
 
-PS3="Please choose your session: "
-options=($(tmux list-sessions -F "#S" 2>/dev/null) "New session")
+mapfile -t options < <(tmux list-sessions -F "#S" 2>/dev/null)
+options+=("New session")
 
+PS3="Please choose your session: "
 select opt in "${options[@]}"
 do
-  case $opt in
+  case "$opt" in
     "New session")
-      read -p "Enter new session name: " SESSION_NAME -r
+      read -r -p "Enter new session name: " SESSION_NAME
       tmux new -s "$SESSION_NAME"
       break;;
     *)

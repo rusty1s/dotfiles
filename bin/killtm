@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ "$TMUX" != "" ] ; then
-  echo "Abort: Leave the tmux session."
+  echo "Abort: Already in a tmux session."
   exit 0
 fi
 
-killall tmux
+tmux kill-server
