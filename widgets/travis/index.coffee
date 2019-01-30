@@ -4,6 +4,7 @@ style: """
   bottom: 0
   left: 0
   height: 100%
+  width: 300px
   background: rgba(255,255,255,0.1)
   -webkit-backdrop-filter: blur(100px)
   -webkit-font-smoothing: antialiased
