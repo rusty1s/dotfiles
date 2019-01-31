@@ -17,7 +17,7 @@ do
       tmux new -s "$SESSION_NAME"
       break;;
     *)
-      tmux attach-session -t "$opt"
+      tmux attach-session -d -t "$opt"
       break;;
   esac
 done
