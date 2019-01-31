@@ -5,8 +5,7 @@ if [ "$TMUX" != "" ] ; then
   exit 0
 fi
 
-mapfile -t options < <(tmux list-sessions -F "#S" 2>/dev/null)
-options+=("New session")
+options=($(tmux list-sessions -F "#S" 2>/dev/null) "New session")
 
 PS3="Please choose your session: "
 select opt in "${options[@]}"
