@@ -1,6 +1,9 @@
+#!/bin/sh
+
 alias vi=nvim
 alias vim=nvim
-alias ls="ls -AFG --color=always"
+if [ "$OS" = "mac" ]; then alias ls="ls -AFG"; fi
+if [ "$OS" = "linux" ]; then alias ls="ls -AFG --color=always"; fi
 alias sudo="sudo -E"
 alias reload="exec zsh"
 alias mkdir="mkdir -p"

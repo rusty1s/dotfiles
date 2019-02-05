@@ -58,8 +58,10 @@ chpwd() { ls }
 fpath=("$HOMEBREW_PREFIX/lib/node_modules/pure-prompt/functions" $fpath)
 autoload -U promptinit; promptinit
 prompt pure
-prompt_pure_state[username]=%F{242}ssh%f
+if [ "$OS" = "linux" ]; then prompt_pure_state[username]=%F{242}ssh%f; fi
 
 # SSH.
-keychain "$HOME/.ssh/id_rsa" 2>/dev/null
-source "$HOME/.keychain/stifel-sh"
+if [ "$OS" = "linux" ]; then
+  keychain "$HOME/.ssh/id_rsa" 2>/dev/null
+  source "$HOME/.keychain/stifel-sh"
+fi

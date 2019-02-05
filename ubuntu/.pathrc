@@ -1,7 +1,16 @@
 #!/bin/sh
 
-# Linuxbrew
-export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+# OS
+if [ $(uname) = "Darwin" ]; then
+  export OS="mac"
+else
+  export OS="linux"
+fi
+
+# Homebrew
+if [ "$OS" = "mac" ]; then export HOMEBREW_PREFIX="/usr/local"; fi
+if [ "$OS" = "linux" ]; then export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; fi
+
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
 export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
 export MANPATH="$HOMEBREW_PREFIX/share/man:$MANPATH"
@@ -9,17 +18,19 @@ export INFOPATH="$HOMEBREW_PREFIX/share/info:$INFOPATH"
 export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
 # Miniconda3
-export MINICONDA_PREFIX="$HOME/.miniconda3"
+if [ "$OS" = "mac" ]; then export MINICONDA_PREFIX="$HOMEBREW_PREFIX/miniconda3"; fi
+if [ "$OS" = "linux" ]; then export MINICONDA_PREFIX="$HOME/.miniconda3"; fi
+
 export PATH="$MINICONDA_PREFIX/bin:$PATH"
 
 # Cuda
-export CUDA_HOME="/usr/local/cuda-10.0"
-export PATH="$CUDA_HOME/bin:$PATH"
-export CPATH="$CUDA_HOME/include:$CPATH"
-export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
-
-# LLVM
-export LD_LIBRARY_PATH="/usr/lib/llvm-6.0/lib:$LD_LIBRARY_PATH"
+if [ "$OS" = "linux" ]; then
+  export CUDA_HOME="/usr/local/cuda-10.0"
+  export PATH="$CUDA_HOME/bin:$PATH"
+  export CPATH="$CUDA_HOME/include:$CPATH"
+  export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
+  export LD_LIBRARY_PATH="/usr/lib/llvm-6.0/lib:$LD_LIBRARY_PATH"
+fi
 
 # Dotfiles
 export DOTFILES="$HOME/dotfiles"
