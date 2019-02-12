@@ -1,11 +1,16 @@
 #!/bin/sh
 
-CONDA=/usr/local/miniconda3
-PATH=$CONDA/bin:$PATH
-export CMAKE_PREFIX_PATH=$CONDA
-conda install numpy pyyaml setuptools cmake cffi
+export CMAKE_PREFIX_PATH=$MINICONDA_PREFIX
+conda install numpy pyyaml mkl mkl-include setuptools cmake cffi typing
 
 TORCH=~/.libs/pytorch
-mkdir -p "$TORCH"
-git clone --recursive https://github.com/pytorch/pytorch "$TORCH"
-cd "$TORCH" && python setup.py clean && MACOSX_DEPLOYMENT_TARGET=10.9 CC=/Library/Developer/CommandLineTools/usr/bin/clang CXX=/Library/Developer/CommandLineTools/usr/bin/clang++ python setup.py install
+if [ ! -d "$TORCH" ]; then
+  mkdir -p "$TORCH"
+  git clone --recursive https://github.com/pytorch/pytorch "$TORCH"
+fi
+
+export CC=clang
+export CXX=clang++
+export MACOSX_DEPLOYMENT_TARGET=10.9
+cd "$TORCH" && python setup.py clean
+cd "$TORCH" && python setup.py install
