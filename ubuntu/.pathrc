@@ -26,10 +26,17 @@ export PATH="$MINICONDA_PREFIX/bin:$PATH"
 # Cuda
 if [ "$OS" = "mac" ]; then export CUDA_HOME="/usr/local/cuda"; fi
 if [ "$OS" = "linux" ]; then export CUDA_HOME="/usr/local/cuda-10.0"; fi
+export CUDA_BIN_PATH="$CUDA_HOME/bin"
 export PATH="$CUDA_HOME/bin:$PATH"
 export CPATH="$CUDA_HOME/include:$CPATH"
-if [ "$OS" = "mac" ]; then export DYLD_LIBRARY_PATH="$CUDA_HOME/lib:$DYLD_LIBRARY_PATH"; fi
-if [ "$OS" = "linux" ]; then export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"; fi
+if [ "$OS" = "mac" ]; then
+  export LIBRARY_PATH="$CUDA_HOME/lib:$LIBRARY_PATH";
+  export DYLD_LIBRARY_PATH="$CUDA_HOME/lib:$DYLD_LIBRARY_PATH";
+fi
+if [ "$OS" = "linux" ]; then
+  export LIBRARY_PATH="$CUDA_HOME/lib64:$LIBRARY_PATH";
+  export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH";
+fi
 
 # Compiler.
 if [ "$OS" = "mac" ]; then export CC=clang; export CXX=clang++; fi
