@@ -18,7 +18,7 @@ export INFOPATH="$HOMEBREW_PREFIX/share/info:$INFOPATH"
 export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
 # Miniconda3
-if [ "$OS" = "mac" ]; then export MINICONDA_PREFIX="$HOMEBREW_PREFIX/miniconda3"; fi
+if [ "$OS" = "mac" ]; then export MINICONDA_PREFIX="$HOME/miniconda3"; fi
 if [ "$OS" = "linux" ]; then export MINICONDA_PREFIX="$HOME/.miniconda3"; fi
 
 export PATH="$MINICONDA_PREFIX/bin:$PATH"
