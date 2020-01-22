@@ -20,8 +20,10 @@ export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 # Miniconda3
 if [ "$OS" = "mac" ]; then export MINICONDA_PREFIX="$HOME/miniconda3"; fi
 if [ "$OS" = "linux" ]; then export MINICONDA_PREFIX="$HOME/.miniconda3"; fi
-
 export PATH="$MINICONDA_PREFIX/bin:$PATH"
+
+# Latex
+if [ "$OS" = "mac" ]; then export PATH="/Library/TeX/texbin"; fi
 
 # Cuda
 if [ "$OS" = "mac" ]; then export CUDA_HOME="/usr/local/cuda"; fi

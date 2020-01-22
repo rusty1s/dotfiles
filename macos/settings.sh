@@ -16,7 +16,7 @@ cd ~/dotfiles && git remote set-url origin git@github.com:rusty1s/dotfiles.git
 
 # Tmux
 brew install tmux
-brew install reattach-to-user-namespace
+# brew install reattach-to-user-namespace
 ln -sf ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
 # JavaScript
@@ -29,9 +29,7 @@ brew install zsh-completions
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 brew install zsh-history-substring-search
-mkdir -p ~/.config/sh
-git clone https://github.com/rupa/z ~/.config/sh/z
-ln -sf ~/dotfiles/macos/.zshrc ~/.zshrc
+ln -sf ~/dotfiles/ubuntu/.zshrc ~/.zshrc
 
 # Neovim
 brew install neovim
