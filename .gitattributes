@@ -3,3 +3,4 @@ id_rsa filter=git-crypt diff=git-crypt
 password.txt filter=git-crypt diff=git-crypt
 addressbook filter=git-crypt diff=git-crypt
 account* filter=git-crypt diff=git-crypt
+credentials filter-git-crypt diff-git-crypt
