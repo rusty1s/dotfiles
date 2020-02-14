@@ -17,7 +17,7 @@ for wheel in wheels:
 html = '<!DOCTYPE html>\n<html>\n<body>\n{}\n</body>\n</html>'
 href = '<a href="{}">{}</a><br/>'
 
-url = bucket_name + '.s3-website.eu-central-1.amazonaws.com/{}.html'
+url = 'https://s3.eu-central-1.amazonaws.com/' + bucket_name + '/{}.html'
 index_html = html.format('\n'.join([
     href.format(url.format('whl/' + key), key) for key in wheels_dict.keys()
 ]))
