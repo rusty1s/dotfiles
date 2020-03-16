@@ -28,6 +28,7 @@ with open('index.html', 'w') as f:
 bucket.Object('whl/index.html').upload_file(
     Filename='index.html', ExtraArgs={
         'ContentType': 'text/html',
+        'CacheControl': 'max-age=0',
         'ACL': 'public-read'
     })
 
@@ -44,5 +45,6 @@ for key, item in wheels_dict.items():
     bucket.Object('whl/{}.html'.format(key)).upload_file(
         Filename='{}.html'.format(key), ExtraArgs={
             'ContentType': 'text/html',
+            'CacheControl': 'max-age=0',
             'ACL': 'public-read'
         })
