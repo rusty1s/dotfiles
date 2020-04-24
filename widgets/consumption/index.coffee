@@ -1,4 +1,4 @@
-command: "python ./consumption/script.py"
+command: "/Users/rusty1s/miniconda3/bin/python ./consumption/script.py"
 refreshFrequency: "5s"
 
 style: """

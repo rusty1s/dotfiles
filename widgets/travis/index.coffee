@@ -1,4 +1,4 @@
-command: "python ./travis/script.py"
+command: "/Users/rusty1s/miniconda3/bin/python ./travis/script.py"
 refreshFrequency: "120s"
 style: """
   bottom: 0
