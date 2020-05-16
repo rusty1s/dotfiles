@@ -19,6 +19,7 @@ brew cask install the-unarchiver
 brew cask install whatsapp
 brew cask install basictex
 brew cask install latexit
+brew cask install skim
 
 duti -s net.sourceforge.skim-app.skim .pdf all
 duti -s com.brettterpstra.marked2 .md all
