@@ -26,10 +26,8 @@ export PATH="$MINICONDA_PREFIX/bin:$PATH"
 if [ "$OS" = "mac" ]; then export PATH="/Library/TeX/texbin:$PATH"; fi
 
 # Cuda
-if [ "$OS" = "mac" ]; then export CUDA_HOME_TMP="/usr/local/cuda"; fi
-if [ "$OS" = "linux" ]; then export CUDA_HOME_TMP="/usr/local/cuda-10.0"; fi
-if [ -d "$CUDA_HOME_TMP" ]; then
-  export CUDA_HOME="$CUDA_HOME_TMP"
+if [ -d "/usr/local/cuda" ]; then
+  export CUDA_HOME="/usr/local/cuda"
   export CUDA_BIN_PATH="$CUDA_HOME/bin"
   export PATH="$CUDA_HOME/bin:$PATH"
   export CPATH="$CUDA_HOME/include:$CPATH"
