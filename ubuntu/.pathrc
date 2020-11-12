@@ -56,3 +56,4 @@ export GITHUB="$HOME/github"
 export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
 
 export WITH_METIS=1
+export WITH_MTMETIS=1
