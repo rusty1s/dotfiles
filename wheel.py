@@ -33,6 +33,7 @@ bucket.Object('whl/index.html').upload_file(
     })
 
 url = 'https://' + bucket_name + '/{}'
+url = 'https://s3.eu-central-1.amazonaws.com/' + bucket_name + '/{}'
 for key, item in wheels_dict.items():
     version_html = html.format('\n'.join([
         href.format(url.format(i.replace('+', '%2B')),
