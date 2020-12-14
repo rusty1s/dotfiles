@@ -32,10 +32,8 @@ bucket.Object('whl/index.html').upload_file(
     })
 
 for key, wheels in wheels_dict.items():
-    version_html = html.format('\n'.join([
-        href.format(f'{key}/{wheel}'.replace('+', '%2B'), wheel)
-        for wheel in wheels
-    ]))
+    version_html = html.format('\n'.join(
+        [href.format(f'{key}/{wheel}', wheel) for wheel in wheels]))
 
     with open('{}.html'.format(key), 'w') as f:
         f.write(version_html)
