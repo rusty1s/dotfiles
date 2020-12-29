@@ -1,5 +1,5 @@
-stifel: 129.217.52.79
-lalla: 129.217.52.73
+stifel: 129.217.53.41
+lalla: 129.217.53.**
 
-ssh -N -L 12345:129.217.52.79:22 matthias.fey@ls7-remote.cs.tu-dortmund.de
+ssh -N -L 12345:129.217.53.41:22 matthias.fey@ls7-remote.cs.tu-dortmund.de
 ssh -p 12345 matthias.fey@localhost
