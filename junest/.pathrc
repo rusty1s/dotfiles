@@ -1,0 +1,64 @@
+#!/bin/sh
+
+# OS
+if [ $(uname) = "Darwin" ]; then
+  export OS="mac"
+else
+  export OS="linux"
+fi
+
+# Homebrew
+if [ "$OS" = "mac" ]; then export HOMEBREW_PREFIX="/usr/local"; fi
+if [ "$OS" = "linux" ]; then export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; fi
+
+export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
+export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
+export MANPATH="$HOMEBREW_PREFIX/share/man:$MANPATH"
+export INFOPATH="$HOMEBREW_PREFIX/share/info:$INFOPATH"
+export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+
+# Junest
+export JUNEST_PREFIX="$HOME/.junest"
+export PATH="$JUNEST_PREFIX/bin:$PATH"
+export PATH="$HOME/github/junest/bin:$PATH"
+
+# Miniconda3
+if [ "$OS" = "mac" ]; then export MINICONDA_PREFIX="$HOME/miniconda3"; fi
+if [ "$OS" = "linux" ]; then export MINICONDA_PREFIX="$HOME/miniconda3"; fi
+export PATH="$MINICONDA_PREFIX/bin:$PATH"
+
+# Latex
+if [ "$OS" = "mac" ]; then export PATH="/Library/TeX/texbin:$PATH"; fi
+
+# Cuda
+if [ -d "/usr/local/cuda" ]; then
+  export CUDA_HOME="/usr/local/cuda"
+  export CUDA_BIN_PATH="$CUDA_HOME/bin"
+  export PATH="$CUDA_HOME/bin:$PATH"
+  export CPATH="$CUDA_HOME/include:$CPATH"
+  if [ "$OS" = "mac" ]; then
+    export LIBRARY_PATH="$CUDA_HOME/lib:$LIBRARY_PATH";
+    export DYLD_LIBRARY_PATH="$CUDA_HOME/lib:$DYLD_LIBRARY_PATH";
+  fi
+  if [ "$OS" = "linux" ]; then
+    export LIBRARY_PATH="$CUDA_HOME/lib64:$LIBRARY_PATH";
+    export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH";
+  fi
+fi
+
+# Compiler.
+if [ "$OS" = "mac" ]; then export CC=clang; export CXX=clang++; fi
+if [ "$OS" = "linux" ]; then export LD_LIBRARY_PATH="/usr/lib/llvm-6.0/lib:$LD_LIBRARY_PATH"; fi
+
+# Dotfiles
+export DOTFILES="$HOME/dotfiles"
+export PATH="$DOTFILES/bin:$PATH"
+
+# Github
+export GITHUB="$HOME/github"
+
+# CDPATH
+export CDPATH=".:$HOME:$DOTFILES:$GITHUB:$CDPATH"
+
+export WITH_METIS=1
+export WITH_MTMETIS=1
