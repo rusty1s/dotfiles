@@ -21,6 +21,7 @@ export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 export JUNEST_PREFIX="$HOME/.junest"
 export PATH="$JUNEST_PREFIX/bin:$PATH"
 export PATH="$HOME/github/junest/bin:$PATH"
+export LD_LIBRARY_PATH="/usr/lib:/usr/local/lib:$JUNEST_PREFIX/lib:$LD_LIBRARY_PATH"
 
 # Miniconda3
 if [ "$OS" = "mac" ]; then export MINICONDA_PREFIX="$HOME/miniconda3"; fi
@@ -37,12 +38,12 @@ if [ -d "/usr/local/cuda" ]; then
   export PATH="$CUDA_HOME/bin:$PATH"
   export CPATH="$CUDA_HOME/include:$CPATH"
   if [ "$OS" = "mac" ]; then
-    export LIBRARY_PATH="$CUDA_HOME/lib:$LIBRARY_PATH";
-    export DYLD_LIBRARY_PATH="$CUDA_HOME/lib:$DYLD_LIBRARY_PATH";
+    export LIBRARY_PATH="$CUDA_HOME/lib:$LIBRARY_PATH"
+    export DYLD_LIBRARY_PATH="$CUDA_HOME/lib:$DYLD_LIBRARY_PATH"
   fi
   if [ "$OS" = "linux" ]; then
-    export LIBRARY_PATH="$CUDA_HOME/lib64:$LIBRARY_PATH";
-    export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH";
+    export LIBRARY_PATH="$CUDA_HOME/lib64:$LIBRARY_PATH"
+    export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
   fi
 fi
 
