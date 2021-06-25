@@ -13,10 +13,18 @@ for torch_version in versions:
 
 for wheel in wheels:
     torch_version = wheel.split('/')[1]
-    wheels_dict[torch_version].append('/'.join(wheel.split('/')[2:]))
+    wheels_dict[torch_version].append(
+        (torch_version, '/'.join(wheel.split('/')[2:])))
 
 html = '<!DOCTYPE html>\n<html>\n<body>\n{}\n</body>\n</html>'
 href = '<a href="{}">{}</a><br/>'
+
+# Add wheels for PyTorch 1.7.1 and 1.8.1
+for key, value in list(wheels_dict.items()):
+    if '1.7.0' in key:
+        wheels_dict[key.replace('1.7.0', '1.7.1')] = value
+    if '1.8.0' in key:
+        wheels_dict[key.replace('1.8.0', '1.8.1')] = value
 
 index_html = html.format('\n'.join(
     [href.format(f'{key}.html', key) for key in wheels_dict.keys()]))
@@ -32,8 +40,9 @@ bucket.Object('whl/index.html').upload_file(
     })
 
 for key, wheels in wheels_dict.items():
-    version_html = html.format('\n'.join(
-        [href.format(f'{key}/{wheel}', wheel) for wheel in wheels]))
+    version_html = html.format('\n'.join([
+        href.format(f'{version}/{wheel}', wheel) for version, wheel in wheels
+    ]))
 
     with open('{}.html'.format(key), 'w') as f:
         f.write(version_html)

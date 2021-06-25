@@ -4,3 +4,4 @@ password.txt filter=git-crypt diff=git-crypt
 addressbook filter=git-crypt diff=git-crypt
 account* filter=git-crypt diff=git-crypt
 credentials filter=git-crypt diff=git-crypt
+token filter=git-crypt diff=git-crypt
