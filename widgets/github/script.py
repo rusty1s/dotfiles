@@ -37,8 +37,8 @@ for user in set([full_name.split('/')[0] for full_name in full_names]):
                 f'https://api.github.com/repos/{full_name}/actions/runs',
                 headers={'Authorization': f'token {token}'})
             actions = actions.json()['workflow_runs']
+            actions = [act for act in actions if act['event'] == 'push']
             if len(actions) > 0:
-                actions = [act for act in actions if act['event'] == 'push']
                 sha = actions[0]['head_sha']
                 actions = [act for act in actions if act['head_sha'] == sha]
                 action = 'failure'
@@ -50,7 +50,7 @@ for user in set([full_name.split('/')[0] for full_name in full_names]):
             else:
                 action = 'unknown'
 
-            coverage = f'{cov[full_name]:.2f}' if full_name in cov else '0.00'
+            coverage = f'{cov[full_name]:.2f}%' if full_name in cov else '---'
 
             repos[repo['full_name']] = {
                 'owner': repo['owner']['login'],

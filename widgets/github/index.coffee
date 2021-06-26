@@ -113,7 +113,7 @@ renderRepo: (repo) -> """
       <div class="info-box">
         <div><a href="https://github.com/#{repo.owner}/#{repo.name}/issues"> #{repo.num_issues}</a></div>
         <div><a href="https://github.com/#{repo.owner}/#{repo.name}/pulls"> #{repo.num_pull_requests}</a></div>
-        <div><a href="https://codecov.io/github/#{repo.owner}/#{repo.name}"> #{repo.coverage}%</a></div>
+        <div><a href="https://codecov.io/github/#{repo.owner}/#{repo.name}"> #{repo.coverage}</a></div>
       </div>
     </div>
   </li>
