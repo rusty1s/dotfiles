@@ -1,23 +1,19 @@
 import boto3
+from collections import defaultdict
 
-s3_resource = boto3.resource('s3')
-bucket_name = 'pytorch-geometric.com'
-bucket = s3_resource.Bucket(name=bucket_name)
-objects = bucket.objects.all()
-wheels = [obj.key for obj in objects if obj.key[-3:] == 'whl']
-versions = sorted(list(set([wheel.split('/')[1] for wheel in wheels])))
+old_s3 = boto3.session.Session(profile_name='default').resource('s3')
+old_bucket = old_s3.Bucket(name='pytorch-geometric.com')
 
-wheels_dict = {}
-for torch_version in versions:
-    wheels_dict[torch_version] = []
+new_s3 = boto3.session.Session(profile_name='pyg').resource('s3')
+new_bucket = new_s3.Bucket(name='data.pyg.org')
 
+wheels = [obj.key for obj in new_bucket.objects.all() if obj.key[-3:] == 'whl']
+
+# wheels_dict = { torch_version: wheel, ...], ... }
+wheels_dict = defaultdict(list)
 for wheel in wheels:
-    torch_version = wheel.split('/')[1]
-    wheels_dict[torch_version].append(
-        (torch_version, '/'.join(wheel.split('/')[2:])))
-
-html = '<!DOCTYPE html>\n<html>\n<body>\n{}\n</body>\n</html>'
-href = '<a href="{}">{}</a><br/>'
+    _, torch_version, wheel = wheel.split('/')
+    wheels_dict[torch_version].append(wheel)
 
 # Add wheels for PyTorch 1.7.1 and 1.8.1
 for key, value in list(wheels_dict.items()):
@@ -26,30 +22,38 @@ for key, value in list(wheels_dict.items()):
     if '1.8.0' in key:
         wheels_dict[key.replace('1.8.0', '1.8.1')] = value
 
-index_html = html.format('\n'.join(
-    [href.format(f'{key}.html', key) for key in wheels_dict.keys()]))
+html = '<!DOCTYPE html>\n<html>\n<body>\n{}\n</body>\n</html>'
+href = '<a href="{}">{}</a><br/>'
+
+args = {
+    'ContentType': 'text/html',
+    'CacheControl': 'max-age=300',
+    'ACL': 'public-read',
+}
+
+index_html = html.format('\n'.join([
+    href.format(f'{torch_version}.html'.replace('+', '%2B'), torch_version)
+    for torch_version in wheels_dict
+]))
 
 with open('index.html', 'w') as f:
     f.write(index_html)
 
-bucket.Object('whl/index.html').upload_file(
-    Filename='index.html', ExtraArgs={
-        'ContentType': 'text/html',
-        'CacheControl': 'max-age=300',
-        'ACL': 'public-read'
-    })
+new_bucket.Object('whl/index.html').upload_file('index.html', ExtraArgs=args)
+old_bucket.Object('whl/index.html').upload_file('index.html', ExtraArgs=args)
 
-for key, wheels in wheels_dict.items():
-    version_html = html.format('\n'.join([
-        href.format(f'{version}/{wheel}', wheel) for version, wheel in wheels
+root = 'https://s3.us-west-1.amazonaws.com/data.pyg.org'
+
+for torch_version, wheels in wheels_dict.items():
+    torch_version_html = html.format('\n'.join([
+        href.format(f'{root}/whl/{torch_version}/{wheel}'.replace('+', '%2B'),
+                    wheel) for wheel in wheels
     ]))
 
-    with open('{}.html'.format(key), 'w') as f:
-        f.write(version_html)
+    with open(f'{torch_version}.html', 'w') as f:
+        f.write(torch_version_html)
 
-    bucket.Object('whl/{}.html'.format(key)).upload_file(
-        Filename='{}.html'.format(key), ExtraArgs={
-            'ContentType': 'text/html',
-            'CacheControl': 'max-age=300',
-            'ACL': 'public-read'
-        })
+    new_bucket.Object(f'whl/{torch_version}.html').upload_file(
+        f'{torch_version}.html', ExtraArgs=args)
+    old_bucket.Object(f'whl/{torch_version}.html').upload_file(
+        f'{torch_version}.html', ExtraArgs=args)
