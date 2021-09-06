@@ -42,7 +42,7 @@ with open('index.html', 'w') as f:
 new_bucket.Object('whl/index.html').upload_file('index.html', ExtraArgs=args)
 old_bucket.Object('whl/index.html').upload_file('index.html', ExtraArgs=args)
 
-root = 'http://data.pyg.org.s3-website-us-west-1.amazonaws.com'
+root = 'https://s3.us-west-1.amazonaws.com/data.pyg.org'
 
 for torch_version, wheels in wheels_dict.items():
     torch_version_html = html.format('\n'.join([
