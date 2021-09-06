@@ -13,14 +13,14 @@ wheels = [obj.key for obj in new_bucket.objects.all() if obj.key[-3:] == 'whl']
 wheels_dict = defaultdict(list)
 for wheel in wheels:
     _, torch_version, wheel = wheel.split('/')
+    wheel = (torch_version, wheel)
     wheels_dict[torch_version].append(wheel)
 
-# Add wheels for PyTorch 1.7.1 and 1.8.1
-for key, value in list(wheels_dict.items()):
-    if '1.7.0' in key:
-        wheels_dict[key.replace('1.7.0', '1.7.1')] = value
-    if '1.8.0' in key:
-        wheels_dict[key.replace('1.8.0', '1.8.1')] = value
+    # Add wheels for PyTorch 1.7.1 and 1.8.1
+    if '1.7.0' in torch_version:
+        wheels_dict[torch_version.replace('1.7.0', '1.7.1')].append(wheel)
+    if '1.8.0' in torch_version:
+        wheels_dict[torch_version.replace('1.8.0', '1.8.1')].append(wheel)
 
 html = '<!DOCTYPE html>\n<html>\n<body>\n{}\n</body>\n</html>'
 href = '<a href="{}">{}</a><br/>'
@@ -42,12 +42,13 @@ with open('index.html', 'w') as f:
 new_bucket.Object('whl/index.html').upload_file('index.html', ExtraArgs=args)
 old_bucket.Object('whl/index.html').upload_file('index.html', ExtraArgs=args)
 
-root = 'https://s3.us-west-1.amazonaws.com/data.pyg.org'
+root = 'http://data.pyg.org.s3-website-us-west-1.amazonaws.com'
 
 for torch_version, wheels in wheels_dict.items():
     torch_version_html = html.format('\n'.join([
-        href.format(f'{root}/whl/{torch_version}/{wheel}'.replace('+', '%2B'),
-                    wheel) for wheel in wheels
+        href.format(
+            f'{root}/whl/{orig_torch_version}/{wheel}'.replace('+', '%2B'),
+            wheel) for orig_torch_version, wheel in wheels
     ]))
 
     with open(f'{torch_version}.html', 'w') as f:
