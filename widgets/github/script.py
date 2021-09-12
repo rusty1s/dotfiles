@@ -7,7 +7,7 @@ with open(osp.join(path, '..', '..', 'github', 'token'), 'r') as f:
     token = f.read()[:-1]
 
 full_names = [
-    'rusty1s/pytorch_geometric',
+    'pyg-team/pytorch_geometric',
     'rusty1s/pytorch_scatter',
     'rusty1s/pytorch_sparse',
     'rusty1s/pytorch_cluster',

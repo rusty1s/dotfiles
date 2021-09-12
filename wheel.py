@@ -31,6 +31,14 @@ args = {
     'ACL': 'public-read',
 }
 
+index_html = html.format('\n'.join([href.format('whl/index.html', 'whl')]))
+
+with open('index.html', 'w') as f:
+    f.write(index_html)
+
+new_bucket.Object('index.html').upload_file('index.html', ExtraArgs=args)
+old_bucket.Object('index.html').upload_file('index.html', ExtraArgs=args)
+
 index_html = html.format('\n'.join([
     href.format(f'{torch_version}.html'.replace('+', '%2B'), torch_version)
     for torch_version in wheels_dict
@@ -42,7 +50,7 @@ with open('index.html', 'w') as f:
 new_bucket.Object('whl/index.html').upload_file('index.html', ExtraArgs=args)
 old_bucket.Object('whl/index.html').upload_file('index.html', ExtraArgs=args)
 
-root = 'https://s3.us-west-1.amazonaws.com/data.pyg.org'
+root = 'https://data.pyg.org'
 
 for torch_version, wheels in wheels_dict.items():
     torch_version_html = html.format('\n'.join([
