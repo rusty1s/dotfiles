@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ssh -N -L 12345:129.217.53.41:22 matthias.fey@ls7-remote.cs.tu-dortmund.de
+ssh -N -L 12342:129.217.53.41:22 matthias.fey@ls7-remote.cs.tu-dortmund.de
