@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Homebrew
+export HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"
+export HOMEBREW_CELLAR="$HOMEBREW_HOME/Cellar"
+export HOMEBREW_REPOSITORY="$HOMEBREW_HOME/Homebrew"
+export MANPATH="$HOMEBREW_HOME/share/man:$MANPATH"
+export INFOPATH="$HOMEBREW_HOME/share/info:$INFOPATH"
+export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
+
+# Miniconda3
+export MINICONDA_HOME="$HOME/miniconda3"
+export PATH="$MINICONDA_HOME/bin:$PATH"
+
+# Dotfiles
+export DOTFILES_HOME="$HOME/dotfiles"
+export PATH="$DOTFILES_HOME/bin:$PATH"
+
+# Cuda
+if [ -d "/usr/local/cuda" ]; then
+  export CUDA_HOME="/usr/local/cuda"
+  export PATH="$CUDA_HOME/bin:$PATH"
+  export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
+fi
+
+# Github
+export GITHUB_HOME="$HOME/github"
+
+# CDPATH
+export CDPATH=".:$HOME:$DOTFILES_HOME:$GITHUB_HOME:$CDPATH"
+
+export WITH_METIS=1
+export WITH_MTMETIS=0

@@ -16,6 +16,7 @@ brew install wget
 brew install curl
 brew install unzip
 brew install ripgrep
+brew install keychain
 brew install neofetch
 brew install shellcheck
 brew install clang-format
@@ -29,6 +30,7 @@ brew install zsh-history-substring-search
 brew install nodejs
 npm install -g npm
 npm install -g pure-prompt
+ln -sf "$DOTFILES/new/.zshrc" "$HOME/.zshrc"
 
 # Tmux:
 brew install tmux
