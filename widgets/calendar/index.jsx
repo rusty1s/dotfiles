@@ -91,7 +91,7 @@ const parse = output => {
     const events = dayEvents.split('* ').slice(1).map(e => {
       const lines = e.split('\n').filter(str => str.length > 0);
       e = [lines.slice(0, 1), lines.slice(-1)].join('\n')
-      if (e.includes("-")) {
+      if (e.includes(" - ")) {
         const [ desc, type, start, end ] = /(.*) \((.*)\)\s+(.*) - (.*)/.exec(e).slice(1);
         return { desc, type, start, end };
       } else {
