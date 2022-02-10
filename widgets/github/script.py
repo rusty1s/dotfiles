@@ -11,7 +11,7 @@ full_names = [
     'rusty1s/pytorch_scatter',
     'rusty1s/pytorch_sparse',
     'rusty1s/pytorch_cluster',
-    'rusty1s/pytorch_spline_conv',
+    # 'rusty1s/pytorch_spline_conv',
     'rusty1s/deep-graph-matching-consensus',
     'rusty1s/pyg_autoscale',
     'rusty1s/himp-gnn',
