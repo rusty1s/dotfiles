@@ -1,5 +1,6 @@
-import boto3
 from collections import defaultdict
+
+import boto3
 
 old_s3 = boto3.session.Session(profile_name='default').resource('s3')
 old_bucket = old_s3.Bucket(name='pytorch-geometric.com')
@@ -25,8 +26,11 @@ for wheel in wheels:
         wheels_dict[torch_version.replace('1.9.0', '1.9.1')].append(wheel)
     if '1.10.0' in torch_version:
         wheels_dict[torch_version.replace('1.10.0', '1.10.1')].append(wheel)
+        wheels_dict[torch_version.replace('1.10.0', '1.10.2')].append(wheel)
     if '1.10.0+cu113' in torch_version:
         wheels_dict['torch-1.10.0+cu111'].append(wheel)
+        wheels_dict['torch-1.10.1+cu111'].append(wheel)
+        wheels_dict['torch-1.10.2+cu111'].append(wheel)
 
 html = '<!DOCTYPE html>\n<html>\n<body>\n{}\n</body>\n</html>'
 href = '<a href="{}">{}</a><br/>'
