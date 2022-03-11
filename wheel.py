@@ -17,7 +17,6 @@ for wheel in wheels:
     wheel = (torch_version, wheel)
     wheels_dict[torch_version].append(wheel)
 
-    # Add wheels for PyTorch 1.7.1 and 1.8.1
     if '1.7.0' in torch_version:
         wheels_dict[torch_version.replace('1.7.0', '1.7.1')].append(wheel)
     if '1.8.0' in torch_version:
@@ -31,6 +30,8 @@ for wheel in wheels:
         wheels_dict['torch-1.10.0+cu111'].append(wheel)
         wheels_dict['torch-1.10.1+cu111'].append(wheel)
         wheels_dict['torch-1.10.2+cu111'].append(wheel)
+    if '1.11.0+cu113' in torch_version and 'win' in wheel[-1]:
+        wheels_dict['torch-1.11.0+cu115'].append(wheel)
 
 html = '<!DOCTYPE html>\n<html>\n<body>\n{}\n</body>\n</html>'
 href = '<a href="{}">{}</a><br/>'
