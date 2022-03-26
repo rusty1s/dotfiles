@@ -1,6 +1,7 @@
 import json
-import requests
 import os.path as osp
+
+import requests
 
 path = osp.join(osp.dirname(osp.realpath(__file__)))
 with open(osp.join(path, '..', '..', 'github', 'token'), 'r') as f:
@@ -8,10 +9,12 @@ with open(osp.join(path, '..', '..', 'github', 'token'), 'r') as f:
 
 full_names = [
     'pyg-team/pytorch_geometric',
+    'pyg-team/pyg-lib',
+    'kumo-ai/kumo',
     'rusty1s/pytorch_scatter',
     'rusty1s/pytorch_sparse',
     'rusty1s/pytorch_cluster',
-    # 'rusty1s/pytorch_spline_conv',
+    'rusty1s/pytorch_spline_conv',
     'rusty1s/deep-graph-matching-consensus',
     'rusty1s/pyg_autoscale',
     'rusty1s/himp-gnn',
@@ -63,6 +66,6 @@ for user in set([full_name.split('/')[0] for full_name in full_names]):
                 'coverage': coverage,
             }
 
-repos = [repos[full_name] for full_name in full_names]
+repos = [repos[full_name] for full_name in full_names if full_name in repos]
 repos = json.dumps(repos)
 print(repos)
