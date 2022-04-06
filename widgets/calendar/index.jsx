@@ -66,6 +66,7 @@ const header = css`
 
 const borderColor = {
   'Arbeit': 'rgb(90,214,67)',
+  'Matthias': 'rgb(90,214,67)',
   'Sarah Arbeit': 'rgb(190,88,214)',
   'Termine': 'rgb(32,173,244)',
   'Privat': 'rgb(32,173,244)',
