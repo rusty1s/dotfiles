@@ -2,7 +2,7 @@ command: "osascript ./spotify/spotify.scpt"
 refreshFrequency: "2s"
 
 style: """
-  bottom: 400px
+  bottom: 100px
   right: 100px
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
