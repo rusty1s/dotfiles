@@ -1,9 +1,16 @@
 #!/bin/sh
 
+# OS
+if [ $(uname) = "Darwin" ]; then
+  export OS="mac"
+else
+  export OS="linux"
+fi
+
 # Homebrew
-export HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"
+if [ "$OS" = "mac" ]; then export HOMEBREW_HOME="/opt/homebrew"; fi
+if [ "$OS" = "linux" ]; then export HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"; fi
 export HOMEBREW_CELLAR="$HOMEBREW_HOME/Cellar"
-export HOMEBREW_REPOSITORY="$HOMEBREW_HOME/Homebrew"
 export MANPATH="$HOMEBREW_HOME/share/man:$MANPATH"
 export INFOPATH="$HOMEBREW_HOME/share/info:$INFOPATH"
 export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
@@ -28,6 +35,3 @@ export GITHUB_HOME="$HOME/github"
 
 # CDPATH
 export CDPATH=".:$HOME:$DOTFILES_HOME:$GITHUB_HOME:$CDPATH"
-
-export WITH_METIS=1
-export WITH_MTMETIS=0

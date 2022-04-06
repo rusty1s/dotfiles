@@ -61,5 +61,7 @@ prompt pure
 prompt_pure_state[username]=""
 
 # SSH:
+if [ "$OS" = "linux" ]; then
 keychain "$HOME/.ssh/id_rsa" 2>/dev/null
 source "$HOME/.keychain/${(%):-%m}-sh"
+fi
