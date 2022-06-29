@@ -13,6 +13,8 @@ wheels = [obj.key for obj in new_bucket.objects.all() if obj.key[-3:] == 'whl']
 # wheels_dict = { torch_version: wheel, ...], ... }
 wheels_dict = defaultdict(list)
 for wheel in wheels:
+    if 'nightly' in wheel:
+        continue
     _, torch_version, wheel = wheel.split('/')
     wheel = (torch_version, wheel)
     wheels_dict[torch_version].append(wheel)
@@ -30,8 +32,6 @@ for wheel in wheels:
         wheels_dict['torch-1.10.0+cu111'].append(wheel)
         wheels_dict['torch-1.10.1+cu111'].append(wheel)
         wheels_dict['torch-1.10.2+cu111'].append(wheel)
-    if '1.11.0+cu113' in torch_version and 'cp37m-win' in wheel[1]:
-        wheels_dict['torch-1.11.0+cu115'].append(wheel)
 
 html = '<!DOCTYPE html>\n<html>\n<body>\n{}\n</body>\n</html>'
 href = '<a href="{}">{}</a><br/>'
