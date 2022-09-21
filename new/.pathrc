@@ -23,6 +23,9 @@ export PATH="$MINICONDA_HOME/bin:$PATH"
 export DOTFILES_HOME="$HOME/dotfiles"
 export PATH="$DOTFILES_HOME/bin:$PATH"
 
+# Ruby
+export PATH="$HOMEBREW_HOME/opt/ruby@2.6/bin:$PATH"
+
 # Cuda
 if [ -d "/usr/local/cuda" ]; then
   export CUDA_HOME="/usr/local/cuda"
