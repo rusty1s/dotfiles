@@ -13,6 +13,8 @@ wheels = [obj.key for obj in new_bucket.objects.all() if obj.key[-3:] == 'whl']
 # wheels_dict = { torch_version: wheel, ...], ... }
 wheels_dict = defaultdict(list)
 for wheel in wheels:
+    if 'wheels' in wheel:
+        continue
     if 'nightly' in wheel:
         continue
     _, torch_version, wheel = wheel.split('/')
