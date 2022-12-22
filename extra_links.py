@@ -70,7 +70,8 @@ for wheel in wheels:
 
 for (torch_version, cuda_version), packages in overview_dict.items():
     print(torch_version, cuda_version)
-    index_html = html.format('\n'.join([href.format(p, p) for p in packages]))
+    index_html = html.format('\n'.join(
+        [href.format(f'{p}/', p) for p in packages]))
 
     with open('index.html', 'w') as f:
         f.write(index_html)
