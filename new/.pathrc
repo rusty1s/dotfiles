@@ -19,6 +19,9 @@ export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
 if [ "$OS" = "linux" ]; then
   export MINICONDA_HOME="/data1TB/users/matthias/miniconda3"
 fi
+if [ "$OS" = "mac" ]; then
+  export MINICONDA_HOME="$HOME/miniconda3"
+fi
 export PATH="$MINICONDA_HOME/bin:$PATH"
 
 # Dotfiles
