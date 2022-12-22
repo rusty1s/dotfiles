@@ -16,7 +16,9 @@ export INFOPATH="$HOMEBREW_HOME/share/info:$INFOPATH"
 export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
 
 # Miniconda3
-export MINICONDA_HOME="$HOME/miniconda3"
+if [ "$OS" = "linux" ]; then
+  export MINICONDA_HOME="/data1TB/users/matthias/miniconda3"
+fi
 export PATH="$MINICONDA_HOME/bin:$PATH"
 
 # Dotfiles
@@ -38,3 +40,10 @@ export GITHUB_HOME="$HOME/github"
 
 # CDPATH
 export CDPATH=".:$HOME:$DOTFILES_HOME:$GITHUB_HOME:$CDPATH"
+
+# KUMO
+export PYSPARK_PYTHON="$MINICONDA_HOME/bin/python"
+export LD_LIBRARY_PATH="$MINICONDA_HOME/lib:$LD_LIBRARY_PATH"
+if [ "$OS" = "linux" ]; then
+  export KUMO_HOME="/data1TB/users/matthias/.cache/kumo"
+fi

@@ -65,11 +65,3 @@ if [ "$OS" = "linux" ]; then
     keychain "$HOME/.ssh/id_rsa" 2>/dev/null
     source "$HOME/.keychain/${(%):-%m}-sh"
 fi
-
-__conda_setup="$('conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-elif [ -f "$MINICONDA_HOME/etc/profile.d/conda.sh" ]; then
-    . "$MINICONDA_HOME/etc/profile.d/conda.sh"
-fi
-unset __conda_setup
