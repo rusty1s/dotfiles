@@ -1,3 +1,7 @@
+host i-* mi-*
+  ProxyCommand sh -c "aws ssm start-session --target %h --region us-west-2 --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+  User ec2-user
+  IdentityFile ~/.ssh/kumo-init-key.pem
 Host *
   UseKeychain yes
   AddKeysToAgent yes
@@ -6,5 +10,3 @@ Host *
   LocalForward 10000 localhost:10000
   LocalForward 10001 localhost:10001
   LocalForward 10002 localhost:10002
-host i-* mi-*
-  ProxyCommand sh -c "aws ssm start-session --target %h --region us-west-2 --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
