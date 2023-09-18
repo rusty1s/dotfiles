@@ -14,6 +14,10 @@ export HOMEBREW_CELLAR="$HOMEBREW_HOME/Cellar"
 export MANPATH="$HOMEBREW_HOME/share/man:$MANPATH"
 export INFOPATH="$HOMEBREW_HOME/share/info:$INFOPATH"
 export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
+export PATH="$HOMEBREW_HOME/opt/clang-format/bin:$PATH"
+export LD_LIBRARY_PATH="$HOMEBREW_HOME/include:$LD_LIBRARY_PATH"
+export CPLUS_INCLUDE_PATH="$HOMEBREW_HOME/include:$CPLUS_INCLUDE_PATH"
+export LIBRARY_PATH="$HOMEBREW_HOME/include:$LIBRARY_PATH"
 
 # Miniconda3
 if [ "$OS" = "linux" ]; then
