@@ -45,6 +45,7 @@ for wheel in wheels:
         wheels_dict[torch_version.replace('2.1.0', '2.1.2')].append(wheel)
     if '2.2.0' in torch_version:
         wheels_dict[torch_version.replace('2.2.0', '2.2.1')].append(wheel)
+        wheels_dict[torch_version.replace('2.2.0', '2.2.2')].append(wheel)
 
 html = '<!DOCTYPE html>\n<html>\n<body>\n{}\n</body>\n</html>'
 href = '<a href="{}">{}</a><br/>'
