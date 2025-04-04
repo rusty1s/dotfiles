@@ -7,6 +7,7 @@
 
 [push]
   default = simple
+  autoSetupRemote = true
 
 [core]
   excludesfile = /Users/rusty1s/.gitignore
