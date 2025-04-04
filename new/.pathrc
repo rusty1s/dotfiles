@@ -28,6 +28,9 @@ if [ "$OS" = "mac" ]; then
 fi
 export PATH="$MINICONDA_HOME/bin:$PATH"
 
+# Latex
+if [ "$OS" = "mac" ]; then export PATH="/Library/TeX/texbin:$PATH"; fi
+
 # Dotfiles
 export DOTFILES_HOME="$HOME/dotfiles"
 export PATH="$DOTFILES_HOME/bin:$PATH"

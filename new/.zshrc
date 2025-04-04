@@ -62,6 +62,12 @@ prompt_pure_state[username]=""
 
 # SSH:
 if [ "$OS" = "linux" ]; then
-    keychain "$HOME/.ssh/id_rsa" 2>/dev/null
-    source "$HOME/.keychain/${(%):-%m}-sh"
+  keychain "$HOME/.ssh/id_rsa" 2>/dev/null
+  source "$HOME/.keychain/${(%):-%m}-sh"
+else
+  eval "$(ssh-agent -s)" > /dev/null
+fi
+
+if [ -f "$HOME/.venv/bin/activiate"]; then
+  source $HOME/.venv/bin/activate
 fi
