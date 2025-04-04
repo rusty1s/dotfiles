@@ -8,6 +8,3 @@ Host *
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa
   User matthias
-  LocalForward 10000 localhost:10000
-  LocalForward 10001 localhost:10001
-  LocalForward 10002 localhost:10002
