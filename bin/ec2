@@ -29,10 +29,8 @@ fi
 case "$1" in
   status)
     echo "Instance state: ${STATE}"
-    if [ "$STATE" == "running" ]; then
-      INSTANCE_TYPE=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --region ${REGION} --query 'Reservations[0].Instances[0].InstanceType' --output text)
+    INSTANCE_TYPE=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --region ${REGION} --query 'Reservations[0].Instances[0].InstanceType' --output text)
       echo "Instance type: ${INSTANCE_TYPE}"
-    fi
     ;;
   connect)
     if [ "$STATE" != "running" ]; then
