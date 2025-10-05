@@ -11,7 +11,10 @@ fi
 INSTANCE_ID="i-0c4bff4ee07dae8a2"
 REGION="eu-central-1"
 
-STATE=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --region ${REGION} --query 'Reservations[0].Instances[0].State.Name' --output text)
+if ! STATE=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --region ${REGION} --query 'Reservations[0].Instances[0].State.Name' --output text 2>&1); then
+    echo "Get AWS credentials at https://accounts.google.com/o/saml2/initsso?idpid=C02wy9doe&spid=619865309956&forceauthn=false."
+    exit 1
+fi
 INSTANCE_TYPE=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --region ${REGION} --query 'Reservations[0].Instances[0].InstanceType' --output text)
 
 if [ $# -eq 0 ]; then
