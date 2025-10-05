@@ -8,7 +8,7 @@ else
 fi
 
 # Homebrew
-if [ "$OS" = "mac" ]; then export HOMEBREW_PREFIX="/usr/local"; fi
+if [ "$OS" = "mac" ]; then export HOMEBREW_PREFIX="/opt/homebrew"; fi
 if [ "$OS" = "linux" ]; then export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"; fi
 
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
