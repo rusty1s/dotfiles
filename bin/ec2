@@ -1,6 +1,12 @@
 #!/bin/bash
 
-cp ~/Downloads/credentials ~/.aws/credentials
+SRC="$HOME/Downloads/credentials"
+DST="$HOME/.aws/credentials"
+
+if [ -f "$SRC" ]; then
+  cp "$SRC" "$DST"
+  chmod 600 "$DST"
+fi
 
 INSTANCE_ID="i-0c4bff4ee07dae8a2"
 REGION="eu-central-1"
