@@ -19,16 +19,17 @@ INSTANCE_TYPE=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --regio
 
 if [ $# -eq 0 ]; then
   if [ "$STATE" != "running" ]; then
-    echo "Starting instance..."
+    echo "Starting ${INSTANCE_TYPE} instance..."
     if ! OUTPUT=$(aws ec2 start-instances --instance-ids ${INSTANCE_ID} --region ${REGION} 2>&1); then
       echo "$OUTPUT"
       exit 1
     fi
     echo "Waiting for instance to start..."
     aws ec2 wait instance-running --instance-ids ${INSTANCE_ID} --region ${REGION}
-    echo "Instance ${INSTANCE_TYPE} started!"
+    echo "Instance started!"
   fi
 
+  echo "Logging into ${INSTANCE_TYPE} instance..."
   ssh "$INSTANCE_ID"
   exit 0
 fi
@@ -43,20 +44,21 @@ case "$1" in
       echo "Instance not started yet!"
       exit 1
     fi
+    echo "Logging into ${INSTANCE_TYPE} instance..."
     ssh "$INSTANCE_ID"
     ;;
   start)
     if [ "$STATE" == "running" ]; then
       echo "Instance already running!"
     else
-      echo "Starting instance..."
+      echo "Starting ${INSTANCE_TYPE} instance..."
       if ! OUTPUT=$(aws ec2 start-instances --instance-ids ${INSTANCE_ID} --region ${REGION} 2>&1); then
         echo "$OUTPUT"
         exit 1
       fi
       echo "Waiting for instance to start..."
       aws ec2 wait instance-running --instance-ids ${INSTANCE_ID} --region ${REGION}
-      echo "Instance ${INSTANCE_TYPE} started!"
+      echo "Instance started!"
     fi
     ;;
   stop)
