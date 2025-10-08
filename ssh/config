@@ -3,8 +3,10 @@ host i-* mi-*
   User matthias
   IdentityFile ~/.ssh/kumo-init-key.pem
   ForwardAgent yes
+  ServerAliveInterval 100
 Host *
   UseKeychain yes
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa
   User matthias
+  ServerAliveInterval 100
