@@ -32,8 +32,8 @@ if [ $# -eq 0 ]; then
           echo "$OUTPUT"
           exit 1
         fi
-        echo "[$COUNT/$MAX_RETRIES] Start failed, sleep for $((2 ** COUNT)) seconds"
-        sleep $((2 ** COUNT))
+        echo "[$COUNT/$MAX_RETRIES] Start failed, retrying"
+        sleep 5
       fi
     done
     echo "Waiting for instance to start..."
@@ -75,8 +75,8 @@ case "$1" in
             echo "$OUTPUT"
             exit 1
           fi
-          echo "[$COUNT/$MAX_RETRIES] Start failed, sleep for $((2 ** COUNT)) seconds"
-          sleep $((2 ** COUNT))
+          echo "[$COUNT/$MAX_RETRIES] Start failed, retrying"
+          sleep 5
         fi
       done
       echo "Waiting for instance to start..."
