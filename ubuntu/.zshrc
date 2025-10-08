@@ -59,24 +59,14 @@ fpath=("$HOMEBREW_PREFIX/lib/node_modules/pure-prompt/functions" $fpath)
 autoload -U promptinit; promptinit
 prompt pure
 if [ "$OS" = "linux" ]; then prompt_pure_state[username]=%F{242}ssh%f; fi
+export VIRTUAL_ENV_DISABLE_PROMPT=12
 
 # SSH.
 if [ "$OS" = "linux" ]; then
   keychain "$HOME/.ssh/id_rsa" 2>/dev/null
   source "$HOME/.keychain/stifel-sh"
+else
+  eval "$(ssh-agent -s)" > /dev/null
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/rusty1s/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/rusty1s/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/rusty1s/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/rusty1s/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+source $HOME/.venv/bin/activate

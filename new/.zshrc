@@ -59,9 +59,16 @@ fpath=("$HOMEBREW_HOME/lib/node_modules/pure-prompt/functions" $fpath)
 autoload -U promptinit; promptinit
 prompt pure
 prompt_pure_state[username]=""
+export VIRTUAL_ENV_DISABLE_PROMPT=12
 
 # SSH:
 if [ "$OS" = "linux" ]; then
-    keychain "$HOME/.ssh/id_rsa" 2>/dev/null
-    source "$HOME/.keychain/${(%):-%m}-sh"
+  keychain "$HOME/.ssh/id_rsa" 2>/dev/null
+  source "$HOME/.keychain/${(%):-%m}-sh"
+else
+  eval "$(ssh-agent -s)" > /dev/null
+fi
+
+if [ -f "$HOME/.venv/bin/activate" ]; then
+  source $HOME/.venv/bin/activate
 fi
