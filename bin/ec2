@@ -1,5 +1,6 @@
 #!/bin/bash
 
+MAX_RETRIES=10
 SRC="$HOME/Downloads/credentials"
 DST="$HOME/.aws/credentials"
 
@@ -20,10 +21,21 @@ INSTANCE_TYPE=$(aws ec2 describe-instances --instance-ids ${INSTANCE_ID} --regio
 if [ $# -eq 0 ]; then
   if [ "$STATE" != "running" ]; then
     echo "Starting ${INSTANCE_TYPE} instance..."
-    if ! OUTPUT=$(aws ec2 start-instances --instance-ids ${INSTANCE_ID} --region ${REGION} 2>&1); then
-      echo "$OUTPUT"
-      exit 1
-    fi
+    COUNT=0
+    while [ $COUNT -lt $MAX_RETRIES ]; do
+      COUNT=$((COUNT+1))
+      if OUTPUT=$(aws ec2 start-instances --instance-ids ${INSTANCE_ID} --region ${REGION} 2>&1); then
+        break
+      else
+        if [ $COUNT -ge $MAX_RETRIES ]; then
+          echo "[$COUNT/$MAX_RETRIES] Start failed, aborting"
+          echo "$OUTPUT"
+          exit 1
+        fi
+        echo "[$COUNT/$MAX_RETRIES] Start failed, sleep for $((2 ** COUNT)) seconds"
+        sleep $((2 ** COUNT))
+      fi
+    done
     echo "Waiting for instance to start..."
     aws ec2 wait instance-running --instance-ids ${INSTANCE_ID} --region ${REGION}
     echo "Instance started!"
@@ -52,10 +64,21 @@ case "$1" in
       echo "Instance already running!"
     else
       echo "Starting ${INSTANCE_TYPE} instance..."
-      if ! OUTPUT=$(aws ec2 start-instances --instance-ids ${INSTANCE_ID} --region ${REGION} 2>&1); then
-        echo "$OUTPUT"
-        exit 1
-      fi
+      COUNT=0
+      while [ $COUNT -lt $MAX_RETRIES ]; do
+        COUNT=$((COUNT+1))
+        if OUTPUT=$(aws ec2 start-instances --instance-ids ${INSTANCE_ID} --region ${REGION} 2>&1); then
+          break
+        else
+          if [ $COUNT -ge $MAX_RETRIES ]; then
+            echo "[$COUNT/$MAX_RETRIES] Start failed, aborting"
+            echo "$OUTPUT"
+            exit 1
+          fi
+          echo "[$COUNT/$MAX_RETRIES] Start failed, sleep for $((2 ** COUNT)) seconds"
+          sleep $((2 ** COUNT))
+        fi
+      done
       echo "Waiting for instance to start..."
       aws ec2 wait instance-running --instance-ids ${INSTANCE_ID} --region ${REGION}
       echo "Instance started!"
