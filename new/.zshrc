@@ -40,14 +40,26 @@ export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Plugins:
-if [ ! -d "$HOMEBREW_HOME/share/z" ] ; then
-  git clone https://github.com/rupa/z "$HOMEBREW_HOME/share/z"
+if [ ! -d "$HOME/.zsh/z" ] ; then
+  git clone https://github.com/rupa/z "$HOME/.zsh/z"
 fi
-source "$HOMEBREW_HOME/share/z/z.sh"
-fpath=("$HOMEBREW_HOME/share/zsh-completions" $fpath)
-source "$HOMEBREW_HOME/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$HOMEBREW_HOME/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$HOMEBREW_HOME/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$HOME/.zsh/z/z.sh"
+if [ ! -d "$HOME/.zsh/zsh-completions" ] ; then
+  git clone https://github.com/zsh-users/zsh-completions "$HOME/.zsh/zsh-completions"
+fi
+fpath=("$HOME/.zsh/zsh-completions" $fpath)
+if [ ! -d "$HOME/.zsh/zsh-autosuggestions" ] ; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
+fi
+source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+if [ ! -d "$HOME/.zsh/zsh-syntax-highlighting" ] ; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting "$HOME/.zsh/zsh-syntax-highlighting"
+fi
+source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [ ! -d "$HOME/.zsh/zsh-history-substring-search" ] ; then
+  git clone https://github.com/zsh-users/zsh-history-substring-search "$HOME/.zsh/zsh-history-substring-search"
+fi
+source "$HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
@@ -55,19 +67,14 @@ bindkey '^[[B' history-substring-search-down
 chpwd() { ls }
 
 # Load pure prompt:
-fpath=("$HOMEBREW_HOME/lib/node_modules/pure-prompt/functions" $fpath)
+if [ ! -d "$HOME/.zsh/pure" ] ; then
+  git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+fi
+fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
 prompt_pure_state[username]=""
 export VIRTUAL_ENV_DISABLE_PROMPT=12
-
-# SSH:
-if [ "$OS" = "linux" ]; then
-  keychain "$HOME/.ssh/id_rsa" 2>/dev/null
-  source "$HOME/.keychain/${(%):-%m}-sh"
-else
-  eval "$(ssh-agent -s)" > /dev/null
-fi
 
 if [ -f "$HOME/.venv/bin/activate" ]; then
   source $HOME/.venv/bin/activate

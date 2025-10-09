@@ -1,42 +1,31 @@
 #!/bin/sh
 
 # OS
-if [ $(uname) = "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
   export OS="mac"
 else
   export OS="linux"
 fi
 
 # Homebrew
-if [ "$OS" = "mac" ]; then export HOMEBREW_HOME="/opt/homebrew"; fi
-if [ "$OS" = "linux" ]; then export HOMEBREW_HOME="/home/linuxbrew/.linuxbrew"; fi
-export HOMEBREW_CELLAR="$HOMEBREW_HOME/Cellar"
-export MANPATH="$HOMEBREW_HOME/share/man:$MANPATH"
-export INFOPATH="$HOMEBREW_HOME/share/info:$INFOPATH"
-export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
-export PATH="$HOMEBREW_HOME/opt/clang-format/bin:$PATH"
-export LD_LIBRARY_PATH="$HOMEBREW_HOME/include:$LD_LIBRARY_PATH"
-export CPLUS_INCLUDE_PATH="$HOMEBREW_HOME/include:$CPLUS_INCLUDE_PATH"
-export LIBRARY_PATH="$HOMEBREW_HOME/include:$LIBRARY_PATH"
-
-# Miniconda3
-if [ "$OS" = "linux" ]; then
-  export MINICONDA_HOME="$HOME/miniconda3"
-fi
 if [ "$OS" = "mac" ]; then
-  export MINICONDA_HOME="$HOME/miniconda3"
-fi
-export PATH="$MINICONDA_HOME/bin:$PATH"
+  export HOMEBREW_HOME="/opt/homebrew";
+  export HOMEBREW_CELLAR="$HOMEBREW_HOME/Cellar"
+  export MANPATH="$HOMEBREW_HOME/share/man:$MANPATH"
+  export INFOPATH="$HOMEBREW_HOME/share/info:$INFOPATH"
+  export PATH="$HOMEBREW_HOME/bin:$HOMEBREW_HOME/sbin:$PATH"
+  export PATH="$HOMEBREW_HOME/opt/clang-format/bin:$PATH"
+  export LD_LIBRARY_PATH="$HOMEBREW_HOME/include:$LD_LIBRARY_PATH"
+  export CPLUS_INCLUDE_PATH="$HOMEBREW_HOME/include:$CPLUS_INCLUDE_PATH"
+  export LIBRARY_PATH="$HOMEBREW_HOME/include:$LIBRARY_PATH"
 
-# Latex
-if [ "$OS" = "mac" ]; then export PATH="/Library/TeX/texbin:$PATH"; fi
+  export PATH="/Library/TeX/texbin:$PATH"
+  export PATH="$HOMEBREW_HOME/opt/ruby@2.6/bin:$PATH"
+fi
 
 # Dotfiles
 export DOTFILES_HOME="$HOME/dotfiles"
 export PATH="$DOTFILES_HOME/bin:$PATH"
-
-# Ruby
-export PATH="$HOMEBREW_HOME/opt/ruby@2.6/bin:$PATH"
 
 # Cuda
 if [ -d "/usr/local/cuda" ]; then
@@ -52,9 +41,4 @@ export GITHUB_HOME="$HOME/github"
 export CDPATH=".:$HOME:$DOTFILES_HOME:$GITHUB_HOME:$CDPATH"
 
 # KUMO
-export PYSPARK_PYTHON="$MINICONDA_HOME/bin/python"
-export LD_LIBRARY_PATH="$MINICONDA_HOME/lib:$LD_LIBRARY_PATH"
-if [ "$OS" = "linux" ]; then
-  export KUMO_HOME="$HOME/.cache/kumo"
-fi
-export DEFAULT_SPARK_MEM_SIZE=30g
+export KUMO_HOME="$HOME/.cache/kumo"
