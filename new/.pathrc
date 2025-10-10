@@ -21,6 +21,8 @@ if [ "$OS" = "mac" ]; then
 
   export PATH="/Library/TeX/texbin:$PATH"
   export PATH="$HOMEBREW_HOME/opt/ruby@2.6/bin:$PATH"
+else
+  export PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Dotfiles

@@ -44,25 +44,27 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 if [ ! -d "$HOME/.zsh/z" ] ; then
   git clone https://github.com/rupa/z "$HOME/.zsh/z"
 fi
-source "$HOME/.zsh/z/z.sh"
 if [ ! -d "$HOME/.zsh/zsh-completions" ] ; then
   git clone https://github.com/zsh-users/zsh-completions "$HOME/.zsh/zsh-completions"
 fi
-fpath=("$HOME/.zsh/zsh-completions" $fpath)
 if [ ! -d "$HOME/.zsh/zsh-autosuggestions" ] ; then
   git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
 fi
-source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
 if [ ! -d "$HOME/.zsh/zsh-syntax-highlighting" ] ; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting "$HOME/.zsh/zsh-syntax-highlighting"
 fi
-source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 if [ ! -d "$HOME/.zsh/zsh-history-substring-search" ] ; then
   git clone https://github.com/zsh-users/zsh-history-substring-search "$HOME/.zsh/zsh-history-substring-search"
 fi
+source "$HOME/.zsh/z/z.sh"
+fpath=("$HOME/.zsh/zsh-completions" $fpath)
+source "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$HOME/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
 
 # Automatically ls after cd:
 chpwd() { ls }
