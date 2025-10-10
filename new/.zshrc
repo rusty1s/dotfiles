@@ -81,4 +81,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=12
 
 if [ -f "$HOME/.venv/bin/activate" ]; then
   source $HOME/.venv/bin/activate
+elif [ -f "$HOME/miniconda3/bin/activate" ]; then
+  source $HOME/miniconda3/bin/activate
 fi

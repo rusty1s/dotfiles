@@ -18,5 +18,7 @@ alias gall="git add . -A"
 alias gc="git commit -m"
 alias gp="git push"
 alias py=python
-alias pip="uv pip"
 alias shellcheck="shellcheck -x"
+if [ -d "$HOME/.venv" ]; then
+  alias pip="uv pip"
+fi
