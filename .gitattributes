@@ -6,3 +6,4 @@ account* filter=git-crypt diff=git-crypt
 credentials filter=git-crypt diff=git-crypt
 token filter=git-crypt diff=git-crypt
 kumo* filter=git-crypt diff=git-crypt
+.keyrc* filter=git-crypt diff=git-crypt

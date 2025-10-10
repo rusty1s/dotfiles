@@ -4,6 +4,7 @@ export VISUAL=nvim
 
 source "$HOME/dotfiles/new/.pathrc"
 source "$HOME/dotfiles/new/.aliasrc"
+source "$HOME/dotfiles/new/.keyrc"
 
 # History settings:
 HISTFILE="$HOME/.zhistory"
