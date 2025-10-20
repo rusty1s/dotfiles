@@ -79,6 +79,11 @@ prompt pure
 prompt_pure_state[username]=""
 export VIRTUAL_ENV_DISABLE_PROMPT=12
 
+if [ "$OS" = "mac" ]; then
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_rsa
+fi
+
 if [ -f "$HOME/.venv/bin/activate" ]; then
   source $HOME/.venv/bin/activate
 elif [ -f "$HOME/miniconda3/bin/activate" ]; then
