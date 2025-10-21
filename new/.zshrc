@@ -79,9 +79,9 @@ prompt pure
 prompt_pure_state[username]=""
 export VIRTUAL_ENV_DISABLE_PROMPT=12
 
-if [ "$OS" = "mac" ]; then
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_rsa
+if [ "$OS" = "linux" ]; then
+  keychain "$HOME/.ssh/id_rsa" 2>/dev/null
+  source "$HOME/.keychain/${(%):-%m}-sh"
 fi
 
 if [ -f "$HOME/.venv/bin/activate" ]; then
