@@ -39,6 +39,7 @@ if [ $# -eq 0 ]; then
     echo "Waiting for instance to start..."
     aws ec2 wait instance-running --instance-ids ${INSTANCE_ID} --region ${REGION}
     echo "Instance started!"
+    sleep 5
   fi
 
   echo "Logging into ${INSTANCE_TYPE} instance..."
