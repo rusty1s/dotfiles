@@ -1,5 +1,7 @@
 id_rsa.pub filter=git-crypt diff=git-crypt
 id_rsa filter=git-crypt diff=git-crypt
+id_nvidia.pub filter=git-crypt diff=git-crypt
+id_nvidia filter=git-crypt diff=git-crypt
 password.txt filter=git-crypt diff=git-crypt
 addressbook filter=git-crypt diff=git-crypt
 account* filter=git-crypt diff=git-crypt
