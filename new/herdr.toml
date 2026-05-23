@@ -1,0 +1,24 @@
+onboarding = false
+
+[theme]
+name = "catppuccin-latte"
+
+[keys]
+prefix = "ctrl+a"
+split_vertical = "prefix+|"
+split_horizontal = "prefix+-"
+new_workspace = "prefix+n"
+next_tab = ""
+close_workspace = "prefix+d"
+# new_worktree = "prefix+shift+g"
+# open_worktree = "prefix+shift+o"
+# remove_worktree = "prefix+alt+d"
+
+[ui.toast]
+delivery = "system"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+confirm_close = false
+prompt_new_tab_name = false
+sidebar_width = 20
