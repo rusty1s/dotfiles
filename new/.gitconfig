@@ -18,9 +18,9 @@
 
 [delta]
   navigate=true
-  light=true
+  dark=true
   side-by-side=true
-  syntax-theme=GitHub
+  syntax-theme=Monokai Extended
 
 [merge]
   conflictStyle=zdiff3
