@@ -22,3 +22,4 @@ alias shellcheck="shellcheck -x"
 if [ -d "$HOME/.venv" ]; then
   alias pip="uv pip"
 fi
+alias codex="codex --ask-for-approval on-request"
