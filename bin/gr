@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+set -eu
+
+if [ "$#" -eq 0 ]; then
+  git reset --hard
+else
+  git restore --source=HEAD --staged --worktree -- "$@"
+fi
