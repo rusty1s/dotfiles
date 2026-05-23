@@ -1,0 +1,21 @@
+#!/bin/sh
+set -eu
+
+herdr="$HOME/.local/bin/herdr"
+
+if [ "${1-}" = "" ]; then
+  cwd=$(pwd -P)
+  list_output=$("$herdr" workspace list 2>&1 || true)
+
+  if echo "$list_output" | grep -q 'No such file'; then
+    "$herdr" server >/dev/null 2>&1 &
+    sleep 0.1
+    list_output=$("$herdr" workspace list 2>&1 || true)
+  fi
+
+  if echo "$list_output" | grep -q '"workspaces":\[\]'; then
+    "$herdr" workspace create --cwd "$cwd" >/dev/null 2>&1 || true
+  fi
+fi
+
+exec "$herdr" "$@"

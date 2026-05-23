@@ -7,6 +7,8 @@ else
   export OS="linux"
 fi
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # Homebrew
 if [ "$OS" = "mac" ]; then
   export HOMEBREW_HOME="/opt/homebrew";
@@ -18,11 +20,7 @@ if [ "$OS" = "mac" ]; then
   export LD_LIBRARY_PATH="$HOMEBREW_HOME/include:$LD_LIBRARY_PATH"
   export CPLUS_INCLUDE_PATH="$HOMEBREW_HOME/include:$CPLUS_INCLUDE_PATH"
   export LIBRARY_PATH="$HOMEBREW_HOME/include:$LIBRARY_PATH"
-
   export PATH="/Library/TeX/texbin:$PATH"
-  export PATH="$HOMEBREW_HOME/opt/ruby@2.6/bin:$PATH"
-else
-  export PATH="$HOME/.local/bin:$PATH"
 fi
 
 # Dotfiles
@@ -41,6 +39,3 @@ export GITHUB_HOME="$HOME/github"
 
 # CDPATH
 export CDPATH=".:$HOME:$DOTFILES_HOME:$GITHUB_HOME:$CDPATH"
-
-# KUMO
-export KUMO_HOME="$HOME/.cache/kumo"

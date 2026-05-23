@@ -1,0 +1,5 @@
+#!/bin/bash
+set -eu
+
+herdr session stop default
+mv "$HOME/.config/herdr/session.json" "$HOME/.config/herdr/session.json.bak" >/dev/null 2>&1 || true

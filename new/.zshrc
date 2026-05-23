@@ -1,6 +1,7 @@
 export LANG=en_US.UTF-8
 export EDITOR=nvim
 export VISUAL=nvim
+export TZ=UTC
 
 source "$HOME/dotfiles/new/.pathrc"
 source "$HOME/dotfiles/new/.aliasrc"
