@@ -1,0 +1,33 @@
+#!/bin/sh
+set -eu
+
+if [ "$#" -lt 1 ]; then
+  echo "Usage: worktree BRANCH [PYTHON_VERSION]" >&2
+  exit 2
+fi
+
+branch="$1"
+python="${2:-3.10}"
+
+root="$(git rev-parse --show-toplevel)"
+name="$(basename "$root")"
+safe_branch="$(printf '%s' "$branch" | tr / -)"
+path="$(dirname "$root")/$name.$safe_branch"
+
+git -C "$root" worktree add -b "$branch" "$path" HEAD
+uv venv --python "$python" "$path/.worktree"
+printf 'source .worktree/bin/activate\n' >"$path/.envrc"
+
+cd "$path"
+if command -v direnv >/dev/null 2>&1; then
+  direnv allow
+fi
+
+uv pip install --python .worktree/bin/python -e '.[test,ci]'
+
+if [ -f .pre-commit-config.yaml ] || [ -f .pre-commit-config.yml ]; then
+    uv pip install --python .worktree/bin/python pre-commit
+    .worktree/bin/pre-commit install
+fi
+
+git -C "$root" worktree list

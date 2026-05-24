@@ -78,7 +78,7 @@ fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
 prompt_pure_state[username]=""
-export VIRTUAL_ENV_DISABLE_PROMPT=12
+export VIRTUAL_ENV_DISABLE_PROMPT=20
 
 if [ "$OS" = "linux" ]; then
   keychain "$HOME/.ssh/id_rsa" 2>/dev/null
@@ -90,3 +90,5 @@ if [ -f "$HOME/.venv/bin/activate" ]; then
 elif [ -f "$HOME/miniconda3/bin/activate" ]; then
   source $HOME/miniconda3/bin/activate
 fi
+
+eval "$(direnv hook zsh)"

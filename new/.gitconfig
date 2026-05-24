@@ -10,7 +10,7 @@
   autoSetupRemote=true
 
 [core]
-  excludesfile=$HOME/.gitignore
+  excludesfile=~/.gitignore
   pager=delta
 
 [interactive]

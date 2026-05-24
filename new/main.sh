@@ -52,3 +52,8 @@ pip install yapf
 pip install flake8
 pip install vim-vint
 pip install pycodestyle
+
+mkdir "$HOME/.config/herdr"
+ln -sf "$DOTFILES/new/herdr.toml" "$HOME/.config/herdr/config.toml"
+mkdir "$HOME/.config/direnv"
+ln -sf "$DOTFILES/new/direnv.toml" "$HOME/.config/direnv/direnv.toml"
