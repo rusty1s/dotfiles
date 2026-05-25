@@ -1,12 +1,9 @@
-host i-* mi-*
-  ProxyCommand sh -c "aws ssm start-session --target %h --region eu-central-1 --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
-  User matthias
-  IdentityFile ~/.ssh/kumo-init-key.pem
-  ForwardAgent yes
-  ServerAliveInterval 100
-Host *
-  UseKeychain yes
+Host github.com
   AddKeysToAgent yes
+  UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
-  User matthias
-  ServerAliveInterval 100
+
+Host nvdl-code
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel ERROR
