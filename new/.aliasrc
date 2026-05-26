@@ -2,7 +2,6 @@
 
 alias vi=nvim
 alias vim=nvim
-alias vimnofix="nvim -c \"let g:ale_fix_on_save=0\""
 alias ls="ls -AFG --color=always"
 alias sudo="sudo -E"
 alias reload="exec zsh"

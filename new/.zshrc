@@ -5,7 +5,9 @@ export TZ=UTC
 
 source "$HOME/dotfiles/new/.pathrc"
 source "$HOME/dotfiles/new/.aliasrc"
-source "$HOME/dotfiles/new/.keyrc"
+if ! file --mime "$HOME/dotfiles/new/.keyrc" | grep -q 'charset=binary'; then
+  source "$HOME/dotfiles/new/.keyrc"
+fi
 
 # History settings:
 HISTFILE="$HOME/.zhistory"
@@ -80,9 +82,9 @@ prompt pure
 prompt_pure_state[username]=""
 export VIRTUAL_ENV_DISABLE_PROMPT=20
 
-if [ "$OS" = "linux" ]; then
-  keychain "$HOME/.ssh/id_rsa" 2>/dev/null
-  source "$HOME/.keychain/${(%):-%m}-sh"
-fi
+# if [ "$OS" = "linux" ]; then
+#   keychain "$HOME/.ssh/id_rsa" 2>/dev/null
+#   source "$HOME/.keychain/${(%):-%m}-sh"
+# fi
 
 eval "$(direnv hook zsh)"

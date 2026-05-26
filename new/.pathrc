@@ -9,6 +9,10 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 
+if [ -d "$HOME/micromamba" ]; then
+  export PATH="$HOME/micromamba/bin:$PATH"
+fi
+
 # Homebrew
 if [ "$OS" = "mac" ]; then
   export HOMEBREW_HOME="/opt/homebrew";
@@ -28,11 +32,11 @@ export DOTFILES_HOME="$HOME/dotfiles"
 export PATH="$DOTFILES_HOME/bin:$PATH"
 
 # Cuda
-if [ -d "/usr/local/cuda" ]; then
-  export CUDA_HOME="/usr/local/cuda"
-  export PATH="$CUDA_HOME/bin:$PATH"
-  export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
-fi
+# if [ -d "/usr/local/cuda" ]; then
+#   export CUDA_HOME="/usr/local/cuda"
+#   export PATH="$CUDA_HOME/bin:$PATH"
+#   export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
+# fi
 
 # Github
 export GITHUB_HOME="$HOME/github"
