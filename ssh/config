@@ -3,7 +3,7 @@ Host github.com
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
 
-Host nvdl-code
+Host nvdl-code dlcluster
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
     LogLevel ERROR
