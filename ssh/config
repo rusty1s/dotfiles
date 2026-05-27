@@ -8,3 +8,9 @@ Host nvdl-code
     UserKnownHostsFile /dev/null
     LogLevel ERROR
     ForwardAgent yes
+
+Host dgx18
+    HostName 10.33.227.168
+
+Host dgx19
+    HostName 10.33.227.169
