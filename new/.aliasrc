@@ -18,7 +18,6 @@ alias gc="git commit -m"
 alias gp="git push"
 alias py=python
 alias shellcheck="shellcheck -x"
-if [ -d "$HOME/.venv" ]; then
-  alias pip="uv pip"
-fi
+alias pip="uv pip"
 alias codex="codex --ask-for-approval on-request"
+alias claude="claude --allow-dangerously-skip-permissions"
