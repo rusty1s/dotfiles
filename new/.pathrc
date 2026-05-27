@@ -11,6 +11,9 @@ export PATH="$HOME/.local/bin:$PATH"
 
 if [ -d "$HOME/micromamba" ]; then
   export PATH="$HOME/micromamba/bin:$PATH"
+  export UV_CACHE_DIR="/home/scratch.mfey_sw/uv/cache"
+  export UV_PYTHON_INSTALL_DIR="/home/scratch.mfey_sw/uv/python"
+  export UV_TOOL_DIR="/home/scratch.mfey_sw/uv/tools"
 fi
 
 # Homebrew
