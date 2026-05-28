@@ -83,7 +83,7 @@ prompt pure
 prompt_pure_state[username]=""
 export VIRTUAL_ENV_DISABLE_PROMPT=20
 
-if [ "$OS" = "linux" ]; then
+if [ "$OS" = "linux" ] && command -v keychain &>/dev/null; then
   keychain "$HOME/.ssh/id_rsa" 2>/dev/null
   source "$HOME/.keychain/${(%):-%m}-sh"
 fi
