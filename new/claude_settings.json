@@ -1,4 +1,7 @@
 {
+  "theme": "dark",
+  "skipDangerousModePermissionPrompt": true,
+  "effortLevel": "xhigh",
   "attribution": {
     "commit": "",
     "pr": ""
