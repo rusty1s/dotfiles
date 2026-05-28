@@ -83,9 +83,9 @@ prompt pure
 prompt_pure_state[username]=""
 export VIRTUAL_ENV_DISABLE_PROMPT=20
 
-# if [ "$OS" = "linux" ]; then
-#   keychain "$HOME/.ssh/id_rsa" 2>/dev/null
-#   source "$HOME/.keychain/${(%):-%m}-sh"
-# fi
+if [ "$OS" = "linux" ]; then
+  keychain "$HOME/.ssh/id_rsa" 2>/dev/null
+  source "$HOME/.keychain/${(%):-%m}-sh"
+fi
 
 eval "$(direnv hook zsh)"
