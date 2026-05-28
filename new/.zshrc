@@ -2,6 +2,7 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export VISUAL=nvim
 export TZ=UTC
+export TERM=xterm-256color
 
 source "$HOME/dotfiles/new/.pathrc"
 source "$HOME/dotfiles/new/.aliasrc"
