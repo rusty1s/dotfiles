@@ -1,12 +1,13 @@
 {
-  "theme": "dark",
-  "skipDangerousModePermissionPrompt": true,
-  "effortLevel": "xhigh",
   "attribution": {
     "commit": "",
     "pr": ""
   },
   "permissions": {
     "defaultMode": "auto"
-  }
+  },
+  "effortLevel": "xhigh",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "skipAutoPermissionPrompt": true
 }
