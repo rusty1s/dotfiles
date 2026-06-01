@@ -25,8 +25,7 @@ Read the surrounding code before editing, preserve local patterns, and apply the
 - Follow the order of arguments in the function signature when using keyword arguments.
 - Do not pass optional keyword arguments when using their default values.
 - Prefix non-public methods and properties with `_`.
-- Avoid `else` after a branch that already returns, raises, breaks, or
-  continues.
+- Avoid `else` after a branch that already returns, raises, breaks, or continues.
 - Prefer ternary operator over if/else whenever the statement fits on a single line.
 - Avoid throwaway temporaries. Keep intermediate names when they match in type and semantics.
 - Do not use backslashes for multi-line continuation; use parentheses.
