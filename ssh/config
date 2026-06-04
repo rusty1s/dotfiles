@@ -16,3 +16,11 @@ Host dgx18
 
 Host dgx19
     HostName 10.33.227.169
+
+Host omni
+    HostName omni-lfe-iuq8v
+    User mfey
+    ProxyCommand tsh proxy ssh --cluster=nv-prd-it.teleport.sh --proxy=nv-prd-it.teleport.sh %r@%h:%p
+    ForwardAgent yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 3
