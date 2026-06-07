@@ -24,3 +24,6 @@ Host omni
     ForwardAgent yes
     ServerAliveInterval 30
     ServerAliveCountMax 3
+    Compression yes
+    TCPKeepAlive yes
+    IPQoS lowdelay throughput
