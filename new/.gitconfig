@@ -19,7 +19,7 @@
 [delta]
   navigate=true
   dark=true
-  side-by-side=true
+  side-by-side=false
   syntax-theme=Monokai Extended
 
 [merge]
