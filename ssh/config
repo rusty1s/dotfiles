@@ -5,6 +5,11 @@ Host github.com
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
 
+Host spark
+  HostName spark-84ce.local
+  User rusty1s
+  IdentityFile ~/.ssh/id_spark
+
 Host nvdl-code dlcluster
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
