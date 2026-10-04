@@ -10,6 +10,11 @@ Host spark
   User rusty1s
   IdentityFile ~/.ssh/id_spark
 
+Host spark-remote
+  HostName 100.126.179.17
+  User rusty1s
+  IdentityFile ~/.ssh/id_spark
+
 Host nvdl-code dlcluster
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
